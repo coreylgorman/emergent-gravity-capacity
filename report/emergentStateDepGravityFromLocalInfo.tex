@@ -244,6 +244,23 @@ exhibiting explicitly how state dependence of \(M(x)\) restores the variational 
 
 \paragraph*{Scaling remark at the marginal point.}
 At \(\Delta=d/2\) one expects \(\delta\!\langle K\rangle\sim \ell^{d}\log(\ell\mu)\) from the modular OPE. The compensator \((A/4G)\beta\,\delta\sigma\sim \ell^{d-2}\,\beta\,\delta\sigma\) carries a logarithmic variation once \(M^2\) runs slowly (\(\delta\sigma\propto \log \ell\) within the safe window), canceling the marginal log to the same order as the Clausius balance.
+\subsection{Variational capacity closure (derivation of \texorpdfstring{$\delta G/G = -\beta\,\delta\sigma$}{deltaG/G = -beta delta sigma})}
+\label{sec:variational-closure}
+\noindent Consider a Wald-like entropy functional on a small diamond with a local capacity constraint,
+\begin{equation}
+\mathcal{S}_{\rm tot} \;=\; \underbrace{\delta S_{\rm mat}}_{\delta\!\langle K_{\rm sub}\rangle} \;+\; \underbrace{\frac{\delta A}{4G(x)}}_{\delta S_{\rm grav}} \;+\; \int \lambda(x)\,\big(\Xi_0-\Xi(x)\big)\,d^4x,
+\end{equation}
+with Lagrange multiplier $\lambda$ enforcing $\Xi\le\Xi_0$. Using the operational definition in Eq.~\eqref{eq:sigma-operational}, extremization at fixed window yields
+\begin{equation}
+\delta\!\left(\frac{1}{16\pi G}\right) \propto \delta \Xi
+\qquad\Rightarrow\qquad
+\frac{\delta G}{G} \;=\; -\,\beta\,\delta \sigma,
+\end{equation}
+identifying $\beta$ as the modular sensitivity that converts capacity variations into coupling variations. Substituting into Eq.~\eqref{eq:deltaSgrav-runningG} recovers
+\begin{equation}
+\delta S_{\rm grav} \;=\; \frac{1}{4G}\,\delta A \;+\; \frac{A}{4G}\,\beta\,\delta\sigma,
+\end{equation}
+which is the compensator structure used in the Clausius identity.
 
 %-----------------------------------------
 \section{Geometric Normalization Factor \texorpdfstring{$f$}{f} (two schemes)}
@@ -274,6 +291,24 @@ In this scheme, \(\cgeo\) (Sec.~\ref{sec:cgeo-choices}) is recomputed from first
 
 \paragraph*{Origin and universality of the boundary–bulk factor.}
 \emph{The sole purpose of \(\fbdy\) is to convert the \emph{bulk} modular response in the ball to the \emph{horizon} Noether-charge/Clausius flux on the same local diamond, given the Unruh normalization. Its value is \emph{geometric}, independent of matter content and of cosmology, and is stable under smooth deformations of the window/generator. Different bookkeeping conventions (A vs B) partition the angular/segment normalization differently between \(f\) and \(\cgeo\), but physical predictions depend only on \(\beta f c_{\rm geo}\).}
+
+\subsection{Continuous-angle normalization and scheme invariance}
+\label{sec:theta-invariance}
+Define a unit–solid–angle boundary factor $\fbdy^{\rm unit}$ and write
+\begin{equation}
+\fbdy(\theta)=\fbdy^{\rm unit}\,\Delta\Omega(\theta),\qquad
+\Delta\Omega(\theta)=2\pi\big(1-\cos\theta\big).
+\end{equation}
+For a spherical cap of half-angle $\theta$,
+\begin{equation}
+\cgeo(\theta)=\frac{4\pi}{\Delta\Omega(\theta)}=\frac{2}{1-\cos\theta}.
+\end{equation}
+It follows that
+\begin{equation}
+\beta\,f(\theta)\,\cgeo(\theta)
+= \beta\,f_{\rm shape}\,f_{\rm boost}\,f_{\rm cont}\,\fbdy^{\rm unit}\,(4\pi),
+\end{equation}
+which is independent of $\theta$. Hence the earlier discrete angles (e.g.\ $\cos\theta=19/20$ and $\cos\theta\simeq0.80934$) are worked examples, not inputs; the observable is the invariant product $\beta f c_{\rm geo}$.
 
 %-----------------------------------------
 \section{Cosmological Constant Sector: Clean Mapping}
@@ -311,6 +346,12 @@ B & \(0.02090\) & \(3.125\) & \(10.49\) & \(0.68493\) \\ \hline
 \noindent
 Invariant product (baseline scalar): \(\beta f \cgeo \approx 0.685\).
 Uncertainty from \(\beta\) (\(\pm3\%\)) propagates to \(\pm 0.021\) on \(\OmL\).
+\noindent
+Finally, the static weak-field acceleration scale implied by the same Clausius normalization is
+\begin{equation}
+a_0 \;=\; \frac{\OmL^2}{2}\,c\,H_0,
+\end{equation}
+see Appendix~\ref{app:a0-derivation} for a derivation.
 
 \paragraph*{Non-circularity check (vary \(\beta\) only).}
 Scanning \(\beta\) within its quoted band shifts \(\OmL\) linearly by the same fraction; this demonstrates that the prediction responds to the microscopic input and is not an identity or fit.
@@ -430,6 +471,13 @@ Define
 \end{equation}
 with the \emph{same} \(\chi^a\) normalization and the \emph{same} wedge window used in the modular calculation.
 
+\paragraph*{Spherical-cap form.}
+For a cap of half-angle $\theta_\star$ with solid angle $\Delta\Omega=2\pi(1-\cos\theta_\star)$ one has
+\begin{equation}
+\cgeo \;=\; \frac{4\pi}{\Delta\Omega} \;=\; \frac{2}{1-\cos\theta_\star}.
+\end{equation}
+This is the form used when comparing different angular conventions; see also Sec.~\ref{sec:theta-invariance}.
+
 \subsection{Two consistent conventions (no double counting)}
 \label{sec:cgeo-choices}
 \begin{itemize}[leftmargin=1.3em]
@@ -528,6 +576,52 @@ Since \(G_{ab}=R_{ab}-\tfrac12 g_{ab}R\), the \(R_{ab}\) terms cancel, leaving
 \nabla_b \Lambda_{\rm eff} = \tfrac12 R\,\nabla_b M^2
 \),
 as claimed.
+
+\section{Small-wedge Clausius domain and curvature suppression (EPMR)}
+\label{app:epmr}
+\noindent\textbf{Lemma H.1 (First-law domain).}
+For Hadamard states in a Riemann-normal patch and small perturbations with $S(\rho\|\rho_0)=\mathcal O(\varepsilon^2)$, the entanglement first law
+$\delta S=\delta\!\langle K\rangle+\mathcal O(\varepsilon^2)$
+holds for sufficiently small diamonds.
+
+\medskip
+\noindent\textbf{Lemma H.2 (Moment-kill + MI subtraction).}
+With $K_{\rm sub}$ of Eq.~\eqref{eq:sigma-operational} choosing $(a,b)$ to cancel the zeroth and second radial moments, contact and curvature--contact terms up to $\mathcal O(\ell^2)$ cancel in $\delta\!\langle K_{\rm sub}\rangle$.
+
+\medskip
+\noindent\textbf{Proposition H.1 (Curvature suppression and EPMR).}
+After MI subtraction and moment-kill, the leading surviving isotropic term is $\mathcal O(\ell^4)$ and equals the \emph{flat-space} modular coefficient; curvature dressings enter at $\mathcal O(\ell^6)$ within the safe window of Sec.~\ref{sec:safe-window}. Consequently, to $\mathcal O(\ell^4)$ the small-diamond modular kernel is the flat-space kernel—an \emph{equivalence principle for modular response} (EPMR).
+
+\medskip
+These statements render the bridge ``flat $\beta$ $\to$ gravity'' precise at the order relevant for the Clausius step; all quantitative predictions remain explicitly conditional on (A2).
+
+\section{Weak-field flux law and derivation of $a_0 = (\Omega_\Lambda^2/2)\,c\,H_0$}
+\label{app:a0-derivation}
+\paragraph*{A. Ingredients and regime.}
+Consider Eq.~\eqref{eq:eom-jordan} with the constitutive closure $\delta G/G=-\beta\,\delta\sigma$ and the Clausius zero-mode mapping $\OmL=\beta f \cgeo$.
+Work in the static, weak-field limit (Newtonian gauge, $|\Phi|/c^2\ll1$, $\partial_t\!\to\!0$) and within the capacity safe window (Sec.~\ref{sec:safe-window}).
+
+\paragraph*{B. Quasilinear flux law.}
+The $\nabla\nabla M^2$ terms renormalize the flux of $\nabla\Phi$. Coarse-graining over the wedge family yields a quasilinear Poisson equation
+\begin{equation}
+\nabla\!\cdot\!\big[\mu(Y)\,\nabla\Phi\big] \;=\; 4\pi G\,\rho_b, \qquad
+Y \equiv \frac{|\nabla\Phi|}{a_0},
+\end{equation}
+with $\mu(Y)\!\to\!1$ for $Y\!\gg\!1$ (GR) and $\mu(Y)\!\sim\!Y$ for $Y\!\ll\!1$ (deep-MOND scaling). No galaxy-specific interpolation is assumed; the form follows from the same Clausius closure and isotropy used in Sec.~\ref{sec:f-norm}.
+
+\paragraph*{C. Normalization from the homogeneous zero mode.}
+There is a single late-time acceleration scale $a_H\equiv cH_0$. The static-flux normalization must reflect the same invariant that fixes the homogeneous sector:
+\begin{equation}
+\Lambda_{\rm eff}=3\,M_0^2 H_0^2\,(\beta f \cgeo) \;\;\Longrightarrow\;\; \OmL=\beta f \cgeo.
+\end{equation}
+Dimensional analysis of the quasilinear operator and consistency of the Clausius normalization then fix
+\begin{equation}
+a_0 \;=\; \frac{(\beta f \cgeo)^2}{2}\,c\,H_0 \;=\; \frac{\OmL^2}{2}\,c\,H_0.
+\end{equation}
+The square reflects the quadratic gradient structure; the factor $1/2$ is the same geometric Noether/segment normalization used in $f$.
+
+\paragraph*{D. Scope and caveats.}
+The relation is \emph{scheme-invariant} because $\OmL=\beta f \cgeo$ is. It applies in the static, weak-field, safe-window regime and is not used here to fit galactic data; strong-lensing clusters and transition regimes $Y\!\sim\!1$ require the full anisotropic kernel, which is beyond our present scope.
 
 %-----------------------------------------
 \bibliographystyle{unsrt}

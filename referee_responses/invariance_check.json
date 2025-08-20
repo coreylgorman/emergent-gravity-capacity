@@ -1,0 +1,28 @@
+{
+  "timestamp_utc": "2025-08-20T15:39:49.228160Z",
+  "inputs": {
+    "beta": 0.020855429233094542,
+    "I00": 0.10777486818129038,
+    "CT": 0.03079794676405301,
+    "scheme_A": {
+      "f": 0.8193,
+      "cgeo": 40.0,
+      "cos_theta": 0.95
+    },
+    "scheme_B": {
+      "f": 3.125,
+      "cgeo": 10.49,
+      "cos_theta": 0.8093422306959008
+    }
+  },
+  "outputs": {
+    "omega_lambda_A": 0.6834741268269744,
+    "omega_lambda_B": 0.6836670395473804,
+    "a0_A_m_s2": 1.5884822259277789e-10,
+    "delta_fractional": 0.00028225314292670974
+  },
+  "notes": [
+    "cgeo = 2/(1 - cos\u03b8) for a spherical cap of half-angle \u03b8.",
+    "Only the product \u03b2\u00b7f\u00b7cgeo is physical; f and cgeo depend on a bookkeeping convention."
+  ]
+}
