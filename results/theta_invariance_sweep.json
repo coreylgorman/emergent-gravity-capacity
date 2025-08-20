@@ -1,0 +1,1813 @@
+{
+  "beta": 0.020855429233094542,
+  "f_shape": 7.5,
+  "f_bdy_unit": 0.34772171966717297,
+  "anchor": {
+    "f_total_A": 0.8193,
+    "c_geo_A": 40.0,
+    "DeltaOmega_A": 0.3141592653589793,
+    "f_bdy_A": 0.10924
+  },
+  "sweep": [
+    {
+      "theta_deg": 2.0,
+      "cos_theta": 0.9993908270190958,
+      "DeltaOmega": 0.003827546723148298,
+      "f_total_theta": 0.009981908465096842,
+      "c_geo_theta": 3283.13970365406,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 2.291457286432161,
+      "cos_theta": 0.9992003675974187,
+      "DeltaOmega": 0.005024238563043512,
+      "f_total_theta": 0.013102776548697122,
+      "c_geo_theta": 2501.149270019315,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 2.5829145728643215,
+      "cos_theta": 0.99898405248062,
+      "DeltaOmega": 0.006383386526633618,
+      "f_total_theta": 0.01664731605255978,
+      "c_geo_theta": 1968.6056236651316,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 2.8743718592964824,
+      "cos_theta": 0.9987418872661531,
+      "DeltaOmega": 0.007904955444082418,
+      "f_total_theta": 0.020615435256815397,
+      "c_geo_theta": 1589.6826621288865,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 3.165829145728643,
+      "cos_theta": 0.9984738782203788,
+      "DeltaOmega": 0.009588905942682639,
+      "f_total_theta": 0.025007031480872858,
+      "c_geo_theta": 1310.5114065644432,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 3.457286432160804,
+      "cos_theta": 0.9981800322784029,
+      "DeltaOmega": 0.011435194447879965,
+      "f_total_theta": 0.029821991086089978,
+      "c_geo_theta": 1098.920588682156,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 3.748743718592965,
+      "cos_theta": 0.9978603570438964,
+      "DeltaOmega": 0.013443773184400326,
+      "f_total_theta": 0.035060189478713304,
+      "c_geo_theta": 934.7353932555736,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 4.040201005025125,
+      "cos_theta": 0.9975148607888995,
+      "DeltaOmega": 0.015614590177482502,
+      "f_total_theta": 0.04072149111309272,
+      "c_geo_theta": 804.7838893960145,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 4.331658291457286,
+      "cos_theta": 0.9971435524536069,
+      "DeltaOmega": 0.01794758925422654,
+      "f_total_theta": 0.04680574949519795,
+      "c_geo_theta": 700.1703926002137,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 4.623115577889447,
+      "cos_theta": 0.9967464416461365,
+      "DeltaOmega": 0.020442710045046792,
+      "f_total_theta": 0.05331280718640796,
+      "c_geo_theta": 614.7115811293311,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 4.914572864321608,
+      "cos_theta": 0.9963235386422813,
+      "DeltaOmega": 0.023099887985231698,
+      "f_total_theta": 0.060242495807578754,
+      "c_geo_theta": 544.0013658245074,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 5.206030150753769,
+      "cos_theta": 0.9958748543852429,
+      "DeltaOmega": 0.025919054316617958,
+      "f_total_theta": 0.06759463604340944,
+      "c_geo_theta": 484.8313700358375,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 5.49748743718593,
+      "cos_theta": 0.9954004004853486,
+      "DeltaOmega": 0.02890013608936795,
+      "f_total_theta": 0.07536903764707763,
+      "c_geo_theta": 434.8204650490281,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 5.788944723618091,
+      "cos_theta": 0.9949001892197512,
+      "DeltaOmega": 0.03204305616385528,
+      "f_total_theta": 0.08356549944515672,
+      "c_geo_theta": 392.1714130543547,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 6.080402010050251,
+      "cos_theta": 0.9943742335321106,
+      "DeltaOmega": 0.03534773321266609,
+      "f_total_theta": 0.09218380934283524,
+      "c_geo_theta": 355.507113815612,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 6.371859296482412,
+      "cos_theta": 0.9938225470322597,
+      "DeltaOmega": 0.03881408172269881,
+      "f_total_theta": 0.10122374432939263,
+      "c_geo_theta": 323.7580294733664,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 6.663316582914573,
+      "cos_theta": 0.9932451439958516,
+      "DeltaOmega": 0.04244201199737891,
+      "f_total_theta": 0.11068507048397537,
+      "c_geo_theta": 296.08329160114357,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 6.954773869346734,
+      "cos_theta": 0.9926420393639908,
+      "DeltaOmega": 0.046231430158979035,
+      "f_total_theta": 0.12056754298164744,
+      "c_geo_theta": 271.81444681997453,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 7.2462311557788945,
+      "cos_theta": 0.9920132487428458,
+      "DeltaOmega": 0.050182238151049365,
+      "f_total_theta": 0.13087090609972873,
+      "c_geo_theta": 250.41471001221964,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 7.537688442211055,
+      "cos_theta": 0.9913587884032459,
+      "DeltaOmega": 0.05429433374095539,
+      "f_total_theta": 0.14159489322441315,
+      "c_geo_theta": 231.44902512875092,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 7.829145728643216,
+      "cos_theta": 0.99067867528026,
+      "DeltaOmega": 0.058567610522520304,
+      "f_total_theta": 0.1527392268576598,
+      "c_geo_theta": 214.56177744398803,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 8.120603015075377,
+      "cos_theta": 0.9899729269727582,
+      "DeltaOmega": 0.06300195791878252,
+      "f_total_theta": 0.16430361862438442,
+      "c_geo_theta": 199.4600013948584,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 8.412060301507537,
+      "cos_theta": 0.9892415617429566,
+      "DeltaOmega": 0.06759726118485365,
+      "f_total_theta": 0.17628776927991266,
+      "c_geo_theta": 185.9005881909146,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 8.703517587939698,
+      "cos_theta": 0.988484598515945,
+      "DeltaOmega": 0.07235340141088872,
+      "f_total_theta": 0.18869136871772613,
+      "c_geo_theta": 173.68044030156702,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 8.99497487437186,
+      "cos_theta": 0.9877020568791961,
+      "DeltaOmega": 0.07727025552516534,
+      "f_total_theta": 0.20151409597749273,
+      "c_geo_theta": 162.62882177562574,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 9.286432160804019,
+      "cos_theta": 0.9868939570820604,
+      "DeltaOmega": 0.08234769629726316,
+      "f_total_theta": 0.2147556192533583,
+      "c_geo_theta": 152.601362022277,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 9.577889447236181,
+      "cos_theta": 0.9860603200352406,
+      "DeltaOmega": 0.08758559234136205,
+      "f_total_theta": 0.22841559590254792,
+      "c_geo_theta": 143.4753168692648,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 9.86934673366834,
+      "cos_theta": 0.9852011673102511,
+      "DeltaOmega": 0.0929838081196393,
+      "f_total_theta": 0.24249367245422562,
+      "c_geo_theta": 135.14579439670212,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 10.160804020100501,
+      "cos_theta": 0.9843165211388604,
+      "DeltaOmega": 0.09854220394577418,
+      "f_total_theta": 0.256989484618634,
+      "c_geo_theta": 127.52272743234155,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 10.452261306532662,
+      "cos_theta": 0.9834064044125146,
+      "DeltaOmega": 0.10426063598856834,
+      "f_total_theta": 0.27190265729653595,
+      "c_geo_theta": 120.52842854072952,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 10.743718592964823,
+      "cos_theta": 0.9824708406817464,
+      "DeltaOmega": 0.1101389562756612,
+      "f_total_theta": 0.28723280458890366,
+      "c_geo_theta": 114.09560285742533,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 11.035175879396984,
+      "cos_theta": 0.9815098541555645,
+      "DeltaOmega": 0.11617701269736504,
+      "f_total_theta": 0.30297952980692067,
+      "c_geo_theta": 108.16572334403108,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 11.326633165829145,
+      "cos_theta": 0.9805234697008278,
+      "DeltaOmega": 0.12237464901059666,
+      "f_total_theta": 0.31914242548223537,
+      "c_geo_theta": 102.68769484495948,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 11.618090452261306,
+      "cos_theta": 0.9795117128416022,
+      "DeltaOmega": 0.12873170484292118,
+      "f_total_theta": 0.3357210733775062,
+      "c_geo_theta": 97.61674973304126,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 11.909547738693467,
+      "cos_theta": 0.9784746097584992,
+      "DeltaOmega": 0.13524801569670467,
+      "f_total_theta": 0.3527150444972321,
+      "c_geo_theta": 92.91353037326192,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 12.201005025125628,
+      "cos_theta": 0.9774121872879993,
+      "DeltaOmega": 0.14192341295336722,
+      "f_total_theta": 0.37012389909884386,
+      "c_geo_theta": 88.54332314068711,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 12.492462311557789,
+      "cos_theta": 0.9763244729217573,
+      "DeltaOmega": 0.1487577238777471,
+      "f_total_theta": 0.38794718670408523,
+      "c_geo_theta": 84.47541604418832,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 12.78391959798995,
+      "cos_theta": 0.9752114948058906,
+      "DeltaOmega": 0.15575077162257275,
+      "f_total_theta": 0.4061844461106759,
+      "c_geo_theta": 80.68255767496913,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 13.07537688442211,
+      "cos_theta": 0.9740732817402515,
+      "DeltaOmega": 0.16290237523303622,
+      "f_total_theta": 0.4248352054042383,
+      "c_geo_theta": 77.14049961753254,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 13.36683417085427,
+      "cos_theta": 0.9729098631776815,
+      "DeltaOmega": 0.1702123496514765,
+      "f_total_theta": 0.44389898197051153,
+      "c_geo_theta": 73.82760792674462,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 13.658291457286431,
+      "cos_theta": 0.9717212692232491,
+      "DeltaOmega": 0.1776805057221685,
+      "f_total_theta": 0.46337528250784055,
+      "c_geo_theta": 70.72453200920462,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 13.949748743718592,
+      "cos_theta": 0.9705075306334712,
+      "DeltaOmega": 0.18530665019621798,
+      "f_total_theta": 0.4832636030399414,
+      "c_geo_theta": 67.81392141648917,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 14.241206030150753,
+      "cos_theta": 0.9692686788155168,
+      "DeltaOmega": 0.19309058573656152,
+      "f_total_theta": 0.5035634289289415,
+      "c_geo_theta": 65.08018278790556,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 14.532663316582914,
+      "cos_theta": 0.9680047458263947,
+      "DeltaOmega": 0.20103211092307297,
+      "f_total_theta": 0.524274234888696,
+      "c_geo_theta": 62.509270567067894,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 14.824120603015075,
+      "cos_theta": 0.9667157643721238,
+      "DeltaOmega": 0.209131020257775,
+      "f_total_theta": 0.5453954849983793,
+      "c_geo_theta": 60.08850623341223,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 15.115577889447236,
+      "cos_theta": 0.9654017678068866,
+      "DeltaOmega": 0.217387104170158,
+      "f_total_theta": 0.5669266327163566,
+      "c_geo_theta": 57.80642169336295,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 15.407035175879397,
+      "cos_theta": 0.9640627901321663,
+      "DeltaOmega": 0.2258001490226017,
+      "f_total_theta": 0.5888671208943224,
+      "c_geo_theta": 55.65262321018808,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269742
+    },
+    {
+      "theta_deg": 15.698492462311558,
+      "cos_theta": 0.9626988659958673,
+      "DeltaOmega": 0.23436993711590348,
+      "f_total_theta": 0.6112163817917186,
+      "c_geo_theta": 53.61767285086866,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 15.989949748743719,
+      "cos_theta": 0.9613100306914176,
+      "DeltaOmega": 0.2430962466949139,
+      "f_total_theta": 0.6339738370904308,
+      "c_geo_theta": 51.69298491938456,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 16.281407035175878,
+      "cos_theta": 0.959896320156857,
+      "DeltaOmega": 0.2519788519542703,
+      "f_total_theta": 0.6571388979097413,
+      "c_geo_theta": 49.87073524979687,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 16.572864321608037,
+      "cos_theta": 0.9584577709739058,
+      "DeltaOmega": 0.2610175230442442,
+      "f_total_theta": 0.6807109648215791,
+      "c_geo_theta": 48.143781566071674,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 16.8643216080402,
+      "cos_theta": 0.956994420367019,
+      "DeltaOmega": 0.270212026076688,
+      "f_total_theta": 0.704689427866027,
+      "c_geo_theta": 46.50559339203042,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 17.155778894472363,
+      "cos_theta": 0.9555063062024227,
+      "DeltaOmega": 0.2795621231310851,
+      "f_total_theta": 0.7290736665671015,
+      "c_geo_theta": 44.950190224685315,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 17.44723618090452,
+      "cos_theta": 0.9539934669871348,
+      "DeltaOmega": 0.289067572260707,
+      "f_total_theta": 0.7538630499488087,
+      "c_geo_theta": 43.47208687602529,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 17.73869346733668,
+      "cos_theta": 0.9524559418679677,
+      "DeltaOmega": 0.29872812749887767,
+      "f_total_theta": 0.7790569365514819,
+      "c_geo_theta": 42.066245048874364,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 18.030150753768844,
+      "cos_theta": 0.9508937706305158,
+      "DeltaOmega": 0.3085435388653336,
+      "f_total_theta": 0.8046546744483676,
+      "c_geo_theta": 40.72803034726282,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 18.321608040201003,
+      "cos_theta": 0.9493069936981265,
+      "DeltaOmega": 0.31851355237269346,
+      "f_total_theta": 0.8306556012624985,
+      "c_geo_theta": 39.45317403529264,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 18.613065326633166,
+      "cos_theta": 0.9476956521308532,
+      "DeltaOmega": 0.32863791003303333,
+      "f_total_theta": 0.8570590441838402,
+      "c_geo_theta": 38.2377389543892,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 18.904522613065325,
+      "cos_theta": 0.9460597876243932,
+      "DeltaOmega": 0.3389163498645589,
+      "f_total_theta": 0.8838643199866923,
+      "c_geo_theta": 37.07808909006919,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 19.195979899497488,
+      "cos_theta": 0.9443994425090095,
+      "DeltaOmega": 0.3493486058983852,
+      "f_total_theta": 0.9110707350473699,
+      "c_geo_theta": 35.970862348351105,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 19.487437185929647,
+      "cos_theta": 0.9427146597484342,
+      "DeltaOmega": 0.35993440818542183,
+      "f_total_theta": 0.9386775853621578,
+      "c_geo_theta": 34.91294616069479,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 19.77889447236181,
+      "cos_theta": 0.9410054829387574,
+      "DeltaOmega": 0.3706734828033549,
+      "f_total_theta": 0.9666841565655213,
+      "c_geo_theta": 33.90145558652149,
+      "product_f_cgeo": 32.77200000000001,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 20.07035175879397,
+      "cos_theta": 0.9392719563072994,
+      "DeltaOmega": 0.3815655518637362,
+      "f_total_theta": 0.9950897239485916,
+      "c_geo_theta": 32.933713625298246,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 20.36180904522613,
+      "cos_theta": 0.9375141247114657,
+      "DeltaOmega": 0.3926103335191749,
+      "f_total_theta": 1.0238935524779236,
+      "c_geo_theta": 32.00723348700509,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 20.65326633165829,
+      "cos_theta": 0.9357320336375863,
+      "DeltaOmega": 0.4038075419706298,
+      "f_total_theta": 1.0530948968145115,
+      "c_geo_theta": 31.119702601476337,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 20.94472361809045,
+      "cos_theta": 0.9339257291997392,
+      "DeltaOmega": 0.4151568874748041,
+      "f_total_theta": 1.0826930013330744,
+      "c_geo_theta": 30.268968174403287,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 21.236180904522612,
+      "cos_theta": 0.9320952581385564,
+      "DeltaOmega": 0.4266580763516449,
+      "f_total_theta": 1.1126871001416145,
+      "c_geo_theta": 29.453024121362624,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 21.52763819095477,
+      "cos_theta": 0.930240667820015,
+      "DeltaOmega": 0.4383108109919417,
+      "f_total_theta": 1.1430764171012338,
+      "c_geo_theta": 28.669999231641594,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 21.819095477386934,
+      "cos_theta": 0.9283620062342114,
+      "DeltaOmega": 0.4501147898650258,
+      "f_total_theta": 1.1738601658462122,
+      "c_geo_theta": 27.91814643133011,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 22.110552763819094,
+      "cos_theta": 0.9264593219941192,
+      "DeltaOmega": 0.46206970752657534,
+      "f_total_theta": 1.2050375498043633,
+      "c_geo_theta": 27.195833030531297,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 22.402010050251256,
+      "cos_theta": 0.9245326643343316,
+      "DeltaOmega": 0.4741752546265179,
+      "f_total_theta": 1.236607762217643,
+      "c_geo_theta": 26.501531852936992,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 22.693467336683415,
+      "cos_theta": 0.9225820831097873,
+      "DeltaOmega": 0.48643111791703486,
+      "f_total_theta": 1.2685699861630257,
+      "c_geo_theta": 25.83381315769868,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 22.984924623115578,
+      "cos_theta": 0.9206076287944803,
+      "DeltaOmega": 0.49883698026066886,
+      "f_total_theta": 1.3009233945736456,
+      "c_geo_theta": 25.191337273737354,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 23.276381909547737,
+      "cos_theta": 0.9186093524801543,
+      "DeltaOmega": 0.5113925206385271,
+      "f_total_theta": 1.3336671502601918,
+      "c_geo_theta": 24.57284787557851,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 23.5678391959799,
+      "cos_theta": 0.9165873058749797,
+      "DeltaOmega": 0.5240974141585925,
+      "f_total_theta": 1.3668004059325825,
+      "c_geo_theta": 23.977165837640587,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 23.85929648241206,
+      "cos_theta": 0.9145415413022165,
+      "DeltaOmega": 0.5369513320641265,
+      "f_total_theta": 1.4003223042218798,
+      "c_geo_theta": 23.403183610797726,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 24.15075376884422,
+      "cos_theta": 0.91247211169886,
+      "DeltaOmega": 0.5499539417421788,
+      "f_total_theta": 1.4342319777024801,
+      "c_geo_theta": 22.849860071100917,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 24.44221105527638,
+      "cos_theta": 0.9103790706142708,
+      "DeltaOmega": 0.5631049067321928,
+      "f_total_theta": 1.4685285489145585,
+      "c_geo_theta": 22.316215795888304,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 24.73366834170854,
+      "cos_theta": 0.9082624722087895,
+      "DeltaOmega": 0.5764038867347125,
+      "f_total_theta": 1.5032111303867748,
+      "c_geo_theta": 21.80132872723461,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 25.025125628140703,
+      "cos_theta": 0.9061223712523349,
+      "DeltaOmega": 0.5898505376201896,
+      "f_total_theta": 1.5382788246592412,
+      "c_geo_theta": 21.304330186862998,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 25.316582914572862,
+      "cos_theta": 0.903958823122987,
+      "DeltaOmega": 0.6034445114378837,
+      "f_total_theta": 1.5737307243067347,
+      "c_geo_theta": 20.824401210338472,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 25.608040201005025,
+      "cos_theta": 0.9017718838055538,
+      "DeltaOmega": 0.6171854564248733,
+      "f_total_theta": 1.609565911962195,
+      "c_geo_theta": 20.36076917163846,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 25.899497487437184,
+      "cos_theta": 0.8995616098901231,
+      "DeltaOmega": 0.6310730170151498,
+      "f_total_theta": 1.6457834603404426,
+      "c_geo_theta": 19.912704672108486,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 26.190954773869347,
+      "cos_theta": 0.8973280585705972,
+      "DeltaOmega": 0.6451068338488269,
+      "f_total_theta": 1.682382432262195,
+      "c_geo_theta": 19.479518670397393,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 26.482412060301506,
+      "cos_theta": 0.8950712876432138,
+      "DeltaOmega": 0.6592865437814325,
+      "f_total_theta": 1.7193618806782995,
+      "c_geo_theta": 19.060559832274073,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 26.77386934673367,
+      "cos_theta": 0.8927913555050503,
+      "DeltaOmega": 0.6736117798933077,
+      "f_total_theta": 1.7567208486942463,
+      "c_geo_theta": 18.65521208128151,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 27.065326633165828,
+      "cos_theta": 0.8904883211525123,
+      "DeltaOmega": 0.6880821714991041,
+      "f_total_theta": 1.7944583695949334,
+      "c_geo_theta": 18.262892333020627,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 27.356783919597987,
+      "cos_theta": 0.8881622441798074,
+      "DeltaOmega": 0.7026973441573725,
+      "f_total_theta": 1.8325734668696765,
+      "c_geo_theta": 17.88304839749739,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 27.64824120603015,
+      "cos_theta": 0.8858131847774028,
+      "DeltaOmega": 0.7174569196802532,
+      "f_total_theta": 1.871065154237478,
+      "c_geo_theta": 17.515157035435088,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 27.93969849246231,
+      "cos_theta": 0.8834412037304681,
+      "DeltaOmega": 0.7323605161432617,
+      "f_total_theta": 1.90993243567255,
+      "c_geo_theta": 17.158722155770867,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 28.231155778894472,
+      "cos_theta": 0.8810463624173022,
+      "DeltaOmega": 0.7474077478951725,
+      "f_total_theta": 1.9491743054300867,
+      "c_geo_theta": 16.81327314273663,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 28.52261306532663,
+      "cos_theta": 0.878628722807745,
+      "DeltaOmega": 0.7625982255679977,
+      "f_total_theta": 1.9887897480722914,
+      "c_geo_theta": 16.478363301985787,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 28.814070351758794,
+      "cos_theta": 0.8761883474615738,
+      "DeltaOmega": 0.7779315560870635,
+      "f_total_theta": 2.028777738494652,
+      "c_geo_theta": 16.15356841618183,
+      "product_f_cgeo": 32.77200000000001,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 29.105527638190953,
+      "cos_theta": 0.873725299526885,
+      "DeltaOmega": 0.7934073426811791,
+      "f_total_theta": 2.069137241952462,
+      "c_geo_theta": 15.838485401324064,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 29.396984924623116,
+      "cos_theta": 0.8712396427384596,
+      "DeltaOmega": 0.8090251848929053,
+      "f_total_theta": 2.109867214087602,
+      "c_geo_theta": 15.532731055860326,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 29.688442211055275,
+      "cos_theta": 0.8687314414161137,
+      "DeltaOmega": 0.8247846785889172,
+      "f_total_theta": 2.1509666009555612,
+      "c_geo_theta": 15.235940895335673,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 29.979899497487438,
+      "cos_theta": 0.8662007604630346,
+      "DeltaOmega": 0.8406854159704629,
+      "f_total_theta": 2.192434339052715,
+      "c_geo_theta": 14.947768065957133,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 30.271356783919597,
+      "cos_theta": 0.8636476653641015,
+      "DeltaOmega": 0.8567269855839115,
+      "f_total_theta": 2.234269355343833,
+      "c_geo_theta": 14.66788233102571,
+      "product_f_cgeo": 32.77200000000001,
+      "Omega_Lambda_theta": 0.6834741268269746
+    },
+    {
+      "theta_deg": 30.562814070351756,
+      "cos_theta": 0.8610722221841905,
+      "DeltaOmega": 0.872908972331404,
+      "f_total_theta": 2.2764705672898535,
+      "c_geo_theta": 14.395969124703063,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 30.85427135678392,
+      "cos_theta": 0.8584744975664652,
+      "DeltaOmega": 0.8892309574815945,
+      "f_total_theta": 2.319036882875901,
+      "c_geo_theta": 14.131728668048844,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 31.145728643216078,
+      "cos_theta": 0.8558545587306524,
+      "DeltaOmega": 0.9056925186804827,
+      "f_total_theta": 2.36196720063953,
+      "c_geo_theta": 13.874875142688945,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 31.43718592964824,
+      "cos_theta": 0.8532124734713027,
+      "DeltaOmega": 0.9222932299623446,
+      "f_total_theta": 2.4052604096992343,
+      "c_geo_theta": 13.625135917860128,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 31.7286432160804,
+      "cos_theta": 0.8505483101560359,
+      "DeltaOmega": 0.9390326617607556,
+      "f_total_theta": 2.4489153897831955,
+      "c_geo_theta": 13.382250826926828,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 32.02010050251256,
+      "cos_theta": 0.8478621377237723,
+      "DeltaOmega": 0.9559103809197055,
+      "f_total_theta": 2.4929310112582677,
+      "c_geo_theta": 13.145971489784168,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 32.311557788944725,
+      "cos_theta": 0.8451540256829485,
+      "DeltaOmega": 0.9729259507048055,
+      "f_total_theta": 2.537306135159206,
+      "c_geo_theta": 12.916060677851034,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 32.60301507537689,
+      "cos_theta": 0.8424240441097189,
+      "DeltaOmega": 0.9900789308145925,
+      "f_total_theta": 2.5820396132181456,
+      "c_geo_theta": 12.692291718620986,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 32.89447236180904,
+      "cos_theta": 0.8396722636461428,
+      "DeltaOmega": 1.007368877391918,
+      "f_total_theta": 2.6271302878943046,
+      "c_geo_theta": 12.474447936979704,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 33.1859296482412,
+      "cos_theta": 0.8368987554983551,
+      "DeltaOmega": 1.0247953430354404,
+      "f_total_theta": 2.672576992403953,
+      "c_geo_theta": 12.262322130716974,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 33.47738693467336,
+      "cos_theta": 0.8341035914347255,
+      "DeltaOmega": 1.0423578768111947,
+      "f_total_theta": 2.718378550750589,
+      "c_geo_theta": 12.055716077862341,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 33.768844221105525,
+      "cos_theta": 0.8312868437840001,
+      "DeltaOmega": 1.060056024264265,
+      "f_total_theta": 2.764533777755375,
+      "c_geo_theta": 11.85444007365639,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 34.06030150753769,
+      "cos_theta": 0.8284485854334306,
+      "DeltaOmega": 1.077889327430543,
+      "f_total_theta": 2.8110414790878067,
+      "c_geo_theta": 11.658312495137794,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 34.35175879396985,
+      "cos_theta": 0.8255888898268875,
+      "DeltaOmega": 1.0958573248485806,
+      "f_total_theta": 2.8579004512966217,
+      "c_geo_theta": 11.467159391479656,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 34.643216080402006,
+      "cos_theta": 0.8227078309629604,
+      "DeltaOmega": 1.1139595515715268,
+      "f_total_theta": 2.905109481840931,
+      "c_geo_theta": 11.280814098349506,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 34.93467336683417,
+      "cos_theta": 0.8198054833930425,
+      "DeltaOmega": 1.1321955391791634,
+      "f_total_theta": 2.952667349121606,
+      "c_geo_theta": 11.099116874696163,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 35.22613065326633,
+      "cos_theta": 0.8168819222194018,
+      "DeltaOmega": 1.1505648157900232,
+      "f_total_theta": 3.0005728225128823,
+      "c_geo_theta": 10.921914560485327,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 35.517587939698494,
+      "cos_theta": 0.8139372230932381,
+      "DeltaOmega": 1.1690669060735994,
+      "f_total_theta": 3.0488246623942,
+      "c_geo_theta": 10.74906025401428,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 35.80904522613065,
+      "cos_theta": 0.8109714622127246,
+      "DeltaOmega": 1.1877013312626497,
+      "f_total_theta": 3.097421620182294,
+      "c_geo_theta": 10.580413007536007,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 36.10050251256281,
+      "cos_theta": 0.8079847163210367,
+      "DeltaOmega": 1.2064676091655822,
+      "f_total_theta": 3.146362438363492,
+      "c_geo_theta": 10.41583754001513,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 36.391959798994975,
+      "cos_theta": 0.8049770627043663,
+      "DeltaOmega": 1.2253652541789313,
+      "f_total_theta": 3.1956458505262537,
+      "c_geo_theta": 10.255203965922307,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 36.68341708542713,
+      "cos_theta": 0.8019485791899215,
+      "DeltaOmega": 1.2443937772999267,
+      "f_total_theta": 3.245270581393947,
+      "c_geo_theta": 10.098387539051792,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 36.97487437185929,
+      "cos_theta": 0.7988993441439125,
+      "DeltaOmega": 1.2635526861391473,
+      "f_total_theta": 3.2952353468578495,
+      "c_geo_theta": 9.945268410418555,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 37.266331658291456,
+      "cos_theta": 0.7958294364695251,
+      "DeltaOmega": 1.2828414849332563,
+      "f_total_theta": 3.3455388540103623,
+      "c_geo_theta": 9.795731399357557,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 37.55778894472362,
+      "cos_theta": 0.7927389356048771,
+      "DeltaOmega": 1.3022596745578385,
+      "f_total_theta": 3.3961798011784845,
+      "c_geo_theta": 9.649665777008632,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 37.849246231155774,
+      "cos_theta": 0.7896279215209642,
+      "DeltaOmega": 1.3218067525403088,
+      "f_total_theta": 3.4471568779574815,
+      "c_geo_theta": 9.506965061427131,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 38.14070351758794,
+      "cos_theta": 0.7864964747195898,
+      "DeltaOmega": 1.3414822130729185,
+      "f_total_theta": 3.498468765244801,
+      "c_geo_theta": 9.367526823612163,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 38.4321608040201,
+      "cos_theta": 0.7833446762312825,
+      "DeltaOmega": 1.3612855470258423,
+      "f_total_theta": 3.550114135274206,
+      "c_geo_theta": 9.231252503792737,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 38.72361809045226,
+      "cos_theta": 0.7801726076131986,
+      "DeltaOmega": 1.381216241960352,
+      "f_total_theta": 3.6020916516501273,
+      "c_geo_theta": 9.098047237356402,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 39.01507537688442,
+      "cos_theta": 0.7769803509470127,
+      "DeltaOmega": 1.4012737821420778,
+      "f_total_theta": 3.6543999693822506,
+      "c_geo_theta": 8.967819689846339,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 39.30653266331658,
+      "cos_theta": 0.7737679888367924,
+      "DeltaOmega": 1.421457648554354,
+      "f_total_theta": 3.7070377349203194,
+      "c_geo_theta": 8.840481900490936,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 39.597989949748744,
+      "cos_theta": 0.7705356044068622,
+      "DeltaOmega": 1.4417673189116476,
+      "f_total_theta": 3.760003586189156,
+      "c_geo_theta": 8.715949133765355,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 39.8894472361809,
+      "cos_theta": 0.7672832812996517,
+      "DeltaOmega": 1.462202267673073,
+      "f_total_theta": 3.8132961526239066,
+      "c_geo_theta": 8.594139738517235,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 40.18090452261306,
+      "cos_theta": 0.7640111036735311,
+      "DeltaOmega": 1.482761966055996,
+      "f_total_theta": 3.86691405520552,
+      "c_geo_theta": 8.474975014219245,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 40.472361809045225,
+      "cos_theta": 0.7607191562006342,
+      "DeltaOmega": 1.5034458820497085,
+      "f_total_theta": 3.920855906496408,
+      "c_geo_theta": 8.358379083939445,
+      "product_f_cgeo": 32.77200000000001,
+      "Omega_Lambda_theta": 0.6834741268269746
+    },
+    {
+      "theta_deg": 40.76381909547739,
+      "cos_theta": 0.7574075240646669,
+      "DeltaOmega": 1.524253480429202,
+      "f_total_theta": 3.9751203106763673,
+      "c_geo_theta": 8.244278773646435,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 41.05527638190954,
+      "cos_theta": 0.7540762929587032,
+      "DeltaOmega": 1.5451842227690133,
+      "f_total_theta": 4.02970586357869,
+      "c_geo_theta": 8.132603497490988,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 41.346733668341706,
+      "cos_theta": 0.750725549082967,
+      "DeltaOmega": 1.566237567457161,
+      "f_total_theta": 4.084611152726503,
+      "c_geo_theta": 8.023285148728169,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 41.63819095477387,
+      "cos_theta": 0.7473553791426029,
+      "DeltaOmega": 1.587412969709155,
+      "f_total_theta": 4.13983475736931,
+      "c_geo_theta": 7.916257995965333,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 41.92964824120603,
+      "cos_theta": 0.7439658703454315,
+      "DeltaOmega": 1.6087098815820982,
+      "f_total_theta": 4.19537524851976,
+      "c_geo_theta": 7.811458584440769,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 42.22110552763819,
+      "cos_theta": 0.7405571103996934,
+      "DeltaOmega": 1.630127751988862,
+      "f_total_theta": 4.251231188990625,
+      "c_geo_theta": 7.708825642056203,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 42.51256281407035,
+      "cos_theta": 0.737129187511779,
+      "DeltaOmega": 1.6516660267123502,
+      "f_total_theta": 4.3074011334319895,
+      "c_geo_theta": 7.608299989903285,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 42.80402010050251,
+      "cos_theta": 0.7336821903839467,
+      "DeltaOmega": 1.6733241484198367,
+      "f_total_theta": 4.36388362836865,
+      "c_geo_theta": 7.509824457040151,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 43.09547738693467,
+      "cos_theta": 0.7302162082120272,
+      "DeltaOmega": 1.6951015566773877,
+      "f_total_theta": 4.420677212237724,
+      "c_geo_theta": 7.41334379928884,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 43.38693467336683,
+      "cos_theta": 0.7267313306831152,
+      "DeltaOmega": 1.7169976879643674,
+      "f_total_theta": 4.477780415426474,
+      "c_geo_theta": 7.318804621838233,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 43.678391959798994,
+      "cos_theta": 0.7232276479732499,
+      "DeltaOmega": 1.7390119756880125,
+      "f_total_theta": 4.535191760310328,
+      "c_geo_theta": 7.2261553054500895,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 43.969849246231156,
+      "cos_theta": 0.7197052507450796,
+      "DeltaOmega": 1.761143850198102,
+      "f_total_theta": 4.592909761291126,
+      "c_geo_theta": 7.13534593607765,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 44.26130653266331,
+      "cos_theta": 0.7161642301455174,
+      "DeltaOmega": 1.7833927388016912,
+      "f_total_theta": 4.650932924835551,
+      "c_geo_theta": 7.046328237717761,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 44.552763819095475,
+      "cos_theta": 0.7126046778033815,
+      "DeltaOmega": 1.8057580657779362,
+      "f_total_theta": 4.70925974951379,
+      "c_geo_theta": 6.959055508327729,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 44.84422110552764,
+      "cos_theta": 0.7090266858270251,
+      "DeltaOmega": 1.8282392523929856,
+      "f_total_theta": 4.767888726038367,
+      "c_geo_theta": 6.873482558648179,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 45.1356783919598,
+      "cos_theta": 0.705430346801952,
+      "DeltaOmega": 1.8508357169149612,
+      "f_total_theta": 4.826818337303214,
+      "c_geo_theta": 6.789565653782199,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 45.427135678391956,
+      "cos_theta": 0.7018157537884218,
+      "DeltaOmega": 1.8735468746290087,
+      "f_total_theta": 4.886047058422921,
+      "c_geo_theta": 6.707262457389815,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 45.71859296482412,
+      "cos_theta": 0.698183000319041,
+      "DeltaOmega": 1.8963721378524274,
+      "f_total_theta": 4.9455733567721945,
+      "c_geo_theta": 6.626531978364822,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 46.01005025125628,
+      "cos_theta": 0.6945321803963432,
+      "DeltaOmega": 1.9193109159498805,
+      "f_total_theta": 5.00539569202552,
+      "c_geo_theta": 6.547334519868547,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 46.30150753768844,
+      "cos_theta": 0.6908633884903569,
+      "DeltaOmega": 1.9423626153486733,
+      "f_total_theta": 5.065512516197012,
+      "c_geo_theta": 6.469631630602294,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 46.5929648241206,
+      "cos_theta": 0.6871767195361598,
+      "DeltaOmega": 1.9655266395541198,
+      "f_total_theta": 5.125922273680486,
+      "c_geo_theta": 6.393386058206699,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 46.88442211055276,
+      "cos_theta": 0.6834722689314237,
+      "DeltaOmega": 1.9888023891649704,
+      "f_total_theta": 5.186623401289692,
+      "c_geo_theta": 6.318561704682665,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 47.175879396984925,
+      "cos_theta": 0.6797501325339449,
+      "DeltaOmega": 2.012189261888927,
+      "f_total_theta": 5.24761432829878,
+      "c_geo_theta": 6.24512358373416,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 47.46733668341708,
+      "cos_theta": 0.6760104066591646,
+      "DeltaOmega": 2.0356866525582262,
+      "f_total_theta": 5.308893476482929,
+      "c_geo_theta": 6.173037779938845,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 47.75879396984924,
+      "cos_theta": 0.6722531880776752,
+      "DeltaOmega": 2.0592939531453025,
+      "f_total_theta": 5.3704592601592145,
+      "c_geo_theta": 6.102271409657511,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 48.050251256281406,
+      "cos_theta": 0.6684785740127182,
+      "DeltaOmega": 2.083010552778514,
+      "f_total_theta": 5.4323100862276,
+      "c_geo_theta": 6.03279258359828,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 48.34170854271357,
+      "cos_theta": 0.6646866621376665,
+      "DeltaOmega": 2.1068358377579584,
+      "f_total_theta": 5.494444354212198,
+      "c_geo_theta": 5.964570370955901,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 48.633165829145725,
+      "cos_theta": 0.6608775505734984,
+      "DeltaOmega": 2.130769191571347,
+      "f_total_theta": 5.556860456302656,
+      "c_geo_theta": 5.897574765050941,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 48.92462311557789,
+      "cos_theta": 0.6570513378862578,
+      "DeltaOmega": 2.1548099949099613,
+      "f_total_theta": 5.61955677739578,
+      "c_geo_theta": 5.831776650397548,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 49.21608040201005,
+      "cos_theta": 0.6532081230845037,
+      "DeltaOmega": 2.178957625684678,
+      "f_total_theta": 5.682531695137323,
+      "c_geo_theta": 5.767147771132325,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 49.507537688442206,
+      "cos_theta": 0.6493480056167488,
+      "DeltaOmega": 2.203211459042063,
+      "f_total_theta": 5.745783579963955,
+      "c_geo_theta": 5.703660700740419,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 49.79899497487437,
+      "cos_theta": 0.6454710853688851,
+      "DeltaOmega": 2.227570867380547,
+      "f_total_theta": 5.809310795145449,
+      "c_geo_theta": 5.64128881301822,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 50.09045226130653,
+      "cos_theta": 0.6415774626616005,
+      "DeltaOmega": 2.252035220366658,
+      "f_total_theta": 5.873111696827014,
+      "c_geo_theta": 5.5800062542153395,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 50.381909547738694,
+      "cos_theta": 0.6376672382477818,
+      "DeltaOmega": 2.276603884951339,
+      "f_total_theta": 5.937184634071848,
+      "c_geo_theta": 5.519787916301378,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 50.67336683417085,
+      "cos_theta": 0.6337405133099083,
+      "DeltaOmega": 2.3012762253863213,
+      "f_total_theta": 6.001527948903842,
+      "c_geo_theta": 5.460609411305947,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 50.96482412060301,
+      "cos_theta": 0.6297973894574328,
+      "DeltaOmega": 2.3260516032405847,
+      "f_total_theta": 6.066139976350506,
+      "c_geo_theta": 5.402447046682922,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 51.256281407035175,
+      "cos_theta": 0.6258379687241531,
+      "DeltaOmega": 2.35092937741687,
+      "f_total_theta": 6.1310190444860275,
+      "c_geo_theta": 5.345277801652519,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 51.54773869346734,
+      "cos_theta": 0.6218623535655711,
+      "DeltaOmega": 2.375908904168273,
+      "f_total_theta": 6.196163474474552,
+      "c_geo_theta": 5.289079304477055,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 51.83919597989949,
+      "cos_theta": 0.6178706468562424,
+      "DeltaOmega": 2.4009895371148975,
+      "f_total_theta": 6.261571580613613,
+      "c_geo_theta": 5.233829810628541,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 52.130653266331656,
+      "cos_theta": 0.6138629518871133,
+      "DeltaOmega": 2.426170627260587,
+      "f_total_theta": 6.327241670377762,
+      "c_geo_theta": 5.179508181808295,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 52.42211055276382,
+      "cos_theta": 0.6098393723628485,
+      "DeltaOmega": 2.451451523009716,
+      "f_total_theta": 6.393172044462365,
+      "c_geo_theta": 5.1260938657808275,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 52.713567839195974,
+      "cos_theta": 0.605800012399148,
+      "DeltaOmega": 2.476831570184048,
+      "f_total_theta": 6.45936099682756,
+      "c_geo_theta": 5.073566876986065,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 53.00502512562814,
+      "cos_theta": 0.6017449765200523,
+      "DeltaOmega": 2.5023101120396682,
+      "f_total_theta": 6.525806814742423,
+      "c_geo_theta": 5.02190777789574,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 53.2964824120603,
+      "cos_theta": 0.597674369655238,
+      "DeltaOmega": 2.527886489283974,
+      "f_total_theta": 6.59250777882927,
+      "c_geo_theta": 4.971097661081534,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 53.58793969849246,
+      "cos_theta": 0.5935882971373022,
+      "DeltaOmega": 2.5535600400927385,
+      "f_total_theta": 6.6594621631081665,
+      "c_geo_theta": 4.921118131964031,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 53.87939698492462,
+      "cos_theta": 0.5894868646990381,
+      "DeltaOmega": 2.5793301001272293,
+      "f_total_theta": 6.726668235041562,
+      "c_geo_theta": 4.871951292213167,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 54.17085427135678,
+      "cos_theta": 0.5853701784706971,
+      "DeltaOmega": 2.6051960025514105,
+      "f_total_theta": 6.794124255579159,
+      "c_geo_theta": 4.823579723772124,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 54.462311557788944,
+      "cos_theta": 0.5812383449772441,
+      "DeltaOmega": 2.631157078049186,
+      "f_total_theta": 6.861828479202878,
+      "c_geo_theta": 4.775986473478137,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 54.753768844221106,
+      "cos_theta": 0.5770914711356007,
+      "DeltaOmega": 2.657212654841728,
+      "f_total_theta": 6.9297791539720475,
+      "c_geo_theta": 4.729155038254801,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 55.04522613065326,
+      "cos_theta": 0.5729296642518779,
+      "DeltaOmega": 2.6833620587048537,
+      "f_total_theta": 6.99797452156873,
+      "c_geo_theta": 4.683069350851756,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 55.336683417085425,
+      "cos_theta": 0.5687530320186001,
+      "DeltaOmega": 2.7096046129864777,
+      "f_total_theta": 7.06641281734322,
+      "c_geo_theta": 4.637713766108755,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 55.62814070351759,
+      "cos_theta": 0.5645616825119181,
+      "DeltaOmega": 2.7359396386241164,
+      "f_total_theta": 7.135092270359712,
+      "c_geo_theta": 4.593073047722174,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 55.91959798994974,
+      "cos_theta": 0.5603557241888129,
+      "DeltaOmega": 2.7623664541624606,
+      "f_total_theta": 7.204011103442113,
+      "c_geo_theta": 4.549132355493091,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 56.211055276381906,
+      "cos_theta": 0.556135265884288,
+      "DeltaOmega": 2.7888843757710156,
+      "f_total_theta": 7.273167533220058,
+      "c_geo_theta": 4.505877233036982,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 56.50251256281407,
+      "cos_theta": 0.5519004168085552,
+      "DeltaOmega": 2.8154927172617827,
+      "f_total_theta": 7.342559770175015,
+      "c_geo_theta": 4.463293595936075,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 56.79396984924623,
+      "cos_theta": 0.5476512865442065,
+      "DeltaOmega": 2.842190790107031,
+      "f_total_theta": 7.412186018686634,
+      "c_geo_theta": 4.421367720316183,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 57.08542713567839,
+      "cos_theta": 0.5433879850433803,
+      "DeltaOmega": 2.8689779034570986,
+      "f_total_theta": 7.482044477079172,
+      "c_geo_theta": 4.380086231830779,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 57.37688442211055,
+      "cos_theta": 0.5391106226249144,
+      "DeltaOmega": 2.8958533641582855,
+      "f_total_theta": 7.5521333376681525,
+      "c_geo_theta": 4.339436095035751,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 57.66834170854271,
+      "cos_theta": 0.5348193099714931,
+      "DeltaOmega": 2.9228164767707763,
+      "f_total_theta": 7.622450786807116,
+      "c_geo_theta": 4.2994046031391315,
+      "product_f_cgeo": 32.77200000000001,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 57.959798994974875,
+      "cos_theta": 0.5305141581267822,
+      "DeltaOmega": 2.949866543586641,
+      "f_total_theta": 7.6929950049345495,
+      "c_geo_theta": 4.25997936811072,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 58.25125628140703,
+      "cos_theta": 0.5261952784925558,
+      "DeltaOmega": 2.9770028646478894,
+      "f_total_theta": 7.763764166620982,
+      "c_geo_theta": 4.221148311137243,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 58.54271356783919,
+      "cos_theta": 0.5218627828258133,
+      "DeltaOmega": 3.0042247377645848,
+      "f_total_theta": 7.834756440616223,
+      "c_geo_theta": 4.182899653409315,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    },
+    {
+      "theta_deg": 58.834170854271356,
+      "cos_theta": 0.5175167832358881,
+      "DeltaOmega": 3.0315314585330113,
+      "f_total_theta": 7.905969989896738,
+      "c_geo_theta": 4.1452219072271035,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 59.12562814070351,
+      "cos_theta": 0.5131573921815464,
+      "DeltaOmega": 3.058922320353901,
+      "f_total_theta": 7.977402971713181,
+      "c_geo_theta": 4.108103867412138,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269744
+    },
+    {
+      "theta_deg": 59.417085427135675,
+      "cos_theta": 0.5087847224680768,
+      "DeltaOmega": 3.0863966144507224,
+      "f_total_theta": 8.049053537638095,
+      "c_geo_theta": 4.071534603013286,
+      "product_f_cgeo": 32.772000000000006,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 59.70854271356784,
+      "cos_theta": 0.504398887244372,
+      "DeltaOmega": 3.1139536298880155,
+      "f_total_theta": 8.120919833613723,
+      "c_geo_theta": 4.03550344929545,
+      "product_f_cgeo": 32.77200000000001,
+      "Omega_Lambda_theta": 0.6834741268269745
+    },
+    {
+      "theta_deg": 60.0,
+      "cos_theta": 0.5000000000000001,
+      "DeltaOmega": 3.1415926535897922,
+      "f_total_theta": 8.192999999999998,
+      "c_geo_theta": 4.000000000000001,
+      "product_f_cgeo": 32.772,
+      "Omega_Lambda_theta": 0.6834741268269743
+    }
+  ]
+}
