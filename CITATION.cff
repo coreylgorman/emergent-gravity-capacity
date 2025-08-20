@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below."
+title: "Emergent State-Dependent Gravity — Referee Pipeline"
+authors:
+  - family-names: Gorman
+    given-names: Corey
+date-released: 2025-08-19
+version: "1.0.0"
+license: Apache-2.0
+preferred-citation:
+  type: article
+  title: "Emergent State-Dependent Gravity from Local Information Capacity: A Conditional Thermodynamic Derivation with Cosmological Predictions"
+  authors:
+    - family-names: Gorman
+      given-names: Corey
+  year: 2025
+  journal: "Preprint"
