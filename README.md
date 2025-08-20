@@ -60,7 +60,7 @@ cd emergent-gravity-capacity
 pip install -r requirements.txt
 python referee_pipeline.py# emergent-gravity-capacity
 Emergent State-Dependent Gravity — Referee Pipeline
-
+```
 Default outputs (baseline)
 	•	β ≈ 0.0209
 	•	Scheme A: f = 0.8193, c_geo = 40
