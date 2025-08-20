@@ -1,0 +1,12 @@
+Emergent State-Dependent Gravity — Referee Pipeline
+Copyright (c) 2025 Corey Gorman
+
+This distribution includes software and documentation licensed under
+the Apache License, Version 2.0. You must preserve this NOTICE and the
+LICENSE file in redistributions, and provide proper attribution:
+
+    Gorman, C. (2025). Emergent State-Dependent Gravity from Local Information Capacity.
+    [Manuscript + Referee Pipeline].
+
+If you use this code or results in academic work, please also cite the manuscript
+and include a link to the repository or DOI if available.
