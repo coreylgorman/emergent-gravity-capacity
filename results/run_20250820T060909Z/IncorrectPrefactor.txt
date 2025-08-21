@@ -1,0 +1,5 @@
+The results in this folder do not align with
+the current model's 5/12 prefactor. (They use
+a previous version's 1/2 prefactor). These results 
+are for illustrative/documentation purposes
+only. 
