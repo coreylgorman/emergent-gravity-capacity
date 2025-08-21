@@ -13,7 +13,7 @@
 #          with mutual-information ("moment-kill") subtraction;
 #     (ii) Geometric normalization factors f and c_geo (Clausius/Noether bridge);
 #     (iii) Cosmological mapping: Ω_Λ = β · f · c_geo (scheme-invariant product);
-#     (iv) MOND-like acceleration scale: a0 = (Ω_Λ^2 / 2) · c · H0.
+#     (iv) MOND-like acceleration scale: a0 = (5/12) · Ω_Λ^2 · c · H0.
 #
 # Theory context (prose summary for referees):
 #   • β is obtained purely from flat-space QFT data: the MI-subtracted CHM modular
@@ -27,7 +27,7 @@
 #     avoiding angular "double counting". Only the product β f c_geo is observable.
 #   • The weak-field, static Clausius flux renormalization fixes the normalization of
 #     the quasilinear operator, leading to the MOND-like scale
-#         a0 = (Ω_Λ^2 / 2) · c · H0,
+#         a0 = (5/12) · Ω_Λ^2 · c · H0,
 #     with no extra parameters: the same invariant β f c_geo that fixes Ω_Λ also sets a0.
 #
 # Reproducibility:
@@ -76,11 +76,12 @@ except Exception:
 
 # ----------------------------- Version & Constants ----------------------------
 
-PIPELINE_VERSION = "1.0.0"
+PIPELINE_VERSION = "1.1.0"
 
 # Mathematical/normalization constants
 TWO_PI = mp.mpf('2') * mp.pi
 C_T_SCALAR_4D = mp.mpf('3') / (mp.pi ** 4)  # Osborn–Petkou normalization (4D real conformal scalar)
+FIVE_TWELFTHS = mp.mpf('5') / mp.mpf('12')
 
 # Physical constants (SI)
 C_LIGHT = mp.mpf('299792458.0')  # m/s
@@ -427,11 +428,11 @@ def H0_to_SI(H0_km_s_Mpc: float) -> float:
 
 def a0_from_omega_lambda(omega_L: float, H0_km_s_Mpc: float) -> float:
     """
-    a0 = (Ω_Λ^2 / 2) · c · H0
+    a0 = (5/12) · Ω_Λ^2 · c · H0
     with H0 in s^-1 (SI), c in m/s ⇒ a0 in m/s^2.
     """
     H0_SI = mp.mpf(H0_to_SI(H0_km_s_Mpc))
-    a0 = (mp.mpf(omega_L) ** 2 / 2) * mp.mpf(C_LIGHT) * H0_SI
+    a0 = FIVE_TWELFTHS * (mp.mpf(omega_L) ** 2) * mp.mpf(C_LIGHT) * H0_SI
     return float(a0)
 
 
@@ -629,7 +630,7 @@ def write_summary_txt(path: Path, beta_out: BetaOutputs,
             OmL = omega_by_scheme[sc.name]
             a0 = a0_by_scheme[sc.name]
             f.write(f"  Scheme {sc.name}: Ω_Λ = β f c_geo = {OmL:.9f}\n")
-            f.write(f"                a0 = (Ω_Λ^2/2) c H0 = {a0:.6e} m/s^2\n")
+            f.write(f"                a0 = (5/12) Ω_Λ^2 c H0 = {a0:.6e} m/s^2\n")
         f.write("\n")
 
         if sweep_summary is not None:
@@ -647,7 +648,7 @@ def write_summary_txt(path: Path, beta_out: BetaOutputs,
         f.write("Equations used:\n")
         f.write("  β = 2π · C_T · I_00  (QFT flat-space; Osborn–Petkou normalization)\n")
         f.write("  Ω_Λ = β · f · c_geo  (scheme-invariant Clausius/Noether mapping)\n")
-        f.write("  a0  = (Ω_Λ^2 / 2) · c · H0  (weak-field Clausius flux normalization)\n")
+        f.write("  a0  = (5/12) · Ω_Λ^2 · c · H0  (weak-field Clausius flux normalization; universal geometric prefactor)\n")
         f.write("\n")
         f.write("Notes:\n")
         f.write("  • Only the product β f c_geo is observable; f and c_geo depend on a "
@@ -669,8 +670,8 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
                    help="Numerical preset for β integration and optional sweep.")
     p.add_argument("--scheme", choices=["A", "B", "both"], default="A",
                    help="Geometry scheme(s) to evaluate for (f, c_geo).")
-    p.add_argument("--H0", type=float, default=70.0,
-                   help="Hubble constant in km/s/Mpc for a0 calculation.")
+    p.add_argument("--H0", type=float, default=67.4,
+                   help="Hubble constant in km/s/Mpc for a0 calculation (Planck 2018 default).")
     p.add_argument("--outdir", type=Path, default=Path("results"),
                    help="Base output directory.")
     p.add_argument("--no-progress", action="store_true",

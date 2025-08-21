@@ -1,0 +1,35 @@
+Emergent State-Dependent Gravity — Referee Pipeline Summary
+================================================================
+Version: 1.1.0
+Timestamp (UTC): 2025-08-21T01:00:51+00:00
+
+I. QFT / MI (β) Inputs & Outputs
+--------------------------------
+  MI mode used: analytic
+  I_00        : 1.0777486818e-01
+  C_T (scalar): 3.0797946764e-02
+  β           : 2.0855429233e-02
+  M0_sub      : -4.492e-51
+  M2_sub      : -1.843e-51
+  Gates       : residual=OK, positivity=OK
+
+II. Geometry Conventions (Schemes)
+----------------------------------
+  Scheme A: f_shape=7.5, f_boost=1, f_bdy=0.10924, f_cont=1 -> f=0.8193; c_geo=40
+    Note: Minimal wedge; Noether/segment normalization; avoids angular double counting.
+
+III. Cosmological & Phenomenological Outputs
+--------------------------------------------
+  H0 (input): 67.400 km/s/Mpc  ->  2.184285e-18 s^-1
+  Scheme A: Ω_Λ = β f c_geo = 0.683474127
+                a0 = (5/12) Ω_Λ^2 c H0 = 1.274568e-10 m/s^2
+
+Equations used:
+  β = 2π · C_T · I_00  (QFT flat-space; Osborn–Petkou normalization)
+  Ω_Λ = β · f · c_geo  (scheme-invariant Clausius/Noether mapping)
+  a0  = (5/12) · Ω_Λ^2 · c · H0  (weak-field Clausius flux normalization; universal geometric prefactor)
+
+Notes:
+  • Only the product β f c_geo is observable; f and c_geo depend on a bookkeeping convention that avoids angular double counting.
+  • MI subtraction is applied to the FULL integrand; discrete moment-kill residuals M0_sub, M2_sub must be ≈0, and I_00 > 0.
+  • The defaults reproduce the manuscript’s baseline numbers.

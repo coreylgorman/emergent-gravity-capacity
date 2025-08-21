@@ -1,0 +1,48 @@
+{
+  "H0_km_s_Mpc": 67.4,
+  "a0_by_scheme_m_s2": {
+    "A": 1.2745678812801465e-10
+  },
+  "beta_inputs": {
+    "Nr": 60,
+    "Ns": 60,
+    "Nt": 112,
+    "Tmax": 6.0,
+    "dps": 50,
+    "mi_mode": "analytic",
+    "show_progress": true,
+    "sigmas": [
+      0.995,
+      0.99
+    ],
+    "u_gap": 0.26
+  },
+  "beta_outputs": {
+    "C_T": 0.03079794676405301,
+    "I00": 0.10777486818129038,
+    "M0_sub": -4.49245325662962e-51,
+    "M2_sub": -1.843164548076361e-51,
+    "beta": 0.020855429233094542,
+    "mi_mode_used": "analytic",
+    "passed_positivity_gate": true,
+    "passed_residual_gate": true
+  },
+  "omega_lambda_by_scheme": {
+    "A": 0.6834741268269744
+  },
+  "schemes": [
+    {
+      "c_geo": 40.0,
+      "f_bdy": 0.10924,
+      "f_boost": 1.0,
+      "f_cont": 1.0,
+      "f_shape": 7.5,
+      "f_total": 0.8193,
+      "name": "A",
+      "note": "Minimal wedge; Noether/segment normalization; avoids angular double counting."
+    }
+  ],
+  "sweep_summary": null,
+  "timestamp_utc": "2025-08-21T01:00:51+00:00",
+  "version": "1.1.0"
+}
