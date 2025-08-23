@@ -1,0 +1,47 @@
+{
+  "beta": {
+    "value": 0.020855429233,
+    "method": "QFT\u2013MI (hardcoded fallback)",
+    "I00": 0.10777486818
+  },
+  "fcgeo": {
+    "mean": 32.772,
+    "std": 0.0,
+    "theta_invariance_passed": true,
+    "theta_min_deg": 30.0,
+    "theta_max_deg": 89.0
+  },
+  "Omega_Lambda": 0.683474126823876,
+  "a0_m_s2": 1.2745678814715543e-10,
+  "params": {
+    "kappa": {
+      "value": 0.22121321273768624,
+      "gamma": 0.4166666666666667,
+      "gamma_source": "fallback \u03b7_N",
+      "eps_at_1": 5.022806266227246,
+      "deps_dln_a_at_1": 2.6666666666666665
+    },
+    "xi": {
+      "value": 0.0387513189239311,
+      "OmegaL": 0.683474126823876,
+      "a0_thy": 1.2745678814715543e-10,
+      "eps1": 5.022806266227246,
+      "target_ratio": 0.19464036751569155
+    },
+    "eps0": {
+      "value": 1.04277146165e-05,
+      "source": "fallback \u03b6\u00b7\u03b2",
+      "zeta": 0.0005
+    }
+  },
+  "checks": {
+    "gw_em_ratio_upper_bound": 0.9999134626616947,
+    "notes": "Bound << 1e-3 is consistent with GW170817; this bound is conservative."
+  },
+  "inputs": {
+    "H0_km_s_Mpc": 67.4,
+    "scheme": "A",
+    "a_t": 0.3125,
+    "c_log": 3.5
+  }
+}

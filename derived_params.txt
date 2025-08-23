@@ -1,0 +1,15 @@
+=== Derived (kappa, xi, eps0) from first-principles hooks ===
+β = 2.085542923300e-02  [QFT–MI (hardcoded fallback)]
+f*c_geo ≈ 32.772000  (θ-invariance pass: True)
+Ω_Λ = β·f·c_geo ≈ 0.683474127
+a0 (5/12) = 1.274568e-10 m/s^2
+
+κ = 0.221213   [γ=0.416667 from fallback η_N, ε(1)=5.022806e+00, dε/dln a|_1=2.666667e+00]
+ξ = 0.038751   [target=a0/(cH0)=1.946404e-01, ε(1)=5.022806e+00]
+ε0 = 1.042771e-05   [fallback ζ·β]
+
+Conservative GW/EM ratio bound (|d_GW/d_EM - 1|) ≲ 9.999e-01
+
+
+Notes:
+ - Replace fallback hooks with your repo's exact EPMR and hysteresis functions for final numbers.
