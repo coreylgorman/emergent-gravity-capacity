@@ -1,0 +1,24 @@
+{
+  "model_label": "Entropic State-Action (\u0394S\u22650)",
+  "summary_file": "s8_state_action_summary.json",
+  "Omega_m0": 0.315,
+  "Omega_Lambda_pipeline": 0.683474127,
+  "H0_km_s_Mpc": 67.4,
+  "kernel_p": 5,
+  "Jstar": 8224.827921228005,
+  "c_log": 1.2475148217062286,
+  "eps0": 0.01,
+  "kappa": 2.0,
+  "xi_Noether": 2.5,
+  "S8_today": 0.7875146166674216,
+  "S8_LambdaCDM": 0.8504969135746467,
+  "S8_percent_change_vs_LCDM": -7.405352788702069,
+  "GW_EM_distance_ratio": 0.9950124791926823,
+  "max_abs_dGW_over_dEM_minus_1": 0.00498752080731768,
+  "S8_by_kernel_p": {
+    "4": 0.7871505426435622,
+    "5": 0.7870355523776044,
+    "6": 0.7869524012863119
+  },
+  "mu_model": "mu=1/(1+eta*epsilon), eta=5/12"
+}

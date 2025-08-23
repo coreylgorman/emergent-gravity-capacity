@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 s8_hysteresis_run.py
-First-principles S8 / growth analysis with entropic state-action (hysteresis).
+First-principles S8 / growth analysis with entropic state-action (ΔS≥0).
 
 Outputs:
-  - s8_hysteresis_summary.json
+  - s8_state_action_summary.json
   - fs8_comparison.png, E_of_z_check.png, gw_em_ratio.png
   - s8_residuals.png, s8_bestfit_lines.png
   - s8_p_sweep.png (kernel power sweep; optional fσ8 overlay from CSV if present)
@@ -16,6 +16,10 @@ No CLI needed; defaults are conservative and referee-ready.
 import json, math, os, sys
 import numpy as np
 import matplotlib.pyplot as plt
+
+# Model label and summary JSON basename (referee-friendly)
+MODEL_LABEL = "Entropic State-Action (ΔS≥0)"
+SUMMARY_JSON_BASENAME = "s8_state_action_summary.json"
 
 def ensure_rsds_csv(path="fs8_compilation.csv"):
     """
@@ -302,6 +306,8 @@ def run_and_report():
 
     # 8) Write summary JSON
     summary = {
+        "model_label": MODEL_LABEL,
+        "summary_file": SUMMARY_JSON_BASENAME,
         "Omega_m0": Om0,
         "Omega_Lambda_pipeline": omega_from_pipeline,
         "H0_km_s_Mpc": H0,
@@ -319,34 +325,42 @@ def run_and_report():
         "S8_by_kernel_p": S8_p,
         "mu_model": "mu=1/(1+eta*epsilon), eta=5/12",
     }
-    with open("s8_hysteresis_summary.json","w") as f:
+    with open(SUMMARY_JSON_BASENAME,"w") as f:
         json.dump(summary, f, indent=2)
 
     # 9) Plots (same style as your referee set)
-    # (a) S8 residual bar
-    plt.figure(figsize=(5.4,3.2))
-    plt.axhspan(0.77,0.79,alpha=0.2,label="S8 observational band")
-    plt.axhline(S8_LCDM,color="k",ls="--",lw=0.8,label="ΛCDM baseline")
-    plt.axhline(S8,color="C0",lw=2,label="Hysteresis prediction")
+    # (a) S8 — band + lines (improved readability)
+    plt.figure(figsize=(7.2, 4.2))
+    plt.axhspan(0.77, 0.79, color="#60a5fa", alpha=0.18, label="S8 observational band")
+    plt.axhline(S8_LCDM, color="0.20", ls="--", lw=1.4, label="ΛCDM baseline")
+    plt.axhline(S8, color="C0", lw=2.6, label=MODEL_LABEL)
+
     ax = plt.gca()
-    info_txt = (f"S8={S8:.3f}  (Δ={s8_drop:.1f}% vs ΛCDM)\n"
-                f"max|d_GW/d_EM−1|≈{abs(gw_ratio-1.0):.3e}\n"
-                f"ε0={eps0:.3g}, c_log={c_log:.3g}")
-    ax.text(0.03, 0.05, info_txt, transform=ax.transAxes,
-            fontsize=9, ha="left", va="bottom",
-            bbox=dict(facecolor="white", alpha=0.8, edgecolor="none"))
-    plt.ylim(0.72,0.86)
-    plt.ylabel("S8")
-    plt.legend(loc="lower left", frameon=False)
+    info_txt = (
+        f"S8 = {S8:.3f}  (Δ = {s8_drop:.1f}% vs ΛCDM)\n"
+        f"max|d_GW/d_EM−1| ≈ {abs(gw_ratio-1.0):.3e}\n"
+        f"ε0 = {eps0:.3g},  c_log = {c_log:.3g}"
+    )
+    ax.text(
+        0.02, 0.98, info_txt,
+        transform=ax.transAxes,
+        fontsize=12, ha="left", va="top",
+        bbox=dict(facecolor="white", alpha=0.9, edgecolor="0.8")
+    )
+
+    plt.ylim(0.74, 0.86)
+    plt.ylabel("S8", fontsize=12)
+    plt.xticks([])
+    plt.legend(loc="upper right", frameon=True, framealpha=0.9, fontsize=11)
     plt.tight_layout()
-    plt.savefig("s8_bestfit_lines.png", dpi=180)
+    plt.savefig("s8_bestfit_lines.png", dpi=240)
     plt.close()
 
     # (b) fσ8(z)
     plt.figure(figsize=(5.4,3.2))
     z_l, fs8_l = fs8_of_z(a_grid, D_LCDM, sigma8_0=S8_LCDM)
     plt.plot(z_l, fs8_l, 'k--', lw=1, label="ΛCDM")
-    plt.plot(z,   fs8,   lw=2,  label="Hysteresis")
+    plt.plot(z,   fs8,   lw=2,  label=MODEL_LABEL)
     # Optional overlay if a CSV is available: columns z,fs8,err,label (label optional)
     csv_path = ensure_rsds_csv("fs8_compilation.csv")
     try:
@@ -412,10 +426,10 @@ def run_and_report():
     plt.savefig("s8_residuals.png", dpi=180)
     plt.close()
 
-    print("=== Hysteresis run summary ===")
-    print(f"S8 (hysteresis): {S8:.3f}   |  S8(ΛCDM): {S8_LCDM:.3f}   (Δ={s8_drop:.1f}% vs ΛCDM)")
+    print(f"=== {MODEL_LABEL} run summary ===")
+    print(f"S8 (state-action): {S8:.3f}   |  S8(ΛCDM): {S8_LCDM:.3f}   (Δ={s8_drop:.1f}% vs ΛCDM)")
     print(f"GW/EM distance ratio (0<z<~1000): {gw_ratio:.6f}   |  |Δ|≈{abs(gw_ratio-1.0):.3e}")
-    print("Wrote: s8_hysteresis_summary.json and figures.")
+    print(f"Wrote: {SUMMARY_JSON_BASENAME} and figures.")
     print("S8 robustness vs kernel p:", ", ".join([f"p={k}: {v:.3f}" for k,v in S8_p.items()]))
     print(f"α_M overall scale to satisfy GW bound (±0.5%): {alphaM_scale:.3e}")
     print(f"ε(a) ∈ [{eps_min:.4f}, {eps_max:.4f}]  |  μ(a) ∈ [{mu_min:.4f}, {mu_max:.4f}]")
