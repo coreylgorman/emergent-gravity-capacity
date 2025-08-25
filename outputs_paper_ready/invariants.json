@@ -1,0 +1,9 @@
+{
+  "EM_geometry_GR_like": true,
+  "alphaM_in_growth_solver": 0.0,
+  "GW_over_EM_ratio": 1.0,
+  "uses_beta_gating_only_in_hosts": true,
+  "Planck_regime_beta_active": false,
+  "SN_host_cap_mag": 0.05,
+  "Cepheid_same_host_cap_mag": 0.03
+}

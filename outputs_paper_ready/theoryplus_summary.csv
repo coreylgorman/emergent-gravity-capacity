@@ -1,0 +1,2 @@
+mode,n,lnmu_cal,lnmu_hf,Delta_lnmu,K_SN_eff_raw,K_SN_eff_cap,K_Ceph_eff,Delta_mu_raw_no_ceph,Delta_mu_cap_sn_only,Delta_mu_cap_sn_plus_ceph,Delta_H_over_H_raw_no_ceph,Delta_H_over_H_cap_sn_only,Delta_H_over_H_cap_sn_plus_ceph,H0_raw_no_ceph,H0_cap_sn_only,H0_cap_sn_plus_ceph
+theoryplus,5,-0.06449529233118485,-0.16693054757460435,-0.1024352552434195,-0.5291400000000002,-0.4881131977577811,0.0,0.05420259095950301,0.05,0.05,-0.024961215589001093,-0.02302585092994046,-0.02302585092994046,71.17783126200293,71.31911288211434,71.31911288211434
