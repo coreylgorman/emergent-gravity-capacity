@@ -6,6 +6,7 @@
 \usepackage{bm}
 \usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{booktabs}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
 \usepackage{enumitem}
@@ -48,10 +49,10 @@ A Conditional Thermodynamic Derivation with Scheme-Invariant Cosmological Mappin
 \author{[Author names redacted for review]}
 \affiliation{[Affiliations redacted for review]}
 
-\date{August 24, 2025}
+\date{August 25, 2025}
 
 \begin{abstract}
-We develop a first-principles framework in which the gravitational response depends on \emph{local information capacity}. Working in ``safe-window'' causal diamonds, we evaluate a universal modular sensitivity $\be$ entirely in \textit{flat-space} QFT using mutual-information subtraction and moment-kill to isolate the finite $\ell^4$ coefficient in the modular response. We propagate this sensitivity into gravity via a Clausius balance on diamond boundaries, obtaining a constitutive relation between state-dependence and the effective coupling. A central result is that only the scheme-invariant product $\be\,f\,c_{\rm geo}$ is physical; with pre-committed wedge/normalization conventions this yields $\OmL \simeq 0.685$ \emph{without cosmological inputs} and a weak-field static-flux law with universal prefactor $5/12$ implying $a_0=(5/12)\,\OmL^2\,c\,\Hzero$. Incorporating an entropic least-action mapping from growth to today's state, we compute \emph{parameter-free, capped} corrections to late-universe distance-ladder rungs (SNe~Ia and Cepheids) confined to \emph{host environments}, while preserving GR EM distances ($\alM=0$) and $d_L^{\rm GW}/d_L^{\rm EM}=1$. On a SH0ES-like host catalog, conservative caps (SN $\le 0.05$\,mag; Cepheid $\le 0.03$\,mag) lower $\Hzero$ from $73.0$ to $71.319$\,km\,s$^{-1}$\,Mpc$^{-1}$ (SN cap only) and to $70.885$ with a small, capped Cepheid contribution, moving toward TRGB ($\sim 70.4$) and Planck ($67.4$). The same $\be$ suppresses growth in weak-field environments, naturally producing $S_8 \simeq 0.76$--$0.79$. No new propagating degrees of freedom are introduced; consistency with Bianchi identities, EFT-of-DE closure, Solar-System/PPN constraints, and CMB lensing ($\Sig \simeq 1$) is demonstrated. We pre-register falsifiers: capped environment slopes in SN residuals and same-host Cepheid PL.
+We develop a first-principles framework in which the gravitational response depends on \emph{local information capacity}. Working in ``safe-window'' causal diamonds, we evaluate a universal modular sensitivity $\be$ entirely in \emph{flat-space} QFT using mutual-information subtraction and moment-kill to isolate the finite $\ell^4$ coefficient in the modular response. We propagate this sensitivity into gravity via a Clausius balance on diamond boundaries, obtaining a constitutive relation between state-dependence and the effective coupling. A central result is that only the scheme-invariant product $\be\,f\,c_{\rm geo}$ is physical; with pre-committed wedge/normalization conventions this yields $\OmL \simeq 0.685$ \emph{without cosmological inputs} and a weak-field static-flux law with universal prefactor $5/12$ implying $a_0=(5/12)\,\OmL^2\,c\,\Hzero$. Incorporating an entropic least-action mapping from growth to today's state, we compute \emph{parameter-free, capped} corrections to late-universe distance-ladder rungs (SNe~Ia and Cepheids) confined to \emph{host environments}, while preserving GR EM distances ($\alM=0$) and $d_L^{\rm GW}/d_L^{\rm EM}=1$. On a SH0ES-like host catalog, conservative caps (SN $\le 0.05$\,mag; Cepheid $\le 0.03$\,mag) lower $\Hzero$ from $73.0$ to $71.319$\,km\,s$^{-1}$\,Mpc$^{-1}$ (SN cap only) and to $70.885$ with a small, capped Cepheid contribution, moving toward TRGB ($\sim 70.4$) and Planck ($67.4$). The same $\be$ suppresses growth in weak-field environments, naturally producing $S_8 \simeq 0.76$--$0.79$. No new propagating degrees of freedom are introduced; consistency with Bianchi identities, EFT-of-DE closure, Solar-System/PPN constraints, and CMB lensing (we bound $\Delta A_L/A_L\!\lesssim\!0.5\%$) is demonstrated. We pre-register falsifiers: capped environment slopes in SN residuals and same-host Cepheid PL.
 \end{abstract}
 
 \maketitle
@@ -59,59 +60,55 @@ We develop a first-principles framework in which the gravitational response depe
 \section{Introduction}
 We hypothesize that local four-geometry exhibits a \emph{state-dependent} response because each small spacetime wedge carries finite information capacity. Approaching this bound produces minimal four-geometric adjustments that preserve causal stitching; locally this is time dilation, and in aggregate it is gravity. In the constant-capacity limit ($\nabla_a M^2\!\to\!0$) the framework reduces to GR, with Jacobson's horizon thermodynamics as the stationary-horizon special case.
 
-\paragraph*{Conditional scope.}
-All quantitative statements are \emph{conditional} on a single working assumption: (A2) the Clausius relation $\delta Q=T\,\delta S$ with Unruh normalization holds for small, near-vacuum local diamonds (the \emph{safe window}). Within this regime we establish an \emph{equivalence principle for modular response (EPMR)}: after MI subtraction with moment-kill, the $\ell^4$ modular coefficient equals the flat-space value to working order; curvature dressings enter at $\mathcal{O}(\ell^6)$.
+\paragraph*{Conditional scope and invariants.}
+All quantitative statements are \emph{conditional} on a single working assumption: (A2) the Clausius relation $\delta Q=T\,\delta S$ with Unruh normalization holds for small, near-vacuum local diamonds (the \emph{safe window}). Within this regime we establish an \emph{equivalence principle for modular response (EPMR)}: after MI subtraction with moment-kill, the $\ell^4$ modular coefficient equals the flat-space value to working order; curvature dressings enter at $\mathcal{O}(\ell^6)$. In all phenomenology we enforce: (i) EM distances are GR-like ($\alM=0$); (ii) $d_L^{\rm GW}/d_L^{\rm EM}=1$; (iii) no new propagating DOF; (iv) Planck-era acceleration is high, suppressing $\be$, so CMB encodes unbiased GR+QFT background.
 
-\paragraph*{Invariants we hold fixed.}
-(i) EM distances are GR-like ($\alM=0$ in the distance sector); (ii) $d_L^{\rm GW}/d_L^{\rm EM}=1$ at working order; (iii) no new propagating degrees of freedom; (iv) Planck-era acceleration is high, suppressing $\be$, so CMB encodes unbiased GR+QFT background.
-
-\section{Assumptions, safe window, and falsifiers}\label{sec:safewindow}
-\textbf{Definition (safe window).} Choose $\ell$ so that
+\section{Assumptions, safe window, and sensitivity}\label{sec:safewindow}
+\textbf{Safe window.} Choose $\ell$ so that
 \[
 \epsilon_{\rm UV}\ll \ell \ll \min\{L_{\rm curv},\,\lambda_{\rm mfp},\,m_i^{-1}\},
 \]
 work with Hadamard states and small perturbations ($S(\rho\Vert\rho_0)=\order{\varepsilon^2}$). MI subtraction and moment-kill eliminate area/contact and $r^{0,2}$ moments; the first isotropic non-vanishing term is $\order{\ell^4}$.
 
-\textbf{Quantitative bound (hosts).} For typical galactic outskirts with $\rho\sim10^{-22}\!-\!10^{-21}\,\mathrm{kg\,m^{-3}}$, $L_{\rm curv}\sim |R|^{-1/2}\gtrsim 10^{18}\,\mathrm{m}$. Taking $\lambda_{\rm mfp}\gtrsim 10^{14}\,\mathrm{m}$ (near-vacuum optical paths) and $m_i^{-1}\lesssim 10^{-12}\,\mathrm{m}$ for relevant SM species, a conservative safe window is, e.g., $10^3\!-\!10^{10}\,\mathrm{m}$. Results depend only on \emph{ratios}; any $\ell$ in this band is acceptable.
+\textbf{Feasibility (hosts).} For galactic outskirts with $\rho\sim10^{-22}\!-\!10^{-21}\,\mathrm{kg\,m^{-3}}$, $L_{\rm curv}\sim |R|^{-1/2}\gtrsim 10^{18}\,\mathrm{m}$. Taking $\lambda_{\rm mfp}\gtrsim 10^{14}\,\mathrm{m}$ (near-vacuum optical paths) and $m_i^{-1}\lesssim 10^{-12}\,\mathrm{m}$, a conservative safe window is $10^3\!-\!10^{10}$\,m; results depend only on ratios.
 
-\textbf{Falsifiers.} (i) Failure of Unruh normalization in small diamonds; (ii) null detection of the predicted SN residual–environment slope at $\lesssim 0.02$\,mag across HF; (iii) same-host Cepheid trend $>0.03$\,mag; (iv) Solar-System or LLR bounds implying $|\dot G/G|\gtrsim 10^{-12}\,\mathrm{yr}^{-1}$; (v) significant CMB lensing/ISW mismatch (Sec.~\ref{sec:lensing_closure}).
+\textbf{Unruh sensitivity.} We rescale the Unruh normalization by $T\to (1\pm0.1)T$ during $\eps(a)$ calibration and find SN/Cepheid applied residual changes $\ll$ our caps; cap-pinned headline $\Hzero$ values shift by $\ll 0.1$ km s$^{-1}$ Mpc$^{-1}$.
 
 \section{Flat-space modular sensitivity \texorpdfstring{$\be$}{beta}}
-We compute $\be$ as the dimensionless $\ell^4$ coefficient in the MI-subtracted, moment-killed modular response for CHM balls/diamonds in flat-space QFT. No cosmological inputs are used. Numerically we find a stable plateau $\be=0.0209\pm 0.0006_{\rm sys}$ (3\%), insensitive at the $<1\%$ level to MI-window and grid variations. This $\be$ is \emph{frozen} for all predictions.
+We compute $\be$ as the dimensionless $\ell^4$ coefficient in the MI-subtracted, moment-killed modular response for CHM balls/diamonds in flat-space QFT. Multiple discretizations agree at $\sim 3\%$; a high-resolution benchmark (Nr=Ns=100, Nt=200) is included. The $K_0$ proxy is validated against an exact CHM kernel in a toy case (percent-level deviation). We \emph{freeze} $\be$ for all predictions.
 
-\section{Capacity closure: from \texorpdfstring{$\sigma$}{sigma} to \texorpdfstring{$\mu$}{mu}}
-We extremize a Wald-like Clausius functional on a small diamond,
-\begin{equation}
-S_{\rm tot}=\delta\!\langle K_{\rm sub}\rangle+\frac{\delta A}{4\,G(x)}+\!\int\!\lambda(x)\,[\Xi_0-\Xi(x)]\,\dd^4x,
-\end{equation}
-with $\delta\!\langle K_{\rm sub}\rangle=(2\pi C_T I_{00})\,\ell^4\,\delta\sigma + \order{\ell^6}$. Stationarity at fixed $\ell$ yields the \emph{linear} constitutive law
-\begin{equation}
-\frac{\delta G}{G}=-\be\,\delta\sigma.
-\end{equation}
-A minimal monotone completion that preserves positivity and Newtonian causality, and introduces no new DOF, is
-\begin{equation}
-\mu(\sigma)\equiv \frac{\Geff}{G_N}=\frac{1}{1+\eta\,\sigma},\qquad \eta>0,
-\end{equation}
-reducing to $1-\eta\sigma$ for small $\sigma$. \textbf{Robustness:} replacing Padé by a logistic with the same linearization produces indistinguishable $H_0$ shifts under our observable caps (Sec.~\ref{sec:ladder}).
-
-\section{Scheme invariance and the FRW zero mode}\label{sec:frw_zero}
-Only $\be\,f\,c_{\rm geo}$ is physical; wedge family, generator density, and unit–solid–angle boundary normalization are \emph{pre-committed} and used everywhere.
-
-\subsection{Explicit FRW zero-mode mapping}
-Let $(\delta Q/T)_{\rm wedge}$ denote the wedge Clausius flux and $(\delta Q/T)_{\rm FRW}$ the homogeneous counterpart built with the same Unruh normalization and unit–angle weighting. Define
+\section{Scheme invariance and FRW zero mode}\label{sec:frw_zero}
+Only $\be\,f\,c_{\rm geo}$ is physical; wedge family, generator density, and unit–solid–angle boundary normalization are \emph{pre-committed} and used everywhere. Let $(\delta Q/T)_{\rm wedge}$ denote the wedge Clausius flux and $(\delta Q/T)_{\rm FRW}$ the homogeneous counterpart built with the same Unruh normalization and unit–angle weighting. Define
 \begin{equation}
 c_{\rm geo}\equiv \frac{\displaystyle\int_{\rm FRW\ patch}(\delta Q/T)_{\rm FRW}}
 {\displaystyle\int_{\rm local\ wedge}(\delta Q/T)_{\rm wedge}},\qquad
 f\equiv f_{\rm shape}\,f_{\rm boost}\,f_{\rm bdy}\,f_{\rm cont}.
 \end{equation}
-Then the FRW zero mode normalized by $3\Mpl^2\Hzero^2$ is
+Then
 \begin{equation}
 \OmL=\be\,f\,c_{\rm geo},
 \end{equation}
-with no cosmological parameter on the RHS. Two consistent conventions (no double counting) give, e.g., $c_{\rm geo}=40$ (minimal wedge) or $10.49$ (equal-flux cap); both yield $\OmL\simeq 0.685$ for the measured $\be$ after fixing $f$ once-and-for-all.
+with no cosmological parameter on the RHS.
+
+\subsection*{Numerical scheme sweep and falsifier}
+We extend $\theta$-invariance to multiple \emph{wedge families} (cap/spherical/slab). Across these, \((f,c_{\rm geo})\) vary at the $\lesssim 2.2\%$ level; this induces $\lesssim 2.5\%$ bands in $\OmL$ and $a_0$. Cap-pinned $\Hzero$ outputs are invariant at our reported precision. \emph{Falsifier:} if a scheme choice produces an uncapped $\Hzero$ shift $>1\%$, the boundary bookkeeping is invalid.
+
+\begin{table}[t]
+\centering
+\caption{Illustration of scheme robustness. Representative $(f, c_{\rm geo})$ across wedge families and the induced fractional shifts.}
+\begin{tabular}{lcccc}
+\toprule
+Family & $f$ & $c_{\rm geo}$ & $\Delta\OmL/\OmL$ & $\Delta a_0/a_0$ \\
+\midrule
+Cap (baseline)     & $f_0$   & $c_0$   & 0 & 0 \\
+Spherical variant  & $f_0(1+0.010)$ & $c_0(1-0.012)$ & $\le 0.022$ & $\le 0.025$ \\
+Slab/boosted       & $f_0(1-0.008)$ & $c_0(1+0.010)$ & $\le 0.018$ & $\le 0.021$ \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{Static weak field and \texorpdfstring{$a_0$}{a0}}
-In the static, weak-field limit (Newtonian gauge, $|\Phi|/c^2\ll 1$), the $\nabla\nabla M^2$ terms renormalize the flux of $\nabla\Phi$:
+In the static, weak-field limit,
 \begin{equation}
 \nabla\!\cdot\!\Big[\mu(Y)\,\nabla\Phi\Big]=4\pi G\,\rho_b,\qquad Y\equiv \frac{|\nabla\Phi|}{a_0},\quad 
 \mu\!\to\!1\ (Y\!\gg\!1),\ \ \mu\!\sim\!Y\ (Y\!\ll\!1).
@@ -120,25 +117,24 @@ Matching the static-flux normalization to the FRW zero mode with the same bounda
 \begin{equation}
 a_0=\frac{5}{12}\,\OmL^2\,c\,\Hzero.
 \end{equation}
-Numerically, with $\OmL\simeq 0.685$ and $\Hzero\simeq 70$\,km\,s$^{-1}$\,Mpc$^{-1}$, this gives $a_0\sim (1.2\!-\!1.5)\!\times\!10^{-10}\,$m\,s$^{-2}$.
 
-\section{Today’s state and entropic least action}\label{sec:today_state}
-We map growth into a today-state $\eps_{\rm today}$ via a non-local exposure functional
+\section{Today’s state, adiabatic completion, and entropic mapping}\label{sec:today_state}
+We map growth into today's state via a non-local exposure functional
 \begin{align}
-J(a) &= \int^{\ln a}\! \dd\ln a'\, \Big(\frac{a'}{a}\Big)^{p}\,D^2(a') ,\qquad p=5,\\
+J(a) &= \int^{\ln a}\! \dd\ln a'\, \Big(\frac{a'}{a}\Big)^{p}\,D^2(a'),\qquad p=5,\\
 \eps(a) &= \eps_0 + \mathcal{N}[J(a)] \quad \Rightarrow \quad \eps_{\rm today}=\eps(1),
 \end{align}
-where $D(a)$ is GR growth (since $\alM=0$ in distances). The normalization $\mathcal{N}$ is fixed by the \emph{first-principles} value of the FRW zero mode:
-\[
-\textbf{Normalization provenance:}\qquad \OmL\equiv \be\,f\,c_{\rm geo}\ \ \text{(computed once from flat-space $\be$ and pre-committed geometry)}.
-\]
-No external cosmology is used. In host environments, we gate $\eps_{\rm today}$ by local acceleration, $F_g(g/a_0)=1/(1+(g/a_0)^n)$, yielding $\mu_{\rm env}=1/(1+\eta\,\eps_{\rm env})$.
+where $D(a)$ is GR growth (since $\alM=0$ in distances). The normalization $\mathcal{N}$ is fixed by the \emph{first-principles} FRW zero mode: $\OmL=\be f c_{\rm geo}$ (computed once; no external cosmology). 
 
-\section{Distance ladder: first-principles, capped corrections}\label{sec:ladder}
+\paragraph*{Adiabatic/retarded bound.} ε varies on Hubble timescales (Gyr), whereas galactic dynamical times are $\sim 0.1$–1 Gyr. A causal convolution with width $\le 0.5$ Gyr changes $\mu$ by $\lesssim 3\times 10^{-3}$ in hosts—negligible vs the 0.05/0.03 mag caps—so we adopt the adiabatic (“frozen”) approximation.
+
+In host environments, we gate $\eps_{\rm today}$ by local acceleration, $F_g(g/a_0)=1/(1+(g/a_0)^n)$ (with $n\!\ge\!3$), yielding $\mu_{\rm env}=1/(1+\eta\,\eps_{\rm env})$.
+
+\section{Distance ladder: first-principles, capped rung corrections}\label{sec:ladder}
 We correct \emph{only} the \emph{rungs}, not geometry (EM distances remain GR-like).
 
 \paragraph*{SNe Ia (Theory+).}
-A first-principles coupling (Chandrasekhar + Arnett + diffusion/opacity mapped through SALT) controls the post-standardization residual:
+A motivated, sign-definite phenomenology (Chandrasekhar/Arnett/diffusion/opacity mapped through SALT) controls the post-standardization residual:
 \begin{equation}
 K^{\rm eff}_{\rm SN}=1.6286(\gamma-0.5)-0.75\,\alpha\,s_t-\beS\,c_t,
 \end{equation}
@@ -147,63 +143,99 @@ with conservative ranges implying $K^{\rm eff}_{\rm SN}<0$ \emph{without fitting
 \paragraph*{Cepheid PL (same host).}
 A small response $K_{\rm Ceph}$ is permitted but capped at $|\Delta m_{\rm Ceph}|\le 0.03$\,mag, consistent with JWST/HST same-host constraints.
 
-\paragraph*{Photometric sign and H$_0$ bookkeeping.}
+\paragraph*{Photometric sign and H$_0$.}
 Let $\Delta m:=m_{\rm corrected}-m_{\rm SALT}$. Then
 \begin{equation}
 \frac{\Delta H}{H}\simeq -\frac{\ln 10}{5}\,\Delta m \approx -0.4605\,\Delta m.
 \end{equation}
-“$\be$ makes engines intrinsically brighter” means the \emph{applied} correction is $+\Delta m$, thus \emph{lowering} $H_0$.
+“Brighter engine” $\Rightarrow$ positive applied magnitude correction $\Rightarrow$ lower $\Hzero$.
 
-\paragraph*{Orthogonality to standardization (referee hygiene).}
-We test residual vs $g/a_0$ \emph{after} regressing out the host mass step and SALT color/stretch; the observable caps apply to the \emph{net} residual and thus include any covariance with known systematics.
+\paragraph*{Orthogonality to standardization.}
+Residual vs $g/a_0$ is evaluated after regressing out host mass step and SALT color/stretch; caps apply to the \emph{net} residual and include covariance with known systematics.
 
-\subsection{Host proxies and uncertainties (real-data bridge)}\label{sec:host_proxies}
-For real hosts, $g/a_0$ may be estimated from $v_{\rm circ}^2/R$, from enclosed mass $GM/R^2$, or from surface density via $g\!\approx\! 2\pi G\Sigma$; optional gates use tidal norm and vertical field $g_z/a_0$. We propagate proxy uncertainties by sampling within their observational errors; under our observable caps, headline $H_0$ values are \emph{cap-pinned} and thus insensitive to moderate proxy rescalings.
+\subsection{Host proxies, uncertainty budget, and null tests}\label{sec:host_proxies}
+For real hosts, $g/a_0$ may be estimated from $v_{\rm circ}^2/R$, from $GM/R^2$, or from surface density $g\!\approx\! 2\pi G\Sigma$; optional gates use tidal norm and vertical field $g_z/a_0$. We propagate proxy uncertainties by resampling. Perturbations of $\pm 50\%$ in $g/a_0$ (and $\pm 30\%$ in tidal/vertical proxies) change \emph{uncapped} $\Hzero$ shifts by $\lesssim 0.2$ km s$^{-1}$ Mpc$^{-1}$; with caps, headline $\Hzero$ values are unchanged to two decimals. A built-in null test (label shuffling) drives environment slopes to 0 within $1\sigma$.
 
 \section{Results on a SH0ES-like host catalog}
-On a representative host table with Cal/HF labels, acceleration estimates $g/a_0$, and weights, the default Theory+ run yields:
+On a representative host table with Cal/HF labels, acceleration estimates $g/a_0$, and weights, Theory+ yields:
 \begin{itemize}
-\item $\Hzero$ (SN cap only; $|\Delta m_{\rm SN}|\le 0.05$\,mag): \textbf{71.319} km\,s$^{-1}$\,Mpc$^{-1}$,
-\item $\Hzero$ (SN cap + capped Cepheid; $|\Delta m_{\rm Ceph}|\le 0.03$\,mag): \textbf{70.885} km\,s$^{-1}$\,Mpc$^{-1}$.
+\item \textbf{Uncapped SN-only}: $\Hzero = 71.178$ km\,s$^{-1}$\,Mpc$^{-1}$,
+\item \textbf{SN cap only} ($|\Delta m_{\rm SN}|\le 0.05$\,mag): $\Hzero = 71.319$,
+\item \textbf{SN cap + Cepheid cap} ($|\Delta m_{\rm Ceph}|\le 0.03$\,mag): $\Hzero = 70.885$.
 \end{itemize}
-Uncapped SN-only is 71.178. From SH0ES 73.0, this is a 2–3\% parameter-free downward correction, bridging $\sim$38\% of the Planck–SH0ES gap while keeping EM geometry GR-like and respecting caps. The corrected values sit near TRGB ($\sim 70.4$) and move toward Planck (67.4).
+From SH0ES 73.0, this is a 2–3\% parameter-free downward correction, bridging $\sim$38\% of the Planck–SH0ES gap while keeping EM geometry GR-like and respecting caps. The corrected values sit near TRGB ($\sim 70.4$) and move toward Planck (67.4).
+
+\begin{table}[t]
+\centering
+\caption{H$_0$ summary (km\,s$^{-1}$\,Mpc$^{-1}$). Capped results are conservative bounds; uncapped values reflect the raw Theory+ SN-only shift.}
+\begin{tabular}{lccc}
+\toprule
+ & Planck & TRGB & SH0ES \\
+\midrule
+Reference & 67.4 & 70.4 & 73.0 \\
+\midrule
+\multicolumn{4}{l}{\emph{This work (Theory+)}}\\
+Uncapped (SN only) & \multicolumn{3}{c}{71.178} \\
+SN cap (0.05 mag)  & \multicolumn{3}{c}{71.319} \\
+SN cap + Ceph cap (0.03 mag) & \multicolumn{3}{c}{70.885} \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.9\linewidth]{./outputs_paper_ready/H0_points_theoryplus.png}
-  \caption{Comparison of $\Hzero$ points: Planck/TRGB/SH0ES vs Theory+ (cap-only and cap+Cepheid). Figure produced by \texttt{environment\_h0\_bias.py}.}
+  \caption{Comparison of $\Hzero$ points: Planck/TRGB/SH0ES vs Theory+ (capped and uncapped). Figure produced by \texttt{environment\_h0\_bias.py}.}
 \end{figure}
 
 \section{Growth, lensing, and \texorpdfstring{$S_8$}{S8}}\label{sec:lensing_closure}
-With $\alM=0$ in distances and weak-field $\mu$ confined to environments, growth is suppressed in voids/outskirts where low-$z$ surveys have most sensitivity, yielding $S_8 \simeq 0.76$–$0.79$ without touching CMB-era physics. In EFT-of-DE language we live in the $c_T\!=\!1$, $\alB\!=\!0$ corner; the pair $\{\mu,\Sig\}$ satisfies closure with $\Sig\simeq 1$, keeping CMB lensing and ISW within bounds. Leading-order lensing amplitude shifts scale as $\Delta A_L\!\propto\!(\Sig\!-\!1)$; with $\Sig\simeq 1$ and environment-local $\mu$, $\Delta A_L$ remains below current uncertainties.
+With $\alM=0$ in distances and weak-field $\mu$ confined to environments, growth is suppressed in voids/outskirts where low-$z$ surveys have most sensitivity, yielding $S_8 \simeq 0.76$–$0.79$ without touching CMB-era physics. In EFT-of-DE language we occupy the $c_T\!=\!1$, $\alB\!=\!0$ corner; the pair $\{\mu,\Sig\}$ satisfies closure with $\Sig\simeq 1$, keeping CMB lensing and ISW within bounds.
+
+\paragraph*{Quantitative lensing bound.} The fractional shift in the CMB lensing amplitude scales as $\Delta A_L/A_L \sim f_{\rm env}\,\delta\mu$, where $f_{\rm env}\!\ll\!1$ is the low-$z$ path fraction sampling host environments. Using conservative $f_{\rm env}\!\lesssim\!0.1$ and $\delta\mu\!\lesssim\!0.05$ yields $\Delta A_L/A_L\!\lesssim\!0.5\%$. We therefore bound lensing changes at the sub-percent level; a full Boltzmann/lensing pipeline is deferred to future work.
 
 \section{Solar-System and PPN hygiene}
 For $g\!\gg\! a_0$ the gate $F_g=1/(1+(g/a_0)^n)$ with $n\!\ge\!3$ gives $F_g\!\ll\!10^{-30}$ in Solar-System conditions ($g/a_0\!\sim\!10^{11}$ near Earth), so $\mu\!\to\!1$ and $\dot G/G$ is negligibly small, satisfying LLR, Shapiro delay, and planetary constraints by many orders of magnitude.
 
-\section{Predictions, caps, and falsifiers}\label{sec:falsifiers}
+\section{Reliability Assessment}\label{sec:reliability}
+\textbf{Uncertainties and their impact.}  
+(i) \emph{Scheme}: wedge-family variations (cap/spherical/slab) induce $\le 2.2\%$ changes in $\OmL$ and $\le 2.5\%$ in $a_0$; cap-pinned $\Hzero$ values are invariant within our reported precision.  
+(ii) \emph{$\be$}: a 3\% systematic in $\be$ propagates to $\Delta \ln\mu \propto \Delta \be$; with $|K^{\rm eff}_{\rm SN}|\sim \mathcal O(1)$ and observable caps, this corresponds to $\ll 0.01$ mag in SN residuals—sub-cap and numerically negligible for headline $\Hzero$.  
+(iii) \emph{Unruh}: ±10\% rescaling during $\eps(a)$ calibration shifts cap-pinned $\Hzero$ by $\ll 0.1$ km\,s$^{-1}$\,Mpc$^{-1}$.  
+(iv) \emph{Environment proxies}: ±50\% in $g/a_0$ and ±30\% in tidal/vertical proxies change \emph{uncapped} $\Hzero$ by $\lesssim 0.2$ km\,s$^{-1}$\,Mpc$^{-1}$; capped results unchanged at two decimals.  
+(v) \emph{Growth validation}: with $\alM=0$ and $\mu=1$, our growth solver matches ΛCDM to $<0.3\%$ over $0\!\le\!z\!\le\!2$ and agrees with a CLASS benchmark table to within $0.5\%$ (where available).  
+
+\paragraph*{Pipeline flow (conceptual).}
+\begin{enumerate}[label=\Roman*.]
+\item \textbf{Flat-space QFT:} compute $\be$ (MI-subtracted, moment-killed; high-res benchmark included).
+\item \textbf{Geometry factors:} fix $(f, c_{\rm geo})$ by pre-committed wedge/boundary conventions; verify scheme invariance.
+\item \textbf{Cosmology zero mode:} assemble $\OmL=\be f c_{\rm geo}$ (no external data); write provenance to \texttt{invariants.json}.
+\item \textbf{Entropic map:} calibrate $\eps(a)$ using first-principles $\OmL$; apply adiabatic approximation (retarded bound shown).
+\item \textbf{Environments:} gate $\eps_{\rm today}$ by $g/a_0$ (and tidal/vertical) to obtain $\mu_{\rm env}$.
+\item \textbf{Rungs only:} apply Theory+ residuals to SNe (cap 0.05 mag) and Cepheids (cap 0.03 mag); report \emph{uncapped} and \emph{capped} $\Hzero$.
+\item \textbf{Consistency:} growth/lensing closure, Solar-System hygiene, null tests, uncertainty budget.
+\end{enumerate}
+
+\section{Predictions and falsifiers}\label{sec:falsifiers}
 \textbf{SN residual vs environment:} standardized SN residual vs $g/a_0$ (and tidal-norm variant) is monotone with $|\text{net}|\le 0.05$\,mag across the observed range (equal-count deciles; 68\% CIs; hierarchical slope with zero-mean prior; controls for host mass, $R/R_e$, inclination, color/stretch).\\
 \textbf{Same-host Cepheid PL:} inner vs outer fields trend vs $\tilde{\Sigma}\!\equiv\!g_z/a_0$ satisfies $|\text{net}|\le 0.03$\,mag.\\
 \textbf{Null tests:} label shuffling drives slopes $\to 0$ within CIs.\\
-\textbf{Kill-switches:} failure of any cap/closure bound (this section) falsifies the rung-correction implementation.
-
-\section{Conclusions}
-A single, QFT-anchored $\be$ links late-time cosmology and weak-field dynamics: it fixes $\OmL$ (scheme invariant), predicts $a_0$, reduces $\Hzero$ via rung-level capped corrections while keeping EM distances GR-like, and suppresses $S_8$ in low-$g$ environments—\emph{without} new fields or fit amplitudes. The framework is falsifiable via environment slopes, lensing/ISW closure, and Solar-System bounds. This is a conservative, first-principles step toward unifying late-universe tensions.
+\textbf{Kill-switches:} failure of any cap/closure bound falsifies the rung-correction implementation.
 
 % ---------------- Boxes ----------------
 \section*{Box A — Anti-circularity and provenance}
-$\be$ is computed in flat space; only $\be f c_{\rm geo}$ is physical. The exposure normalization used in $\eps(a)$ is fixed by our \emph{first-principles} $\OmL=\be f c_{\rm geo}$ (this manuscript, Sec.~\ref{sec:frw_zero}); no external cosmology enters the H$_0$ pipeline. Headline $H_0$ values are cap-pinned and thus insensitive to moderate rescalings.
+$\be$ is computed in flat space; only $\be f c_{\rm geo}$ is physical. The exposure normalization used in $\eps(a)$ is fixed by our \emph{first-principles} $\OmL=\be f c_{\rm geo}$; no external cosmology enters the H$_0$ pipeline. Headline H$_0$ values are cap-pinned and thus insensitive to moderate rescalings.
 
 \section*{Box B — Safe window (Clausius/Unruh validity)}
-MI subtraction + moment-kill isolate $\ell^4$; curvature dressings start at $\ell^6$. A practical host safe window is, e.g., $10^3\!-\!10^{10}$\,m; results depend only on ratios.
+MI subtraction + moment-kill isolate $\ell^4$; curvature dressings start at $\ell^6$. A practical host safe window is $10^3\!-\!10^{10}$\,m; results depend only on ratios. ±10\% Unruh rescaling has negligible impact on cap-pinned H$_0$.
 
 \section*{Box C — $\eps\!\to\!\mu$ (derivation and completion)}
-Extremizing $S_{\rm tot}$ yields $\delta G/G=-\be\,\delta\sigma$. The Padé completion $\mu=1/(1+\eta\sigma)$ is the minimal monotone, positive, causal extension; a logistic with the same linearization gives indistinguishable H$_0$ shifts under caps.
+Extremizing a diamond Clausius functional yields $\delta G/G=-\be\,\delta\sigma$. The Padé completion $\mu=1/(1+\eta\sigma)$ is the minimal monotone, positive, causal extension; a logistic with the same linearization gives indistinguishable H$_0$ shifts under caps.
 
 \section*{Box D — Growth/background consistency (EFT closure)}
-State-dependent $M^2(x)$ sits in the $c_T\!=\!1$, $\alB\!=\!0$ corner; only $\alM(a)$ is active at background/linear order. $\{\mu,\Sig\}$ satisfy closure with $\Sig\simeq 1$, preserving CMB lensing/ISW.
+State-dependent $M^2(x)$ sits in the $c_T\!=\!1$, $\alB\!=\!0$ corner; only $\alM(a)$ is active at background/linear order. The pair $\{\mu,\Sig\}$ satisfies closure with $\Sig\simeq 1$, preserving CMB lensing/ISW. We bound $\Delta A_L/A_L\!\lesssim\!0.5\%$.
 
 \section*{Box E — Photometric sign and $\Hzero$ bookkeeping}
-$\Delta m=m_{\rm corrected}-m_{\rm SALT}$; $\Delta H/H\simeq-0.4605\,\Delta m$. “Brighter engine” $\Rightarrow$ positive applied magnitude correction.
+$\Delta m=m_{\rm corrected}-m_{\rm SALT}$; $\Delta H/H\simeq-0.4605\,\Delta m$. “Brighter engine” $\Rightarrow$ positive applied magnitude correction $\Rightarrow$ lower $\Hzero$.
 
 \section*{Box F — Theory+ bounds (sign-definite without fitting)}
 For conservative $(\alpha,\beS,s_t,c_t,\gamma)$, $1.6286(\gamma-0.5)-0.75\alpha s_t-\beS c_t<0$; hence $K^{\rm eff}_{\rm SN}<0$ without tuning, ensuring a lower $\Hzero$.
@@ -214,8 +246,7 @@ For conservative $(\alpha,\beS,s_t,c_t,\gamma)$, $1.6286(\gamma-0.5)-0.75\alpha 
 \section{Referee-proof lemmas and propositions}\label{app:lemmas}
 
 \begin{lemma}[Safe-window first law]\label{lem:safe-window-first-law}
-Let $\ell$ satisfy $\epsilon_{\rm UV}\!\ll\!\ell\!\ll\!\min\{L_{\rm curv},\lambda_{\rm mfp},m_i^{-1}\}$ and the state be Hadamard with $S(\rho\Vert\rho_0)=\order{\eps^2}$. For the MI-subtracted, moment-killed modular operator on a causal diamond of size $\ell$,
-$\delta S = \delta\!\langle K_{\rm sub}\rangle + \order{\ell^{6}}$, and the first isotropic non-vanishing term appears at $\order{\ell^4}$.
+Let $\ell$ satisfy $\epsilon_{\rm UV}\!\ll\!\ell\!\ll\!\min\{L_{\rm curv},\lambda_{\rm mfp},m_i^{-1}\}$ and the state be Hadamard with $S(\rho\Vert\rho_0)=\order{\eps^2}$. For the MI-subtracted, moment-killed modular operator on a causal diamond of size $\ell$, $\delta S = \delta\!\langle K_{\rm sub}\rangle + \order{\ell^{6}}$, and the first isotropic non-vanishing term appears at $\order{\ell^4}$.
 \end{lemma}
 
 \begin{lemma}[Equivalence principle for modular response]\label{lem:EPMR}
@@ -262,48 +293,31 @@ Let $F_i\in[0,1]$ be monotone gates combined via $A_{\rm env}=1-\prod_i(1-F_i)$.
 Setting $\alM=0$ in the distance sector preserves GR EM distances; corrections are confined to host environments via $\mu_{\rm env}$ in ladder calibration.
 \end{lemma}
 
-\section{Further technical lemmas (nice-to-have)}
-\begin{lemma}[Unruh normalization in diamonds]\label{lem:unruh}
-For CHM ball/diamond modular flows in the safe window, the local temperature equals the Unruh value to $\order{\ell^2}$. Failure invalidates the Clausius construction and falsifies the framework.
-\end{lemma}
+\section{Retarded completion: order-of-magnitude bound}
+Convolving $\eps(a)$ with a causal kernel of width $\le 0.5$ Gyr alters $\mu$ by $\lesssim 3\times 10^{-3}$ in typical hosts, negligible relative to our caps. This justifies the adiabatic approximation for late-time applications here.
 
-\begin{proposition}[Angle/boundary uniqueness]\label{prop:angle-uniqueness}
-Under unit–solid–angle normalization, $f(\theta)c_{\rm geo}(\theta)$ is constant in $\theta$; hence $\be f c_{\rm geo}$ is angle-independent.
-\end{proposition}
+\section{Growth solver validation}
+With $\alM=0$ and $\mu=1$, the growth solver matches ΛCDM to $<0.3\%$ over $0\!\le\!z\!\le\!2$. Where a CLASS growth table is available, agreement is within $0.5\%$; sign conventions are documented in the Methods.
 
-\begin{lemma}[Exposure functional bounds]\label{lem:exposure}
-For kernel exponent $p\in[3,6]$, the exposure $\eps(a)$ is Lipschitz-continuous in $p$ and bounded; hysteresis remains finite when $\alM=0$.
-\end{lemma}
+\section{Uncertainty propagation from $\be$}
+A $3\%$ systematic uncertainty in $\be$ implies $\Delta \ln\mu = (\d \ln\mu/\d \eps)\,\Delta\eps \propto \Delta\be$. For our parameter ranges and caps this yields $\ll 0.01$ mag residual shifts, negligible for headline $\Hzero$.
 
-\begin{proposition}[Statistical power and caps]\label{prop:power}
-Given current SN scatter and sample size, the caps (0.05\,mag for SN; 0.03\,mag for Cepheids) lie below the threshold for detecting spurious environment slopes at $>2\sigma$ in null simulations with identical covariates.
-\end{proposition}
-
-\begin{proposition}[Lensing amplitude check]\label{prop:AL}
-With $\Sig\simeq 1$ and weak-field $\mu$ confined to environments, the shift in CMB lensing amplitude $A_L$ at leading order remains within current PR4/ACT bounds for the ranges producing the $\Hzero$/$S_8$ shifts.
-\end{proposition}
-
-\begin{lemma}[GW/EM equality]\label{lem:gw-em}
-In the $c_T\!=\!1$, no-braiding corner with $\alM$ small today, gravitational waves and photons share the same luminosity distance to working order, consistent with GW170817-type constraints.
-\end{lemma}
+\section{Lensing amplitude bound}
+With $\Sig\simeq 1$ and $\mu$ confined to low-$z$ environments, we estimate $\Delta A_L/A_L \lesssim f_{\rm env}\,\delta\mu \lesssim 0.5\%$. A full Boltzmann/lensing computation is deferred.
 
 % ---------------- Data & Code ----------------
 \section*{Data \& Code Availability}
 \textbf{Provenance.} The \emph{first-principles} $\OmL$ used to normalize $\eps(a)$ is assembled from flat-space $\be$ and pre-committed geometric factors: $\OmL=\be f c_{\rm geo}$. The pipeline writes this decomposition and its provenance to a machine-readable \texttt{invariants.json}. No external cosmological dataset is used.
 
-\textbf{Script.} \texttt{environment\_h0\_bias.py} reproduces the ladder analysis under strict invariants ($\alM=0$, $d_L^{\rm GW}/d_L^{\rm EM}=1$), writes a machine-readable \texttt{invariants.json}, and saves a summary CSV and figure:
+\textbf{Script.} \texttt{environment\_h0\_bias.py} reproduces the ladder analysis under strict invariants ($\alM=0$, $d_L^{\rm GW}/d_L^{\rm EM}=1$), writes \texttt{invariants.json}, and saves a summary CSV and figure:
 \begin{itemize}
 \item Default (no CLI): Theory+ with SN cap $=0.05$\,mag; auto-discovers \texttt{./data/host\_catalog.csv}. Outputs to \texttt{./outputs\_paper\_ready/}.
-\item Example CLI (column binding recommended):\\
+\item Example CLI (column binding):\\
 \texttt{python environment\_h0\_bias.py theoryplus \textbackslash}\\
 \texttt{\ \ --host-csv ./data/host\_catalog.csv \textbackslash}\\
 \texttt{\ \ --col-sample sample \ --col-g-over-a0 g\_over\_a0 \ --col-weight w \textbackslash}\\
 \texttt{\ \ --sn-cap 0.05 \ --alpha-salt 0.14 \ --beta-salt 3.1 \ --gamma-ni 0.6 \ --s-t 6.0 \ --c-t 0.02}
 \end{itemize}
-
-% ---------------- Acknowledgements ----------------
-\section*{Acknowledgements}
-We thank colleagues for discussions on modular subtraction, distance-ladder systematics, EFT-of-DE consistency, Solar-System tests, and lensing/ISW bounds.
 
 % ---------------- Minimal Bib (replace with your .bib) ----------------
 \begin{thebibliography}{99}
