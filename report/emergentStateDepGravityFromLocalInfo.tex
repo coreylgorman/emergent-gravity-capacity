@@ -3,13 +3,21 @@
 % — Packages —
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb,bm,graphicx,mathtools,amsthm}
+\usepackage{adjustbox} % for max-width scaling of TikZ figures
 \usepackage{xcolor}
 \usepackage{microtype}
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{bookmark} % stabilize outlines/bookmarks (prevents rerun loops)
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,positioning,fit,calc,shapes.geometric,shapes.multipart}
+\usetikzlibrary{arrows.meta,positioning,fit,calc,shapes.geometric,shapes.multipart,backgrounds}
+
+% — Flowchart colors —
+\definecolor{flowBlue}{HTML}{1F77B4}
+\definecolor{flowPurple}{HTML}{9467BD}
+\definecolor{flowGreen}{HTML}{2CA02C}
+\definecolor{flowOrange}{HTML}{FF7F0E}
+\definecolor{flowRed}{HTML}{D62728}
 
 % — Hyperref setup —
 \hypersetup{
@@ -112,6 +120,55 @@ Within the safe window and EPMR working order, the FRW zero mode satisfies the \
 \label{eq:OmegaL-clean}
 \OmL=\beta f \cgeo.
 \end{equation}
+
+% —— Conceptual flow: QFT → Thermal → Entropy → CGM → Resolution ——
+\begin{figure*}[t]
+\centering
+\begin{adjustbox}{max width=\textwidth, max height=0.9\textheight}
+\begin{tikzpicture}[
+  node distance=3.2mm and 10mm,
+  every node/.style={font=\footnotesize},
+  stageH/.style={draw, rounded corners=2pt, align=center, inner sep=4pt, outer sep=0pt, text width=0.78\linewidth, font=\footnotesize\bfseries},
+  stage/.style={draw, rounded corners=2pt, align=center, inner sep=4pt, outer sep=0pt, text width=0.78\linewidth},
+  arr/.style={-Latex, semithick, shorten >=2pt, shorten <=2pt}
+]
+% Blue: QFT layer
+\node[stageH, draw=flowBlue!80, fill=flowBlue!20] (Q0) {[Blue: QFT Layer]};
+\node[stage, below=of Q0, draw=flowBlue!80, fill=flowBlue!8] (Q1) {Vacuum state in QFT};
+\node[stage, below=of Q1, draw=flowBlue!80, fill=flowBlue!8] (Q2) {Restrict to Rindler wedge (accelerated observer)};
+\node[stage, below=of Q2, draw=flowBlue!80, fill=flowBlue!8] (Q3) {$\rho_A = \mathrm{Tr}_{\rm outside}\,|0\rangle\langle 0|$};
+\draw[arr] (Q0) -- (Q1); \draw[arr] (Q1) -- (Q2); \draw[arr] (Q2) -- (Q3);
+
+% Red: Thermal layer
+\node[stageH, below=8mm of Q3, draw=flowRed!80, fill=flowRed!20] (T0) {[Red: Thermal Layer]};
+\node[stage, below=of T0, draw=flowRed!80, fill=flowRed!8] (T1) {Thermal form: $\rho_A = e^{-K}/Z,\quad K = H/T_U$};
+\node[stage, below=of T1, draw=flowRed!80, fill=flowRed!8] (T2) {Unruh temperature: $T_U = \hbar a/(2\pi c k_B)$};
+\draw[arr] (Q3) -- (T0); \draw[arr] (T0) -- (T1); \draw[arr] (T1) -- (T2);
+
+% Green: Entropy layer
+\node[stageH, below=8mm of T2, draw=flowGreen!80, fill=flowGreen!20] (E0) {[Green: Entropy Layer]};
+\node[stage, below=of E0, draw=flowGreen!80, fill=flowGreen!8] (E1) {von Neumann entropy: $S_A=-\mathrm{Tr}(\rho_A\log\rho_A)$};
+\node[stage, below=of E1, draw=flowGreen!80, fill=flowGreen!8] (E2) {Entanglement first law: $\delta S=\delta\langle K\rangle = (1/T_U)\,\delta\langle H\rangle$};
+\node[stage, below=of E2, draw=flowGreen!80, fill=flowGreen!8] (E3) {Clausius relation in safe window: $\delta Q = T_U\,\delta S$ (\hyperref[hyp:A2]{A2})};
+\draw[arr] (T2) -- (E0); \draw[arr] (E0) -- (E1); \draw[arr] (E1) -- (E2); \draw[arr] (E2) -- (E3);
+
+% Orange: CGM obstruction
+\node[stageH, below=8mm of E3, draw=flowOrange!90, fill=flowOrange!25] (C0) {[Orange: CGM 2016 Obstruction]};
+\node[stage, below=of C0, draw=flowOrange!90, fill=flowOrange!12] (C1) {For $\Delta\le d/2$: obstruction $\delta\langle K\rangle\sim \ell^d\log\ell$ (breaks Clausius) (\hyperref[sec:CGM]{Sec.~\ref*{sec:CGM}})};
+\draw[arr] (E3) -- (C0); \draw[arr] (C0) -- (C1);
+
+% Purple: Resolution
+\node[stageH, below=8mm of C1, draw=flowPurple!80, fill=flowPurple!20] (R0) {[Purple: Resolution in this work]};
+\node[stage, below=of R0, draw=flowPurple!80, fill=flowPurple!8] (R1) {MI subtraction + moment-kill $\Rightarrow$ cancel $r^0,r^2$ contact terms; safe window $\Rightarrow$ curvature $\mathcal O(\ell^6)$ (\hyperref[app:MI-momentkill]{App.~\ref*{app:MI-momentkill}}, \hyperref[app:epmr]{App.~\ref*{app:epmr}})};
+\node[stage, below=of R1, draw=flowPurple!80, fill=flowPurple!8] (R2) {Marginal $\Delta{=}d/2$: slow running $M^2(\eps)$ adds focusing source $k^a k^b\nabla_a\nabla_b M^2$ canceling the log obstruction (\hyperref[sec:clausius-vs-jacobson]{Sec.~\ref*{sec:clausius-vs-jacobson}})};
+\node[stage, below=of R2, draw=flowGreen!80, fill=flowGreen!8] (R3) {\textbf{Restored Clausius identity:} $\delta\!\langle K\rangle=(2\pi C_T I_{00})\,\ell^4\,\delta\eps+\mathcal O(\ell^6)$ (flat-space finite coefficient; \hyperref[thm:A2-working]{Theorem~\ref*{thm:A2-working}})};
+\draw[arr] (C1) -- (R0); \draw[arr] (R0) -- (R1); \draw[arr] (R1) -- (R2); \draw[arr] (R2) -- (R3);
+
+\end{tikzpicture}
+\end{adjustbox}
+\caption{Conceptual flow from QFT vacuum reduction to the Clausius identity, highlighting the CGM (2016) obstruction and the resolution employed in this work. Color coding aligns with later figures; placed early to frame the analysis logic.}
+\label{fig:qft-thermal-flow}
+\end{figure*}
 
 %—————————————–
 \section{Assumptions and Domain of Validity}
@@ -237,46 +294,57 @@ Replica–geometry finite–difference  & $\lesssim 1\%$ & $\lesssim 0.5\%$ \\
 \end{tabular}
 \end{table}
 
-% —— New hyperlinked figure: Computation & Validation Pipeline ——
+% —— Hyperlinked figure (revised): Computation & Validation Pipeline ——
 \begin{figure*}[t]
 \centering
+\begin{adjustbox}{max width=\textwidth, max height=0.9\textheight}
 \begin{tikzpicture}[
-  node distance=7mm and 12mm,
-  every node/.style={font=\small},
-  box/.style={draw, rounded corners, align=center, inner sep=4pt, outer sep=2pt, fill=white},
-  arr/.style={-Latex, thick}
+  node distance=3.2mm and 10mm,
+  every node/.style={font=\footnotesize},
+  stageH/.style={draw, rounded corners=2pt, align=center, inner sep=4pt, outer sep=0pt, text width=0.78\linewidth, font=\footnotesize\bfseries},
+  stage/.style={draw, rounded corners=2pt, align=center, inner sep=4pt, outer sep=0pt, text width=0.78\linewidth},
+  spur/.style={draw, rounded corners=2pt, align=left, inner sep=4pt, outer sep=0pt, text width=0.78\linewidth},
+  arr/.style={-Latex, semithick, shorten >=2pt, shorten <=2pt},
+  darr/.style={-Latex, dashed, semithick, shorten >=2pt, shorten <=2pt}
 ]
-% Left column: beta computation
-\node[box, fill=blue!5] (chm) {\textbf{CHM/OP modular data}\\ \hyperref[sec:beta-calc]{Sec.~\ref*{sec:beta-calc}}};
-\node[box, below=of chm] (mi) {MI subtraction +\\ moment-kill\\ \hyperref[app:MI-momentkill]{App.~\ref*{app:MI-momentkill}}};
-\node[box, below=of mi] (routes) {4 independent routes\\ (real, spectral, Eucl., replica)\\ \hyperref[sec:beta-multimethod]{Sec.~\ref*{sec:beta-multimethod}}};
-\node[box, below=of routes, fill=green!7] (beta) {$\beta$ plateau \& stability\\ \hyperref[sec:convergence]{Sec.~\ref*{sec:convergence}}};
+% Blue header and steps
+\node[stageH, draw=flowBlue!80, fill=flowBlue!20] (B0) {[Blue: QFT / Modular Analysis]};
+\node[stage, below=of B0, draw=flowBlue!80, fill=flowBlue!8] (B1) {\hyperref[sec:beta-calc]{Flat-space QFT} $\to$ MI-subtracted modular Hamiltonian (CHM/OP)};
+\node[stage, below=of B1, draw=flowBlue!80, fill=flowBlue!8] (B2) {Compute $\beta = 2\pi\,C_T\,I_{00}$ \ (\hyperref[sec:beta-multimethod]{robust across 4 routes})};
+\draw[arr] (B0) -- (B1); \draw[arr] (B1) -- (B2);
 
-% Middle: geometric normalization
-\node[box, right=2.6cm of mi, fill=yellow!10] (f) {Geometric normalization $f$\\ (schemes A/B; angle-invariant)\\ \hyperref[sec:f-norm]{Sec.~\ref*{sec:f-norm}}};
-\node[box, below=of f, fill=yellow!10] (cgeo) {$\cgeo(\theta)$, unit-solid-angle\\ \hyperref[app:cgeo-integral]{App.~\ref*{app:cgeo-integral}}};
-\node[box, below=of cgeo, fill=orange!15] (omega) {\Large $\OmL=\beta f \cgeo$\\ \hyperref[sec:OmegaL]{Sec.~\ref*{sec:OmegaL}}};
+% *** NEW: Validation spurs placed UNDER the main branch ***
+\node[spur, below=of B2, draw=flowBlue!80, fill=flowBlue!4] (S1) {\textbf{Validation Spur 1: Four independent QFT runs}\\• Real-space CHM + MI\\• Momentum-space spectral/Bessel\\• Euclidean correlator slicing\\• Replica finite-difference\\(spread $\le 1\%$; \hyperref[sec:beta-multimethod]{Sec.~\ref*{sec:beta-multimethod}})};
+\draw[darr] (B2) -- (S1);
 
-% Right column: validations and applications
-\node[box, right=2.6cm of routes, fill=blue!5] (substr) {Substrate checks:\\ HQTFIM \& Gaussian\\ \hyperref[sec:substrate-validations]{Sec.~\ref*{sec:substrate-validations}}};
-\node[box, below=of substr] (state) {Entropic state-action $\eps(a)$\\ \hyperref[sec:state-action]{Sec.~\ref*{sec:state-action}}};
-\node[box, below=of state] (growth) {Growth $f\sigma_8$, $S_8$\\ \hyperref[sec:growth]{Sec.~\ref*{sec:growth}}};
-\node[box, below=of growth] (h0) {Hubble ladder (capped/uncapped)\\ \hyperref[sec:h0-illustration]{Sec.~\ref*{sec:h0-illustration}}};
+\node[spur, below=of S1, draw=flowBlue!80, fill=flowBlue!4] (S2) {\textbf{Validation Spur 2: Substrate runs (method check)}\\• HQTFIM spin chain: first-law RMS $\ll 10^{-4}$, constant+log trend, plateau $\approx 0$\\• Gaussian fermion chain: first law exact, slope $a_1\!\approx\!1.1$, plateau $\approx 0$ (\hyperref[sec:substrate-validations]{Sec.~\ref*{sec:substrate-validations}})};
+\draw[darr] (S1) -- (S2);
 
-% Arrows
-\draw[arr] (chm) -- (mi);
-\draw[arr] (mi) -- (routes);
-\draw[arr] (routes) -- (beta);
-\draw[arr] (mi.east) -- (f.west);
-\draw[arr] (f) -- (cgeo);
-\draw[arr] (cgeo) -- (omega);
-\draw[arr] (routes.east) -- (substr.west);
-\draw[arr] (omega.east) to[bend left=12] (state.west);
-\draw[arr] (substr) -- (state);
-\draw[arr] (state) -- (growth);
-\draw[arr] (growth) -- (h0);
+% Purple header and steps (moved down to sit below S2)
+\node[stageH, below=8mm of S2, draw=flowPurple!80, fill=flowPurple!20] (P0) {[Purple: Geometric Mapping]};
+\node[stage, below=of P0, draw=flowPurple!80, fill=flowPurple!8] (P1) {Pre-commit to CHM diamonds, Unruh normalization (\hyperref[sec:precommit]{Sec.~\ref*{sec:precommit}})};
+\node[stage, below=of P1, draw=flowPurple!80, fill=flowPurple!8] (P2) {Scheme-invariant product $\beta\,f\,c_{\rm geo}$ (\hyperref[sec:theta-invariance]{angle invariance})};
+\node[stage, below=of P2, draw=flowPurple!80, fill=flowPurple!8] (P3) {\Large $\Omega_\Lambda = \beta\, f\, c_{\rm geo} \ \approx\ 0.685$ \ (\hyperref[sec:OmegaL]{Sec.~\ref*{sec:OmegaL}})};
+\draw[arr] (P0) -- (P1); \draw[arr] (P1) -- (P2); \draw[arr] (P2) -- (P3);
+
+% Green header and steps
+\node[stageH, below=8mm of P3, draw=flowGreen!80, fill=flowGreen!20] (G0) {[Green: Weak-field Sector]};
+\node[stage, below=of G0, draw=flowGreen!80, fill=flowGreen!8] (G1) {Safe-window Clausius theorem $\Rightarrow$ flux law with prefactor $5/12$ (\hyperref[app:epmr]{App.~\ref*{app:epmr}}, \hyperref[app:a0-derivation]{App.~\ref*{app:a0-derivation}})};
+\node[stage, below=of G1, draw=flowGreen!80, fill=flowGreen!8] (G2) {$a_0 = (5/12)\,\Omega_\Lambda^2\,c\,H_0$};
+\node[stage, below=of G2, draw=flowGreen!80, fill=flowGreen!8] (G3) {Entropic state-action ($\Delta S\!\ge 0$) $\to$ $\varepsilon(a)$ monotone (\hyperref[sec:state-action]{Sec.~\ref*{sec:state-action}})};
+\node[stage, below=of G3, draw=flowGreen!80, fill=flowGreen!8] (G4) {Growth equation with $\mu(\varepsilon)=1/(1+\eta\varepsilon)$ (\hyperref[sec:growth]{Sec.~\ref*{sec:growth}})};
+\node[stage, below=of G4, draw=flowGreen!80, fill=flowGreen!8] (G5) {\Large $S_8 \approx 0.788$\ (\,$-7\%$ vs $\Lambda$CDM\,)};
+\draw[arr] (G0) -- (G1); \draw[arr] (G1) -- (G2); \draw[arr] (G2) -- (G3); \draw[arr] (G3) -- (G4); \draw[arr] (G4) -- (G5);
+
+% Orange header and steps
+\node[stageH, below=8mm of G5, draw=flowOrange!90, fill=flowOrange!25] (O0) {[Orange: Observational Application]};
+\node[stage, below=of O0, draw=flowOrange!90, fill=flowOrange!12] (O1) {Environment-gated mapping to Hubble ladder (\hyperref[sec:h0-illustration]{Sec.~\ref*{sec:h0-illustration}})};
+\node[stage, below=of O1, draw=flowOrange!90, fill=flowOrange!12] (O2) {Uncapped SN run: $H_0 = 71.18$\quad\; Capped SN/Cepheid: $H_0 = 70.89$};
+\node[stage, below=of O2, draw=flowOrange!90, fill=flowOrange!12] (O3) {All distance measures remain GR-like (\,$\alpha_M=0$ in distance sector\,)};
+\draw[arr] (O0) -- (O1); \draw[arr] (O1) -- (O2); \draw[arr] (O2) -- (O3);
 \end{tikzpicture}
-\caption{End-to-end computation and validation pipeline with live links to the corresponding sections. Left: determination of $\beta$ from CHM/OP modular response after MI subtraction and moment-kill, with four independent routes and stability checks. Center: angle/scheme-invariant geometric normalization leading to the conditional mapping $\OmL=\beta f\cgeo$. Right: independent substrate validations (HQTFIM and Gaussian chains) underpin the analysis assumptions, feeding into the entropic state-action, growth, and Hubble-ladder illustrations.}
+\end{adjustbox}
+\caption{Vertical, color-coded pipeline with \emph{beta-validation spurs placed beneath the QFT block}. Blue: QFT/modular analysis leading to $\beta$ (with two validation spurs). Purple: geometric mapping and scheme invariance to $\Omega_\Lambda$. Green: weak-field sector ($5/12$, $a_0$, state-action, growth, $S_8$). Orange: observational application to the Hubble ladder; EM distances remain GR-like.}
 \label{fig:pipeline}
 \end{figure*}
 
@@ -340,35 +408,6 @@ Smearing with the same MI/moment-kill projector that defines \(I_{00}\) yields a
 For CHM diamonds in the safe window with MI subtraction and moment-kill, if \(M^2\) runs slowly with \(\eps\) so that \(\delta\eps\) varies logarithmically across the window, then the additional focusing source \(M^{-2}k^a k^b\nabla_a\nabla_b M^2\) produces a gravitational contribution \(-B\,\ell^4\log(\ell\mu)\,\delta\eps\) that cancels the CGM obstruction \(+B\,\ell^4\log(\ell\mu)\,\delta\eps\) in \(\delta\!\langle K_{\rm sub}\rangle\). The remaining finite \(\ell^4\) term equals \(2\pi C_T I_{00}\,\ell^4\,\delta\eps\), establishing (A2) at the marginal point.
 \end{proposition}
 
-% —— New hyperlinked figure: CGM → compensator → mapping ——
-\begin{figure*}[t]
-\centering
-\begin{tikzpicture}[
-  node distance=7mm and 12mm,
-  every node/.style={font=\small},
-  box/.style={draw, rounded corners, align=center, inner sep=4pt, outer sep=2pt, fill=white},
-  obs/.style={draw, rounded corners, align=center, inner sep=4pt, outer sep=2pt, fill=red!5},
-  good/.style={draw, rounded corners, align=center, inner sep=4pt, outer sep=2pt, fill=green!7},
-  arr/.style={-Latex, thick}
-]
-\node[obs] (cgm) {\textbf{CGM obstruction} ($\Delta\!\le\! d/2$)\\ contact \& log terms\\ \hyperref[sec:CGM]{Sec.~\ref*{sec:CGM}}};
-\node[box, right=2.8cm of cgm] (mi) {MI subtraction + moment-kill\\ removes area/contact\\ \hyperref[app:MI-momentkill]{App.~\ref*{app:MI-momentkill}}};
-\node[box, below=of mi] (safe) {\emph{Safe window}\\ $\epsilon_{\rm UV}\!\ll\!\ell\!\ll\!\min\{L_{\rm curv},\lambda_{\rm mfp},m_i^{-1}\}$\\ \hyperref[def:safe-window]{Def.~\ref*{def:safe-window}}};
-\node[box, right=2.8cm of mi, fill=yellow!10] (run) {Slow running $M^2(\eps)$\\ adds focusing source\\ \hyperref[sec:clausius-vs-jacobson]{Sec.~\ref*{sec:clausius-vs-jacobson}}};
-\node[good, below=of run] (cancel) {Log compensator cancels\\ marginal $\ell^4\log(\ell)$ term\\ \hyperref[prop:marginal]{Prop.~\ref*{prop:marginal}}};
-\node[good, right=2.8cm of run] (epmr) {\textbf{EPMR} in small diamonds:\\ finite $\ell^4$ = flat-space value\\ \hyperref[app:epmr]{App.~\ref*{app:epmr}}, Thm.~\ref{thm:A2-working}};
-\node[box, below=of epmr, fill=orange!15] (map) {\Large $\OmL=\beta f \cgeo$\\ \hyperref[sec:OmegaL]{Sec.~\ref*{sec:OmegaL}}};
-
-\draw[arr] (cgm) -- (mi);
-\draw[arr] (mi) -- (run);
-\draw[arr] (mi) -- (safe);
-\draw[arr] (run) -- (cancel);
-\draw[arr] (cancel) -- (epmr);
-\draw[arr] (epmr) -- (map);
-\end{tikzpicture}
-\caption{Hyperlinked resolution path for the CGM critique: MI subtraction and moment-kill remove area/contact terms; within the safe window, a slow running $M^2(\eps)$ supplies a marginal log compensator that cancels the obstruction, yielding the flat-space finite $\ell^4$ coefficient at working order (EPMR). This underpins the conditional, scheme-invariant mapping $\OmL=\beta f\cgeo$.}
-\label{fig:cgm-diagram}
-\end{figure*}
 
 %—————————————–
 \section{Geometric Normalization Factor \texorpdfstring{$f$}{f} (two schemes)}
