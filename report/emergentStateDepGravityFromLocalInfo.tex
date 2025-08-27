@@ -48,6 +48,7 @@ urlcolor=blue
 \newtheorem{hypothesis}{Hypothesis}
 \newtheorem{lemma}{Lemma}
 \newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
 
 % — Harmless guard for certain toolchains referencing this label —
 \providecommand\LastBibItem{} % avoids spurious “LastBibItem undefined” warnings
@@ -64,7 +65,7 @@ A Conditional Thermodynamic Derivation with Scheme-Invariant Cosmological Mappin
 \begin{abstract}
 \textbf{Core hypothesis.} Each proper frame carries a finite quantum information capacity. Approaching this bound triggers a \emph{state-dependent response} that preserves causal stitching with neighboring frames. \emph{Kinematics remain GR-like}: we do not alter null geometry used by EM/GW luminosity distances. The response is \emph{dynamical} (weak-field coupling), not kinematical (no extra time dilation beyond GR).
 
-\textbf{Scope and conditionality.} All quantitative claims are conditional on a single working assumption: (A2) the Clausius relation $\delta Q = T\,\delta S$ with Unruh normalization holds for small, near-vacuum local Rindler wedges (the \emph{safe window}). Within this regime we establish an \emph{equivalence principle for modular response} (EPMR): after mutual-information subtraction with \emph{moment-kill}, the $\ell^4$ modular coefficient equals the flat-space value at working order, while curvature dressings enter at $\mathcal O(\ell^6)$.
+\textbf{Scope and conditionality.} All quantitative claims are conditional on a single working assumption: (A2) the Clausius relation $\delta Q = T\,\delta S$ with Unruh normalization holds for small, near-vacuum local Rindler wedges (the \emph{safe window}). Within this regime we establish an \emph{equivalence principle for modular response} (EPMR): after mutual-information subtraction with \emph{moment-kill}, the $\ell^4$ modular coefficient equals the flat-space value at working order, while curvature dressings enter at $\mathcal O(\ell^6)$. See Theorem~\ref{thm:A2-working} for the working-order statement and error control.
 
 \textbf{Main outcomes.} (i) A microscopic sensitivity $\beta$ from MI-subtracted modular Hamiltonians in flat-space QFT (Casini--Huerta--Myers balls, Osborn--Petkou normalization); (ii) a once-and-for-all geometric normalization with \emph{continuous-angle invariance} showing only the \emph{product} $\beta f \cgeo$ is physical; (iii) a \emph{conditional, scheme-invariant mapping} $\OmL=\beta f \cgeo$ for the FRW zero mode; and (iv) a weak-field flux law with a universal geometric prefactor $5/12$, implying $a_0=(5/12)\,\OmL^2\,c\,H_0$. We keep the distance sector GR-like ($\alphaM=0$ there), and we \emph{enforce} $|d_L^{\rm GW}/d_L^{\rm EM}-1|\le 5\times 10^{-3}$.
 
@@ -78,7 +79,7 @@ A Conditional Thermodynamic Derivation with Scheme-Invariant Cosmological Mappin
 \label{sec:intro}
 
 \paragraph{High level summary.}
-We hypothesize that the geometric side of Einstein’s equations exhibits a \emph{local, state-dependent response} because each small spacetime wedge has finite information capacity. As capacity is approached, the Clausius relation enforces a compensating response so adjacent wedges remain causally stitched. \emph{Kinematics (null cones, EM/GW distances) stay GR-like}; all changes are \emph{dynamical} (response strength in weak fields). Jacobson’s horizon thermodynamics is recovered as the stationary-horizon special case. All claims here are conditional on (A2); if (A2) fails, the construction must be revised.
+We hypothesize that the geometric side of Einstein’s equations exhibits a \emph{local, state-dependent response} because each small spacetime wedge has finite information capacity. As capacity is approached, the Clausius relation enforces a compensating response so adjacent wedges remain causally stitched. \emph{Kinematics (null cones, EM/GW distances) stay GR-like}; all changes are \emph{dynamical} (response strength in weak fields). Jacobson’s horizon thermodynamics is recovered as the stationary-horizon special case. All claims here are conditional on (A2); if (A2) fails, the construction must be revised. Our working-order result is stated as Theorem~\ref{thm:A2-working} (App.~\ref{app:epmr}).
 
 \paragraph{GR limit (distance sector).}
 In the limit of constant information capacity $\nabla_a M^2=0$ (equivalently $\alphaM\to 0$), the construction collapses to standard GR --- recovering Einstein’s equations with $c_T=1$ and GR light-cone geometry. Throughout we \emph{keep $\alphaM=0$ in the distance sector} and confine any late-time variation to the growth/response sector (Sec.~\ref{sec:growth}).
@@ -120,6 +121,8 @@ Choose $\ell$ obeying $\epsilon_{\rm UV}\ll \ell \ll \min\{L_{\rm curv},\lambda_
 \label{hyp:A2}
 In the safe window, $\delta Q=T\,\delta S$ with Unruh temperature holds for \emph{Casini--Huerta--Myers (CHM)} diamonds mapped from balls, with flux built from $T_{kk}$ along approximate generators.
 \end{hypothesis}
+
+\paragraph{Working-order theorem.} Assuming Lemmas H.1–H.2 and Proposition H.1 (App.~\ref{app:epmr}), the small-diamond Clausius identity holds to $\mathcal O(\ell^4)$ with $\mathcal O(\ell^6)$ corrections; cf. Theorem~\ref{thm:A2-working}. The marginal $\Delta=d/2$ compensator is summarized in Lemma~\ref{lem:A2-marginal}.
 
 \paragraph{First-law domain.} We use $\delta S=\delta\langle K\rangle$ only for CHM balls/diamonds and small perturbations of a Hadamard state; no general wedge theorem is claimed.
 
@@ -588,6 +591,23 @@ With $K_{\rm sub}$ of Eq.~\eqref{eq:sigma-operational} choosing $(a,b)$ to cance
 \medskip
 \noindent\textbf{Proposition H.1 (Curvature suppression and EPMR).}
 After MI subtraction and moment-kill, the leading surviving isotropic term is $\mathcal O(\ell^4)$ and equals the \emph{flat-space} modular coefficient; curvature dressings enter at $\mathcal O(\ell^6)$ within the safe window.
+
+\begin{theorem}[Working-order small-diamond Clausius/Unruh]
+\label{thm:A2-working}
+Let the state be Hadamard and consider CHM diamonds of linear size $\ell$ inside the safe window of Def.~\ref{def:safe-window}. With mutual-information subtraction and moment-kill as in App.~\ref{app:MI-momentkill}, the modular first law $\delta S=\delta\langle K_{\rm sub}\rangle$ and the Clausius identity with Unruh normalization hold to working order:
+\[
+\delta\!\langle K_{\rm sub}\rangle
+= (2\pi C_T I_{00})\,\ell^4\,\delta\eps \;+\; \mathcal O(\ell^6),
+\qquad
+\frac{\delta Q}{T}=\delta S \;+\; \mathcal O(\ell^6),
+\]
+so that the finite $\ell^4$ coefficient equals its flat-space value and curvature dressings start at $\mathcal O(\ell^6)$. \emph{Proof sketch.} Lemma H.1 gives the first-law domain; Lemma H.2 removes the $r^0,r^2$ moments and any curvature-contact pieces; Proposition H.1 then enforces the $\mathcal O(\ell^6)$ onset of curvature. At the marginal point $\Delta=d/2$, the logarithmic obstruction is cancelled by the slow running of $M^2$ (Lemma~\ref{lem:A2-marginal}/Prop.~\ref{prop:marginal}), leaving the flat $\ell^4$ finite coefficient at working order.
+\end{theorem}
+
+\begin{lemma}[Marginal compensator ($\Delta=d/2$)]
+\label{lem:A2-marginal}
+Within the safe window, if $M^2(x)$ runs slowly with $\eps$ so that $\delta\eps$ varies logarithmically across the window, the additional focusing source $M^{-2}k^a k^b\nabla_a\nabla_b M^2$ contributes a term that cancels the $\ell^4\log(\ell\mu)\,\delta\eps$ obstruction in $\delta\!\langle K_{\rm sub}\rangle$. See Proposition~\ref{prop:marginal} for the detailed continuum derivation.
+\end{lemma}
 
 \section{Weak-field flux law and the universal prefactor \texorpdfstring{$5/12$}{5/12}}
 \label{app:a0-derivation}
