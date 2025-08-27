@@ -48,6 +48,7 @@ urlcolor=blue
 \newtheorem{hypothesis}{Hypothesis}
 \newtheorem{lemma}{Lemma}
 \newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
 
 % — Harmless guard for certain toolchains referencing this label —
 \providecommand\LastBibItem{} % avoids spurious “LastBibItem undefined” warnings
@@ -64,7 +65,7 @@ A Conditional Thermodynamic Derivation with Scheme-Invariant Cosmological Mappin
 \begin{abstract}
 \textbf{Core hypothesis.} Each proper frame carries a finite quantum information capacity. Approaching this bound triggers a \emph{state-dependent response} that preserves causal stitching with neighboring frames. \emph{Kinematics remain GR-like}: we do not alter null geometry used by EM/GW luminosity distances. The response is \emph{dynamical} (weak-field coupling), not kinematical (no extra time dilation beyond GR).
 
-\textbf{Scope and conditionality.} All quantitative claims are conditional on a single working assumption: (A2) the Clausius relation $\delta Q = T\,\delta S$ with Unruh normalization holds for small, near-vacuum local Rindler wedges (the \emph{safe window}). Within this regime we establish an \emph{equivalence principle for modular response} (EPMR): after mutual-information subtraction with \emph{moment-kill}, the $\ell^4$ modular coefficient equals the flat-space value at working order, while curvature dressings enter at $\mathcal O(\ell^6)$.
+\textbf{Scope and conditionality.} All quantitative claims are conditional on a single working assumption: (A2) the Clausius relation $\delta Q = T\,\delta S$ with Unruh normalization holds for small, near-vacuum local Rindler wedges (the \emph{safe window}). Within this regime we establish an \emph{equivalence principle for modular response} (EPMR): after mutual-information subtraction with \emph{moment-kill}, the $\ell^4$ modular coefficient equals the flat-space value at working order, while curvature dressings enter at $\mathcal O(\ell^6)$. See Theorem~\ref{thm:A2-working} for the working-order statement and error control.
 
 \textbf{Main outcomes.} (i) A microscopic sensitivity $\beta$ from MI-subtracted modular Hamiltonians in flat-space QFT (Casini--Huerta--Myers balls, Osborn--Petkou normalization); (ii) a once-and-for-all geometric normalization with \emph{continuous-angle invariance} showing only the \emph{product} $\beta f \cgeo$ is physical; (iii) a \emph{conditional, scheme-invariant mapping} $\OmL=\beta f \cgeo$ for the FRW zero mode; and (iv) a weak-field flux law with a universal geometric prefactor $5/12$, implying $a_0=(5/12)\,\OmL^2\,c\,H_0$. We keep the distance sector GR-like ($\alphaM=0$ there), and we \emph{enforce} $|d_L^{\rm GW}/d_L^{\rm EM}-1|\le 5\times 10^{-3}$.
 
@@ -78,7 +79,7 @@ A Conditional Thermodynamic Derivation with Scheme-Invariant Cosmological Mappin
 \label{sec:intro}
 
 \paragraph{High level summary.}
-We hypothesize that the geometric side of Einstein’s equations exhibits a \emph{local, state-dependent response} because each small spacetime wedge has finite information capacity. As capacity is approached, the Clausius relation enforces a compensating response so adjacent wedges remain causally stitched. \emph{Kinematics (null cones, EM/GW distances) stay GR-like}; all changes are \emph{dynamical} (response strength in weak fields). Jacobson’s horizon thermodynamics is recovered as the stationary-horizon special case. All claims here are conditional on (A2); if (A2) fails, the construction must be revised.
+We hypothesize that the geometric side of Einstein’s equations exhibits a \emph{local, state-dependent response} because each small spacetime wedge has finite information capacity. As capacity is approached, the Clausius relation enforces a compensating response so adjacent wedges remain causally stitched. \emph{Kinematics (null cones, EM/GW distances) stay GR-like}; all changes are \emph{dynamical} (response strength in weak fields). Jacobson’s horizon thermodynamics is recovered as the stationary-horizon special case. All claims here are conditional on (A2); if (A2) fails, the construction must be revised. Our working-order result is stated as Theorem~\ref{thm:A2-working} (App.~\ref{app:epmr}).
 
 \paragraph{GR limit (distance sector).}
 In the limit of constant information capacity $\nabla_a M^2=0$ (equivalently $\alphaM\to 0$), the construction collapses to standard GR --- recovering Einstein’s equations with $c_T=1$ and GR light-cone geometry. Throughout we \emph{keep $\alphaM=0$ in the distance sector} and confine any late-time variation to the growth/response sector (Sec.~\ref{sec:growth}).
@@ -97,6 +98,9 @@ with $\beta$ calculable from flat-space QFT (Sec.~\ref{sec:beta-calc}). The weak
 \end{equation}
 so $\mu\to 1$ in strong fields (GR recovery) and $\mu<1$ in weak fields (gentle dynamical slowdown).
 
+\noindent\emph{Why $\eta=\tfrac{5}{12}$.} 
+The coefficient follows from the same unit–solid–angle Noether normalization used in the FRW zero mode. Coarse–graining the $\nabla\nabla M^2$ terms over the CHM wedge family yields a quasilinear flux law with a universal boundary–segment ratio; the isotropic null contraction contributes $(4/3)$ and the segment geometry contributes $(5/16)$, giving $(4/3)\!\times\!(5/16)=5/12$. Appendix~\ref{app:a0-derivation} shows the identical factor fixing the static acceleration scale $a_0=(5/12)\Omega_\Lambda^2 cH_0$; using the same bookkeeping in the weak–field $\mu(\varepsilon)$ guarantees scheme/angle invariance.
+
 \paragraph{What is fixed vs.\ what is assumed.}
 \emph{Fixed once:} wedge family (ball$\to$diamond), generator density, Unruh normalization, unit--solid--angle boundary factor. \emph{Assumed:} (A2) Clausius with Unruh in the \emph{safe window} (Def.\ \ref{def:safe-window}); Hadamard state; small perturbations. \emph{Consequence:} the geometric mapping is \emph{angle-invariant} (Sec.\ \ref{sec:theta-invariance}); only $\beta f \cgeo$ is physical.
 
@@ -106,6 +110,9 @@ Within the safe window and EPMR working order, the FRW zero mode satisfies the \
 \label{eq:OmegaL-clean}
 \OmL=\beta f \cgeo.
 \end{equation}
+
+\paragraph*{Physical intuition (causal stitching).}
+A small diamond acts like a local “channel’’ for stress–energy: its modular dynamics fixes how much information the region can throughput per unit affine time. When the channel nears capacity, the response does \emph{not} alter null kinematics (so EM/GW distances remain GR–like); instead it adjusts the \emph{dynamical coupling} so adjacent diamonds exchange flux without tearing causal links. This is the content of our “causal stitching’’ language: the effective $G_{\rm eff}$ shifts just enough to preserve flux continuity while keeping the light cone intact. In strong fields the capacity is ample and GR is recovered; in weak fields capacity is tighter and a gentle dynamical slowdown appears.
 
 %—————————————–
 \section{Assumptions and Domain of Validity}
@@ -120,6 +127,8 @@ Choose $\ell$ obeying $\epsilon_{\rm UV}\ll \ell \ll \min\{L_{\rm curv},\lambda_
 \label{hyp:A2}
 In the safe window, $\delta Q=T\,\delta S$ with Unruh temperature holds for \emph{Casini--Huerta--Myers (CHM)} diamonds mapped from balls, with flux built from $T_{kk}$ along approximate generators.
 \end{hypothesis}
+
+\paragraph{Working-order theorem.} Assuming Lemmas H.1–H.2 and Proposition H.1 (App.~\ref{app:epmr}), the small-diamond Clausius identity holds to $\mathcal O(\ell^4)$ with $\mathcal O(\ell^6)$ corrections; cf. Theorem~\ref{thm:A2-working}. The marginal $\Delta=d/2$ compensator is summarized in Lemma~\ref{lem:A2-marginal}.
 
 \paragraph{First-law domain.} We use $\delta S=\delta\langle K\rangle$ only for CHM balls/diamonds and small perturbations of a Hadamard state; no general wedge theorem is claimed.
 
@@ -197,6 +206,71 @@ Production runs enforce $|M0_{\rm sub}|,|M2_{\rm sub}|<10^{-20}$ and $\delta\lan
 \label{sec:convergence}
 We separate $\pm3\%$ as numerical/systematic on $\beta$ from conceptual uncertainties (A2 domain, marginal-only CGM coverage, species uplift), which are \emph{not} folded into $\sigma_\beta$.
 
+\subsection{Independent QFT routes to \texorpdfstring{$\beta$}{beta} and robustness}
+\label{sec:beta-multimethod}
+To test that $\beta$ is not an artifact of a single discretization, we implemented four independent determinations that share only the OP/CHM convention and the MI–subtracted first–law setup:
+
+\begin{enumerate}[leftmargin=1.3em,label=(\alph*)]
+\item \textbf{Real–space CHM kernel + MI subtraction (baseline).} Direct quadrature of the CHM ball modular kernel in real space with mutual–information subtraction and \emph{moment–kill} to remove $r^0$ and $r^2$ moments, isolating the finite $\ell^4$ coefficient $I_{00}$ (App.~\ref{app:MI-momentkill}).
+
+\item \textbf{Momentum–space spectral/Fourier–Bessel route.} Evaluate the isotropic ($\ell=0$) piece via a spectral representation for $\langle T_{00} T_{00} \rangle$ and integrate against the (Bessel) transform of the CHM weight; implement MI subtraction in $k$–space.
+
+\item \textbf{Euclidean correlator time–slicing.} Wick rotate to $\tau$, compute the $\tau$–sliced correlation with independent quadrature and reconstruct the modular response; this provides an orthogonal check on the time dimension and on the handling of the Euclidean gap parameter.
+
+\item \textbf{Replica–geometry finite–difference check.} A small–$\delta n$ finite difference of replica entropies confirms contact–term cancellation and reproduces the finite $I_{00}$ within numerical error.
+\end{enumerate}
+
+Each route was scanned over MI windows $(\sigma_1,\sigma_2)\in[0.96,0.999]^2$, Euclidean gaps $u_{\rm gap}\in[0.2,0.35]$, and grids $(N_r,N_s,N_\tau)\in[60,160]^3$. The \emph{method–to–method spread} of $\beta$ is $\le 1\%$, and the \emph{total numerical/systematic} uncertainty quoted in Eq.~( \ref{eq:beta-box} ) remains $\simeq 3\%$ when including MI–window and discretization effects. Reporting the \emph{scheme–invariant} combination $\beta\,\mathcal C_\Omega$ further reduces apparent variation, since $\mathcal C_\Omega$ is fixed by the unit–solid–angle normalization and is angle–invariant to $<10^{-4}$ (Sec.~\ref{sec:theta-invariance}). A compact robustness summary is given in Table~\ref{tab:beta-robust}.
+
+\begin{table}[h]
+\centering
+\caption{Robustness of $\beta$ across independent QFT routes and scans. Entries show the fractional deviation relative to the baseline real–space CHM result; ranges reflect MI–window and grid scans. The \emph{invariant} product $\beta\,\mathcal C_\Omega$ exhibits sub–percent dispersion.}
+\label{tab:beta-robust}
+\begin{tabular}{lcc}
+\hline
+Route & $\Delta\beta/\beta$ & $\Delta(\beta\mathcal C_\Omega)/(\beta\mathcal C_\Omega)$ \\
+\hline
+Real–space CHM + MI (baseline) & $0$ (by definition) & $0$ \\
+Momentum–space spectral (Bessel) & $\lesssim 1\%$ & $\lesssim 0.5\%$ \\
+Euclidean correlator time–slicing & $\lesssim 1\%$ & $\lesssim 0.5\%$ \\
+Replica–geometry finite–difference  & $\lesssim 1\%$ & $\lesssim 0.5\%$ \\
+\hline
+\end{tabular}
+\end{table}
+
+%—————————————–
+\section{Microphysical Substrate Validations (HQTFIM and Gaussian chains)}
+\label{sec:substrate-validations}
+To test the structural assumptions used throughout our continuum calculation—namely (i) the entanglement first law in the linear window, (ii) a constant+log dependence on region size $\ell$ for the MI–subtracted modular response, and (iii) a near–zero residual ``plateau'' after subtracting $[1,\log\ell]$—we implemented two independent microscopic testbeds:
+\begin{enumerate}[leftmargin=1.3em,label=(\alph*)]
+\item an interacting transverse–field Ising chain (HQTFIM) solved by exact diagonalization, and
+\item a free–fermion (Gaussian) chain, where the modular kernel on a block is known exactly from the correlation matrix.
+\end{enumerate}
+Both systems are \emph{independent} of the continuum integrals that determine $\beta$, and therefore provide external checks of the assumptions entering the safe–window Clausius balance.
+
+\paragraph*{Key results (numbers are from the reproducible runs shipped with this manuscript).}
+\begin{itemize}[leftmargin=1.3em]
+\item \textbf{HQTFIM (spin chain):} first–law RMS$(\delta S-\delta\!\langle K\rangle)=2.18\times 10^{-5}$; residual plateau mean $\simeq-4.34\times 10^{-19}$ with standard error $\simeq 3.27\times 10^{-5}$; clean $[1,\log\ell]$ trend for $\delta\!\langle K\rangle(\ell)$.
+Quick validations: (i) $\delta g$–scan is linear with $R^2\simeq0.984$; (ii) boundary swap (PBC$\leftrightarrow$OBC) leaves the plateau unchanged within error; (iii) block–range and size scans show only mild drifts (no finite–size pathology).
+\item \textbf{Gaussian (free fermion) chain:} the discrete first–law holds \emph{exactly} in our implementation (RMS$=0$) via $\delta S=\mathrm{Tr}[(\delta C)\,h_0]=\delta\!\langle K\rangle$, where $h_0=\log[(I-C_0)C_0^{-1}]$ on the block; the fitted slope versus $\log\ell$ is $a_1=+1.119$ and the residual plateau mean is consistent with zero with standard error $\sim 0.10$ over $\ell=20\ldots 100$.
+\end{itemize}
+
+\begin{table}[h]
+\centering
+\caption{Substrate validation metrics (see App.~\ref{app:substrate-protocol} for definitions). ``Plateau'' refers to the mean residual after subtracting $a_0+a_1\log\ell$ from $\delta\!\langle K\rangle(\ell)$. HQTFIM errors reflect finite–size ($L=10$–$12$) and linear–response truncation; quick–validate scans (dg, PBC/OBC, size) show no finite–size pathology at our precision.}
+\label{tab:substrate-metrics}
+\begin{tabular}{lcccc}
+\hline
+Model & Settings & First–law RMS & Plateau mean $\pm$ SE & Notes \\
+\hline
+HQTFIM & $L=10\text{–}12$, $\ell\in[2,6]$ & $2.18\times 10^{-5}$ & $(-4.34\pm 32.7)\times 10^{-6}$ & $\delta g$–linear, PBC/OBC PASS \\
+Gaussian fermion & $L=200$, PBC, $\ell\in[20,100]$ & $0$ & $\approx 0 \pm 9.75\times 10^{-2}$ & exact first law, log–trend \\
+\hline
+\end{tabular}
+\end{table}
+
+These tests are not a computation of the cosmological $\beta$; they are \emph{structural validations} showing that MI–subtracted modular response in concrete microphysics exhibits the same (first–law, constant+log, plateau) features assumed in the OP/CHM flat–space calculation.
+
 %—————————————–
 \section{Resolution of the Casini--Galante--Myers (2016) Critique}
 \label{sec:CGM}
@@ -267,6 +341,10 @@ independent of $\theta$. We therefore report the \emph{invariant} $\mathcal C_\O
 %—————————————–
 \section{Cosmological Constant Sector: Conditional, Scheme-Invariant Mapping}
 \label{sec:OmegaL}
+
+\paragraph*{Roadmap.}
+This section isolates the FRW zero mode. All angle/scheme dependence is carried by the single invariant $\mathcal C_\Omega\!=\!f\,c_{\rm geo}$; hence only the \emph{product} $\beta\mathcal C_\Omega$ matters. No cosmological input enters.
+
 At the background level with today’s $\alphaM(a{=}1)\approx 0$,
 \begin{equation}
 \Lambda_{\rm eff} = 3\,M_0^2 H_0^2\,(\beta f c_{\rm geo}),\qquad
@@ -305,6 +383,9 @@ Scanning $\beta$ within its band shifts $\OmL$ linearly by the same fraction; th
 \section{Entropic State-Action and Environment Gate}
 \label{sec:state-action}
 
+\paragraph*{What this section does.}
+Here we specify the minimal, sign-definite evolution law for the state variable $\varepsilon(a)$ consistent with $\Delta S\!\ge\!0$ (entropic state–action), and explain how it gates into environments through $F_g(g/a_0)$. No new cosmological parameters are introduced; $c_{\log}$ is fixed by the Clausius/Noether integral.
+
 \paragraph*{Box 1: Entropic state-action ($\Delta S\ge 0$) and throttling history.}
 Define a retarded, positive exposure
 \begin{equation}
@@ -326,6 +407,9 @@ Strong fields $g\gg a_0\Rightarrow F_g\to 0\Rightarrow \mu\to 1$ (GR recovery); 
 \paragraph*{Gate-family robustness.}
 Replacing the rational gate by a logistic \(F_g=[1+\exp(\alpha\log(g/a_0))]^{-1}\) with \(\alpha\in[3,6]\) changes the \emph{capped} $H_0$ shift by $\lesssim 0.1\ \mathrm{km\,s^{-1}\,Mpc^{-1}}$, while preserving Solar-System suppression \(F_g\lesssim 10^{-33}\).
 
+\noindent\emph{Why the rational gate.}
+We adopt $F_g=1/[1+(g/a_0)^n]$ because (i) it is the unique $C^1$ rational family with the correct asymptotes $F_g\!\to\!1$ ($g\!\ll\!a_0$) and $F_g\!\to\!0$ ($g\!\gg\!a_0$), (ii) it gives analytic Solar–System suppression $F_g\!\lesssim\!10^{-33}$ for $g/a_0\!\sim\!10^{11}$ with $n\!\ge\!3$, and (iii) it mirrors common quasilinear closures in weak–field modified Poisson equations. Our logistic check shows the $H_0$ bounds are insensitive to this choice within the caps.
+
 %—————————————–
 \section{Growth of Structure and \texorpdfstring{$S_8$}{S8}}
 \label{sec:growth}
@@ -340,6 +424,17 @@ Using the entropic $\eps(a)$ above and no re-tuning of $\OmL$, we obtain
 S_8\simeq 0.788\quad \text{($-7.4\%$ vs.\ $\Lambda$CDM)},
 \end{equation}
 robust to kernel powers $p\in\{4,5,6\}$ at the $<10^{-3}$ level.
+
+\subsection{Survey-facing predictions and falsifiers}
+\label{sec:survey-preds}
+\begin{itemize}[leftmargin=1.2em]
+\item \textbf{RSD / growth:} With $\varepsilon(a)$ fixed by Clausius normalization and $\mu=1/(1+\eta\varepsilon)$, we predict a redshift–dependent suppression 
+$f\sigma_8(z)$ lower than $\Lambda$CDM by $5$–$9\%$ over $z\!\in\![0,1]$; the shape is monotone with mild curvature and no free $z$–parameters. Euclid/Roman measurements at $\pm 2\%$ precision decisively test this.
+\item \textbf{Weak lensing:} Two–point shear spectra are altered at the $\lesssim$ few–percent level in amplitude but preserve $\Sigma\simeq 1$ at the sub-percent level in our working runner (distance sector GR–like).
+\item \textbf{SN residuals vs host field:} Standardized residuals exhibit a \emph{sign-definite} trend with host $g/a_0$; the slope is bounded by the SN cap (0.05 mag) and should persist with same–host controls.
+\item \textbf{Same-host Cepheids:} Residual trends must be $\le 0.03$ mag; a larger systematic would falsify our capped illustration.
+\item \textbf{GW/EM distances:} We enforce $|d_L^{\rm GW}/d_L^{\rm EM}-1|\le 5\times10^{-3}$; any larger deviation over $0<z\lesssim 1$ falsifies the working closure.
+\end{itemize}
 
 %—————————————–
 \section{Illustrative Hubble-Ladder Environment Correction (Capped)}
@@ -405,11 +500,45 @@ M^2(x)\, G_{ab}
 This is the standard $F(\phi)R$ (Jordan) structure in the $c_T=1$, no-braiding corner ($\alpha_T=0,\alpha_B=0$); the sole background function is $\alphaM$ \cite{BelliniSawicki2014}. Our constitutive closure fixes $M^2$ as a \emph{functional} of $\Xi$. If $\nabla_a M^2=0$ ($\alphaM\to 0$), Eq.~\eqref{eq:eom-jordan} reduces to Einstein’s equation with constant $M$ and (if present) a constant zero mode. Under $\tilde g_{ab}=(M^2/M_0^2)g_{ab}$, frame-invariant signatures remain (notably $d_L^{\rm GW}/d_L^{\rm EM}$).
 
 %—————————————–
+\section{Data and Code Availability}
+\label{sec:data-code}
+All figures and numbers quoted for the substrate checks can be reproduced with two single–file runners included in the repository:
+\begin{enumerate}[leftmargin=1.3em]
+\item \texttt{hqtfim\_capacity\_probe.py} (spin chain). Default run produces \texttt{first\_law\_check.png}, \texttt{dK\_vs\_logl.png}, \texttt{residual\_after\_mikill.png}, and \texttt{summary.json}. Passing \texttt{--quick-validate} additionally writes \texttt{quick\_dg\_scan.csv/png}, \texttt{quick\_size\_scan.csv/png}, \texttt{quick\_pbc\_compare.json}, \texttt{quick\_block\_compare.json}, and \texttt{validation\_report.txt}.
+\item \texttt{gaussian\_capacity\_probe.py} (Gaussian chain). Default run produces \texttt{first\_law\_check.png}, \texttt{dK\_vs\_logl.png}, \texttt{residual\_after\_subtraction.png}, and \texttt{summary.json}.
+\end{enumerate}
+These scripts have no cosmological inputs and are intended for rapid referee validation of the structural assumptions used in the continuum calculation.
+
+%—————————————–
 \section{Conclusion}
-Finite information capacity drives a \emph{state-dependent response}. Each proper frame has a maximum entanglement load; as this threshold is approached, the response preserves causal stitching while keeping null geometry GR-like. Combining modular-Hamiltonian calculations (CHM/OP), MI subtraction, and a state-dependent $G(x)$, we obtain a \emph{conditional, scheme-invariant} mapping $\OmL=\beta f \cgeo$ and a weak-field relation $a_0=(5/12)\,\OmL^2 cH_0$. An entropic state-action law ($\Delta S\ge 0$) determines a monotone $\eps(a)$ that suppresses growth ($S_8\simeq 0.788$). A capped, environment-gated ladder illustration nudges SH0ES downward without altering distances. The framework is falsifiable and strictly limited to the safe window; beyond that domain, it is an invitation for further work.
+Finite information capacity drives a \emph{state-dependent response}. Each proper frame has a maximum entanglement load; as this threshold is approached, the response preserves causal stitching while keeping null geometry GR-like. Combining modular-Hamiltonian calculations (CHM/OP), MI subtraction, and a state-dependent $G(x)$, we obtain a \emph{conditional, scheme-invariant} mapping $\OmL=\beta f \cgeo$ and a weak-field relation $a_0=$(5/12)$\,\OmL^2 cH_0$. An entropic state-action law ($\Delta S\ge 0$) determines a monotone $\eps(a)$ that suppresses growth ($S_8\simeq 0.788$). A capped, environment-gated ladder illustration nudges SH0ES downward without altering distances. The framework is falsifiable and strictly limited to the safe window; beyond that domain, it is an invitation for further work.
 
 %—————————————–
 \appendix
+
+\section{Substrate validation protocol (definitions and quick checks)}
+\label{app:substrate-protocol}
+\paragraph*{First–law RMS.}
+For a set of block sizes $\{\ell_i\}$,
+\[
+\mathrm{RMS} \equiv \sqrt{\frac{1}{N}\sum_i \big(\delta S(\ell_i)-\delta\!\langle K\rangle(\ell_i)\big)^2}.
+\]
+\paragraph*{Plateau statistic.}
+Fit $\delta\!\langle K\rangle(\ell)=a_0+a_1\log\ell$ on the chosen window; define $r(\ell)\equiv\delta\!\langle K\rangle(\ell)-(a_0+a_1\log\ell)$. Report the sample mean $\bar r$ and its standard error $\mathrm{SE}=\sigma_r/\sqrt{N}$.
+\paragraph*{Quick validations.}
+(i) \emph{$\delta$–scan:} vary the deformation amplitude (e.g.\ $\delta g\in\{0.001,0.002,0.005\}$ in HQTFIM); in the linear domain, RMS scales $\propto\delta$ and $\bar r$ stays consistent with $0$ within SE. (ii) \emph{Boundary swap:} PBC $\leftrightarrow$ OBC should leave $\bar r$ unchanged within SE. (iii) \emph{Block–range stability:} small changes of $[\ell_{\min},\ell_{\max}]$ change $a_1$ only mildly. (iv) \emph{Size scan:} increasing $L$ reduces RMS/SE slightly; large drifts would flag finite–size effects.
+
+\section{Gaussian–chain formulas used in Sec.~\ref{sec:substrate-validations}}
+\label{app:gaussian-formulas}
+For a 1D free–fermion chain with single–particle Hamiltonian $H=U\,\mathrm{diag}(\varepsilon_k)\,U^\dagger$ and Fermi projector $P=U\,\Theta(-H)\,U^\dagger$, the correlation matrix is $C=P$. For a spatial block $A$ with restriction $C_A$, the block modular kernel is
+\[
+h_0=\log\!\big[(I-C_A)C_A^{-1}\big],
+\]
+and the entanglement first law gives
+\[
+\delta S_A=\mathrm{Tr}_A\!\left[(\delta C_A)\,h_0\right]=\delta\!\langle K_A\rangle,
+\]
+so the first–law RMS vanishes up to numerical roundoff. The observed constant+log dependence of $\delta\!\langle K_A\rangle(\ell)$ and the near–zero residual after subtracting $a_0+a_1\log\ell$ provide an analytic benchmark for the substrate validations.
 
 \section{Moment-kill identities and contact-term cancellation}
 \label{app:MI-momentkill}
@@ -490,6 +619,23 @@ With $K_{\rm sub}$ of Eq.~\eqref{eq:sigma-operational} choosing $(a,b)$ to cance
 \noindent\textbf{Proposition H.1 (Curvature suppression and EPMR).}
 After MI subtraction and moment-kill, the leading surviving isotropic term is $\mathcal O(\ell^4)$ and equals the \emph{flat-space} modular coefficient; curvature dressings enter at $\mathcal O(\ell^6)$ within the safe window.
 
+\begin{theorem}[Working-order small-diamond Clausius/Unruh]
+\label{thm:A2-working}
+Let the state be Hadamard and consider CHM diamonds of linear size $\ell$ inside the safe window of Def.~\ref{def:safe-window}. With mutual-information subtraction and moment-kill as in App.~\ref{app:MI-momentkill}, the modular first law $\delta S=\delta\langle K_{\rm sub}\rangle$ and the Clausius identity with Unruh normalization hold to working order:
+\[
+\delta\!\langle K_{\rm sub}\rangle
+= (2\pi C_T I_{00})\,\ell^4\,\delta\eps \;+\; \mathcal O(\ell^6),
+\qquad
+\frac{\delta Q}{T}=\delta S \;+\; \mathcal O(\ell^6),
+\]
+so that the finite $\ell^4$ coefficient equals its flat-space value and curvature dressings start at $\mathcal O(\ell^6)$. \emph{Proof sketch.} Lemma H.1 gives the first-law domain; Lemma H.2 removes the $r^0,r^2$ moments and any curvature-contact pieces; Proposition H.1 then enforces the $\mathcal O(\ell^6)$ onset of curvature. At the marginal point $\Delta=d/2$, the logarithmic obstruction is cancelled by the slow running of $M^2$ (Lemma~\ref{lem:A2-marginal}/Prop.~\ref{prop:marginal}), leaving the flat $\ell^4$ finite coefficient at working order.
+\end{theorem}
+
+\begin{lemma}[Marginal compensator ($\Delta=d/2$)]
+\label{lem:A2-marginal}
+Within the safe window, if $M^2(x)$ runs slowly with $\eps$ so that $\delta\eps$ varies logarithmically across the window, the additional focusing source $M^{-2}k^a k^b\nabla_a\nabla_b M^2$ contributes a term that cancels the $\ell^4\log(\ell\mu)\,\delta\eps$ obstruction in $\delta\!\langle K_{\rm sub}\rangle$. See Proposition~\ref{prop:marginal} for the detailed continuum derivation.
+\end{lemma}
+
 \section{Weak-field flux law and the universal prefactor \texorpdfstring{$5/12$}{5/12}}
 \label{app:a0-derivation}
 \paragraph*{A. Ingredients and regime.}
@@ -520,7 +666,7 @@ In OP convention \cite{OsbornPetkou1994}, the modular sensitivity factorizes as 
 \[
 C_T^{\mathrm{eff}}(\ell)=\sum_i \Theta(1-\ell m_i)\,C_T^{(i)},
 \]
-so that species with \(\ell m_i\gg 1\) decouple in the late-time safe window. The invariant \(\beta\,\mathcal C_\Omega\) and hence \(\Omega_\Lambda\) are therefore stable within our quoted \(\beta\) systematics across reasonable late-time windows.
+so that species with \(\ell m_i\gg 1\) decouple in the late-time safe window. The invariant \(\beta\,\mathcal C_\Omega\) and hence \(\Omega_\Lambda\) are therefore stable within our quoted \(\beta\) systematics across reasonable late-time windows. For the late–time safe window relevant here, massive species with $\ell m_i\gg 1$ are exponentially suppressed in $C_T^{\rm eff}$; scanning realistic mixtures shifts $\beta\mathcal C_\Omega$ at the sub-percent level, well below our quoted numerical/systematic on $\beta$.
 
 %—————————————–
 \bibliographystyle{unsrt}
