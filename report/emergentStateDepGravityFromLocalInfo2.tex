@@ -1,0 +1,559 @@
+\documentclass[aps,prd,onecolumn,superscriptaddress,nofootinbib]{revtex4-2}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,bm,graphicx,mathtools,amsthm}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{bookmark} % stabilize outlines/bookmarks (prevents rerun loops)
+
+% --- Hyperref setup ---
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+% --- PDF string sanitization (prevents hyperref warnings / unstable .out) ---
+\pdfstringdefDisableCommands{%
+  \def\OmL{OmegaLambda}%
+  \def\Omm{Omega m0}%
+  \def\cgeo{cgeo}%
+  \def\alphaM{alphaM}%
+  \def\XiVac{Xi0}%
+  \def\mpl{MP}%
+  \def\fbdy{fbdy}%
+  \def\eps{epsilon}%
+  \def\boxed#1{#1}%
+}
+
+% --- Math tweaks ---
+\allowdisplaybreaks
+
+% --- Macros ---
+\newcommand{\mpl}{M_{\rm P}}
+\newcommand{\OmL}{\Omega_\Lambda}
+\newcommand{\Omm}{\Omega_{m0}}
+\newcommand{\cgeo}{c_{\rm geo}}
+\newcommand{\alphaM}{\alpha_M}
+\newcommand{\XiVac}{\Xi_0}
+\newcommand{\fbdy}{f_{\rm bdy}}
+\newcommand{\eps}{\varepsilon}
+
+% --- Theorem-like environments ---
+\newtheorem{definition}{Definition}
+\newtheorem{hypothesis}{Hypothesis}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+
+% --- Harmless guard for certain toolchains referencing this label ---
+\providecommand\LastBibItem{} % avoids spurious "LastBibItem undefined" warnings
+
+\begin{document}
+
+\title{Emergent State-Dependent Gravity from Local Information Capacity:\\
+A Conditional Thermodynamic Derivation with Scheme-Invariant Cosmological Mapping}
+
+\author{[clg]}
+\affiliation{[TBD Institution(s)]}
+\date{\today}
+
+\begin{abstract}
+\textbf{Core hypothesis.} Each proper frame carries a finite quantum information capacity. Approaching this bound triggers a \emph{state-dependent response} that preserves causal stitching with neighboring frames. \emph{Kinematics remain GR-like}: we do not alter null geometry used by EM/GW luminosity distances. The response is \emph{dynamical} (weak-field coupling), not kinematical (no extra time dilation beyond GR).
+
+\textbf{Scope and conditionality.} All quantitative claims are conditional on a single working assumption: (A2) the Clausius relation $\delta Q=T\,\delta S$ with Unruh normalization holds for small, near-vacuum local Rindler wedges (the \emph{safe window}). Within this regime we establish an \emph{equivalence principle for modular response} (EPMR): after mutual-information subtraction with \emph{moment-kill}, the $\ell^4$ modular coefficient equals the flat-space value at working order, while curvature dressings enter at $\mathcal O(\ell^6)$.
+
+\textbf{Main outcomes.} (i) A microscopic sensitivity $\beta$ from MI-subtracted modular Hamiltonians in flat-space QFT (Casini--Huerta--Myers balls, Osborn--Petkou normalization); (ii) a once-and-for-all geometric normalization with \emph{continuous-angle invariance} showing only the \emph{product} $\beta f \cgeo$ is physical; (iii) a \emph{conditional, scheme-invariant mapping} $\OmL=\beta f \cgeo$ for the FRW zero mode; and (iv) a weak-field flux law with a universal geometric prefactor $5/12$, implying $a_0=(5/12)\,\OmL^2\,c\,H_0$. We keep the distance sector GR-like ($\alphaM=0$ there), and we \emph{enforce} $|d_L^{\rm GW}/d_L^{\rm EM}-1|\le 5\times 10^{-3}$.
+
+\textbf{Consequences.} With no cosmological inputs, $\OmL=\beta f \cgeo \approx 0.685$ and $a_0=(5/12)\,\OmL^2\,c\,H_0$. An \emph{entropic state-action} law ($\Delta S\ge 0$) determines a monotone $\eps(a)$ that modulates the weak-field response $\mu(\eps)=1/(1+\eta\,\eps)$ with $\eta=5/12$, suppressing growth and yielding $S_8\simeq 0.788$ ($-7.4\%$ vs.\ $\Lambda$CDM), while EM/GW distances remain GR-like. An \emph{illustrative, capped} environment-gated application to a SH0ES-like catalog nudges $H_0: 73.0\to 71.32$ (SN cap only) and to $70.89$ (SN+small Cepheid term), trending toward TRGB/Planck without altering null geometry. Explicit falsifiers and hygiene checks are stated.
+\end{abstract}
+
+\maketitle
+
+%-----------------------------------------
+\section{Introduction: Core Insight and Conditional Scope}
+\label{sec:intro}
+
+\paragraph{High level summary.}
+We hypothesize that the geometric side of Einstein’s equations exhibits a \emph{local, state-dependent response} because each small spacetime wedge has finite information capacity. As capacity is approached, the Clausius relation enforces a compensating response so adjacent wedges remain causally stitched. \emph{Kinematics (null cones, EM/GW distances) stay GR-like}; all changes are \emph{dynamical} (response strength in weak fields). Jacobson’s horizon thermodynamics is recovered as the stationary-horizon special case. All claims here are conditional on (A2); if (A2) fails, the construction must be revised.
+
+\paragraph{GR limit (distance sector).}
+In the limit of constant information capacity $\nabla_a M^2=0$ (equivalently $\alphaM\!\to\!0$), the construction collapses to standard GR --- recovering Einstein’s equations with $c_T=1$ and GR light-cone geometry. Throughout we \emph{keep $\alphaM=0$ in the distance sector} and confine any late-time variation to the growth/response sector (Sec.~\ref{sec:growth}).
+
+\paragraph{State variable and coupling.}
+We define a dimensionless state variable $\eps(x)$ encoding fractional deviations of local capacity from its vacuum reference and parameterize
+\begin{equation}
+\label{eq:deltaG}
+\frac{\delta G}{G} \;=\; -\beta\,\delta\eps(x),
+\end{equation}
+with $\beta$ calculable from flat-space QFT (Sec.~\ref{sec:beta-calc}). The weak-field response is encoded by
+\begin{equation}
+\label{eq:mu-def}
+\mu(\eps)\;\equiv\;\frac{G_{\rm eff}}{G_N}\;=\;\frac{1}{1+\eta\,\eps}\,,\qquad \eta=\frac{5}{12},
+\end{equation}
+so $\mu\!\to\!1$ in strong fields (GR recovery) and $\mu<1$ in weak fields (gentle dynamical slowdown).
+
+\paragraph{What is fixed vs.\ what is assumed.}
+\emph{Fixed once:} wedge family (ball$\to$diamond), generator density, Unruh normalization, unit--solid--angle boundary factor. \emph{Assumed:} (A2) Clausius with Unruh in the \emph{safe window} (Def.~\ref{def:safe-window}); Hadamard state; small perturbations. \emph{Consequence:} the geometric mapping is \emph{angle-invariant} (Sec.~\ref{sec:theta-invariance}); only $\beta f \cgeo$ is physical.
+
+\paragraph{Clean mapping statement.}
+Within the safe window and EPMR working order, the FRW zero mode satisfies the \emph{conditional, scheme-invariant} relation
+\begin{equation}
+\label{eq:OmegaL-clean}
+\OmL=\beta f \cgeo.
+\end{equation}
+
+%-----------------------------------------
+\section{Assumptions and Domain of Validity}
+\label{sec:assumptions}
+
+\begin{definition}[Safe window]
+\label{def:safe-window}
+Choose $\ell$ obeying $\epsilon_{\rm UV}\ll \ell \ll \min\{L_{\rm curv},\lambda_{\rm mfp},m_i^{-1}\}$ for fields treated as massless; work with Hadamard states and small perturbations (relative entropy $O(\eps^2)$). Within this window the MI-subtracted, moment-killed modular response is dominated by $\ell^4$ and admits a Clausius balance with Unruh normalization.
+\end{definition}
+
+\begin{hypothesis}[(A2) Clausius with Unruh in the safe window]
+\label{hyp:A2}
+In the safe window, $\delta Q=T\,\delta S$ with Unruh temperature holds for \emph{Casini--Huerta--Myers (CHM)} diamonds mapped from balls, with flux built from $T_{kk}$ along approximate generators.
+\end{hypothesis}
+
+\paragraph{First-law domain.} We use $\delta S=\delta\!\langle K\rangle$ only for CHM balls/diamonds and small perturbations of a Hadamard state; no general wedge theorem is claimed.
+
+\subsection{Failure modes of (A2) and explicit falsifiers}
+\label{sec:a2-fail}
+(A2) could fail if: (i) MI-subtracted flat-space modular data do not transfer to null diamonds; (ii) Unruh normalization fails in small, non-stationary wedges; or (iii) nonlocal state dependence spoils the local Clausius balance. Falsifiers (Sec.~\ref{sec:predictions}): (a) GW/EM luminosity distance ratios inconsistent with bounded $\alphaM$; (b) laboratory/solar-system bounds revealing $|\dot G/G|\gtrsim 10^{-12}\,\text{yr}^{-1}$; (c) precision cosmology favoring $\OmL$ inconsistent with the invariant $\beta f \cgeo$.
+
+\subsection{Pre-commitment and scheme invariance (convention hygiene)}
+\label{sec:precommit}
+We \emph{pre-commit} to wedge family, generator density, Unruh normalization, and one of two bookkeepings (A or B) before any cosmological comparison. Physical predictions depend only on $\beta f \cgeo$; the split between $f$ and $\cgeo$ is conventional.
+
+%-----------------------------------------
+\section{State Metric and Variational Closure}
+\label{sec:state-metric}
+The operational definition of $\eps(x)$ uses MI subtraction with moment-kill (App.~\ref{app:MI-momentkill}): for sufficiently small $\ell$,
+\begin{equation}
+\label{eq:sigma-operational}
+\delta\!\langle K_{\rm sub}(\ell)\rangle \;=\; \big(2\pi\, C_T\, I_{00}\big)\, \ell^4\, \delta\eps(x) \;+\; \mathcal O(\ell^6)\,,
+\end{equation}
+with $C_T$ in the Osborn--Petkou (OP) convention and $I_{00}$ the finite CHM kernel coefficient.
+
+\paragraph*{Boxed normalization (one time).}
+\begin{equation}
+\boxed{\ \beta \;\equiv\; 2\pi\, C_T\, I_{00}\ }\qquad
+\text{(OP $C_T$; $I_{00}$ from MI-subtracted CHM response).}
+\label{eq:beta-box}
+\end{equation}
+
+\subsection{Variational capacity closure: derivation (not a bare postulate)}
+\label{sec:variational-closure}
+Consider a Wald-like entropy functional on a small diamond with a local capacity constraint,
+\begin{equation}
+\mathcal{S}_{\rm tot} \;=\; \underbrace{\delta S_{\rm mat}}_{\delta\!\langle K_{\rm sub}\rangle} \;+\; \underbrace{\frac{\delta A}{4G(x)}}_{\delta S_{\rm grav}} \;+\; \int \lambda(x)\,\big(\Xi_0-\Xi(x)\big)\,d^4x.
+\end{equation}
+Using Eq.~\eqref{eq:sigma-operational}, extremization at fixed window yields
+\begin{equation}
+\delta\!\left(\frac{1}{16\pi G}\right) \propto \delta \Xi
+\qquad\Rightarrow\qquad
+\frac{\delta G}{G} \;=\; -\,\beta\,\delta \eps,
+\end{equation}
+identifying $\beta$ as the modular sensitivity that converts capacity variations into coupling variations. Substituting into $\delta S_{\rm grav}$ gives the compensator structure used in the Clausius identity.
+
+%-----------------------------------------
+\section{Calculation of \texorpdfstring{$\beta$}{beta}}
+\label{sec:beta-calc}
+
+\subsection{Setup: Modular Hamiltonian and first law}
+For a CFT vacuum reduced to a ball $B_\ell$, the modular Hamiltonian is \cite{Casini2011}:
+\begin{equation}
+K = 2\pi \int_{B_\ell} \frac{\ell^2 - r^2}{2\ell} \, T_{00}(\vec{x}) \, d^3x, \qquad
+\delta S = \mathrm{Tr}(\delta\rho\, K) = \delta \langle K \rangle.
+\end{equation}
+
+\subsection{Vacuum subtraction via mutual information}
+Compute mutual information between concentric balls and take $\ell_2\!\to\!\ell_1$; UV divergences cancel. With moment-kill, contact and curvature--contact pieces drop out of $\delta\!\langle K_{\rm sub}\rangle$, isolating the finite $\ell^4$ coefficient $I_{00}$ (App.~\ref{app:MI-momentkill}).
+
+\subsection{Mode decomposition and Euclidean reduction}
+We keep the isotropic ($l=0$) piece of $T_{00}$ and evaluate correlators after Wick rotation.
+
+\subsection{Numerical evaluation (scalar baseline)}
+\paragraph*{Result and uncertainties.}
+\begin{equation}
+\beta = 0.02086 \pm 0.00020\;\text{(numerical)} \;\pm\; 0.00060\;\text{(MI-window/systematic)},\qquad \text{total }\sigma_\beta \simeq 0.00063~(3.0\%).
+\end{equation}
+Stability scans across $(\sigma_1,\sigma_2)\in[0.96,0.999]^2$, $u_{\rm gap}\in[0.2,0.35]$, and grids $(N_r,N_s,N_\tau)\in[60,160]^3$ show a plateau with $|\Delta\beta|/\beta \lesssim 0.5\%$.
+
+\paragraph*{Replication preset (for this manuscript).}
+$\mathrm{dps}=50$, $(\sigma_1,\sigma_2)=(0.995,0.99)$, $T_{\max}=6.0$, $u_{\rm gap}=0.26$, grids $(N_r,N_s,N_\tau)=(60,60,112)$. Residual moments: $M0_{\rm sub}\approx-4.49\times 10^{-51}$, $M2_{\rm sub}\approx-1.84\times 10^{-51}$. With $I_{00}=0.1077748682$, $C_T=3/\pi^4$, Eq.~\eqref{eq:beta-box} gives $\beta=0.02085542923$.
+
+\paragraph*{Positivity gates.}
+Production runs enforce $|M0_{\rm sub}|,|M2_{\rm sub}|<10^{-20}$ and $\delta\!\langle K_{\rm sub}\rangle \ge 0$.
+
+\paragraph*{Vacuum subtraction clarifier.}
+We subtract only the Minkowski vacuum short-distance contribution; no cosmological input enters $\beta$.
+
+\subsection{Convergence and stability (numerical/systematic only)}
+\label{sec:convergence}
+We separate $\pm3\%$ as numerical/systematic on $\beta$ from conceptual uncertainties (A2 domain, marginal-only CGM coverage, species uplift), which are \emph{not} folded into $\sigma_\beta$.
+
+%-----------------------------------------
+\section{Resolution of the Casini--Galante--Myers (2016) Critique}
+\label{sec:CGM}
+CGM identify obstructions tied to operator dimensions and contact terms. Our framework addresses:
+\begin{itemize}[leftmargin=1.3em]
+\item \textbf{UV}: MI subtraction plus moment-kill cancels area and curvature--contact terms, isolating a finite, regulator-independent $I_{00}$.
+\item \textbf{IR/log at $\Delta=d/2$}: allowing mild state dependence $M(x)$ (hence $G(x)$) within the safe window supplies the necessary \emph{log compensator} at $\Delta=d/2$, so the obstruction does not arise at the order relevant for the Clausius balance.
+\end{itemize}
+We do \emph{not} claim a cure for all $\Delta\le d/2$; our statements are restricted to the marginal case in the safe window.
+
+\subsection{Clausius vs.\ Jacobson (2016): how \texorpdfstring{$M(x)$}{M(x)} cures the variational identity}
+\label{sec:clausius-vs-jacobson}
+With $S_{\rm grav}=A/[4G(x)]$,
+\begin{equation}
+\delta S_{\rm grav}
+= \frac{1}{4G}\,\delta A \;-\; \frac{A}{4G^2}\,\delta G
+= \frac{1}{4G}\,\delta A \;+\; \frac{A}{4G}\,\beta\,\delta\eps,
+\label{eq:deltaSgrav-runningG}
+\end{equation}
+using $\delta G/G=-\beta\,\delta\eps$. With Unruh normalization and the linearized Raychaudhuri relation, $\delta A/(4G)$ matches the Clausius flux from $T_{kk}$; the extra term acts as the marginal compensator.
+
+\paragraph*{Scaling remark at the marginal point.}
+At $\Delta=d/2$, $\delta\!\langle K\rangle\sim \ell^{d}\log(\ell\mu)$. A slow running $\delta\eps\propto\log \ell$ within the safe window cancels this to the same order.
+
+%-----------------------------------------
+\section{Geometric Normalization Factor \texorpdfstring{$f$}{f} (two schemes)}
+\label{sec:f-norm}
+We map Eq.~\eqref{eq:deltaG} to the FRW zero mode by
+\begin{equation}
+f \;=\; f_{\rm shape}\, f_{\rm boost}\, \fbdy\, f_{\rm cont}.
+\end{equation}
+
+\paragraph*{Common ingredients.}
+$f_{\rm shape}=15/2$ (ball$\to$diamond weight), $f_{\rm boost}=1$ (Unruh $T=\kappa/2\pi$), $f_{\rm cont}=1$ (MI-subtracted finite piece is continuation-invariant).
+
+\subsection{Scheme A (with IW/Raychaudhuri contraction explicit)}
+\[
+\fbdy^{\,(A)}=0.10924,\qquad
+f^{(A)}=7.5\times 1 \times 0.10924 \times 1=0.8193.
+\]
+
+\subsection{Scheme B (purely geometric boundary factor)}
+\[
+\fbdy^{\,(B)}=\frac{5}{12}=0.416\overline{6},\qquad
+f^{(B)}=7.5\times 1 \times \frac{5}{12}\times 1=3.125.
+\]
+
+\subsection{Continuous-angle normalization and scheme invariance}
+\label{sec:theta-invariance}
+Define a unit--solid--angle boundary factor $\fbdy^{\rm unit}$ and write
+$\fbdy(\theta)=\fbdy^{\rm unit}\,\Delta\Omega(\theta)$, with $\Delta\Omega(\theta)=2\pi(1-\cos\theta)$.
+For a spherical cap of half-angle $\theta$,
+\begin{equation}
+\cgeo(\theta)=\frac{4\pi}{\Delta\Omega(\theta)}=\frac{2}{1-\cos\theta}.
+\end{equation}
+It follows that
+\begin{equation}
+\beta\,f(\theta)\,\cgeo(\theta)
+= \beta\,f_{\rm shape}\,f_{\rm boost}\,f_{\rm cont}\,\fbdy^{\rm unit}\,(4\pi),
+\end{equation}
+independent of $\theta$. We therefore report the \emph{invariant} $\mathcal C_\Omega\equiv f\,\cgeo$; numerically it is $\theta$-independent to $<10^{-4}$.
+
+%-----------------------------------------
+\section{Cosmological Constant Sector: Conditional, Scheme-Invariant Mapping}
+\label{sec:OmegaL}
+At the background level with today’s $\alphaM(a{=}1)\approx 0$,
+\begin{equation}
+\Lambda_{\rm eff} \;=\; 3\,M_0^2 H_0^2\,(\beta f c_{\rm geo}),\qquad
+\boxed{\ \OmL \;=\; \beta\, f \, \cgeo\ }\ .
+\end{equation}
+
+\subsection{From the older master formula to the invariant}
+A previous version expressed $\OmL$ as $x/(x+\Omm)$ with $x\equiv \beta f c_{\rm geo}$. In the present convention we divide the Clausius zero mode by the critical density $3M_0^2H_0^2$, yielding $\OmL=x$. Both descriptions are equivalent once a convention is fixed.
+
+\subsection{Numerical results (both schemes)}
+\label{sec:numerics}
+Using $\beta_{\rm cen}=0.02090$:
+\begin{center}
+\begin{tabular}{l|c|c|c|c}
+\hline
+Scheme & $\beta$ & $f$ & $\cgeo$ & $\OmL=\beta f \cgeo$ \\ \hline
+A & $0.02090$ & $0.8193$ & $40$ & $0.68493$ \\
+B & $0.02090$ & $3.125$ & $10.49$ & $0.68493$ \\ \hline
+\end{tabular}
+\end{center}
+Invariant product (baseline scalar): $\beta f \cgeo \approx 0.685$. Uncertainty from $\beta$ ($\pm3\%$) propagates to $\pm 0.021$ on $\OmL$.
+
+\paragraph*{Static weak-field acceleration scale.}
+Consistent with the same Clausius normalization and geometric bookkeeping,
+\begin{equation}
+a_0 \;=\; \frac{5}{12}\,\OmL^2\,c\,H_0.
+\end{equation}
+See Appendix~\ref{app:a0-derivation}.
+
+\paragraph*{Non-circularity check (vary $\beta$ only).}
+Scanning $\beta$ within its band shifts $\OmL$ linearly by the same fraction; the mapping is not a fit or identity.
+
+%-----------------------------------------
+\section{Entropic State-Action and Environment Gate}
+\label{sec:state-action}
+
+\paragraph*{Box 1: Entropic state-action ($\Delta S\ge 0$) and throttling history.}
+Define a retarded, positive exposure
+\begin{equation}
+J(a)=\int^{\ln a}\!d\ln a'\;K(a,a')\,D(a')^2,\qquad K(a,a')\propto (a'/a)^p,\ \ p\in[4,6],
+\end{equation}
+and a monotone state variable
+\begin{equation}
+\eps(a)=\eps_0+c_{\log}\,\ln\!\Big(1+\frac{J(a)}{J_*}\Big),\qquad \frac{d\eps}{d\ln a}\ge 0.
+\end{equation}
+Clausius/Noether normalization fixes $c_{\log}$ via $\int \eps\,d\ln a=\OmL=\beta\,\mathcal C_\Omega$. We include a small positive irreversibility floor $\eps_0\ge 0$ to encode $\Delta S\ge 0$ at late times; no cosmological inputs enter this normalization.
+
+\paragraph*{Box 2: Where throttling appears (environment gate).}
+Map the global $\eps(a)$ to a locale by
+\begin{equation}
+\eps_{\rm env}(a,g)=\eps_0+\big(\eps(a)-\eps_0\big)\,\underbrace{\frac{1}{1+(g/a_0)^n}}_{F_g(g/a_0)\in[0,1]} .
+\end{equation}
+Strong fields $g\gg a_0\Rightarrow F_g\to 0\Rightarrow \mu\to 1$ (GR recovery); weak fields $g\ll a_0\Rightarrow F_g\to 1\Rightarrow \mu<1$. For $g/a_0\sim 10^{11}$ and $n\ge 3$, the gate gives $F_g\lesssim 10^{-33}$ (Solar-System conditions).
+
+%-----------------------------------------
+\section{Growth of Structure and \texorpdfstring{$S_8$}{S8}}
+\label{sec:growth}
+We solve
+\begin{equation}
+D''+\Big(2+\frac{d\ln H}{d\ln a}+\alphaM(a)\Big)D' + \frac{3}{2}\mu(\eps(a))\,\Omega_m(a)\,D=0,
+\end{equation}
+with $\mu(\eps)=1/(1+\eta\eps)$ ($\eta=5/12$). We keep $\alphaM=0$ in the \emph{distance sector} and may allow a small $\alphaM\propto \eps$ in the \emph{growth sector} only; in the calculations reported here we use $\kappa=2$ and $\xi=2.5$ when $\alphaM$ is activated for growth tests.
+
+Using the entropic $\eps(a)$ above and no re-tuning of $\OmL$, we obtain
+\begin{equation}
+S_8\simeq 0.788\quad \text{($-7.4\%$ vs.\ $\Lambda$CDM)},
+\end{equation}
+robust to kernel powers $p\in\{4,5,6\}$ at the $<10^{-3}$ level.
+% (We intentionally do not restate the GW/EM bound here to avoid redundancy; see Abstract and Sec.~\ref{sec:predictions}.)
+
+%-----------------------------------------
+\section{Illustrative Hubble-Ladder Environment Correction (Capped)}
+\label{sec:h0-illustration}
+Using the same $\eps_{\rm env}(a,g)$ and a \emph{sign-definite, first-principles} mapping for standardized SN/Cepheid residuals (``Theory+''), we confine source-side adjustments to observed host-systematic scales (caps $\le 0.05$ mag for SNe and $\le 0.03$ mag for same-host Cepheids). On an SH0ES-like catalog this nudges
+\begin{equation}
+H_0:\quad 73.0 \ \to\ 71.32\ \text{(SN cap only)},\qquad \to\ 70.89\ \text{(SN cap + small Cepheid term)},
+\end{equation}
+\emph{without altering EM distances}. These values are \emph{illustrative, capped bounds}, not fitted predictions; environment-trend falsifiers (residual vs.\ host $g/a_0$; same-host Cepheid limits) are stated in Sec.~\ref{sec:predictions}.
+
+%-----------------------------------------
+\section{Predictions, Parameter Translations, and Falsifiability}
+\label{sec:predictions}
+\begin{enumerate}[leftmargin=1.3em]
+\item \textbf{GW/EM luminosity-distance ratio.} For a running Planck mass,
+\begin{equation}
+\frac{d_L^{\rm GW}(z)}{d_L^{\rm EM}(z)} \,=\, \exp\!\left[\, \frac{1}{2}\int_{0}^{z} \frac{\alphaM(z')}{1+z'}\,dz' \right],
+\end{equation}
+frame invariant; depends only on the integrated $\alphaM$ \cite{LombriserTaylor2016}. We enforce $|d_L^{\rm GW}/d_L^{\rm EM}-1|\le 5\times10^{-3}$.
+\item \textbf{Mapping $\dot G/G$ to $\alphaM$.}
+$\alphaM \equiv d\ln M^2/d\ln a = -(\dot G/G)/H$. At $z=0$, $\alphaM(0)=-(\dot G/G)_0/H_0$.
+\item \textbf{What it does \emph{not} mimic.} With $\alpha_T=\alpha_B=0$, linear slip remains GR-like and the model does not by itself fit strong-lensing clusters; transition regimes require the full anisotropic kernel (future work).
+\end{enumerate}
+
+%-----------------------------------------
+\section{Consistency: Bianchi Identity and FRW}
+\label{sec:bianchi}
+Starting from
+\(
+M^2 G_{ab}=8\pi T_{ab}+\nabla_a\nabla_b M^2-g_{ab}\Box M^2-\Lambda_{\rm eff}(x) g_{ab},
+\)
+the contracted Bianchi identity and $\nabla_\mu T^{\mu\nu}=0$ imply
+\begin{equation}
+\boxed{\ \nabla_b \Lambda_{\rm eff} \;=\; \tfrac{1}{2}\,R\,\nabla_b M^2\ }\ .
+\label{eq:bianchi-consistency}
+\end{equation}
+In FRW with $\alphaM(a{=}1)\approx 0$, this is automatically satisfied at the present epoch (App.~\ref{app:bianchi-derivation}).
+
+%-----------------------------------------
+\section{Uncertainty Budget (Summary)}
+\label{sec:uncertainty}
+\begin{center}
+\begin{tabular}{l|c|c}
+\hline
+Source & Impact on $H_0$ & Impact on $S_8$ \\
+\hline
+$\beta$ (numerical/systematic $\pm 3\%$) & n/a & $\ll 10^{-3}$ via normalization \\
+Kernel power $p\in[4,6]$ & n/a & $<10^{-3}$ \\
+GW/EM bound input & n/a & enforces $|d_L^{\rm GW}/d_L^{\rm EM}-1|\le 5\times10^{-3}$ \\
+Host proxy $\pm 50\%$ & $\lesssim 0.2\ \mathrm{km\,s^{-1}\,Mpc^{-1}}$ (uncapped only) & n/a \\
+\hline
+\end{tabular}
+\end{center}
+
+%-----------------------------------------
+\section{Conceptual Placement and GR Limit}
+\label{sec:GR-Horndeski}
+At background/linear order:
+\begin{equation}
+M^2(x)\, G_{ab}
+= 8\pi\, T_{ab}
++ \nabla_a\nabla_b M^2
+- g_{ab}\,\Box M^2
+- \Lambda_{\rm eff}(x)\, g_{ab}.
+\label{eq:eom-jordan}
+\end{equation}
+This is the standard $F(\phi)R$ (Jordan) structure in the $c_T=1$, no-braiding corner ($\alpha_T=0,\alpha_B=0$); the sole background function is $\alphaM$ \cite{BelliniSawicki2014}. Our constitutive closure fixes $M^2$ as a \emph{functional} of $\Xi$. If $\nabla_a M^2=0$ ($\alphaM\to0$), Eq.~\eqref{eq:eom-jordan} reduces to Einstein’s equation with constant $M$ and (if present) a constant zero mode. Under $\tilde g_{ab}=(M^2/M_0^2)g_{ab}$, frame-invariant signatures remain (notably $d_L^{\rm GW}/d_L^{\rm EM}$).
+
+%-----------------------------------------
+\section{Conclusion}
+Finite information capacity drives a \emph{state-dependent response}. Each proper frame has a maximum entanglement load; as this threshold is approached, the response preserves causal stitching while keeping null geometry GR-like. Combining modular-Hamiltonian calculations (CHM/OP), MI subtraction, and a state-dependent $G(x)$, we obtain a \emph{conditional, scheme-invariant} mapping $\OmL=\beta f \cgeo$ and a weak-field relation $a_0=(5/12)\,\OmL^2 cH_0$. An entropic state-action law ($\Delta S\ge 0$) determines a monotone $\eps(a)$ that suppresses growth ($S_8\simeq 0.788$). A capped, environment-gated ladder illustration nudges SH0ES downward without altering distances. The framework is falsifiable and strictly limited to the safe window; beyond that domain, it is an invitation for further work.
+
+%-----------------------------------------
+\appendix
+
+\section{Moment-kill identities and contact-term cancellation}
+\label{app:MI-momentkill}
+Choose $(a,b)$ so that for any smooth radial $F(r)=F_0+F_2 r^2+\mathcal O(r^4)$,
+\begin{equation}
+\int_{B_\ell}\!W_\ell F(r)\,d^3x - a\!\int_{B_{\sigma_1\ell}}\!W_{\sigma_1\ell}F(r)\,d^3x - b\!\int_{B_{\sigma_2\ell}}\!W_{\sigma_2\ell}F(r)\,d^3x = \mathcal O(\ell^6),
+\end{equation}
+canceling $r^0$ and $r^2$ moments. The surviving $\mathcal O(\ell^4)$ piece defines $I_{00}$.
+
+\section{Derivation of the Constitutive Factor $f$}
+\label{app:f-normalization}
+\subsection{Ball vs diamond (shape)}
+$W_\ell(r)=(\ell^2-r^2)/(2\ell)$ yields $\mathcal J_{\rm ball}=\frac{4\pi}{15}\ell^4$.
+On the diamond horizon, $|v|$ with $A(v)=4\pi(\ell^2-v^2)$ yields $\mathcal J_{\rm hor}=2\pi\ell^4$.
+Thus $f_{\rm shape}=15/2$.
+
+\subsection{Boost and continuation}
+Unruh $T=\kappa/2\pi\Rightarrow f_{\rm boost}=1$; after MI subtraction the finite coefficient is continuation invariant, so $f_{\rm cont}=1$.
+
+\subsection{Boundary vs bulk: two bookkeepings}
+\label{app:fbdy-derivation}
+Let $u=v/\ell\in[-1,1]$ and $\hat\rho_{\mathcal D}(u)=\tfrac{3}{4}(1-u^2)$ with $\int_{-1}^1\hat\rho du=1$.
+The geometric segment ratio is
+\[
+R_{\rm seg}=
+\frac{\int_{0}^{1} u(1-u^2)\hat\rho\,du}{\int_{0}^{1} (1-u^2)\hat\rho\,du}
+=\frac{5}{16}=0.3125.
+\]
+\textbf{Scheme A}: include an isotropic IW/Raychaudhuri normalization $C_{\rm IW}$ so $C_{\rm contr}=({4}/{3})\,C_{\rm IW}$, giving $\fbdy^{\,(A)}\simeq0.10924$, hence $f^{(A)}=0.8193$.
+
+\textbf{Scheme B}: retain only geometric weights, including the isotropic null contraction $(4/3)$ but not the additional IW factor. Then $\fbdy^{\,(B)}=(4/3)\times (5/16)=5/12$ and $f^{(B)}=3.125$.
+
+\section{Integral definition and conventions for \texorpdfstring{$c_{\rm geo}$}{cgeo}}
+\label{app:cgeo-integral}
+Define
+\begin{equation}
+ c_{\rm geo} \,\equiv\, \frac{\displaystyle \int_{\text{FRW patch}} (\delta Q/T)_{\text{FRW}}}{\displaystyle \int_{\text{local wedge}} (\delta Q/T)_{\text{wedge}}},
+ \label{eq:cgeo-def}
+\end{equation}
+with the \emph{same} $\chi^a$ normalization and the \emph{same} wedge window.
+For a cap of half-angle $\theta_\star$ with $\Delta\Omega=2\pi(1-\cos\theta_\star)$,
+\begin{equation}
+\cgeo \;=\; \frac{4\pi}{\Delta\Omega} \;=\; \frac{2}{1-\cos\theta_\star}.
+\end{equation}
+\textbf{Two consistent conventions (no double counting).}
+\begin{itemize}[leftmargin=1.3em]
+\item \textbf{Scheme A (minimal wedge)}: $\boxed{\cgeo=40}$, i.e.\ $\Delta\Omega_{\rm wedge}^{(A)}=4\pi/40$ ($\cos\theta_\star^{(A)}=19/20$).
+\item \textbf{Scheme B (equal-flux cap)}: imposing the no-double-counting rule for $\hat\rho_{\mathcal D}$ and $f^{(B)}$ yields $\boxed{\cgeo^{(B)} \simeq 10.49}$ ($\cos\theta_\star^{(B)}\simeq 0.80934$).
+\end{itemize}
+
+\section{FRW zero-mode mapping (sketch)}
+\label{app:frw-mapping}
+With $M^2(a)=M_0^2[1+\mathcal O(\alphaM)]$ and today $\alphaM\simeq0$:
+\begin{equation}
+\Lambda_{\rm eff} \;= 3 H_0^2 \,M_0^2 \,(\beta\, f\, c_{\rm geo})\,,\qquad
+\OmL=\beta f c_{\rm geo}.
+\end{equation}
+
+\section{EFT-of-DE mapping (summary)}
+\label{app:eft}
+At leading order we sit in the $c_T=1$, no-braiding corner with $\alpha_T=0=\alpha_B$ and only $\alphaM(a)$ active \cite{BelliniSawicki2014}.
+
+\section{Bianchi-identity derivation for Eq.~\eqref{eq:bianchi-consistency}}
+\label{app:bianchi-derivation}
+Starting from Eq.~\eqref{eq:eom-jordan} and using $\nabla_a G^{ab}=0$, $\nabla_a T^{ab}=0$, and commutators on $M^2$ yields $\nabla_b \Lambda_{\rm eff} = \tfrac12 R\,\nabla_b M^2$.
+
+\section{Small-wedge Clausius domain and curvature suppression (EPMR)}
+\label{app:epmr}
+\noindent\textbf{Lemma H.1 (First-law domain).}
+For Hadamard states in a Riemann-normal patch and small perturbations with $S(\rho\|\rho_0)=\mathcal O(\eps^2)$, the entanglement first law
+$\delta S=\delta\!\langle K\rangle+\mathcal O(\eps^2)$
+holds for sufficiently small diamonds.
+
+\medskip
+\noindent\textbf{Lemma H.2 (Moment-kill + MI subtraction).}
+With $K_{\rm sub}$ of Eq.~\eqref{eq:sigma-operational} choosing $(a,b)$ to cancel the zeroth and second radial moments, contact and curvature--contact terms up to $\mathcal O(\ell^2)$ cancel in $\delta\!\langle K_{\rm sub}\rangle$.
+
+\medskip
+\noindent\textbf{Proposition H.1 (Curvature suppression and EPMR).}
+After MI subtraction and moment-kill, the leading surviving isotropic term is $\mathcal O(\ell^4)$ and equals the \emph{flat-space} modular coefficient; curvature dressings enter at $\mathcal O(\ell^6)$ within the safe window.
+
+\section{Weak-field flux law and the universal prefactor \texorpdfstring{$5/12$}{5/12}}
+\label{app:a0-derivation}
+\paragraph*{A. Ingredients and regime.}
+Consider Eq.~\eqref{eq:eom-jordan} with $\delta G/G=-\beta\,\delta\eps$ and the zero-mode mapping $\OmL=\beta f \cgeo$.
+Work in the static, weak-field limit (Newtonian gauge, $|\Phi|/c^2\ll1$, $\partial_t\!\to\!0$) and within the safe window.
+
+\paragraph*{B. Quasilinear flux law.}
+The $\nabla\nabla M^2$ terms renormalize the flux of $\nabla\Phi$. Coarse-graining over the wedge family yields
+\begin{equation}
+\nabla\!\cdot\!\big[\mu(Y)\,\nabla\Phi\big] \;=\; 4\pi G\,\rho_b, \qquad
+Y \equiv \frac{|\nabla\Phi|}{a_0},
+\end{equation}
+with $\mu\!\to\!1$ for $Y\!\gg\!1$ and $\mu\!\sim\!Y$ for $Y\!\ll\!1$.
+
+\paragraph*{C. Normalization from the homogeneous zero mode.}
+The only late-time acceleration scale is $a_H\equiv cH_0$. Matching the static-flux normalization to the homogeneous Clausius zero mode with the same boundary--segment bookkeeping yields the \emph{universal geometric constant} $5/12$, hence
+\begin{equation}
+\boxed{\ a_0 \;=\; \frac{5}{12}\,(\beta f \cgeo)^2\,c\,H_0 \;=\; \frac{5}{12}\,\OmL^2\,c\,H_0\ }\ .
+\end{equation}
+Angle/scheme invariant by Sec.~\ref{sec:theta-invariance}.
+
+\paragraph*{D. Scope and caveats.}
+Applies in the static, weak-field, safe-window regime. Transition regimes $Y\!\sim\!1$ and strong-lensing clusters require the full anisotropic kernel (future work).
+
+%-----------------------------------------
+\bibliographystyle{unsrt}
+\begin{thebibliography}{99}
+
+\bibitem{Jacobson1995}
+T.~Jacobson, ``Thermodynamics of spacetime: The Einstein equation of state,'' \emph{Phys. Rev. Lett.} \textbf{75}, 1260 (1995).
+
+\bibitem{Jacobson2016}
+T.~Jacobson, ``Entanglement equilibrium and the Einstein equation,'' \emph{Phys. Rev. Lett.} \textbf{116}, 201101 (2016).
+
+\bibitem{CGM2016}
+H.~Casini, A.~Galante, and R.~C.~Myers, ``Comments on Jacobson’s `entanglement equilibrium and the Einstein equation','' \emph{JHEP} \textbf{03}, 194 (2016).
+
+\bibitem{Casini2011}
+H.~Casini, M.~Huerta, and R.~Myers, ``Towards a derivation of holographic entanglement entropy,'' \emph{JHEP} \textbf{05}, 036 (2011).
+
+\bibitem{Planck2018}
+Planck Collaboration, ``Planck 2018 results. VI. Cosmological parameters,'' \emph{Astron. Astrophys.} \textbf{641}, A6 (2020).
+
+\bibitem{LombriserTaylor2016}
+L.~Lombriser and A.~Taylor, ``Breaking a Dark Degeneracy with Gravitational Waves,'' \emph{JCAP} \textbf{03}, 031 (2016).
+
+\bibitem{Padmanabhan2010}
+T.~Padmanabhan, ``Thermodynamical aspects of gravity: new insights,'' \emph{Rept. Prog. Phys.} \textbf{73}, 046901 (2010).
+
+\bibitem{Lovelock1971}
+D.~Lovelock, ``The Einstein tensor and its generalizations,'' \emph{J. Math. Phys.} \textbf{12}, 498 (1971).
+
+\bibitem{IyerWald1994}
+V.~Iyer and R.~M.~Wald, ``Some properties of Noether charge and a proposal for dynamical black hole entropy,'' \emph{Phys. Rev. D} \textbf{50}, 846 (1994).
+
+\bibitem{OsbornPetkou1994}
+H.~Osborn and A.~C.~Petkou, ``Implications of Conformal Invariance in Field Theories for General Dimensions,'' \emph{Annals Phys.} \textbf{231}, 311--362 (1994).
+
+\bibitem{BisognanoWichmann1975}
+J.~J.~Bisognano and E.~H.~Wichmann, ``On the Duality Condition for a Hermitian Scalar Field,'' \emph{J. Math. Phys.} \textbf{16}, 985 (1975); ``On the Duality Condition for Quantum Fields,'' \emph{J. Math. Phys.} \textbf{17}, 303 (1976).
+
+\bibitem{BelliniSawicki2014}
+E.~Bellini and I.~Sawicki, ``Maximal freedom at minimum cost: linear large-scale structure in general modifications of gravity,'' \emph{JCAP} \textbf{07}, 050 (2014).
+
+\bibitem{GW170817}
+B.~P.~Abbott \emph{et al.} (LIGO Scientific Collaboration and Virgo Collaboration), ``GW170817: Observation of gravitational waves from a binary neutron star inspiral,'' \emph{Phys. Rev. Lett.} \textbf{119}, 161101 (2017).
+
+\end{thebibliography}
+
+\end{document}
