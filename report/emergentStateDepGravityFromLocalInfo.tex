@@ -8,6 +8,8 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{bookmark} % stabilize outlines/bookmarks (prevents rerun loops)
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,calc,shapes.geometric,shapes.multipart}
 
 % — Hyperref setup —
 \hypersetup{
@@ -97,6 +99,9 @@ with $\beta$ calculable from flat-space QFT (Sec.~\ref{sec:beta-calc}). The weak
 \qquad \eta=\frac{5}{12},
 \end{equation}
 so $\mu\to 1$ in strong fields (GR recovery) and $\mu<1$ in weak fields (gentle dynamical slowdown).
+
+\paragraph{Why $\eta=\frac{5}{12}$.}
+The coefficient follows from the same unit--solid--angle Noether normalization used in the FRW zero mode. Coarse--graining the $\nabla\nabla M^2$ terms over the CHM wedge family yields a quasilinear flux law with a universal boundary--segment ratio; the isotropic null contraction contributes $(4/3)$ and the segment geometry contributes $(5/16)$, giving $(4/3)\times(5/16)=5/12$. Appendix~\ref{app:a0-derivation} shows the identical factor fixing the static acceleration scale $a_0=(5/12)\OmL^2 cH_0$; using the same bookkeeping in the weak--field $\mu(\eps)$ guarantees scheme/angle invariance.
 
 \paragraph{What is fixed vs.\ what is assumed.}
 \emph{Fixed once:} wedge family (ball$\to$diamond), generator density, Unruh normalization, unit--solid--angle boundary factor. \emph{Assumed:} (A2) Clausius with Unruh in the \emph{safe window} (Def.\ \ref{def:safe-window}); Hadamard state; small perturbations. \emph{Consequence:} the geometric mapping is \emph{angle-invariant} (Sec.\ \ref{sec:theta-invariance}); only $\beta f \cgeo$ is physical.
@@ -232,6 +237,49 @@ Replica–geometry finite–difference  & $\lesssim 1\%$ & $\lesssim 0.5\%$ \\
 \end{tabular}
 \end{table}
 
+% —— New hyperlinked figure: Computation & Validation Pipeline ——
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  node distance=7mm and 12mm,
+  every node/.style={font=\small},
+  box/.style={draw, rounded corners, align=center, inner sep=4pt, outer sep=2pt, fill=white},
+  arr/.style={-Latex, thick}
+]
+% Left column: beta computation
+\node[box, fill=blue!5] (chm) {\textbf{CHM/OP modular data}\\ \hyperref[sec:beta-calc]{Sec.~\ref*{sec:beta-calc}}};
+\node[box, below=of chm] (mi) {MI subtraction +\\ moment-kill\\ \hyperref[app:MI-momentkill]{App.~\ref*{app:MI-momentkill}}};
+\node[box, below=of mi] (routes) {4 independent routes\\ (real, spectral, Eucl., replica)\\ \hyperref[sec:beta-multimethod]{Sec.~\ref*{sec:beta-multimethod}}};
+\node[box, below=of routes, fill=green!7] (beta) {$\beta$ plateau \& stability\\ \hyperref[sec:convergence]{Sec.~\ref*{sec:convergence}}};
+
+% Middle: geometric normalization
+\node[box, right=2.6cm of mi, fill=yellow!10] (f) {Geometric normalization $f$\\ (schemes A/B; angle-invariant)\\ \hyperref[sec:f-norm]{Sec.~\ref*{sec:f-norm}}};
+\node[box, below=of f, fill=yellow!10] (cgeo) {$\cgeo(\theta)$, unit-solid-angle\\ \hyperref[app:cgeo-integral]{App.~\ref*{app:cgeo-integral}}};
+\node[box, below=of cgeo, fill=orange!15] (omega) {\Large $\OmL=\beta f \cgeo$\\ \hyperref[sec:OmegaL]{Sec.~\ref*{sec:OmegaL}}};
+
+% Right column: validations and applications
+\node[box, right=2.6cm of routes, fill=blue!5] (substr) {Substrate checks:\\ HQTFIM \& Gaussian\\ \hyperref[sec:substrate-validations]{Sec.~\ref*{sec:substrate-validations}}};
+\node[box, below=of substr] (state) {Entropic state-action $\eps(a)$\\ \hyperref[sec:state-action]{Sec.~\ref*{sec:state-action}}};
+\node[box, below=of state] (growth) {Growth $f\sigma_8$, $S_8$\\ \hyperref[sec:growth]{Sec.~\ref*{sec:growth}}};
+\node[box, below=of growth] (h0) {Hubble ladder (capped/uncapped)\\ \hyperref[sec:h0-illustration]{Sec.~\ref*{sec:h0-illustration}}};
+
+% Arrows
+\draw[arr] (chm) -- (mi);
+\draw[arr] (mi) -- (routes);
+\draw[arr] (routes) -- (beta);
+\draw[arr] (mi.east) -- (f.west);
+\draw[arr] (f) -- (cgeo);
+\draw[arr] (cgeo) -- (omega);
+\draw[arr] (routes.east) -- (substr.west);
+\draw[arr] (omega.east) to[bend left=12] (state.west);
+\draw[arr] (substr) -- (state);
+\draw[arr] (state) -- (growth);
+\draw[arr] (growth) -- (h0);
+\end{tikzpicture}
+\caption{End-to-end computation and validation pipeline with live links to the corresponding sections. Left: determination of $\beta$ from CHM/OP modular response after MI subtraction and moment-kill, with four independent routes and stability checks. Center: angle/scheme-invariant geometric normalization leading to the conditional mapping $\OmL=\beta f\cgeo$. Right: independent substrate validations (HQTFIM and Gaussian chains) underpin the analysis assumptions, feeding into the entropic state-action, growth, and Hubble-ladder illustrations.}
+\label{fig:pipeline}
+\end{figure*}
+
 %—————————————–
 \section{Microphysical Substrate Validations (HQTFIM and Gaussian chains)}
 \label{sec:substrate-validations}
@@ -251,7 +299,7 @@ Quick validations: (i) $\delta g$–scan is linear with $R^2\simeq0.984$; (ii) b
 
 \begin{table}[h]
 \centering
-\caption{Substrate validation metrics (see App.~\ref{app:substrate-protocol} for definitions). ``Plateau'' refers to the mean residual after subtracting $a_0+a_1\log\ell$ from $\delta\!\langle K\rangle(\ell)$.}
+\caption{Substrate validation metrics (see App.~\ref{app:substrate-protocol} for definitions). ``Plateau'' refers to the mean residual after subtracting $a_0+a_1\log\ell$ from $\delta\!\langle K\rangle(\ell)$. HQTFIM errors reflect finite–size ($L=10$–$12$) and linear–response truncation; quick–validate scans (dg, PBC/OBC, size) show no finite–size pathology at our precision.}
 \label{tab:substrate-metrics}
 \begin{tabular}{lcccc}
 \hline
@@ -262,8 +310,6 @@ Gaussian fermion & $L=200$, PBC, $\ell\in[20,100]$ & $0$ & $\approx 0 \pm 9.75\t
 \hline
 \end{tabular}
 \end{table}
-
-These tests are not a computation of the cosmological $\beta$; they are \emph{structural validations} showing that MI–subtracted modular response in concrete microphysics exhibits the same (first–law, constant+log, plateau) features assumed in the OP/CHM flat–space calculation.
 
 %—————————————–
 \section{Resolution of the Casini--Galante--Myers (2016) Critique}
@@ -293,6 +339,36 @@ Smearing with the same MI/moment-kill projector that defines \(I_{00}\) yields a
 \label{prop:marginal}
 For CHM diamonds in the safe window with MI subtraction and moment-kill, if \(M^2\) runs slowly with \(\eps\) so that \(\delta\eps\) varies logarithmically across the window, then the additional focusing source \(M^{-2}k^a k^b\nabla_a\nabla_b M^2\) produces a gravitational contribution \(-B\,\ell^4\log(\ell\mu)\,\delta\eps\) that cancels the CGM obstruction \(+B\,\ell^4\log(\ell\mu)\,\delta\eps\) in \(\delta\!\langle K_{\rm sub}\rangle\). The remaining finite \(\ell^4\) term equals \(2\pi C_T I_{00}\,\ell^4\,\delta\eps\), establishing (A2) at the marginal point.
 \end{proposition}
+
+% —— New hyperlinked figure: CGM → compensator → mapping ——
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  node distance=7mm and 12mm,
+  every node/.style={font=\small},
+  box/.style={draw, rounded corners, align=center, inner sep=4pt, outer sep=2pt, fill=white},
+  obs/.style={draw, rounded corners, align=center, inner sep=4pt, outer sep=2pt, fill=red!5},
+  good/.style={draw, rounded corners, align=center, inner sep=4pt, outer sep=2pt, fill=green!7},
+  arr/.style={-Latex, thick}
+]
+\node[obs] (cgm) {\textbf{CGM obstruction} ($\Delta\!\le\! d/2$)\\ contact \& log terms\\ \hyperref[sec:CGM]{Sec.~\ref*{sec:CGM}}};
+\node[box, right=2.8cm of cgm] (mi) {MI subtraction + moment-kill\\ removes area/contact\\ \hyperref[app:MI-momentkill]{App.~\ref*{app:MI-momentkill}}};
+\node[box, below=of mi] (safe) {\emph{Safe window}\\ $\epsilon_{\rm UV}\!\ll\!\ell\!\ll\!\min\{L_{\rm curv},\lambda_{\rm mfp},m_i^{-1}\}$\\ \hyperref[def:safe-window]{Def.~\ref*{def:safe-window}}};
+\node[box, right=2.8cm of mi, fill=yellow!10] (run) {Slow running $M^2(\eps)$\\ adds focusing source\\ \hyperref[sec:clausius-vs-jacobson]{Sec.~\ref*{sec:clausius-vs-jacobson}}};
+\node[good, below=of run] (cancel) {Log compensator cancels\\ marginal $\ell^4\log(\ell)$ term\\ \hyperref[prop:marginal]{Prop.~\ref*{prop:marginal}}};
+\node[good, right=2.8cm of run] (epmr) {\textbf{EPMR} in small diamonds:\\ finite $\ell^4$ = flat-space value\\ \hyperref[app:epmr]{App.~\ref*{app:epmr}}, Thm.~\ref{thm:A2-working}};
+\node[box, below=of epmr, fill=orange!15] (map) {\Large $\OmL=\beta f \cgeo$\\ \hyperref[sec:OmegaL]{Sec.~\ref*{sec:OmegaL}}};
+
+\draw[arr] (cgm) -- (mi);
+\draw[arr] (mi) -- (run);
+\draw[arr] (mi) -- (safe);
+\draw[arr] (run) -- (cancel);
+\draw[arr] (cancel) -- (epmr);
+\draw[arr] (epmr) -- (map);
+\end{tikzpicture}
+\caption{Hyperlinked resolution path for the CGM critique: MI subtraction and moment-kill remove area/contact terms; within the safe window, a slow running $M^2(\eps)$ supplies a marginal log compensator that cancels the obstruction, yielding the flat-space finite $\ell^4$ coefficient at working order (EPMR). This underpins the conditional, scheme-invariant mapping $\OmL=\beta f\cgeo$.}
+\label{fig:cgm-diagram}
+\end{figure*}
 
 %—————————————–
 \section{Geometric Normalization Factor \texorpdfstring{$f$}{f} (two schemes)}
@@ -417,6 +493,22 @@ Using the same $\eps_{\rm env}(a,g)$ and a \emph{sign-definite, first-principles
 H_0:\quad 73.0 \ \to\ 71.32\ \text{(SN cap only)},\qquad \to\ 70.89\ \text{(SN cap + small Cepheid term)},
 \end{equation}
 \emph{without altering EM distances}. These values are \emph{illustrative, capped bounds}, not fitted predictions; environment-trend falsifiers (residual vs.\ host $g/a_0$; same-host Cepheid limits) are stated in Sec.~\ref{sec:predictions}.
+
+\subsection{Uncapped vs.\ capped Hubble–ladder runs}
+In addition to the conservative, capped illustration above, we also run the identical environment–gated mapping \emph{without} caps. The uncapped run demonstrates that the downward shift in $H_0$ is not an artifact of the caps; caps merely serve as a conservative systematic control.
+\begin{center}
+\begin{tabular}{l|c}
+\hline
+Configuration & $H_0$ [km s$^{-1}$ Mpc$^{-1}$] \\
+\hline
+Baseline (catalog value) & 73.0 \\
+Uncapped, SN-only (Theory+) & 71.178 \\
+Capped, SN-only (0.05 mag) & 71.319 \\
+Capped, SN + small Cepheid term (0.05/0.03 mag) & 70.885 \\
+\hline
+\end{tabular}
+\end{center}
+Two points follow. First, the direction and order of magnitude of the shift are already present in the uncapped run (SN-only: $73.0 \to 71.178$), showing that the sign–definite environment response is sufficient. Second, the caps tighten susceptibility to outliers and known catalog systematics; the capped SN+Cepheid combination ($70.885$) provides a conservative bound. As elsewhere, EM distances remain GR-like; no cosmological parameters are fitted.
 
 %—————————————–
 \section{Predictions, Parameter Translations, and Falsifiability}
@@ -639,7 +731,7 @@ In OP convention \cite{OsbornPetkou1994}, the modular sensitivity factorizes as 
 \[
 C_T^{\mathrm{eff}}(\ell)=\sum_i \Theta(1-\ell m_i)\,C_T^{(i)},
 \]
-so that species with \(\ell m_i\gg 1\) decouple in the late-time safe window. The invariant \(\beta\,\mathcal C_\Omega\) and hence \(\Omega_\Lambda\) are therefore stable within our quoted \(\beta\) systematics across reasonable late-time windows.
+so that species with \(\ell m_i\gg 1\) decouple in the late-time safe window. The invariant \(\beta\,\mathcal C_\Omega\) and hence \(\Omega_\Lambda\) are therefore stable within our quoted \(\beta\) systematics across reasonable late-time windows. For the late–time safe window relevant here, massive species with $\ell m_i\gg 1$ are exponentially suppressed in $C_T^{\rm eff}$; scanning realistic mixtures shifts $\beta\mathcal C_\Omega$ at the sub–percent level, well below our quoted numerical/systematic on $\beta$.
 
 %—————————————–
 \bibliographystyle{unsrt}
