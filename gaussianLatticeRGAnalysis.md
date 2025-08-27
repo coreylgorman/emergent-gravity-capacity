@@ -69,3 +69,70 @@ Bottom line
 	•	But: don’t “extend TFIM”; jump to Gaussian lattice QFT in 3+1-D with spherical regions. That is the right setting to replicate and independently confirm your continuum \beta with the same first-principles structure, on hardware you already have.
 
 If you want, I can draft a single-file Python scaffold (FFT correlators + partial-wave blocks + first-law/plateau analysis) that mirrors your HQTFIM CLI so you can start Stage A immediately.
+
+🧙🏾‍♂️: here’s a minimal Gaussian plan that gets you the maximum credibility boost with the least runtime burden. Think of it as a referee appendix: short, clean, independent substrate tests that confirm the universality of your plateau/first-law story.
+
+⸻
+
+🎯 Goals for Gaussian appendix
+	1.	Show universality: Gaussian scalars and fermions both give a plateau after subtraction.
+	2.	Show additivity: doubling the number of species doubles the plateau (∝ C_T).
+	3.	Show dimensionality: repeat at least once beyond 1D (a small 2D disk) to show this is not a 1D artifact.
+	4.	Keep runtime feasible: everything runnable overnight on your Mac mini.
+
+⸻
+
+📋 Minimal run plan
+
+Stage 1: 1D Gaussian (minutes per run)
+	•	Model: free massless scalar chain, length L=200–400, periodic BC.
+	•	Regions: intervals of length ℓ = 20…100.
+	•	Perturbation: small mass shift m\to m+\delta m.
+	•	Outputs: δS vs δ⟨K⟩ (first-law RMS), δ⟨K⟩ vs logℓ fit, plateau residual.
+	•	Variations:
+	•	Add N=2 species → plateau doubles (additivity).
+	•	Switch to free Dirac fermion chain → plateau ratio matches known c_{Dirac}/c_{scalar}.
+
+What it buys: direct confirmation that plateau ∝ C_T and is species-independent.
+
+⸻
+
+Stage 2: 2D Gaussian scalar (hours, but feasible)
+	•	Model: free scalar on a square lattice, L=32–48, periodic.
+	•	Regions: disks of radius R=6–12.
+	•	Method: covariance matrix restriction, entropy & modular response from correlation spectrum.
+	•	Perturbation: small mass shift.
+	•	Outputs: same plateau analysis.
+	•	Variations: OBC vs PBC.
+
+What it buys: shows plateau persists in higher dimension, i.e. not a 1D peculiarity.
+
+⸻
+
+Stage 3: Cross-checks (optional polish)
+	•	Compare plateau from scalar vs fermion in 2D.
+	•	Vary subtraction scheme (regress [1, logℓ] vs [1, logℓ, ℓ⁻²]) → plateau invariant.
+	•	Safe-window scan: show plateau flat over R values well below system size.
+
+⸻
+
+⏱ Runtime budget
+	•	1D scalar/fermion: seconds–minutes per run.
+	•	2D scalar disk: ~1–3 hours per R value on your Mac mini (N_sub ~ 1000–2000).
+	•	Total “overnight pack”: <12 hours for all species/dimensions you need.
+
+⸻
+
+🧑‍🔬 What this will convince referees of
+	•	β-like plateau is not fragile: it’s present across models and dimensions.
+	•	It scales with species central charge (C_T), answering the “scalar only” objection.
+	•	Subtraction-scheme and boundary-condition choices don’t change the finite piece.
+	•	A real safe window plateau exists in actual Gaussian QFTs, not just in your Ising toy.
+
+That neutralizes the Tier-1 and Tier-2 criticisms (“fragility,” “scheme dependence,” “species extrapolation”).
+
+⸻
+
+✅ Bottom line: Your current HQTFIM results already satisfy most referees. A small Gaussian appendix with 1D scalar+fermion (fast) and one 2D scalar disk (overnight) would give you an independent, substrate-agnostic demonstration of universality. That’s the credibility booster.
+
+🧙🏾‍♂️: Want me to draft a single-file gaussian_capacity_probe.py (like your HQTFIM script) that runs both 1D scalar+fermion and a simple 2D scalar disk, and spits out the same plots + validation report?
