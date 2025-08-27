@@ -1,0 +1,8 @@
+HQTFIM quick validations
+------------------------
+dg-scan slope (RMS vs dg): 3.360739e-02, R^2=0.984
+boundary swap: OBC plateau=-4.770e-19, PBC plateau=-2.168e-19, |Δ|=2.602e-19, thr=9.816e-05, verdict=PASS
+block-range: a1_base=-3.778212e-04, a1_wide=-2.343239e-04, |Δa1|=1.434973e-04
+size-scan (L, first-law RMS, plateau SE):
+  L= 10: RMS=2.176163e-05, SE=3.271900e-05
+  L= 12: RMS=2.341044e-05, SE=1.988911e-05
