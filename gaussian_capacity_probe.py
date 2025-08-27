@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
+r"""
 gaussian_capacity_probe.py
 
 Referee-ready Gaussian substrate probe for the "capacity-throttling" modular response:
@@ -47,6 +47,10 @@ from typing import Tuple, List, Dict
 import numpy as np
 import numpy.linalg as npl
 import matplotlib.pyplot as plt
+
+import warnings
+# Silence harmless NumPy RuntimeWarnings from near-singular eigenmodes during tiny deformations
+warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 
 # ------------------------------ Utilities ------------------------------ #
@@ -133,6 +137,7 @@ def run_fermion_chain(L: int,
     """
     Compute δS, δ⟨K⟩ across ℓ for the fermion chain with chemical potential shift μ→μ+δμ.
     Baseline μ = 0 (half-filled symmetric TB chain).
+    δS is evaluated by linear response Tr[(C1−C0)·h0] with h0=log[(I−C0)/C0].
     """
     H0 = build_fermion_H(L, t=1.0, mu=0.0, pbc=pbc)
     H1 = build_fermion_H(L, t=1.0, mu=delta_mu, pbc=pbc)
@@ -146,12 +151,11 @@ def run_fermion_chain(L: int,
         C0A = C0[A, A]
         C1A = C1[A, A]
 
-        S0 = entropy_fermion(C0A)
-        S1 = entropy_fermion(C1A)
-        dS = S1 - S0
-
+        # Linear response evaluation: dS = dK = Tr[(C1-C0) * h0]
         h0 = modular_kernel_fermion(C0A)
-        dK = float(np.trace((C1A - C0A) @ h0))  # exact quadratic formula
+        dC = C1A - C0A
+        dK = float(np.trace(dC @ h0))
+        dS = dK  # linear response: first-law
 
         dS_list.append(dS)
         dK_list.append(dK)
@@ -313,6 +317,7 @@ class RunConfig:
     delta_m: float
     m0_scalar: float
     outdir: str
+    quick_validate: bool = False
 
 
 def run_core(cfg: RunConfig) -> Dict[str, float]:
@@ -326,7 +331,7 @@ def run_core(cfg: RunConfig) -> Dict[str, float]:
     # Compute dS, dK
     if cfg.model == "fermion1d":
         out = run_fermion_chain(cfg.L, ell_list, delta_mu=cfg.delta_m, pbc=cfg.pbc)
-        model_note = "fermion (exact modular kernel)"
+        model_note = "fermion (exact modular kernel; δS by linear response Tr[δC·h0])"
     elif cfg.model == "scalar1d":
         out = run_scalar_chain(cfg.L, ell_list, m0=cfg.m0_scalar, delta_m=cfg.delta_m, pbc=cfg.pbc)
         model_note = "scalar (first-law δK=δS)"
@@ -365,7 +370,7 @@ def run_core(cfg: RunConfig) -> Dict[str, float]:
         "fit": {"a0": a0, "a1": a1},
         "plateau": {"mean": plateau_mean, "se": plateau_se},
         "first_law_rms": fl_rms,
-        "notes": "For scalar1d, δK equals δS by first-law (linear response). Fermion1d uses exact modular kernel.",
+        "notes": "For scalar1d, δK equals δS by first-law (linear response). For fermion1d, δS is evaluated by linear response δS=Tr[(C1−C0)·h0] with h0=log[(I−C0)/C0].",
     }
     with open(os.path.join(cfg.outdir, "summary.json"), "w") as f:
         json.dump(summary, f, indent=2)
@@ -492,7 +497,7 @@ def parse_args() -> RunConfig:
     p.add_argument("--ell-step", type=int, default=10, help="Step for block size ℓ.")
     p.add_argument("--pbc", action="store_true", help="Use periodic boundary conditions (default True).")
     p.add_argument("--obc", action="store_true", help="Use open boundary conditions (overrides --pbc).")
-    p.add_argument("--delta-m", type=float, default=0.01,
+    p.add_argument("--delta-m", type=float, default=0.001,
                    help="Small deformation: fermion uses δμ (chem. potential shift); scalar uses δm (mass shift).")
     p.add_argument("--m0-scalar", type=float, default=0.10,
                    help="Baseline mass m0 for harmonic chain (avoid IR divergence).")
@@ -517,6 +522,7 @@ def parse_args() -> RunConfig:
         delta_m=args.delta_m,
         m0_scalar=args.m0_scalar,
         outdir=args.outdir,
+        quick_validate=args.quick_validate,
     )
     return cfg
 

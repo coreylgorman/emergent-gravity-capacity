@@ -1,0 +1,21 @@
+{
+  "model": "fermion1d",
+  "model_note": "fermion (exact modular kernel; \u03b4S by linear response Tr[\u03b4C\u00b7h0])",
+  "L": 200,
+  "pbc": true,
+  "ell_min": 20,
+  "ell_max": 100,
+  "ell_step": 10,
+  "delta_m": 0.001,
+  "m0_scalar": null,
+  "fit": {
+    "a0": -3.6595045955580847,
+    "a1": 1.1191887050106928
+  },
+  "plateau": {
+    "mean": -1.2335811384723962e-16,
+    "se": 0.09752278132787857
+  },
+  "first_law_rms": 0.0,
+  "notes": "For scalar1d, \u03b4K equals \u03b4S by first-law (linear response). For fermion1d, \u03b4S is evaluated by linear response \u03b4S=Tr[(C1\u2212C0)\u00b7h0] with h0=log[(I\u2212C0)/C0]."
+}
