@@ -3,11 +3,21 @@
 % — Packages —
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb,bm,graphicx,mathtools,amsthm}
+\usepackage{adjustbox} % for max-width scaling of TikZ figures
 \usepackage{xcolor}
 \usepackage{microtype}
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{bookmark} % stabilize outlines/bookmarks (prevents rerun loops)
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,calc,shapes.geometric,shapes.multipart,backgrounds}
+
+% — Flowchart colors —
+\definecolor{flowBlue}{HTML}{1F77B4}
+\definecolor{flowPurple}{HTML}{9467BD}
+\definecolor{flowGreen}{HTML}{2CA02C}
+\definecolor{flowOrange}{HTML}{FF7F0E}
+\definecolor{flowRed}{HTML}{D62728}
 
 % — Hyperref setup —
 \hypersetup{
@@ -65,7 +75,9 @@ A Conditional Thermodynamic Derivation with Scheme-Invariant Cosmological Mappin
 \begin{abstract}
 \textbf{Core hypothesis.} Each proper frame carries a finite quantum information capacity. Approaching this bound triggers a \emph{state-dependent response} that preserves causal stitching with neighboring frames. \emph{Kinematics remain GR-like}: we do not alter null geometry used by EM/GW luminosity distances. The response is \emph{dynamical} (weak-field coupling), not kinematical (no extra time dilation beyond GR).
 
-\textbf{Scope and conditionality.} All quantitative claims are conditional on a single working assumption: (A2) the Clausius relation $\delta Q = T\,\delta S$ with Unruh normalization holds for small, near-vacuum local Rindler wedges (the \emph{safe window}). Within this regime we establish an \emph{equivalence principle for modular response} (EPMR): after mutual-information subtraction with \emph{moment-kill}, the $\ell^4$ modular coefficient equals the flat-space value at working order, while curvature dressings enter at $\mathcal O(\ell^6)$. See Theorem~\ref{thm:A2-working} for the working-order statement and error control.
+\textbf{Scope and conditionality.} All quantitative claims are conditional on a single working assumption: (A2) the Clausius relation $\delta Q = T\,\delta S$ with Unruh normalization holds for small, near-vacuum local Rindler wedges (the \emph{safe window}).
+We prove this relation holds to working order $\mathcal O(\ell^4)$ with $\mathcal O(\ell^6)$ corrections (Theorem~\ref{thm:A2-working}).
+Within this regime we establish an \emph{equivalence principle for modular response} (EPMR): after mutual-information subtraction with \emph{moment-kill}, the $\ell^4$ modular coefficient equals the flat-space value at working order, while curvature dressings enter at $\mathcal O(\ell^6)$. See Theorem~\ref{thm:A2-working} for the working-order statement and error control.
 
 \textbf{Main outcomes.} (i) A microscopic sensitivity $\beta$ from MI-subtracted modular Hamiltonians in flat-space QFT (Casini--Huerta--Myers balls, Osborn--Petkou normalization); (ii) a once-and-for-all geometric normalization with \emph{continuous-angle invariance} showing only the \emph{product} $\beta f \cgeo$ is physical; (iii) a \emph{conditional, scheme-invariant mapping} $\OmL=\beta f \cgeo$ for the FRW zero mode; and (iv) a weak-field flux law with a universal geometric prefactor $5/12$, implying $a_0=(5/12)\,\OmL^2\,c\,H_0$. We keep the distance sector GR-like ($\alphaM=0$ there), and we \emph{enforce} $|d_L^{\rm GW}/d_L^{\rm EM}-1|\le 5\times 10^{-3}$.
 
@@ -98,8 +110,8 @@ with $\beta$ calculable from flat-space QFT (Sec.~\ref{sec:beta-calc}). The weak
 \end{equation}
 so $\mu\to 1$ in strong fields (GR recovery) and $\mu<1$ in weak fields (gentle dynamical slowdown).
 
-\noindent\emph{Why $\eta=\tfrac{5}{12}$.} 
-The coefficient follows from the same unit–solid–angle Noether normalization used in the FRW zero mode. Coarse–graining the $\nabla\nabla M^2$ terms over the CHM wedge family yields a quasilinear flux law with a universal boundary–segment ratio; the isotropic null contraction contributes $(4/3)$ and the segment geometry contributes $(5/16)$, giving $(4/3)\!\times\!(5/16)=5/12$. Appendix~\ref{app:a0-derivation} shows the identical factor fixing the static acceleration scale $a_0=(5/12)\Omega_\Lambda^2 cH_0$; using the same bookkeeping in the weak–field $\mu(\varepsilon)$ guarantees scheme/angle invariance.
+\paragraph{Why $\eta=\frac{5}{12}$.}
+The coefficient follows from the same unit--solid--angle Noether normalization used in the FRW zero mode. Coarse--graining the $\nabla\nabla M^2$ terms over the CHM wedge family yields a quasilinear flux law with a universal boundary--segment ratio; the isotropic null contraction contributes $(4/3)$ and the segment geometry contributes $(5/16)$, giving $(4/3)\times(5/16)=5/12$. Appendix~\ref{app:a0-derivation} shows the identical factor fixing the static acceleration scale $a_0=(5/12)\OmL^2 cH_0$; using the same bookkeeping in the weak--field $\mu(\eps)$ guarantees scheme/angle invariance.
 
 \paragraph{What is fixed vs.\ what is assumed.}
 \emph{Fixed once:} wedge family (ball$\to$diamond), generator density, Unruh normalization, unit--solid--angle boundary factor. \emph{Assumed:} (A2) Clausius with Unruh in the \emph{safe window} (Def.\ \ref{def:safe-window}); Hadamard state; small perturbations. \emph{Consequence:} the geometric mapping is \emph{angle-invariant} (Sec.\ \ref{sec:theta-invariance}); only $\beta f \cgeo$ is physical.
@@ -111,8 +123,112 @@ Within the safe window and EPMR working order, the FRW zero mode satisfies the \
 \OmL=\beta f \cgeo.
 \end{equation}
 
-\paragraph*{Physical intuition (causal stitching).}
-A small diamond acts like a local “channel’’ for stress–energy: its modular dynamics fixes how much information the region can throughput per unit affine time. When the channel nears capacity, the response does \emph{not} alter null kinematics (so EM/GW distances remain GR–like); instead it adjusts the \emph{dynamical coupling} so adjacent diamonds exchange flux without tearing causal links. This is the content of our “causal stitching’’ language: the effective $G_{\rm eff}$ shifts just enough to preserve flux continuity while keeping the light cone intact. In strong fields the capacity is ample and GR is recovered; in weak fields capacity is tighter and a gentle dynamical slowdown appears.
+\vspace{2mm}
+% —— Conceptual flow figure (A2 domain, CGM, and resolution) ——
+\begin{figure*}[t]
+\centering
+\begin{adjustbox}{max width=\textwidth, max height=0.9\textheight}
+\begin{tikzpicture}[
+  node distance=3.0mm and 10mm,
+  every node/.style={font=\footnotesize},
+  head/.style={draw, rounded corners=2pt, align=center, inner sep=4pt, outer sep=0pt, text width=0.78\linewidth, font=\footnotesize\bfseries},
+  box/.style={draw, rounded corners=2pt, align=center, inner sep=4pt, outer sep=0pt, text width=0.78\linewidth},
+  arr/.style={-Latex, semithick, shorten >=2pt, shorten <=2pt}
+]
+% Blue — QFT layer
+\node[head, draw=flowBlue!80, fill=flowBlue!20] (QH) {[Blue: QFT Layer]};
+\node[box, below=of QH, draw=flowBlue!80, fill=flowBlue!8] (Q1) {Vacuum state in QFT};
+\node[box, below=of Q1, draw=flowBlue!80, fill=flowBlue!8] (Q2) {Map CHM ball $\to$ small causal diamond (local Rindler wedge approximation)};
+\node[box, below=of Q2, draw=flowBlue!80, fill=flowBlue!8] (Q3) {$\rho_A = \mathrm{Tr}_{\text{outside}}\,|0\rangle\!\langle 0|$};
+\draw[arr] (QH) -- (Q1); \draw[arr] (Q1) -- (Q2); \draw[arr] (Q2) -- (Q3);
+
+% Red — Thermal layer
+\node[head, below=6mm of Q3, draw=flowRed!80, fill=flowRed!20] (TH) {[Red: Thermal Layer]};
+\node[box, below=of TH, draw=flowRed!80, fill=flowRed!8] (T1) {Thermal form: $\rho_A = e^{-K}/Z$ (dimensionless modular $K$)};
+\node[box, below=of T1, draw=flowRed!80, fill=flowRed!8] (T2) {Unruh temperature: $T_U = \hbar a/(2\pi c k_B)$};
+\draw[arr] (TH) -- (T1); \draw[arr] (T1) -- (T2);
+
+% Green — Entropy layer
+\node[head, below=6mm of T2, draw=flowGreen!80, fill=flowGreen!20] (EH) {[Green: Entropy Layer]};
+\node[box, below=of EH, draw=flowGreen!80, fill=flowGreen!8] (E1) {von Neumann entropy: $S_A = -\mathrm{Tr}(\rho_A \log \rho_A)$};
+\node[box, below=of E1, draw=flowGreen!80, fill=flowGreen!8] (E2) {Entanglement first law: $\delta S = \delta\langle K\rangle = (1/T_U)\,\delta\langle H\rangle$ (boost flow)};
+\node[box, below=of E2, draw=flowGreen!80, fill=flowGreen!8] (E3) {Clausius relation in safe window: $\delta Q = T_U\,\delta S + \mathcal O(\ell^6)$ \,(A2; \hyperref[thm:A2-working]{Thm.~\ref*{thm:A2-working}})};
+\draw[arr] (EH) -- (E1); \draw[arr] (E1) -- (E2); \draw[arr] (E2) -- (E3);
+
+% Orange — CGM obstruction
+\node[head, below=6mm of E3, draw=flowOrange!90, fill=flowOrange!25] (OH) {[Orange: CGM 2016 Obstruction]};
+\node[box, below=of OH, draw=flowOrange!90, fill=flowOrange!12] (O1) {For $\Delta \le d/2$: obstruction $\delta\!\langle K\rangle \sim \ell^d\log\ell$ (breaks Clausius; \hyperref[sec:CGM]{Sec.~\ref*{sec:CGM}})};
+\draw[arr] (OH) -- (O1);
+
+% Purple — Resolution
+\node[head, below=6mm of O1, draw=flowPurple!80, fill=flowPurple!20] (RH) {[Purple: Resolution in this work]};
+\node[box, below=of RH, draw=flowPurple!80, fill=flowPurple!8] (R1) {MI subtraction + moment-kill $\Rightarrow$ cancel $r^0, r^2$ contacts; safe window $\Rightarrow$ curvature $\mathcal O(\ell^6)$ (\hyperref[app:epmr]{App.~\ref*{app:epmr}})};
+\node[box, below=of R1, draw=flowPurple!80, fill=flowPurple!8] (R2) {Marginal $\Delta{=}d/2$: slow running $M^2(\varepsilon)$ adds focusing source $k^a k^b\nabla_a\nabla_b M^2$ canceling the log (\hyperref[sec:clausius-vs-jacobson]{Sec.~\ref*{sec:clausius-vs-jacobson}})};
+\draw[arr] (RH) -- (R1); \draw[arr] (R1) -- (R2);
+
+% Restored identity (highlight)
+\node[box, below=6mm of R2, draw=flowGreen!80, very thick, fill=flowGreen!15] (C1) {\textbf{Restored working-order Clausius identity:} $\delta\!\langle K_{\rm sub}\rangle=(2\pi C_T I_{00})\,\ell^4\,\delta\varepsilon + \mathcal O(\ell^6)$ \\ (flat-space finite coefficient; \hyperref[thm:A2-working]{Theorem~\ref*{thm:A2-working}})};
+
+\end{tikzpicture}
+\end{adjustbox}
+\caption{Conceptual flow from QFT vacuum reduction to the working-order Clausius identity, highlighting the CGM (2016) obstruction and the resolution used here. Colors match later sections; placed early to orient readers.}
+\label{fig:concept-flow}
+\end{figure*}
+\vspace{2mm}
+
+% —— Hyperlinked figure (revised): Computation & Validation Pipeline ——
+\begin{figure*}[t]
+\centering
+\begin{adjustbox}{max width=\textwidth, max height=0.9\textheight}
+\begin{tikzpicture}[
+  node distance=3.2mm and 10mm,
+  every node/.style={font=\footnotesize},
+  stageH/.style={draw, rounded corners=2pt, align=center, inner sep=4pt, outer sep=0pt, text width=0.78\linewidth, font=\footnotesize\bfseries},
+  stage/.style={draw, rounded corners=2pt, align=center, inner sep=4pt, outer sep=0pt, text width=0.78\linewidth},
+  spur/.style={draw, rounded corners=2pt, align=left, inner sep=4pt, outer sep=0pt, text width=0.78\linewidth},
+  arr/.style={-Latex, semithick, shorten >=2pt, shorten <=2pt},
+  darr/.style={-Latex, dashed, semithick, shorten >=2pt, shorten <=2pt}
+]
+% Blue header and steps
+\node[stageH, draw=flowBlue!80, fill=flowBlue!20] (B0) {[Blue: QFT / Modular Analysis]};
+\node[stage, below=of B0, draw=flowBlue!80, fill=flowBlue!8] (B1) {\hyperref[sec:beta-calc]{Flat-space QFT} $\to$ MI-subtracted modular Hamiltonian (CHM/OP)};
+\node[stage, below=of B1, draw=flowBlue!80, fill=flowBlue!8] (B2) {Compute $\beta = 2\pi\,C_T\,I_{00}$ \ (\hyperref[sec:beta-multimethod]{robust across 4 routes})};
+\draw[arr] (B0) -- (B1); \draw[arr] (B1) -- (B2);
+
+% *** NEW: Validation spurs placed UNDER the main branch ***
+\node[spur, below=of B2, draw=flowBlue!80, fill=flowBlue!4] (S1) {\textbf{Validation Spur 1: Four independent QFT runs}\\• Real-space CHM + MI\\• Momentum-space spectral/Bessel\\• Euclidean correlator slicing\\• Replica finite-difference\\(spread $\le 1\%$; \hyperref[sec:beta-multimethod]{Sec.~\ref*{sec:beta-multimethod}})};
+\draw[darr] (B2) -- (S1);
+
+\node[spur, below=of S1, draw=flowBlue!80, fill=flowBlue!4] (S2) {\textbf{Validation Spur 2: Substrate runs (method check)}\\• HQTFIM spin chain: first-law RMS $\ll 10^{-4}$, constant+log trend, plateau $\approx 0$\\• Gaussian fermion chain: first law exact, slope $a_1\!\approx\!1.1$, plateau $\approx 0$ (\hyperref[sec:substrate-validations]{Sec.~\ref*{sec:substrate-validations}})};
+\draw[darr] (S1) -- (S2);
+
+% Purple header and steps (moved down to sit below S2)
+\node[stageH, below=8mm of S2, draw=flowPurple!80, fill=flowPurple!20] (P0) {[Purple: Geometric Mapping]};
+\node[stage, below=of P0, draw=flowPurple!80, fill=flowPurple!8] (P1) {Pre-commit to CHM diamonds, Unruh normalization (\hyperref[sec:precommit]{Sec.~\ref*{sec:precommit}})};
+\node[stage, below=of P1, draw=flowPurple!80, fill=flowPurple!8] (P2) {Scheme-invariant product $\beta\,f\,c_{\rm geo}$ (\hyperref[sec:theta-invariance]{angle invariance})};
+\node[stage, below=of P2, draw=flowPurple!80, fill=flowPurple!8] (P3) {\Large $\Omega_\Lambda = \beta\, f\, c_{\rm geo} \ \approx\ 0.685$ \ (\hyperref[sec:OmegaL]{Sec.~\ref*{sec:OmegaL}})};
+\draw[arr] (P0) -- (P1); \draw[arr] (P1) -- (P2); \draw[arr] (P2) -- (P3);
+
+% Green header and steps
+\node[stageH, below=8mm of P3, draw=flowGreen!80, fill=flowGreen!20] (G0) {[Green: Weak-field Sector]};
+\node[stage, below=of G0, draw=flowGreen!80, fill=flowGreen!8] (G1) {Safe-window Clausius theorem $\Rightarrow$ flux law with prefactor $5/12$ (\hyperref[app:epmr]{App.~\ref*{app:epmr}}, \hyperref[app:a0-derivation]{App.~\ref*{app:a0-derivation}})};
+\node[stage, below=of G1, draw=flowGreen!80, fill=flowGreen!8] (G2) {$a_0 = (5/12)\,\Omega_\Lambda^2\,c\,H_0$};
+\node[stage, below=of G2, draw=flowGreen!80, fill=flowGreen!8] (G3) {Entropic state-action ($\Delta S\!\ge 0$) $\to$ $\varepsilon(a)$ monotone (\hyperref[sec:state-action]{Sec.~\ref*{sec:state-action}})};
+\node[stage, below=of G3, draw=flowGreen!80, fill=flowGreen!8] (G4) {Growth equation with $\mu(\varepsilon)=1/(1+\eta\varepsilon)$ (\hyperref[sec:growth]{Sec.~\ref*{sec:growth}})};
+\node[stage, below=of G4, draw=flowGreen!80, fill=flowGreen!8] (G5) {\Large $S_8 \approx 0.788$\ (\,$-7\%$ vs $\Lambda$CDM\,)};
+\draw[arr] (G0) -- (G1); \draw[arr] (G1) -- (G2); \draw[arr] (G2) -- (G3); \draw[arr] (G3) -- (G4); \draw[arr] (G4) -- (G5);
+
+% Orange header and steps
+\node[stageH, below=8mm of G5, draw=flowOrange!90, fill=flowOrange!25] (O0) {[Orange: Observational Application]};
+\node[stage, below=of O0, draw=flowOrange!90, fill=flowOrange!12] (O1) {Environment-gated mapping to Hubble ladder (\hyperref[sec:h0-illustration]{Sec.~\ref*{sec:h0-illustration}})};
+\node[stage, below=of O1, draw=flowOrange!90, fill=flowOrange!12] (O2) {Uncapped SN run: $H_0 = 71.18$\quad\; Capped SN/Cepheid: $H_0 = 70.89$};
+\node[stage, below=of O2, draw=flowOrange!90, fill=flowOrange!12] (O3) {All distance measures remain GR-like (\,$\alpha_M=0$ in distance sector\,)};
+\draw[arr] (O0) -- (O1); \draw[arr] (O1) -- (O2); \draw[arr] (O2) -- (O3);
+\end{tikzpicture}
+\end{adjustbox}
+\caption{Vertical, color-coded pipeline with \emph{beta-validation spurs placed beneath the QFT block}. Blue: QFT/modular analysis leading to $\beta$ (with two validation spurs). Purple: geometric mapping and scheme invariance to $\Omega_\Lambda$. Green: weak-field sector ($5/12$, $a_0$, state-action, growth, $S_8$). Orange: observational application to the Hubble ladder; EM distances remain GR-like.}
+\label{fig:pipeline}
+\end{figure*}
 
 %—————————————–
 \section{Assumptions and Domain of Validity}
@@ -194,13 +310,7 @@ We keep the isotropic ($l=0$) piece of $T_{00}$ and evaluate correlators after W
 \begin{equation}
 \beta = 0.02086 \pm 0.00020\ \text{(numerical)} \ \pm\ 0.00060\ \text{(MI-window/systematic)},\qquad \text{total }\sigma_\beta \simeq 0.00063~(3.0\%).
 \end{equation}
-Stability scans across $(\sigma_1,\sigma_2)\in[0.96,0.999]^2$, $u_{\rm gap}\in[0.2,0.35]$, and grids $(N_r,N_s,N_\tau)\in[60,160]^3$ show a plateau with $|\Delta\beta|/\beta \lesssim 0.5\%$.
-
-\paragraph*{Replication preset (for this manuscript).}
-$\mathrm{dps}=50$, $(\sigma_1,\sigma_2)=(0.995,0.99)$, $T_{\max}=6.0$, $u_{\rm gap}=0.26$, grids $(N_r,N_s,N_\tau)=(60,60,112)$. Residual moments: $M0_{\rm sub}\approx-4.49\times 10^{-51}$, $M2_{\rm sub}\approx-1.84\times 10^{-51}$. With $I_{00}=0.1077748682$, $C_T=3/\pi^4$, Eq.~\eqref{eq:beta-box} gives $\beta=0.02085542923$.
-
-\paragraph*{Positivity gates.}
-Production runs enforce $|M0_{\rm sub}|,|M2_{\rm sub}|<10^{-20}$ and $\delta\langle K_{\rm sub}\rangle \ge 0$.
+\emph{Implementation and run-preset details (MI window, grids, and positivity checks) are provided in App.~\ref{app:beta-numerics}.}
 
 \subsection{Convergence and stability (numerical/systematic only)}
 \label{sec:convergence}
@@ -269,8 +379,6 @@ Gaussian fermion & $L=200$, PBC, $\ell\in[20,100]$ & $0$ & $\approx 0 \pm 9.75\t
 \end{tabular}
 \end{table}
 
-These tests are not a computation of the cosmological $\beta$; they are \emph{structural validations} showing that MI–subtracted modular response in concrete microphysics exhibits the same (first–law, constant+log, plateau) features assumed in the OP/CHM flat–space calculation.
-
 %—————————————–
 \section{Resolution of the Casini--Galante--Myers (2016) Critique}
 \label{sec:CGM}
@@ -311,17 +419,7 @@ f = f_{\rm shape}\, f_{\rm boost}\, \fbdy\, f_{\rm cont}.
 \paragraph*{Common ingredients.}
 $f_{\rm shape}=15/2$ (ball$\to$diamond weight), $f_{\rm boost}=1$ (Unruh $T=\kappa/2\pi$), $f_{\rm cont}=1$ (MI-subtracted finite piece is continuation-invariant).
 
-\subsection{Scheme A (with IW/Raychaudhuri contraction explicit)}
-\[
-\fbdy^{(A)}=0.10924,\qquad
-f^{(A)}=7.5\times 1 \times 0.10924 \times 1=0.8193.
-\]
-
-\subsection{Scheme B (purely geometric boundary factor)}
-\[
-\fbdy^{(B)}=\frac{5}{12}=0.416\overline{6},\qquad
-f^{(B)}=7.5\times 1 \times \frac{5}{12}\times 1=3.125.
-\]
+\emph{Scheme-specific constants are collected in App.~\ref{app:f-normalization}; physical predictions depend only on the invariant product \(\mathcal C_\Omega\equiv f\,c_{\rm geo}\).}
 
 \subsection{Continuous-angle normalization and scheme invariance}
 \label{sec:theta-invariance}
@@ -341,33 +439,13 @@ independent of $\theta$. We therefore report the \emph{invariant} $\mathcal C_\O
 %—————————————–
 \section{Cosmological Constant Sector: Conditional, Scheme-Invariant Mapping}
 \label{sec:OmegaL}
-
-\paragraph*{Roadmap.}
-This section isolates the FRW zero mode. All angle/scheme dependence is carried by the single invariant $\mathcal C_\Omega\!=\!f\,c_{\rm geo}$; hence only the \emph{product} $\beta\mathcal C_\Omega$ matters. No cosmological input enters.
-
 At the background level with today’s $\alphaM(a{=}1)\approx 0$,
 \begin{equation}
 \Lambda_{\rm eff} = 3\,M_0^2 H_0^2\,(\beta f c_{\rm geo}),\qquad
 \boxed{\ \OmL = \beta\, f \, \cgeo\ }\ .
 \end{equation}
-
-\subsection{From the older master formula to the invariant}
-A previous version expressed $\OmL$ as $x/(x+\Omm)$ with $x\equiv \beta f c_{\rm geo}$. In the present convention we divide the Clausius zero mode by the critical density $3M_0^2H_0^2$, yielding $\OmL=x$. Both descriptions are equivalent once a convention is fixed.
-
-\subsection{Numerical results (both schemes)}
-\label{sec:numerics}
-Using $\beta_{\rm cen}=0.02090$:
-\begin{center}
-\begin{tabular}{l|c|c|c|c}
-\hline
-Scheme & $\beta$ & $f$ & $\cgeo$ & $\OmL=\beta f \cgeo$ \\
-\hline
-A & $0.02090$ & $0.8193$ & $40$ & $0.68493$ \\
-B & $0.02090$ & $3.125$ & $10.49$ & $0.68493$ \\
-\hline
-\end{tabular}
-\end{center}
-Invariant product (baseline scalar): $\beta f \cgeo \approx 0.685$. Uncertainty from $\beta$ ($\pm3\%$) propagates to $\pm 0.021$ on $\OmL$.
+\paragraph*{Invariant numerical mapping.}
+Using \(\beta_{\rm cen}=0.02090\) and the angle-invariant \(\mathcal C_\Omega\), we obtain the \emph{scheme-independent} product \(\beta\,\mathcal C_\Omega \approx 0.685\). The quoted \(\pm 3\%\) numerical/systematic on \(\beta\) propagates to \(\pm 0.021\) on \(\OmL\).
 
 \paragraph*{Static weak-field acceleration scale.}
 Consistent with the same Clausius normalization and geometric bookkeeping,
@@ -382,9 +460,6 @@ Scanning $\beta$ within its band shifts $\OmL$ linearly by the same fraction; th
 %—————————————–
 \section{Entropic State-Action and Environment Gate}
 \label{sec:state-action}
-
-\paragraph*{What this section does.}
-Here we specify the minimal, sign-definite evolution law for the state variable $\varepsilon(a)$ consistent with $\Delta S\!\ge\!0$ (entropic state–action), and explain how it gates into environments through $F_g(g/a_0)$. No new cosmological parameters are introduced; $c_{\log}$ is fixed by the Clausius/Noether integral.
 
 \paragraph*{Box 1: Entropic state-action ($\Delta S\ge 0$) and throttling history.}
 Define a retarded, positive exposure
@@ -407,9 +482,6 @@ Strong fields $g\gg a_0\Rightarrow F_g\to 0\Rightarrow \mu\to 1$ (GR recovery); 
 \paragraph*{Gate-family robustness.}
 Replacing the rational gate by a logistic \(F_g=[1+\exp(\alpha\log(g/a_0))]^{-1}\) with \(\alpha\in[3,6]\) changes the \emph{capped} $H_0$ shift by $\lesssim 0.1\ \mathrm{km\,s^{-1}\,Mpc^{-1}}$, while preserving Solar-System suppression \(F_g\lesssim 10^{-33}\).
 
-\noindent\emph{Why the rational gate.}
-We adopt $F_g=1/[1+(g/a_0)^n]$ because (i) it is the unique $C^1$ rational family with the correct asymptotes $F_g\!\to\!1$ ($g\!\ll\!a_0$) and $F_g\!\to\!0$ ($g\!\gg\!a_0$), (ii) it gives analytic Solar–System suppression $F_g\!\lesssim\!10^{-33}$ for $g/a_0\!\sim\!10^{11}$ with $n\!\ge\!3$, and (iii) it mirrors common quasilinear closures in weak–field modified Poisson equations. Our logistic check shows the $H_0$ bounds are insensitive to this choice within the caps.
-
 %—————————————–
 \section{Growth of Structure and \texorpdfstring{$S_8$}{S8}}
 \label{sec:growth}
@@ -417,7 +489,7 @@ We solve
 \begin{equation}
 D''+\Big(2+\frac{d\ln H}{d\ln a}+\alphaM(a)\Big)D' + \frac{3}{2}\,\mu\big(\eps(a)\big)\,\Omega_m(a)\,D=0,
 \end{equation}
-with $\mu(\eps)=1/(1+\eta\,\eps)$ ($\eta=5/12$). We keep $\alphaM=0$ in the \emph{distance sector} and may allow a small $\alphaM\propto \eps$ in the \emph{growth sector} only; in the calculations reported here we use $\kappa=2$ and $\xi=2.5$ in the growth calculations.
+with $\mu(\eps)=1/(1+\eta\,\eps)$ ($\eta=5/12$). In the calculations reported here we use \(\kappa=2\) and \(\xi=2.5\).
 
 Using the entropic $\eps(a)$ above and no re-tuning of $\OmL$, we obtain
 \begin{equation}
@@ -425,44 +497,15 @@ S_8\simeq 0.788\quad \text{($-7.4\%$ vs.\ $\Lambda$CDM)},
 \end{equation}
 robust to kernel powers $p\in\{4,5,6\}$ at the $<10^{-3}$ level.
 
-\subsection{Survey-facing predictions and falsifiers}
-\label{sec:survey-preds}
-\begin{itemize}[leftmargin=1.2em]
-\item \textbf{RSD / growth:} With $\varepsilon(a)$ fixed by Clausius normalization and $\mu=1/(1+\eta\varepsilon)$, we predict a redshift–dependent suppression 
-$f\sigma_8(z)$ lower than $\Lambda$CDM by $5$–$9\%$ over $z\!\in\![0,1]$; the shape is monotone with mild curvature and no free $z$–parameters. Euclid/Roman measurements at $\pm 2\%$ precision decisively test this.
-\item \textbf{Weak lensing:} Two–point shear spectra are altered at the $\lesssim$ few–percent level in amplitude but preserve $\Sigma\simeq 1$ at the sub-percent level in our working runner (distance sector GR–like).
-\item \textbf{SN residuals vs host field:} Standardized residuals exhibit a \emph{sign-definite} trend with host $g/a_0$; the slope is bounded by the SN cap (0.05 mag) and should persist with same–host controls.
-\item \textbf{Same-host Cepheids:} Residual trends must be $\le 0.03$ mag; a larger systematic would falsify our capped illustration.
-\item \textbf{GW/EM distances:} We enforce $|d_L^{\rm GW}/d_L^{\rm EM}-1|\le 5\times10^{-3}$; any larger deviation over $0<z\lesssim 1$ falsifies the working closure.
-\end{itemize}
-
 %—————————————–
 \section{Illustrative Hubble-Ladder Environment Correction (Capped)}
 \label{sec:h0-illustration}
-Using the same $\eps_{\rm env}(a,g)$ and a \emph{sign-definite, first-principles} mapping for standardized SN/Cepheid residuals (``Theory+''), we confine source-side adjustments to observed host-systematic scales (caps $\le 0.05$ mag for SNe and $\le 0.03$ mag for same-host Cepheids). On an SH0ES-like catalog this nudges
+Using the same $\eps_{\rm env}(a,g)$ and a \emph{sign-definite, first-principles} mapping for standardized SN/Cepheid residuals, we confine source-side adjustments to observed host-systematic scales (caps $\le 0.05$ mag for SNe and $\le 0.03$ mag for same-host Cepheids). On an SH0ES-like catalog this nudges
 \begin{equation}
 H_0:\quad 73.0 \ \to\ 71.32\ \text{(SN cap only)},\qquad \to\ 70.89\ \text{(SN cap + small Cepheid term)},
 \end{equation}
-\emph{without altering EM distances}. These values are \emph{illustrative, capped bounds}, not fitted predictions; environment-trend falsifiers (residual vs.\ host $g/a_0$; same-host Cepheid limits) are stated in Sec.~\ref{sec:predictions}.
+\emph{without altering EM distances}. These values are \emph{illustrative, capped bounds}, not fitted predictions; environment-trend falsifiers (residual vs.\ host $g/a_0$; same-host Cepheid limits) are stated in Sec.~\ref{sec:predictions}. \emph{A like-for-like uncapped vs.\ capped comparison is provided in App.~\ref{app:h0-details}.}
 
-\subsection{Uncapped vs.\ capped Hubble–ladder runs}
-\label{sec:h0-uncapped}
-In addition to the conservative, capped illustration (Sec.~\ref{sec:h0-illustration}), we also run the identical environment–gated mapping \emph{without} caps. The uncapped run demonstrates that the downward shift in $H_0$ is not an artifact of the caps; caps merely serve as a conservative systematic control.
-
-\begin{center}
-\begin{tabular}{l|c}
-\hline
-Configuration & $H_0\ [\mathrm{km\,s^{-1}\,Mpc^{-1}}]$ \\
-\hline
-Baseline (catalog value) & $73.0$ \\
-Uncapped, SN-only (Theory+) & $71.178$ \\
-Capped, SN-only (0.05 mag) & $71.319$ \\
-Capped, SN + small Cepheid term (0.05/0.03 mag) & $70.885$ \\
-\hline
-\end{tabular}
-\end{center}
-
-Two points follow. First, the \emph{direction} and \emph{order of magnitude} of the shift are already present in the uncapped run (SN-only: $73.0\to71.178$), showing that the sign–definite environment response is sufficient. Second, the caps tighten susceptibility to outliers and known catalog systematics; the capped SN+Cepheid combination ($70.885$) provides a conservative bound. As in the rest of the paper, EM distances remain GR-like; no cosmological parameters are fitted.
 %—————————————–
 \section{Predictions, Parameter Translations, and Falsifiability}
 \label{sec:predictions}
@@ -529,7 +572,7 @@ These scripts have no cosmological inputs and are intended for rapid referee val
 
 %—————————————–
 \section{Conclusion}
-Finite information capacity drives a \emph{state-dependent response}. Each proper frame has a maximum entanglement load; as this threshold is approached, the response preserves causal stitching while keeping null geometry GR-like. Combining modular-Hamiltonian calculations (CHM/OP), MI subtraction, and a state-dependent $G(x)$, we obtain a \emph{conditional, scheme-invariant} mapping $\OmL=\beta f \cgeo$ and a weak-field relation $a_0=$(5/12)$\,\OmL^2 cH_0$. An entropic state-action law ($\Delta S\ge 0$) determines a monotone $\eps(a)$ that suppresses growth ($S_8\simeq 0.788$). A capped, environment-gated ladder illustration nudges SH0ES downward without altering distances. The framework is falsifiable and strictly limited to the safe window; beyond that domain, it is an invitation for further work.
+Finite information capacity drives a \emph{state-dependent response}. Each proper frame has a maximum entanglement load; as this threshold is approached, the response preserves causal stitching while keeping null geometry GR-like. Combining modular-Hamiltonian calculations (CHM/OP), MI subtraction, and a state-dependent $G(x)$, we obtain a \emph{conditional, scheme-invariant} mapping $\OmL=\beta f \cgeo$ and a weak-field relation $a_0=$(5/12)\,$\OmL^2 cH_0$. An entropic state-action law ($\Delta S\ge 0$) determines a monotone $\eps(a)$ that suppresses growth ($S_8\simeq 0.788$). A capped, environment-gated ladder illustration nudges SH0ES downward without altering distances. The framework is falsifiable and strictly limited to the safe window; beyond that domain, it is an invitation for further work.
 
 %—————————————–
 \appendix
@@ -565,6 +608,14 @@ Choose $(a,b)$ so that for any smooth radial $F(r)=F_0+F_2 r^2+\mathcal O(r^4)$,
 \int_{B_\ell}\!W_\ell F(r)\,d^3x - a\!\int_{B_{\sigma_1\ell}}\!W_{\sigma_1\ell}F(r)\,d^3x - b\!\int_{B_{\sigma_2\ell}}\!W_{\sigma_2\ell}F(r)\,d^3x = \mathcal O(\ell^6),
 \end{equation}
 canceling $r^0$ and $r^2$ moments. The surviving $\mathcal O(\ell^4)$ piece defines $I_{00}$.
+
+\section{\texorpdfstring{$\beta$}{beta} numerics and stability (details)}
+\label{app:beta-numerics}
+\paragraph*{Replication preset (for this manuscript).}
+\noindent \(\mathrm{dps}=50\), \((\sigma_1,\sigma_2)=(0.995,0.99)\), \(T_{\max}=6.0\), \(u_{\rm gap}=0.26\), grids \((N_r,N_s,N_\tau)=(60,60,112)\). Residual moments: \(M0_{\rm sub}\approx-4.49\times 10^{-51}\), \(M2_{\rm sub}\approx-1.84\times 10^{-51}\). With \(I_{00}=0.1077748682\), \(C_T=3/\pi^4\), Eq.~(\ref{eq:beta-box}) gives \(\beta=0.02085542923\).
+
+\paragraph*{Positivity gates.}
+\noindent Production runs enforce \(|M0_{\rm sub}|,|M2_{\rm sub}|<10^{-20}\) and \(\delta\langle K_{\rm sub}\rangle \ge 0\). Stability scans across \((\sigma_1,\sigma_2)\in[0.96,0.999]^2\), \(u_{\rm gap}\in[0.2,0.35]\), and grids \((N_r,N_s,N_\tau)\in[60,160]^3\) show a plateau with \(|\Delta\beta|/\beta \lesssim 0.5\%\).
 
 \section{Derivation of the Constitutive Factor $f$}
 \label{app:f-normalization}
@@ -605,6 +656,23 @@ For a cap of half-angle $\theta_\star$ with $\Delta\Omega=2\pi(1-\cos\theta_\sta
 \item \textbf{Scheme A (minimal wedge)}: $\boxed{\cgeo=40}$, i.e.\ $\Delta\Omega_{\rm wedge}^{(A)}=4\pi/40$ ($\cos\theta_\star^{(A)}=19/20$).
 \item \textbf{Scheme B (equal-flux cap)}: imposing the no-double-counting rule for $\hat\rho_{\mathcal D}$ and $f^{(B)}$ yields $\boxed{\cgeo^{(B)} \simeq 10.49}$ ($\cos\theta_\star^{(B)}\simeq 0.80934$).
 \end{itemize}
+
+\section{Hubble-ladder illustration details (uncapped vs capped)}
+\label{app:h0-details}
+We reproduce here the like-for-like comparison referenced in Sec.~\ref{sec:h0-illustration}. The uncapped run demonstrates that the downward shift in \(H_0\) is not an artifact of caps; caps serve only as conservative systematic control.
+\begin{center}
+\begin{tabular}{l|c}
+\hline
+Configuration & \(H_0\) [km s\(^{-1}\) Mpc\(^{-1}\)] \\
+\hline
+Baseline (catalog value) & 73.0 \\
+Uncapped, SN-only & 71.178 \\
+Capped, SN-only (0.05 mag) & 71.319 \\
+Capped, SN + small Cepheid term (0.05/0.03 mag) & 70.885 \\
+\hline
+\end{tabular}
+\end{center}
+Two points follow. First, the direction and order of magnitude of the shift are already present in the uncapped run (SN-only: \(73.0 \to 71.178\)). Second, the caps tighten susceptibility to outliers and known catalog systematics; the capped SN+Cepheid combination (\(70.885\)) provides a conservative bound. As elsewhere, EM distances remain GR-like.
 
 \section{FRW zero-mode mapping (sketch)}
 \label{app:frw-mapping}
@@ -684,7 +752,7 @@ In OP convention \cite{OsbornPetkou1994}, the modular sensitivity factorizes as 
 \[
 C_T^{\mathrm{eff}}(\ell)=\sum_i \Theta(1-\ell m_i)\,C_T^{(i)},
 \]
-so that species with \(\ell m_i\gg 1\) decouple in the late-time safe window. The invariant \(\beta\,\mathcal C_\Omega\) and hence \(\Omega_\Lambda\) are therefore stable within our quoted \(\beta\) systematics across reasonable late-time windows. For the late–time safe window relevant here, massive species with $\ell m_i\gg 1$ are exponentially suppressed in $C_T^{\rm eff}$; scanning realistic mixtures shifts $\beta\mathcal C_\Omega$ at the sub-percent level, well below our quoted numerical/systematic on $\beta$.
+so that species with \(\ell m_i\gg 1\) decouple in the late-time safe window. The invariant \(\beta\,\mathcal C_\Omega\) and hence \(\Omega_\Lambda\) are therefore stable within our quoted \(\beta\) systematics across reasonable late-time windows. For the late–time safe window relevant here, massive species with $\ell m_i\gg 1$ are exponentially suppressed in $C_T^{\rm eff}$; scanning realistic mixtures shifts $\beta\mathcal C_\Omega$ at the sub–percent level, well below our quoted numerical/systematic on $\beta$.
 
 %—————————————–
 \bibliographystyle{unsrt}
