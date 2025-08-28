@@ -86,6 +86,7 @@ We present a \emph{conditional} information-theoretic framework in which finite 
 \]
 In halos with \(L_{\rm curv}\!\sim\!10\)~Mpc, a plausible late-time band is \(\ell\in[1,100]\)~pc; this window can be \emph{absent} in dense regions (star-forming zones, cluster cores).\\[3pt]
 \noindent\textbf{KMS applicability (CHM vs.\ half-space).} Exact BW KMS analyticity holds for half-spaces; CHM diamonds approximate it in the safe window. The fractional KMS deviation scales as \(\mathcal O((\ell/L_{\rm curv})^2)\) (App.~\ref{app:chm-kms-estimate}).\\[3pt]
+\noindent\textbf{State assumption (Hadamard).} Throughout we assume locally Hadamard states so that short-distance correlators match Minkowski up to curvature-suppressed terms. If data reveal departures from Hadamard short-distance structure in the projector channel, the framework is \emph{falsified}.\\[3pt]
 \noindent\textbf{Distances kept GR-like.} We enforce \(\alphaM\simeq 0\) in the distance sector; null geometry and EM/GW distances are unmodified at working order.\\[3pt]
 \noindent\textbf{Environment gate is illustrative.} The gate \(F_g(g/a_0)\) is a minimal compliance envelope: \(F_g\!\to\!0\) in strong fields (Solar System), \(F_g\!\to\!1\) in weak fields; a microscopic derivation is future work.\\[3pt]
 \noindent\textbf{Substrate tests are algebraic checks.} HQTFIM/Gaussian runs test the algebraic structure (first-law channel, constant+log trend, plateau, FDT-positivity). They are \emph{not} physical surrogates for 4D curved spacetime.\\[3pt]
@@ -104,7 +105,8 @@ In the MI/moment-kill projector channel for small CHM diamonds in a safe window,
 \frac{\delta G}{G}=-\beta\,\delta\eps,\;\;\beta\equiv 2\pi C_T I_{00}.
 \]
 \end{hypothesis}
-\noindent\emph{Remarks.} (i) Exact KMS is half-space; diamond validity is approximate and quantified in App.~\ref{app:chm-kms-estimate}. (ii) FDT positivity enforces \(\Delta S\ge 0\) in this channel without invoking macroscopic heat. (iii) ``Temperature'' is the KMS normalization for boost flow, not a literal bath.
+\noindent\textbf{Boxed reminder (constitutive \& falsifiable).} \emph{Equation \(\delta G/G=-\beta\,\delta\varepsilon\) is a \textbf{constitutive closure at working order} in the BW/KMS projector channel. It is \textbf{not} a macroscopic thermodynamic law and is \textbf{falsified} by any of: persistent \(\ell^4\log\ell\) residuals in the MI/moment-kill channel, violation of the EM/GW distance bound, or an \(\Omega_\Lambda\) inconsistent with \(\beta f c_{\rm geo}\).}
+\noindent\emph{Remarks.} (i) Exact KMS is half-space; diamond validity is approximate and quantified in App.~\ref{app:chm-kms-estimate}. (ii) FDT positivity enforces \(\Delta S\ge 0\) in this channel without invoking macroscopic heat. (iii) ``Temperature'' is the KMS normalization for boost flow, not a literal bath. (iv) \textbf{State class:} we assume locally Hadamard states so that the short-distance two-point structure is Minkowski-like; large deviations would invalidate the working-order reduction and thus \emph{falsify} the framework.
 
 % ===============================
 \section{Definition vs.\ Mapping (Separation of Roles)}
@@ -216,7 +218,8 @@ Let \(\hat Q\) denote the boost-energy flux operator in the CHM diamond and \(\c
 \[
 \delta\!\langle \hat Q\rangle(a) = \int^{\ln a}\! d\ln a' \; \chi_{QK}(a,a')\, \delta\!\langle \hat K_{\rm sub}\rangle(a'),
 \]
-and FDT with KMS normalization implies \(\int \chi_{QK}\,d\ln a'\ge 0\) in the projector channel. Parameterizing the (dimensionless) throughput intensity by a nonnegative functional \(\mathcal I(a)\), we write the \textbf{entropy-driven law}
+and FDT with KMS normalization implies \(\int \chi_{QK}\,d\ln a'\ge 0\) in the projector channel; in curved backgrounds this positivity holds up to \(\mathcal O((\ell/L_{\rm curv})^2)\) corrections (App.~\ref{app:chm-kms-estimate}).
+Parameterizing the (dimensionless) throughput intensity by a nonnegative functional \(\mathcal I(a)\), we write the \textbf{entropy-driven law}
 \begin{equation}
 \label{eq:eps-ode}
 \boxed{\;\frac{d\eps}{d\ln a} = \sigma(a)\,\mathcal I(a)\quad\text{with}\quad \sigma(a)\ge 0,\ \ \mathcal I(a)\ge 0\;}
@@ -271,7 +274,7 @@ We implement two independent microscopic testbeds to check the \emph{algebraic} 
 \paragraph{Growth (entropy-constrained band).}
 Solving the coupled system \eqref{eq:eps-ode}--\eqref{eq:growth-ode} to a fixed point under the constraints (monotonicity, budget, GR-like distances, and gating) yields an \emph{interval} for \(S_8\) bracketed by early-loaded and late-loaded \(\varepsilon(a)\) profiles. Our illustrative baseline (log family, \(p=5\), \(\varepsilon_0=0\)) lies within this band at \(S_8\approx 0.788\). The band width is insensitive to kernel powers \(p\in[4,6]\) at the \(<10^{-3}\) level. No post-hoc rescaling of \(\alpha_M\) is used; \(\alpha_M\simeq 0\) is enforced in the distance sector, and modifications enter only through \(\mu(\varepsilon)\) in growth, automatically respecting GW/EM bounds.
 
-\paragraph{Hubble ladder (capped illustration).} Using an environment gate \(F_g(g/a_0)\) as a minimal compliance envelope (Solar-System recovery, weak-field throttling), an SH0ES-like catalog shifts \(H_0\!:\,73.0\to 71.18\) (uncapped SN) and to \(70.89\) (capped SN+Cepheid). These are \emph{bounds}, not fits; distances remain GR-like.
+\paragraph{Hubble ladder (capped illustration).} Using an environment gate \(F_g(g/a_0)\) as a minimal compliance envelope (Solar-System recovery, weak-field throttling), an SH0ES-like catalog shifts \(H_0\!:\,73.0\to 71.18\) (uncapped SN) and to \(70.89\) (capped SN+Cepheid). These are \emph{bounds}, not fits; distances remain GR-like. We use \(F_g\) strictly as an \emph{illustrative compliance envelope}; strong-field recovery can also arise from the \emph{absence} of a safe window in high-\(g\) regions, and no microphysical claim about \(F_g\) is made here.
 
 % ===============================
 \section{Relation to EFT-of-DE (Horndeski) and \texorpdfstring{$f(R)$}{f(R)}}
@@ -317,7 +320,7 @@ Four routes (real-space CHM, spectral/Bessel, Euclidean slicings, replica finite
 
 \section{Continuous-angle normalization (invariance identity)}
 \label{app:angle}
-With a unit--solid--angle boundary factor and \(\Delta\Omega(\theta)=2\pi(1-\cos\theta)\), define \(\cgeo(\theta)=4\pi/\Delta\Omega(\theta)\). The product \(f(\theta)\,\cgeo(\theta)\) becomes independent of \(\theta\) after enforcing no-double-counting of the wedge family; we use this analytically as an invariance identity.
+With a unit--solid--angle boundary factor and \(\Delta\Omega(\theta)=2\pi(1-\cos\theta)\), define \(\cgeo(\theta)=4\pi/\Delta\Omega(\theta)\). The product \(f(\theta)\,\cgeo(\theta)\) becomes independent of \theta\ after enforcing no-double-counting of the wedge family; we use this analytically as an invariance identity.
 
 \section{Weak-field flux normalization and the universal \texorpdfstring{$5/12$}{5/12}}
 \label{app:five-twelve}
