@@ -71,7 +71,7 @@ A KMS/FDT Linear-Response Framework (Conditional)}
 \date{}
 
 \begin{abstract}
-We present a \emph{conditional} information-theoretic framework in which finite local information capacity produces a \emph{state-dependent} gravitational response. The key working assumption replaces macroscopic Clausius language with a \textbf{KMS-normalized linear-response (A2--KMS) hypothesis}: in the small-wedge, MI/moment-kill projector channel, Bisognano--Wichmann (BW) KMS structure and the fluctuation--dissipation theorem (FDT) fix the sign and normalization of the modular susceptibility to \(\mathcal O(\ell^4)\), with curvature/contact remainders \(\mathcal O(\ell^6)\). We \emph{define} a dimensionless state variable \(\eps\) via flat-space modular response, \(\delta\!\langle K_{\rm sub}\rangle=(2\pi C_T I_{00})\,\ell^4\,\delta\eps+\mathcal O(\ell^6)\), and \emph{map} \(\eps\) to a weak-field coupling through A2--KMS, yielding \(\delta G/G=-\beta\,\delta\eps\) with \(\beta\equiv 2\pi C_T I_{00}\). A geometric normalization yields a universal weak-field prefactor \(5/12=(4/3)\times(5/16)\), implying \(\mu(\eps)=1/(1+\tfrac{5}{12}\eps)\) and \(a_0=\tfrac{5}{12}\,\OmL^2 cH_0\). The scheme-invariant mapping \(\OmL=\beta\,f\,\cgeo\approx 0.685\) (conservative \(\pm 5\%\) from shared systematics in \(\beta\)) preserves EM/GW distances (distance sector kept GR-like). We formalize the \emph{entropy-driven} history \(\eps(a)\) by a retarded KMS susceptibility: a positive integrated kernel enforces \(d\eps/d\ln a\ge 0\) (FDT-positivity), with normalization fixed by \(\int \eps\,d\ln a=\OmL\). Substrate \emph{structural consistency checks} (HQTFIM and Gaussian chains) confirm algebraic ingredients (first-law channel, constant+log size trend, MI/moment-kill plateau, FDT-positivity) but are \emph{not} 4D curved-spacetime surrogates. We give explicit falsifiers, conservative uncertainties, and a limitations box (safe-window viability, CHM-vs-half-space KMS error \(\sim \mathcal O((\ell/L_{\rm curv})^2)\), environment gate micro\-physics, quantum-classical bridge). This is an exploratory, testable, and conditional framework rather than a phenomenological fit.
+We present a \emph{conditional} information-theoretic framework in which finite local information capacity produces a \emph{state-dependent} gravitational response. The key working assumption replaces macroscopic Clausius language with a \textbf{KMS-normalized linear-response (A2--KMS) hypothesis}: in the small-wedge, MI/moment-kill projector channel, Bisognano--Wichmann (BW) KMS structure and the fluctuation--dissipation theorem (FDT) fix the sign and normalization of the modular susceptibility to \(\mathcal O(\ell^4)\), with curvature/contact remainders \(\mathcal O(\ell^6)\). We \emph{define} a dimensionless state variable \(\eps\) via flat-space modular response, \(\delta\!\langle K_{\rm sub}\rangle=(2\pi C_T I_{00})\,\ell^4\,\delta\eps+\mathcal O(\ell^6)\), and \emph{map} \(\eps\) to a weak-field coupling through A2--KMS, yielding \(\delta G/G=-\beta\,\delta\eps\) with \(\beta\equiv 2\pi C_T I_{00}\). A geometric normalization yields a universal weak-field prefactor \(5/12=(4/3)\times(5/16)\), implying \(\mu(\eps)=1/(1+\tfrac{5}{12}\eps)\) and \(a_0=\tfrac{5}{12}\,\OmL^2 cH_0\). The scheme-invariant mapping \(\OmL=\beta\,f\,\cgeo\approx 0.685\) (conservative \(\pm 5\%\) from shared systematics in \(\beta\)) preserves EM/GW distances (distance sector kept GR-like). We solve \(\eps(a)\) and linear growth \(D(a)\) as a KMS/FDT-constrained \emph{fixed point} and report \emph{entropy-constrained variational bounds} on \(S_8\) (late-/early-loaded profiles bracket the admissible range), rather than a single fit; our illustrative baseline value lies within this band. A retarded KMS susceptibility with positive integrated kernel enforces \(d\eps/d\ln a\ge 0\) (FDT positivity), and the normalization is fixed by \(\int \eps\,d\ln a=\OmL\). Substrate \emph{structural consistency checks} (HQTFIM and Gaussian chains) confirm algebraic ingredients (first-law channel, constant+log size trend, MI/moment-kill plateau, FDT-positivity) but are \emph{not} 4D curved-spacetime surrogates. We give explicit falsifiers, conservative uncertainties, and a limitations box (safe-window viability, CHM-vs-half-space KMS error \(\sim \mathcal O((\ell/L_{\rm curv})^2)\), environment gate micro\-physics, quantum-classical bridge). This is an exploratory, testable, and conditional framework rather than a phenomenological fit.
 \end{abstract}
 
 \maketitle
@@ -161,20 +161,20 @@ The roles are distinct; no circularity arises.
 \draw[arr] (G0) -- (G1); \draw[arr] (G1) -- (G2); \draw[arr] (G2) -- (G4);
 
 % Green2 epsilon(a)
-\node[stageH, below=8mm of G4, draw=flowGreen!80, fill=flowGreen!20] (E0) {[Green: Entropy-driven $\varepsilon(a)$ (KMS/FDT)]};
+\node[stageH, below=8mm of G4, draw=flowGreen!80, fill=flowGreen!20] (E0) {[Green: Entropy-driven $\varepsilon(a)$ (KMS/FDT, fixed-point)]};
 \node[stage, below=of E0, draw=flowGreen!80, fill=flowGreen!8] (E1) {Retarded positive kernel $\Rightarrow d\varepsilon/d\ln a \ge 0$ (Sec.~\ref{sec:epsilon})};
 \node[stage, below=of E1, draw=flowGreen!80, fill=flowGreen!8] (E2) {Normalization: $\int \varepsilon\, d\ln a = \Omega_\Lambda$};
 \draw[arr] (E0) -- (E1); \draw[arr] (E1) -- (E2);
 
 % Orange observations
 \node[stageH, below=8mm of E2, draw=flowOrange!90, fill=flowOrange!25] (O0) {[Orange: Observational Application]};
-\node[stage, below=of O0, draw=flowOrange!90, fill=flowOrange!12] (O1) {Growth: $S_8 \approx 0.788$ ($\sim\!-7\%$) (Sec.~\ref{sec:obs})};
+\node[stage, below=of O0, draw=flowOrange!90, fill=flowOrange!12] (O1) {Growth: entropy-constrained $S_8$ band (baseline $\approx 0.788$) (Sec.~\ref{sec:obs})};
 \node[stage, below=of O1, draw=flowOrange!90, fill=flowOrange!12] (O2) {Hubble ladder (bounds): $H_0=71.18$ (uncapped SN), $70.89$ (capped SN+Cepheid)};
 \node[stage, below=of O2, draw=flowOrange!90, fill=flowOrange!12] (O3) {Distances remain GR-like ($\alpha_M\simeq 0$)};
 \draw[arr] (O0) -- (O1); \draw[arr] (O1) -- (O2); \draw[arr] (O2) -- (O3);
 \end{tikzpicture}
 \end{adjustbox}
-\caption{Vertical, color-coded pipeline. Blue: modular QFT leading to $\beta$ (validation spurs underneath). Purple: scheme-invariant mapping $\Omega_\Lambda=\beta f c_{\rm geo}$. Green: weak-field sector ($5/12$, $a_0$, $\mu(\eps)$) and KMS/FDT-driven $\eps(a)$ (monotone; normalization $\int\eps\,d\ln a=\Omega_\Lambda$). Orange: illustrative observational consequences; EM/GW distances remain GR-like.}
+\caption{Vertical, color-coded pipeline (KMS/FDT fixed-point). Blue: modular QFT leading to $\beta$ (validation spurs underneath). Purple: scheme-invariant mapping $\Omega_\Lambda=\beta f c_{\rm geo}$. Green: weak-field sector ($5/12$, $a_0$, $\mu(\eps)$) and KMS/FDT-driven $\eps(a)$ (monotone; normalization $\int\eps\,d\ln a=\Omega_\Lambda$). Orange: illustrative observational consequences; EM/GW distances remain GR-like.}
 \label{fig:pipeline}
 \end{figure}
 
@@ -208,6 +208,7 @@ a_0=\frac{5}{12}\,\OmL^2\,c\,H_0,
 with the same bookkeeping that fixes the FRW zero mode. The factor \(4/3\) is the isotropic null contraction in the BW channel; its universality follows from the UV (\(w=1/3\)) sector governing the susceptibility (App.~\ref{app:five-twelve}).
 
 % ===============================
+% ===============================
 \section{Entropy-Driven Evolution of \texorpdfstring{$\varepsilon(a)$}{epsilon(a)}}
 \label{sec:epsilon}
 \paragraph{KMS/FDT differential constraint (positivity).}
@@ -229,6 +230,19 @@ The scheme-invariant background relation fixes the total ``budget''
 \boxed{\;\int_{a_{\rm i}}^{1}\!\eps(a)\, d\ln a \;=\; \OmL \;=\; \beta\, f\,\cgeo\; ,\;}
 \end{equation}
 so once \(\mathcal I(a)\) and \(\sigma(a)\) are specified by microphysics, \(\eps(a)\) is determined up to an initial condition \(\eps(a_{\rm i})\equiv \eps_0\ge 0\) (irreversibility floor).
+
+\paragraph{Self-consistent fixed point with growth.}
+The growth factor \(D(a)\) obeys the standard linear equation with our scale-independent closure,
+\begin{equation}
+\label{eq:growth-ode}
+\frac{d^2 D}{d(\ln a)^2}
++\Big(2+\frac{d\ln H}{d\ln a}\Big)\frac{dD}{d\ln a}
+-\frac{3}{2}\,\Omega_m(a)\,\mu(\varepsilon(a))\,D=0,
+\end{equation}
+where \(\mu(\varepsilon)=1/(1+\tfrac{5}{12}\varepsilon)\) from Eq.~\eqref{eq:mu-a0}. We solve Eqs.~\eqref{eq:eps-ode} and \eqref{eq:growth-ode} together as a \emph{fixed-point} problem under the constraints (monotonicity, budget \eqref{eq:budget}, GR-like distances, and environmental gating). In practice a simple Picard or Anderson-accelerated iteration converges rapidly from \(\Lambda\)CDM initial \(D(a)\).
+
+\paragraph{Entropy-constrained variational bounds.}
+Because \(\mu(\varepsilon)=1/(1+\eta\varepsilon)\) with \(\eta=5/12\) is positive, decreasing, and convex in \(\varepsilon\) (i.e., \(d\mu/d\varepsilon<0\), \(d^2\mu/d\varepsilon^2>0\)), and because the kernel in Eq.~\eqref{eq:eps-ode} enforces \(d\varepsilon/d\ln a\ge 0\) with a fixed budget \(\int\varepsilon\,d\ln a=\Omega_\Lambda\), rearrangement/convex-order arguments imply that, for fixed constraints, the \emph{minimum} growth (hence \emph{minimum} \(S_8\)) is achieved by maximally \emph{late-loaded} \(\varepsilon(a)\), while the \emph{maximum} by the most \emph{early-loaded} profile permitted by gating. We therefore report \(S_8\) as a \emph{band} bracketed by these two admissible extremals; any choice like the logarithmic family \eqref{eq:eps-form} is illustrative and must lie within the band.
 
 \paragraph{A minimal illustrative family (used in Sec.~\ref{sec:obs}).}
 As a concrete but non-unique realization consistent with Eq.~\eqref{eq:eps-ode}, define an exposure
@@ -254,7 +268,9 @@ We implement two independent microscopic testbeds to check the \emph{algebraic} 
 % ===============================
 \section{Observational Consequences (Illustrative Bounds)}
 \label{sec:obs}
-\paragraph{Growth.} With \(\mu(\eps)\) of Eq.~\eqref{eq:mu-a0} and an entropy-driven \(\eps(a)\) consistent with Eqs.~\eqref{eq:eps-ode}–\eqref{eq:eps-form}, we find \(S_8\simeq 0.788\) (about \(-7\%\) vs \(\Lambda\)CDM), robust to kernel powers \(p\in[4,6]\) at the \(<10^{-3}\) level.\\
+\paragraph{Growth (entropy-constrained band).}
+Solving the coupled system \eqref{eq:eps-ode}--\eqref{eq:growth-ode} to a fixed point under the constraints (monotonicity, budget, GR-like distances, and gating) yields an \emph{interval} for \(S_8\) bracketed by early-loaded and late-loaded \(\varepsilon(a)\) profiles. Our illustrative baseline (log family, \(p=5\), \(\varepsilon_0=0\)) lies within this band at \(S_8\approx 0.788\). The band width is insensitive to kernel powers \(p\in[4,6]\) at the \(<10^{-3}\) level. No post-hoc rescaling of \(\alpha_M\) is used; \(\alpha_M\simeq 0\) is enforced in the distance sector, and modifications enter only through \(\mu(\varepsilon)\) in growth, automatically respecting GW/EM bounds.
+
 \paragraph{Hubble ladder (capped illustration).} Using an environment gate \(F_g(g/a_0)\) as a minimal compliance envelope (Solar-System recovery, weak-field throttling), an SH0ES-like catalog shifts \(H_0\!:\,73.0\to 71.18\) (uncapped SN) and to \(70.89\) (capped SN+Cepheid). These are \emph{bounds}, not fits; distances remain GR-like.
 
 % ===============================
@@ -266,6 +282,7 @@ Linearized about FRW, our closure lives in the \(c_T=1\), no-braiding corner (\(
 \section{Falsifiers and Honest Gaps}
 \label{sec:falsifiers}
 \textbf{Falsifiers.} (i) Persistent \(\ell^4\log\ell\) residuals in the MI/moment-kill projector channel; (ii) GW/EM luminosity-distance ratio violating \(|d_L^{\rm GW}/d_L^{\rm EM}-1|\le 5\times 10^{-3}\); (iii) laboratory/solar-system bounds implying \(|\dot G/G|\gtrsim 10^{-12}\,{\rm yr}^{-1}\); (iv) precision cosmology yielding \(\OmL\) inconsistent with \(\beta\,f\,\cgeo\).\\
+\ (v) Weak-lensing \(S_8\) lying \emph{outside} the KMS/FDT entropy-constrained band for all admissible monotone \(\varepsilon(a)\) satisfying Eq.~\eqref{eq:budget} and the gating constraints.
 \textbf{Honest gaps.} (a) Microscopic derivation of the environment gate \(F_g\); (b) quantum-to-classical bridge from modular perturbations to Mpc-scale GR perturbations (likely via coarse-grained RG, entanglement hydrodynamics, noise kernels); (c) rigorous KMS deviation bounds for CHM diamonds (would require full Hadamard parametrix construction).
 
 % ===============================
