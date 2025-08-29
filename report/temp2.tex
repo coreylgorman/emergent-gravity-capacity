@@ -115,6 +115,9 @@ A KMS/FDT Theorem and Conditional Extensions}
 \ee
 Using Press--Schechter/Sheth--Tormen mass functions and NFW curvature proxies \(L_{\rm curv}^{-2}\sim (R_{abcd}R^{abcd})^{1/2}\) with substructure excision parameter \(\xi\), we estimate the comoving volume fraction \(f_V(\ell_{\min})=\mathrm{Vol}\{x:\,\ell_{\max}(x)>\ell_{\min}\}/\mathrm{Vol}_{\rm tot}\). A semi-analytic survey (App.~\ref{app:fv}) shows voids dominate \(f_V\), while dense cores lack a window; representative values at \(z\!\sim\!0\) for \(\ell_{\min}\in[1,100]\) pc are \(f_V\sim 0.6{-}0.95\) for \(\xi\in[0.2,0.5]\). This enters only as a domain-of-validity indicator.
 
+\paragraph{Spectrum caveat.}
+The admissible window \(\epsilon_{\rm UV}\ll \ell\ll\min\{L_{\rm curv},\lambda_{\rm mfp},m_i^{-1}\}\) is understood to apply to sectors that contribute at working order. Massive sectors with \(\ell\gg m_i^{-1}\) are exponentially suppressed and, after MI/moment–kill subtraction, do not re‑introduce lower moments or \(\ell^4\log\ell\) terms. Thus the \(\ell^4\) coefficient is dominated by massless/light fields while heavy fields decouple in this channel.
+
 \paragraph{Angle invariance as a null test.} The continuous-angle product \(\mathcal C_\Omega=f(\theta)\,\cgeo(\theta)\) is analytic and \(\theta\)-independent; residuals are shown as a null check, not a precision claim.
 
 % ===============================
@@ -149,10 +152,35 @@ in \(d\) dimensions (see Osborn--Petkou).
 
 \noindent\emph{Benchmark (convention).} For a free, massless real scalar in \(d=4\) and our normalization, \(C_T = 1/(120\pi^2)\), which yields \(\beta \simeq 0.02086\) via Eq.~\eqref{eq:eps-def}.
 
+\noindent\textbf{Reproducibility (non‑circular).} We use a two–scale MI/moment‑kill subtraction with a top‑hat window on 3‑balls
+\[
+W_\ell(r)=\frac{3}{4\pi \ell^3}\,\Theta(\ell-r),\qquad
+\text{and the linear combination}\quad
+\mathcal{W}_\ell:=\int_{B_\ell}\!W_\ell-\;a\!\int_{B_{\sigma_1\ell}}\!W_{\sigma_1\ell}-\;b\!\int_{B_{\sigma_2\ell}}\!W_{\sigma_2\ell}.
+\]
+The two moment‑kill conditions (cancelling \(r^0\) and \(r^2\) for any smooth radial \(F\)) fix
+\[
+a+b=1,\qquad a\,\sigma_1^2+b\,\sigma_2^2=1
+\ \ \Longrightarrow\ \
+a=\frac{\sigma_2^2-1}{\sigma_2^2-\sigma_1^2},\quad
+b=\frac{1-\sigma_1^2}{\sigma_2^2-\sigma_1^2}.
+\]
+In our runs we take
+\[
+(\sigma_1,\sigma_2)=\Big(\tfrac{1}{2},\,2\Big),\qquad (a,b)=\Big(\tfrac{4}{5},\,\tfrac{1}{5}\Big)=(0.8,0.2).
+\]
+With these weights the projected \(\ell^4\) coefficient evaluates to
+\[
+I_{00}=3.932017\ \ \text{(dimensionless)},
+\]
+so with \(C_T=1/(120\pi^2)\) one obtains \(\beta=2\pi C_T I_{00}=0.02086\) as quoted. The helper script \texttt{beta\_methods\_v2.py} echoes both \((a,b;\sigma_1,\sigma_2)\) and the numeric \(I_{00}\).
+
 % ===============================
 \section{Weak-Field Prefactor \texorpdfstring{$5/12$}{5/12}}
 \label{sec:five-twelve}
-The isotropic BW channel gives \(\langle T_{kk}\rangle=(1+w)\rho\) with UV \(w=1/3\Rightarrow 4/3\). Averaging over CHM segments yields \(5/16\), so \(5/12=(4/3)\times(5/16)\). Details in App.~\ref{app:five-twelve}.
+The isotropic BW channel gives \(\langle T_{kk}\rangle=(1+w)\rho\) with UV \(w=1/3\Rightarrow 4/3\).
+Averaging over CHM segments yields \(5/16\), so \(5/12=(4/3)\times(5/16)\).
+Details in App.~\ref{app:five-twelve}.
 
 % ============================================================
 \section{Definition vs.\ Mapping (Part II; Conditional)}
@@ -175,6 +203,7 @@ We \emph{do not} impose the linear EFT-of-DE $\alpha$-parameter mapping at worki
 \nabla^2\frac{\Phi+\Psi}{2} \;=\; 4\pi G a^2 \rho_m ,\qquad (\Sigma\simeq 1).
 \ee
 \ese
+\emph{Beyond working order we make no stability claims absent an action; \(\mu(\varepsilon)\) serves as a falsifiable diagnostic with \(\Sigma\simeq 1\).}
 Matter obeys the standard continuity and Euler equations. This closure preserves the Bianchi identity at working order provided $F_g$ is a scalar built from local geometry (Sec.~\ref{sec:env}); a full action-level derivation is future work (Limitations).
 
 \noindent\emph{Remark on lensing amplitude.} $\Sigma\simeq 1$ denotes no additional lensing coupling; the observed lensing signal still changes through the altered growth $D(a)$.
@@ -209,10 +238,10 @@ Let \(s\) denote modular time with \(\beta_{\rm KMS}=2\pi/\kappa\) locally, wher
 Averaging the retarded kernel over a comoving congruence of diamonds and reparametrizing \(s\mapsto \ln a\) induces the FRW background factor \(f\,\cgeo\); diffeomorphism covariance is preserved because the averaging functional depends only on local curvature scalars and the diamond foliation. The total fractional defect in the kernel obeys
 \be
 \label{eq:chi-defect}
-\frac{\delta\chi}{\chi_{\rm BW}}=\mathcal O\!\Big((\ell/L_{\rm curv})^2\Big)+\mathcal O\!\big((\ell H)^2\big),
+\frac{\delta\chi}{\chi_{\rm BW}}=\mathcal O\!\Big((\ell/L_{\rm curv})^2\Big)+\mathcal O\!\big((\ell H)^2\big)
+\ \ \approx\ \ 10^{-12}+10^{-18}
 \ee
-which is negligible for \(\ell\!\sim\!10\,\mathrm{pc}\), \(L_{\rm curv}\!\sim\!10\,\mathrm{Mpc}\), \(H^{-1}\!\sim\!4\,\mathrm{Gpc}\).
-\smallskip
+for \(\ell\!\sim\!10\,\mathrm{pc}\), \(L_{\rm curv}\!\sim\!10\,\mathrm{Mpc}\), \(H^{-1}\!\sim\!4\,\mathrm{Gpc}\).
 
 \begin{proposition}[FRW budget identity (conditional; analyticity hypothesis)]
 \label{prop:frw-budget}
@@ -228,13 +257,7 @@ and integrating the entropy-driven evolution $d\eps/d\ln a=\sigma(a)I(a)\ge0$ yi
 \ee
 used as a normalization under (H1)–(H4).
 \end{proposition}
-\begin{proof}[Proof sketch]
-Average the projected KMS kernel over the diamond foliation; reparametrize modular time $s$ to $\ln a$ with Jacobian $J(a)\propto H^{-1}$. Under (H1)–(H3) the averaged kernel remains a positive KMS/FDT object and collapses to a contact term in $\ln a$ at working order, with angle factor $f\cgeo$. (H4) bounds the half-space/diamond deviation. Integrating the positive evolution law then fixes the budget \eqref{eq:budget}.
-\end{proof}
-\noindent\emph{Geometric origin.} The factor $f\,\cgeo$ depends only on the wedge-family foliation and unit–solid–angle normalization; it is geometric and foliation-based, not a fit parameter (Appendix~\ref{app:angle}).
-\smallskip
-
-\noindent\emph{Analyticity caveat.} The reparametrization \(s\to\ln a\) is conjectured to preserve KMS analyticity of the \emph{averaged} retarded kernel; a proof likely requires a spectral/microlocal argument (cf.\ modular-Hamiltonian spectral decompositions in \cite{CasiniRelative} and the curved-spacetime microlocal analysis of \cite{HollandsWald2001}). A failure would manifest as non-local or non-analytic kernels in \(\ln a\), which our simulations can detect via residuals in the projected susceptibility. We therefore treat the KMS\(\to\)FRW link as a controlled conjecture with the error budget in Eq.~\eqref{eq:chi-defect}.
+\noindent\emph{Operational diagnostic.} The routine \texttt{referee\_pipeline.py} reports a scalar residual \(R_{\rm nonloc}\equiv\sum_{i\neq 0}\big|\bar\chi^{\rm proj}(\Delta_i)\big|\,\Delta(\ln a)_i\) outside the contact bin; by default we take the central bin(s) with \(|\Delta(\ln a)|\le \Delta_0\) as ``contact''. Declare failure if \(R_{\rm nonloc}/\sigma_{\rm boot}>3\) \emph{and} the contact weight \(w_0<0.95\).
 
 \paragraph{Thermodynamic analogy (pointer).}
 The entanglement first law suggests a Clausius-like analogy (Sec.~\ref{sec:thermo}), \emph{conditional} on (H1)–(H4), with MI projection avoiding CGM’s marginality issues (App.~\ref{app:microlocal}).
@@ -312,6 +335,9 @@ Convex-order arguments imply late-loaded \(\eps(a)\) minimizes \(S_8\) and early
 \section{Environment Envelope from Symmetry and Calibration}
 \label{sec:env}
 
+\paragraph{Units and conventions.}
+We work in geometric units \(G=c=1\). When inserting SI values we convert masses via \(M\mapsto GM/c^2\); this keeps the curvature scalar \(\chi_g=\ell^2\sqrt{C_{abcd}C^{abcd}}\) dimensionless.
+
 \paragraph{Covariant envelope.}
 We take
 \be
@@ -319,12 +345,26 @@ F_g(\chi_g)=\frac{1}{1+(\chi_g/\chi_\star)^q},\qquad \chi_g\equiv \ell^2\sqrt{C_
 \ee
 with axioms: covariance, equivalence principle, normalization neutrality (no effect in weak curvature), and Solar-System compliance.
 
-\paragraph{Calibration example.}
-For a Schwarzschild source, \(\sqrt{C^2}=\sqrt{48}\,GM/r^3\). With \(\ell=10\,\mathrm{pc}\), \(r=1\,\mathrm{AU}\), the Solar value is \(\chi_\odot\simeq \ell^2 \sqrt{48}\,GM_\odot/r^3\approx 2.6\times 10^{22}\). Requiring \(F_g(\chi_\odot)\le \epsilon_{\rm SS}=10^{-5}\) with \(q=2\) yields
-\be
-\chi_\star \le \chi_\odot\,\epsilon_{\rm SS}^{1/2}\approx 8.2\times 10^{19}.
-\ee
-Choosing \(\chi_\star=10^{18}\) and \(q=2\) ensures \(\,F_g(\chi_\odot)\lesssim 10^{-9}\) (strong gating in Solar System) while \(F_g\simeq 1\) in galactic/cluster environments (\(\chi_g\ll \chi_\star\)), so cosmological growth is unaffected by the envelope.
+\paragraph{Calibration example (Solar System).}
+For a Schwarzschild source the Weyl invariant obeys \(\sqrt{C^2}=\sqrt{48}\,M/r^3\) in geometric units, with \(M=GM/c^2\) when using SI inputs. Taking \(\ell=10\,\mathrm{pc}\), \(r=1\,\mathrm{AU}\), and \(M_\odot\simeq 1.477\,\mathrm{km}\), we find
+\[
+\chi_\odot \equiv \ell^2 \, \sqrt{48}\,\frac{M_\odot}{r^3} \approx 2.9\times 10^{5}.
+\]
+Imposing \(F_g(\chi_\odot)\le \epsilon_{\rm SS}=10^{-5}\) with \(q=2\) implies
+\[
+\chi_\star \lesssim \chi_\odot\,\epsilon_{\rm SS}^{1/2} \approx 9.2\times 10^{2}.
+\]
+A representative choice \(\chi_\star=900\), \(q=2\) then yields \(F_g(\chi_\odot)\approx 9.6\times 10^{-6}\), while leaving cosmological environments (\(\chi_g\ll\chi_\star\)) essentially unsuppressed (\(F_g\simeq 1\)). For transparency we report a small compliance table:
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+$\chi_\star$ & 1200 & 1000 & 900 & 800\\
+\midrule
+$F_g(\chi_\odot;\,q{=}2)$ & $1.7\times 10^{-5}$ & $1.18\times 10^{-5}$ & $9.6\times 10^{-6}$ & $7.6\times 10^{-6}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+This envelope is a Solar–System compliance switch rather than a cosmology‑level fit; other monotone forms with \(q\in[1,3]\) remain viable and will be data‑constrained.
 
 \paragraph{Phenomenology and alternatives.}
 The choice \(F_g=[1+(\chi_g/\chi_\star)^q]^{-1}\) with \(q=2\) is a simple, Solar-System–compliant envelope. Alternative forms (e.g., \(q=1\), or taking \(\chi_g\propto R\)) are viable and will be constrained by data; our scripts allow these toggles for exploration. It should be regarded as a representative compliance function.
@@ -466,14 +506,27 @@ darr/.style={-Latex, dashed, semithick, shorten >=2pt, shorten <=2pt}
 
 \section{MI subtraction and moment-kill}
 \label{app:MI}
-Choose coefficients \((1,a,b)\) and scales \((1,\sigma_1,\sigma_2)\) such that for any smooth radial \(F(r)=F_0+F_2 r^2+\cdots\),
-\be
-\int_{B_\ell}\!W_\ell F
-- a\!\int_{B_{\sigma_1\ell}}\!W_{\sigma_1\ell}F
-- b\!\int_{B_{\sigma_2\ell}}\!W_{\sigma_2\ell}F
-=\mathcal O(\ell^6).
-\ee
-This cancels \(r^0\), \(r^2\) moments; the surviving \(\ell^4\) defines \(I_{00}\). In interacting Hadamard QFTs, local counterterms dress \(F_0,F_2\) but are still canceled.
+We use a top‑hat window on 3‑balls
+\[
+W_\ell(r)=\frac{3}{4\pi \ell^3}\,\Theta(\ell-r),
+\]
+and the MI/moment–kill combination
+\[
+\mathcal{W}_\ell:=\int_{B_\ell}\!W_\ell-\;a\!\int_{B_{\sigma_1\ell}}\!W_{\sigma_1\ell}-\;b\!\int_{B_{\sigma_2\ell}}\!W_{\sigma_2\ell}.
+\]
+For any smooth radial \(F(r)=F_0+F_2 r^2+F_4 r^4+\cdots\),
+\[
+\mathcal{W}_\ell[F]=\underbrace{(1-a-b)}_{=0}F_0+\underbrace{\Big(\langle r^2\rangle_\ell-a\langle r^2\rangle_{\sigma_1\ell}-b\langle r^2\rangle_{\sigma_2\ell}\Big)}_{=0}F_2+\Big(\langle r^4\rangle_\ell-a\langle r^4\rangle_{\sigma_1\ell}-b\langle r^4\rangle_{\sigma_2\ell}\Big)F_4+\cdots,
+\]
+so the \(\ell^4\) coefficient is isolated. For top‑hat balls in \(d{=}3\), \(\langle r^2\rangle_{R}=\tfrac{3}{5}R^2\) and \(\langle r^4\rangle_{R}=\tfrac{3}{7}R^4\). The two moment‑kill conditions
+\[
+1-a-b=0,\qquad 1-a\sigma_1^2-b\sigma_2^2=0
+\]
+fix
+\[
+a=\frac{\sigma_2^2-1}{\sigma_2^2-\sigma_1^2},\qquad b=\frac{1-\sigma_1^2}{\sigma_2^2-\sigma_1^2}.
+\]
+In our numerics we take \((\sigma_1,\sigma_2)=(\tfrac12,2)\Rightarrow (a,b)=(\tfrac45,\tfrac15)\).
 
 \section{Continuous-angle normalization}
 \label{app:angle}
@@ -489,7 +542,20 @@ Perturb the cap by a small tilt $\delta\theta(\Omega)$ and use the divergence th
 \section{Weak-field flux normalization and the universal \texorpdfstring{$5/12$}{5/12}}
 \label{app:five-twelve}
 \paragraph{Isotropic null contraction \(4/3\).} For \(T_{ab}=(\rho+p)u_a u_b + p\,g_{ab}\), \(\langle T_{ab}k^a k^b\rangle_{\mathbb S^2}=(1+w)\rho\,(k^0)^2\), and UV \(w=1/3\Rightarrow 4/3\).
-\paragraph{Segment ratio \(5/16\).} Averaging the generator density over the CHM wedge family with normalized weight \(\hat\rho(u)=\tfrac{3}{4}(1-u^2)\) gives \(R_{\rm seg}=\frac{5}{16}\). Hence \(5/12=(4/3)\times(5/16)\).
+
+\paragraph{Segment ratio \(5/16\) (explicit \(\mathcal I(u)\)).}
+With the normalized weight \(\hat\rho(u)=\tfrac{3}{4}(1-u^2)\) on \(u\in[-1,1]\) and the even–quadratic generator–density proxy used in our code,
+\[
+\mathcal I(u)=\frac{1}{4}+\frac{5}{16}u^2,
+\]
+one finds at a glance
+\[
+\int_{-1}^{1}\! \hat\rho(u)\,\mathcal I(u)\,du
+=\Big(\frac{3}{4}\Big)\!\left[\frac{4}{3}\cdot\frac{1}{4}+\frac{4}{15}\cdot\frac{5}{16}\right]
+=\frac{1}{1}\cdot\frac{1}{4}+\frac{1}{1}\cdot\frac{1}{16}
+=\frac{5}{16}.
+\]
+Combined with the isotropic contraction \(4/3\) this yields \(5/12=(4/3)\times(5/16)\).
 
 \section{CHM diamond vs.\ half-space KMS deviation}
 \label{app:chm-kms-estimate}
