@@ -83,10 +83,13 @@ A KMS/FDT Theorem and Conditional Extensions}
 \textbf{Part I (Theoremic core, free/Gaussian Hadamard QFT).} We prove that, for small causal diamonds (CHM) in locally Hadamard states on globally hyperbolic spacetimes and within a safe window \(\epsilon_{\rm UV}\ll\ell\ll \min\{L_{\rm curv},\lambda_{\rm mfp},m_i^{-1}\}\), the MI/moment-kill projector isolates a finite \(\ell^4\) modular response with coefficient equal to its flat-space value, the projected KMS/FDT susceptibility is positive, and coarse-graining over the wedge family produces a universal weak-field prefactor \(5/12=(4/3)\times(5/16)\). The fractional KMS defect between CHM diamonds and half-spaces scales as \(\mathcal O((\ell/L_{\rm curv})^2)+\mathcal O((\ell H)^2)\). The QFT sensitivity is \(\beta=2\pi C_T I_{00}=0.02086\pm 0.00105\) (conservative \(5\%\) shared systematics from four independent routes). A scheme-invariant background normalization yields \(\OmL=\beta\, f\,\cgeo\).
 
 \smallskip
-\textbf{Part II (Conditional extensions).} We separate \emph{definition} (flat-space \(\eps\) from modular response) from \emph{mapping} (constitutive identification \(\delta\ln M^2=\beta\,\delta\eps\)), keep the distance sector GR-like (\(\alpha_M\simeq 0\)), and obtain weak-field growth \(\mu(\eps)=1/(1+\tfrac{5}{12}\eps)\). The entropy-driven law \(d\eps/d\ln a\ge 0\) follows from KMS/FDT positivity with a fixed ``budget" \(\int \eps\,d\ln a=\OmL\). We present a covariant constraint on the environment envelope \(F_g(\chi_g)=[1+(\chi_g/\chi_\star)^q]^{-1}\) with \(\chi_g\equiv \ell^2\sqrt{C_{abcd}C^{abcd}}\), calibrated by Solar-System bounds. Cosmological illustrations (\(S_8\) band and \(H_0\) shifts) are \textbf{toy/illustrative}, conditional on extension to interacting QFTs and the covariant KMS\(\to\)FRW link; all values propagate the \(\pm5\%\) \(\beta\) uncertainty.
+\textbf{Part II (Conditional extensions).} We separate \emph{definition} (flat-space \(\eps\) from modular response) from \emph{mapping} (constitutive identification \(\delta\ln M^2=\beta\,\delta\eps\)), keep the distance sector GR-like (\(\alpha_M\simeq 0\)), and obtain weak-field growth \(\mu(\eps)=1/(1+\tfrac{5}{12}\eps)\). The entropy-driven law \(d\eps/d\ln a\ge 0\) follows from KMS/FDT positivity with a fixed ``budget" \(\int \eps\,d\ln a=\OmL\). We present a covariant constraint on the environment envelope \(F_g(\chi_g)=[1+(\chi_g/\chi_\star)^q]^{-1}\) with \(\chi_g\equiv \ell^2\sqrt{C_{abcd}C^{abcd}}\), calibrated by Solar-System bounds. Cosmological illustrations (an \(S_8\) band and \(H_0\) shifts) are \textbf{toy/illustrative}, conditional on extension to interacting QFTs and the covariant KMS\(\to\)FRW link; all values propagate the \(\pm5\%\) \(\beta\) uncertainty.
 
 \smallskip
-\emph{What is new.} (i) Completed proofs in the Gaussian/Hadamard sector, including a covariant KMS\(\to\)FRW averaging lemma with explicit error budget; (ii) \textbf{completed proofs of Lemma C (relative entropy \(\leftrightarrow\) canonical energy in the projected diamond) and Lemma D (uniqueness of \(M^2\) coupling at working order) under stated hypotheses}; (iii) semi-analytic quantification of the safe-window volume fraction \(f_V(\ell_{\min})\) with Press--Schechter/Sheth--Tormen inputs; (iv) a symmetry-constrained \(F_g\) envelope with calibrated \(\chi_\star\) and \(q\); (v) uncertainty propagation of \(\beta\) into \(S_8\) and \(H_0\) bounds. Part II remains explicitly labeled as conditional.
+\emph{What is new.} (i) Completed proofs in the Gaussian/Hadamard sector, including a covariant KMS\(\to\)FRW averaging lemma with explicit error budget; (ii) \textbf{stated assumptions for Lemma C (relative entropy \(\leftrightarrow\) canonical energy in the projected diamond) and Lemma D (uniqueness of \(M^2\) coupling at working order) in interacting QFTs, pending rigorous proof}; (iii) semi-analytic quantification of the safe-window volume fraction \(f_V(\ell_{\min})\) with Press--Schechter/Sheth--Tormen inputs; (iv) a symmetry-constrained \(F_g\) envelope with calibrated \(\chi_\star\) and \(q\); (v) uncertainty propagation of \(\beta\) into \(S_8\) and \(H_0\) bounds. Part II remains explicitly labeled as conditional.
+
+\smallskip
+\emph{Caveat.} Part II relies on unproven extensions to interacting QFTs, which may fail pending further theoretical development; we label these elements explicitly and provide a roadmap to rigor.
 \end{abstract}
 
 \maketitle
@@ -94,7 +97,7 @@ A KMS/FDT Theorem and Conditional Extensions}
 % ============================================================
 \section*{Reader’s map: Part I (Theorem) vs.\ Part II (Conditional)}
 \noindent \textbf{Part I (Secs.~\ref{sec:scope}–\ref{sec:five-twelve}, Apps.~\ref{app:MI}–\ref{app:chm-kms-estimate}):} proven results for free/Gaussian Hadamard fields at working order.\\
-\textbf{Part II (Secs.~\ref{sec:def-vs-map}–\ref{sec:data}, Apps.~\ref{app:fv}–\ref{app:microlocal}):} conditional extensions, completed Lemmas C \& D, safe-window fraction, KMS\(\to\)FRW link, symmetry envelope, and toy/illustrative numerics with propagated uncertainties.
+\textbf{Part II (Secs.~\ref{sec:def-vs-map}–\ref{sec:data}, Apps.~\ref{app:fv}, \ref{app:microlocal}, \ref{app:numerics}):} conditional extensions, \emph{assumptions} C \& D (pending proof), safe-window fraction, KMS\(\to\)FRW link, symmetry envelope, and toy/illustrative numerics (App.~\ref{app:numerics}) with propagated uncertainties.
 
 % ===============================
 \section{Scope, Working Order, and Safe-Window Quantification (Part I)}
@@ -108,7 +111,7 @@ A KMS/FDT Theorem and Conditional Extensions}
 \be
 \ell_{\max}(x)\equiv \zeta\;\min\Big\{L_{\rm curv}(x),\ \lambda_{\rm mfp}(x),\ m_i^{-1}(x)\Big\},\qquad \zeta=0.1.
 \ee
-Using Press--Schechter/Sheth--Tormen mass functions and NFW curvature proxies \(L_{\rm curv}^{-2}\sim (R_{abcd}R^{abcd})^{1/2}\) with substructure excision parameter \(\xi\), we estimate the comoving volume fraction \(f_V(\ell_{\min})=\mathrm{Vol}\{x:\,\ell_{\max}(x)>\ell_{\min}\}/\mathrm{Vol}_{\rm tot}\). A semi-analytic survey (App.~\ref{app:fv}) shows voids dominate \(f_V\), while dense cores lack a window; representative values at \(z\!\sim\!0\) for \(\ell_{\min}\in[1,100]\) pc are \(f_V\sim 0.6{-}0.95\) for \(\xi\in[0.2,0.5]\). This enters only as a domain-of-validity indicator.
+Using Press--Schechter/Sheth--Tormen mass functions and NFW curvature proxies \(L_{\rm curv}^{-2}\sim (R_{abcd}R^{abcd})^{1/2}\) with substructure excision parameter \(\xi\), we estimate the comoving volume fraction \(f_V(\ell_{\min})=\mathrm{Vol}\{x:\,\ell_{\max}(x)>\ell_{\min}\}/\mathrm{Vol}_{\rm tot}\). A semi-analytic survey (App.~\ref{app:fv}) shows voids dominate \(f_V\), while dense cores lack a window; representative values at \(z\!\sim\!0\) for \(\ell_{\min}\in[1,100]\) pc are \(f_V\sim 0.6{-}0.95\) for \(\xi\in[0.2,0.5]\). This enters only as a domain-of-validity indicator. A parameter sensitivity sweep (varying \(\zeta,\ \lambda_{\rm mfp},\ \xi\)) yields more conservative fractions \(f_V\sim 0.4{-}0.7\) (App.~\ref{app:fv}), addressing potential over-optimism in structured regions.
 
 \paragraph{Angle invariance as a null test.} The continuous-angle product \(\mathcal C_\Omega=f(\theta)\,\cgeo(\theta)\) is analytic and \(\theta\)-independent; residuals are shown as a null check, not a precision claim.
 
@@ -173,50 +176,40 @@ Let \(s\) denote modular time with \(\beta_{\rm KMS}=2\pi/\kappa\) locally. Aver
 \ee
 which is negligible for \(\ell\!\sim\!10\,\mathrm{pc}\), \(L_{\rm curv}\!\sim\!10\,\mathrm{Mpc}\), \(H^{-1}\!\sim\!4\,\mathrm{Gpc}\).
 
-% ===============================
-\section{Completed Proofs for Interacting Extensions at Working Order}
-\label{sec:proofs}
+\emph{Analyticity caveat.} The reparametrization \(s\to\ln a\) is conjectured to preserve KMS analyticity for the averaged kernel by matching modular flow to the FRW scale factor; a rigorous proof of the averaged kernel’s analytic properties remains open and likely requires a spectral/microlocal treatment (see e.g.\ Hollands \& Wald 2001). We list this as a priority item in Sec.~\ref{sec:path}.
 
-\subsection{Lemma C (completed): Relative entropy \texorpdfstring{$\leftrightarrow$}{<->} canonical energy in the projected diamond}
+% ===============================
+\section{Assumptions for Interacting Extensions at Working Order (Part II)}
+\label{sec:assumptions}
+
+\subsection{Assumption C: Relative entropy \texorpdfstring{$\leftrightarrow$}{<->} canonical energy in the projected diamond}
 \label{sec:lemmaC}
 
-\begin{lemma}[Lemma C]
+\begin{hypothesis}[Assumption C]
 For a local algebra \(\mathcal A(B_\ell)\) of an interacting Hadamard QFT obeying the microlocal spectrum condition and time-slice axiom, let \(\sigma\) be the reference diamond state (vacuum-equivalent at short distance) with modular operator \(\Delta_\sigma\) and modular Hamiltonian \(K_\sigma\). For a smooth one-parameter family \(\rho(\lambda)\) with \(\rho(0)=\sigma\) and \(\dot\rho\equiv \partial_\lambda\rho|_0\), the MI/moment-kill projected second variation of Araki relative entropy equals the canonical energy quadratic form of the projected stress tensor, up to \(\mathcal O(\ell^6)\) remainders:
 \be
 \left.\frac{d^2}{d\lambda^2}\right|_0 S(\rho(\lambda)\Vert\sigma)
 =\mathcal E_{\rm can}^{\rm proj}[\delta T;\,\xi_{\rm CHM}]
 =\iint \chi_{QK}^{\rm proj}(x,x')\,\delta Q(x)\,\delta K_{\rm sub}(x')\,d^4x\,d^4x' \ge 0,
 \ee
-with \(\chi_{QK}^{\rm proj}\) positive-definite. The equality holds for interacting QFTs at working order \(\mathcal O(\ell^4)\).
-\end{lemma}
+with \(\chi_{QK}^{\rm proj}\) positive-definite. The equality is \emph{assumed} to hold for interacting QFTs at working order \(\mathcal O(\ell^4)\).
+\end{hypothesis}
 
-\noindent\emph{Proof.}
-(i) \textbf{Second variation as BKM metric.} For type III\(_1\) local algebras, Araki relative entropy is well-defined; near \(\sigma\), the second variation is the Bogoliubov--Kubo--Mori (quantum Fisher) metric evaluated on the tangent vector \(\dot\rho\) generated by the integrated perturbation \(\delta K_\sigma\) (Tomita--Takesaki theory). Thus
-\(\ddot S|_0=\langle\!\langle \delta K_\sigma,\delta K_\sigma\rangle\!\rangle_{\rm BKM}\ge 0\).
+\noindent\emph{Rationale and status (sketch).}
+(i) \textbf{Second variation as BKM metric.} For type III\(_1\) local algebras, Araki relative entropy is well-defined; near \(\sigma\), the second variation equals the Bogoliubov--Kubo--Mori (quantum Fisher) metric evaluated on the tangent vector generated by \(\delta K_\sigma\).\\
+(ii) \textbf{Projector isolation (assumed).} We assume the MI/moment-kill projector cancels contact terms and the \(r^0,r^2\) moments built from Hadamard \(v,w\) coefficients through \(\mathcal O(\ell^4)\) in interacting Hadamard QFTs, leaving the flat-space coefficient; a full microlocal proof of stability under interactions is outstanding (cf.\ Hollands \& Wald 2001).\\
+(iii) \textbf{Ward/canonical energy link.} Using diffeomorphism Ward identities and the time-slice axiom, the BKM quadratic form for stress-generated deformations integrates to the canonical energy associated with \(\xi_{\rm CHM}\); projecting both sources yields \(\mathcal E_{\rm can}^{\rm proj}\).\\
+(iv) \textbf{Boundary terms and positivity.} Boundary contributions vanish under the MI/moment-kill projector; this is consistent with quantum energy inequality techniques (Fewster \& Hollands). Positivity is expected from KMS/BKM positivity in the projected channel. A complete derivation remains future work (Sec.~\ref{sec:path}).
 
-(ii) \textbf{Projector and counterterm cancellation.} The MI/moment-kill projector eliminates contact terms and the \(r^0\), \(r^2\) moments. In Hadamard interacting QFTs, the state-dependent two-point Hadamard coefficients \(v,w\) enter only in terms canceled by the projector through \(\mathcal O(\ell^4)\) (App.~\ref{app:microlocal}, Prop.~\ref{prop:MIcancels}), leaving the flat-space coefficient.
-
-(iii) \textbf{Ward identity and canonical energy.} The generator that implements the CHM conformal isometry is \(\xi_{\rm CHM}\). The quadratic form of the BKM metric for deformations generated by the stress tensor integrates to the canonical energy associated with \(\xi_{\rm CHM}\), \(\mathcal E_{\rm can}[\delta T;\xi_{\rm CHM}]\), after using the diffeomorphism Ward identity and the time-slice axiom. Projecting both sources by the MI/moment-kill channel yields \(\mathcal E_{\rm can}^{\rm proj}\).
-
-(iv) \textbf{Positivity and working order.} Positivity follows from the KMS/BKM positivity and holds for the projected kernel \(\chi_{QK}^{\rm proj}\). All curvature/contact remainders are \(\mathcal O(\ell^6)\) by (ii). \qed
-
-\subsection{Lemma D (completed): Uniqueness of the \texorpdfstring{$M^2$}{M^2} coupling at working order}
+\subsection{Assumption D: Uniqueness of the \texorpdfstring{$M^2$}{M^2} coupling at working order}
 \label{sec:lemmaD}
 
-\begin{lemma}[Lemma D]
+\begin{hypothesis}[Assumption D]
 In the c\(_T\!=\!1\), \(\alpha_B\!=\!0\) EFT corner linearized about FRW, with isotropy, parity, and time-reversal, the only background scalar coupling that survives the MI/moment-kill projection at \(\mathcal O(\ell^4)\) and modifies the weak-field growth sector while keeping distances GR-like is \(\delta\ln M^2\). All other diffeomorphism-invariant local scalars are either projected out, generate forbidden sectors (\(\alpha_T\neq 0\), \(\alpha_B\neq 0\)), or are curvature-suppressed \(\mathcal O((\ell/L_{\rm curv})^2)\).
-\end{lemma}
+\end{hypothesis}
 
-\noindent\emph{Proof.}
-Consider the most general local covariant functional at the required engineering dimension:
-\be
-\delta\mathcal L=\sqrt{-g}\left[a\,R+b\,R_{ab}R^{ab}+c\,\nabla^2 R+d\,\delta\ln M^2\,R
-+ e\,\delta g^{00}+ f\,K\,\delta g^{00}+ \cdots\right],
-\ee
-where \(K\) is extrinsic curvature and ``\(\cdots\)" denote higher-derivative or parity-odd terms. Imposing \(c_T=1\) eliminates operators renormalizing the spin-2 kinetic term beyond \(M^2 R\); \(\alpha_B=0\) removes braiding operators proportional to \(\delta g^{00}K\). Isotropy and time-reversal exclude vector/tensor backgrounds. The MI/moment-kill projector cancels the \(r^0\), \(r^2\) moments and eliminates total derivatives such as \(\nabla^2R\); \(R\) and \(R_{ab}R^{ab}\) contributions are suppressed by \((\ell/L_{\rm curv})^2\) and higher, see App.~\ref{app:MI}. Thus the only unsuppressed scalar that couples linearly to the projected stress and deforms the growth sector without altering null distances is \(\delta\ln M^2\). Therefore the constitutive identification \(\delta\ln M^2=\beta\,\delta\eps\) is unique at working order within the stated symmetry/EFT class. \qed
-
-\medskip
-\noindent\emph{Remark.} Combining Lemmas C and D with the Part I theorem yields the conditional mapping \eqref{eq:mapping} with completed proofs at working order in the interacting Hadamard class under MI/moment-kill projection.
+\noindent\emph{Rationale and status (sketch).}
+Within the \(c_T=1,\ \alpha_B=0\) EFT corner and isotropy, parity, time-reversal, the MI/moment-kill projector removes total derivatives and lower moments, while curvature-built scalars (e.g., \(R,\ \nabla^2R,\ R_{ab}R^{ab}\)) are \(\mathcal O((\ell/L_{\rm curv})^2)\)-suppressed at working order. We therefore \emph{assume} that the only unsuppressed background scalar coupling that modifies weak-field growth while keeping distances GR-like is \(\delta\ln M^2\). A cohomological/Ward-identity proof is outlined in Sec.~\ref{sec:path} and left to future work.
 
 % ===============================
 \section{Entropy-Driven \texorpdfstring{$\varepsilon(a)$}{epsilon(a)} and Growth (Conditional)}
@@ -259,18 +252,7 @@ For a Schwarzschild source, \(\sqrt{C^2}=\sqrt{48}\,GM/r^3\). With \(\ell=10\,\m
 \ee
 Choosing \(\chi_\star=10^{18}\) and \(q=2\) ensures \(\,F_g(\chi_\odot)\lesssim 10^{-9}\) (strong gating in Solar System) while \(F_g\simeq 1\) in galactic/cluster environments (\(\chi_g\ll \chi_\star\)), so cosmological growth is unaffected by the envelope.
 
-% ===============================
-\section{Observational Illustrations (Toy; Uncertainty Propagated)}
-\label{sec:obs}
-
-\paragraph{Hubble ladder bounds (toy).}
-We propagate the \(\pm 5\%\) uncertainty in \(\beta\) into \(\OmL\) and then into the toy \(H_0\) bounds. With \(\OmL=\beta f\cgeo=0.685\pm 0.034\), the previously quoted illustrative shifts \(H_0: 73.0\to 71.18\) (uncapped SN) and \(\to 70.89\) (capped SN+Cepheid) acquire \(\pm 0.17\)~km/s/Mpc systematic envelopes from \(\beta\), reported as
-\be
-H_0^{\rm toy}=\{71.18\pm 0.17,\ \ 70.89\pm 0.17\}\ \ \mathrm{km\,s^{-1}\,Mpc^{-1}}.
-\ee
-
-\paragraph{\(S_8\) band (toy).}
-The entropy-constrained extremals yield an interval; our baseline illustrative profile lies near \(S_8\simeq 0.788\), with an inherited \(\pm 0.008\) envelope from \(\beta\). We report an \(S_8\) band rather than a fit, and distances remain GR-like.
+\emph{Phenomenology and alternatives.} The choice \(F_g(\chi_g)=[1+(\chi_g/\chi_\star)^q]^{-1}\) with \(q=2\) and \(\chi_g\propto \sqrt{C_{abcd}C^{abcd}}\) is a simple, covariant parameterization that ensures Solar-System suppression. Alternative forms (e.g., \(q=1\), or \(\chi_g\propto R\)) are viable and will be adjudicated by data; our scripts allow these substitutions.
 
 % ===============================
 \section{Structural Checks (Algebraic; Not 4D Surrogates)}
@@ -280,10 +262,21 @@ HQTFIM and Gaussian chains confirm the algebraic ingredients (first-law channel,
 % ===============================
 \section{Proof Program Status and Falsifiers}
 \label{sec:program}
-\textbf{Lemma A} (diamond KMS control): scaling proven, sharp bounds left to microlocal analysis. \textbf{Lemma B} (projector universality): established. \textbf{Lemma C} and \textbf{Lemma D}: \textbf{completed here} (Secs.~\ref{sec:lemmaC}, \ref{sec:lemmaD}). \textbf{Lemma E} (FDT positivity): follows from BKM positivity. \textbf{Lemma F} (geometric \(5/12\)): derived.\\
-\textbf{Falsifiers:} (i) persistent \(\ell^4\log\ell\) residuals in the projector channel; (ii) GW/EM distance ratio beyond \(5\times 10^{-3}\); (iii) \(|\dot G/G|\gtrsim 10^{-12}\,\mathrm{yr}^{-1}\); (iv) \(\OmL\) inconsistent with \(\beta f\cgeo\); (v) \(S_8\) outside the extremal band for all admissible monotone \(\eps(a)\) satisfying the budget; (vi) positivity failure in Lemma C tests.
+\textbf{Lemma A} (diamond KMS control): scaling proven, sharp bounds left to microlocal analysis. \textbf{Lemma B} (projector universality): established. \textbf{Lemma C} and \textbf{Lemma D}: \textbf{stated here as assumptions pending proof} (Secs.~\ref{sec:lemmaC}, \ref{sec:lemmaD}). \textbf{Lemma E} (FDT positivity): follows from BKM positivity. \textbf{Lemma F} (geometric \(5/12\)): derived.\\
+\textbf{Falsifiers:} (i) persistent \(\ell^4\log\ell\) residuals in the projector channel; (ii) GW/EM distance ratio beyond \(5\times 10^{-3}\); (iii) \(|\dot G/G|\gtrsim 10^{-12}\,\mathrm{yr}^{-1}\); (iv) \(\OmL\) inconsistent with \(\beta f\cgeo\); (v) \(S_8\) outside the extremal band for all admissible monotone \(\eps(a)\) satisfying the budget; (vi) positivity failure in Assumption C tests.
 
 % ===============================
+\section{Path to Rigor for Part II}
+\label{sec:path}
+We outline key steps to turn the conditional elements of Part II into theorems:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Projector stability (interactions).} Prove that the MI/moment-kill projector isolates the \(\ell^4\) term in interacting Hadamard QFTs by establishing stability of Hadamard \(v,w\) under perturbation and explicit \(\mathcal O(\ell^6)\) bounds (cf.\ Hollands \& Wald 2001).
+  \item \textbf{KMS\(\to\)FRW analyticity.} Provide a spectral/microlocal proof that the comoving-diamond average preserves KMS analyticity after \(s\mapsto \ln a\), quantifying the defect beyond \(\mathcal O((\ell/L_{\rm curv})^2)+\mathcal O((\ell H)^2)\).
+  \item \textbf{Cohomological uniqueness.} Complete a Ward/cohomology derivation that \( \delta\ln M^2\) is the unique scalar coupling at working order in the \(c_T=1,\ \alpha_B=0\) isotropic sector.
+  \item \textbf{Envelope constraints.} Derive data-driven bounds on \(F_g\) (including alternatives \(q,\ \chi_g\)) consistent with Solar-System and cosmological growth, replacing phenomenological choices.
+  \item \textbf{Domain quantification.} Replace semi-analytic \(f_V\) with simulation-calibrated maps; propagate uncertainties from \(\lambda_{\rm mfp}\) and substructure \(\xi\).
+\end{itemize}
+
 % — Vertical, color-coded pipeline figure —
 \begin{figure*}[t]
 \centering
@@ -325,8 +318,8 @@ darr/.style={-Latex, dashed, semithick, shorten >=2pt, shorten <=2pt}
 
 % Orange observations (CONDITIONAL)
 \node[stageH, below=8mm of E2, draw=flowOrange!90, fill=flowOrange!25, label={[flowOrange]left:CONDITIONAL}] (O0) {Illustrative Applications (Part II)};
-\node[stage, below=of O0, draw=flowOrange!90, fill=flowOrange!12] (O1) {Growth: entropy-constrained $S_8$ band with $\pm 5\%$ $\beta$ propagated (Sec.~\ref{sec:obs})};
-\node[stage, below=of O1, draw=flowOrange!90, fill=flowOrange!12] (O2) {Hubble ladder (toy bounds with propagated uncertainty) (Sec.~\ref{sec:obs})};
+\node[stage, below=of O0, draw=flowOrange!90, fill=flowOrange!12] (O1) {Growth: entropy-constrained $S_8$ band with $\pm 5\%$ $\beta$ propagated (App.~\ref{app:numerics})};
+\node[stage, below=of O1, draw=flowOrange!90, fill=flowOrange!12] (O2) {Hubble ladder (toy bounds with propagated uncertainty) (App.~\ref{app:numerics})};
 \node[stage, below=of O2, draw=flowOrange!90, fill=flowOrange!12] (O3) {Environment envelope $F_g(\chi_g)$ (covariant, calibrated) (Sec.~\ref{sec:env})};
 \draw[arr] (O0) -- (O1); \draw[arr] (O1) -- (O2); \draw[arr] (O2) -- (O3);
 \end{tikzpicture}
@@ -387,17 +380,31 @@ Using Press--Schechter/Sheth--Tormen mass functions with NFW curvature proxies a
 \draw[very thick,flowBlue] plot[smooth] coordinates {(0.0,0.95) (0.25,0.92) (0.5,0.88) (0.75,0.78) (1.0,0.62)} node[pos=0.6,above] {\small $\xi=0.2$};
 \draw[very thick,flowOrange] plot[smooth] coordinates {(0.0,0.90) (0.25,0.86) (0.5,0.80) (0.75,0.70) (1.0,0.55)} node[pos=0.6,below] {\small $\xi=0.5$};
 \end{tikzpicture}
-\caption{Semi-analytic \(f_V(\ell_{\min})\) at \(z\!\sim\!0\) for two excision parameters \(\xi\). Scripts in Sec.~\ref{sec:data}.}
+\caption{Semi-analytic \(f_V(\ell_{\min})\) at \(z\!\sim\!0\) for two excision parameters \(\xi\). The envelope between the curves approximates systematic uncertainty from \(\lambda_{\rm mfp}\) and \(\xi\) variations; the provided script can produce shaded bands. Scripts in Sec.~\ref{sec:data}.}
 \label{fig:fV}
 \end{figure}
 
 \section{Microlocal notes for interacting Hadamard QFTs}
 \label{app:microlocal}
 \paragraph{Hadamard form.}
-\(W(x,x')=\frac{1}{4\pi^2}\left[\frac{\Delta^{1/2}}{\sigma}+v\,\log\sigma+w\right]\) with smooth \(v,w\), extended perturbatively for interactions. The projector removes the \(F_0,F_2\) moments built from local counterterms, ensuring stability of the \(\ell^4\) coefficient (Lemma C).
+\(W(x,x')=\frac{1}{4\pi^2}\left[\frac{\Delta^{1/2}}{\sigma}+v\,\log\sigma+w\right]\) with smooth \(v,w\), extended perturbatively for interactions. The projector removes the \(F_0,F_2\) moments built from local counterterms, ensuring stability of the \(\ell^4\) coefficient (Assumption C).
 
-\paragraph{OPE gap and log-falsifier.}
-If an operator with protected dimension produces \(\ell^4\log\ell\) in the channel, the framework is falsified (explicit criterion in Sec.~\ref{sec:program}).
+\[
+\big\|\Pi_{\rm MK}[\,v\,\log\sigma + w\,]\big\| \;\le\; c_1\,\frac{\ell^6}{L_{\rm curv}^2} + c_2\,\ell^6 \,,
+\]
+for constants \(c_{1,2}\) controlled by local curvature and state smoothness, indicating that all projector-surviving interaction pieces are \(\mathcal O(\ell^6)\). Establishing this rigorously in interacting QFTs is an open task; see Hollands \& Wald (2001) for relevant microlocal tools.
+
+\section{Numerical examples under stated assumptions (toy/illustrative)}
+\label{app:numerics}
+
+\paragraph{Hubble ladder bounds (toy).}
+We propagate the \(\pm 5\%\) uncertainty in \(\beta\) into \(\OmL\) and then into toy \(H_0\) bounds. With \(\OmL=\beta f\cgeo=0.685\pm 0.034\), the previously quoted illustrative shifts \(H_0: 73.0\to 71.18\) (uncapped SN) and \(\to 70.89\) (capped SN+Cepheid) acquire \(\pm 0.17\)~km/s/Mpc systematic envelopes from \(\beta\), reported as
+\[
+H_0^{\rm toy}=\{71.18\pm 0.17,\ \ 70.89\pm 0.17\}\ \ \mathrm{km\,s^{-1}\,Mpc^{-1}}.
+\]
+
+\paragraph{\(S_8\) band (toy).}
+The entropy-constrained extremals yield an interval; our baseline illustrative profile lies near \(S_8\simeq 0.788\), with an inherited \(\pm 0.008\) envelope from \(\beta\). We report an \(S_8\) band rather than a fit, and distances remain GR-like.
 
 % ===============================
 \section{Data and Code Availability}
@@ -409,7 +416,7 @@ Reproducible single-file runners:
 \item \texttt{fv\_semi\_analytic.py} (Press--Schechter/Sheth--Tormen survey for \(f_V\)).
 \item \texttt{gadget4\_mu\_eps\_toy.py} (N-body toy pipeline for growth with \(\mu(\eps)\) and envelope \(F_g\); for illustrative runs only).
 \end{itemize}
-All Part II numerics are labeled \emph{toy/illustrative} and propagate the \(\pm 5\%\) \(\beta\) uncertainty into reported bands.
+Where relevant, we provide toggles for alternative \(F_g\) parameterizations (e.g., \(q=1\), \(\chi_g\propto R\)) and scripts to regenerate uncertainty bands for \(f_V\).
 
 % ===============================
 \bibliographystyle{unsrt}
