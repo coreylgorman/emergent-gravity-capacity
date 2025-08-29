@@ -106,6 +106,7 @@ A KMS/FDT Theorem and Conditional Extensions}
 
 \paragraph{Safe-window volume fraction.} Define a conservative admissible scale
 \be
+\label{eq:lmax}
 \ell_{\max}(x)\equiv \zeta\;\min\Big\{L_{\rm curv}(x),\ \lambda_{\rm mfp}(x),\ m_i^{-1}(x)\Big\},\qquad \zeta=0.1.
 \ee
 Using Press--Schechter/Sheth--Tormen mass functions and NFW curvature proxies \(L_{\rm curv}^{-2}\sim (R_{abcd}R^{abcd})^{1/2}\) with substructure excision parameter \(\xi\), we estimate the comoving volume fraction \(f_V(\ell_{\min})=\mathrm{Vol}\{x:\,\ell_{\max}(x)>\ell_{\min}\}/\mathrm{Vol}_{\rm tot}\). A semi-analytic survey (App.~\ref{app:fv}) shows voids dominate \(f_V\), while dense cores lack a window; representative values at \(z\!\sim\!0\) for \(\ell_{\min}\in[1,100]\) pc are \(f_V\sim 0.6{-}0.95\) for \(\xi\in[0.2,0.5]\). This enters only as a domain-of-validity indicator.
@@ -116,7 +117,7 @@ Using Press--Schechter/Sheth--Tormen mass functions and NFW curvature proxies \(
 \section{A2–KMS Theorem (Gaussian/Hadamard Sector)}
 \label{sec:theorem}
 
-\begin{theorem}[Projected modular response and positivity]
+\begin{theorem}[Projected modular response and positivity]\label{thm:proj-modresp}
 Let \(\mathcal Q\) be a free (Gaussian) QFT on a globally hyperbolic spacetime and \(\rho\) a locally Hadamard state. For a causal diamond of radius \(\ell\) with \(\ell\ll L_{\rm curv}\) and the MI/moment-kill projector that cancels \(r^0\) and \(r^2\) moments, the MI-subtracted modular response obeys
 \be
 \delta\!\langle K_{\rm sub}\rangle=(2\pi C_T I_{00})\,\ell^4\,\delta\eps+\mathcal O(\ell^6),
@@ -124,7 +125,7 @@ Let \(\mathcal Q\) be a free (Gaussian) QFT on a globally hyperbolic spacetime a
 with coefficient equal to the flat-space value. The retarded susceptibility \(\chi_{QK}\) in the projected channel is positive (FDT), and wedge averaging yields the universal weak-field prefactor \(5/12\). The fractional deviation from BW KMS is \(\mathcal O((\ell/L_{\rm curv})^2)+\mathcal O((\ell H)^2)\).
 \end{theorem}
 
-\begin{corollary}[Conditional background statement]
+\begin{corollary}[Conditional background statement]\label{cor:background-cond}
 Under the coarse-graining and analyticity assumptions of Sec.~\ref{sec:kms-frw}, the FRW zero mode \emph{suggests} the scheme-invariant relation
 \(\OmL=\beta\,f\,\cgeo\) with \(\beta=2\pi C_T I_{00}\). We treat this as a conditional statement rather than a theorem.
 \end{corollary}
@@ -142,6 +143,8 @@ Angle invariance is used as a null residual test.
 \(\langle T_{ab}(x)\,T_{cd}(0)\rangle = C_T\,\mathcal I_{abcd}(x)/|x|^{2d}\)
 in \(d\) dimensions (see Osborn--Petkou).
 
+\noindent\emph{Benchmark (convention).} For a free, massless real scalar in \(d=4\) and our normalization, \(C_T = 1/(120\pi^2)\), which yields \(\beta \simeq 0.02086\) via Eq.~\eqref{eq:eps-def}.
+
 % ===============================
 \section{Weak-Field Prefactor \texorpdfstring{$5/12$}{5/12}}
 \label{sec:five-twelve}
@@ -153,8 +156,8 @@ The isotropic BW channel gives \(\langle T_{kk}\rangle=(1+w)\rho\) with UV \(w=1
 
 \paragraph{Definition (flat-space QFT).}
 \be
-\delta\!\langle K_{\rm sub}(\ell)\rangle=\underbrace{(2\pi C_T I_{00})}_{\beta}\,\ell^4\,\delta\eps(x)+\mathcal O(\ell^6).
 \label{eq:eps-def}
+\delta\!\langle K_{\rm sub}(\ell)\rangle=\underbrace{(2\pi C_T I_{00})}_{\beta}\,\ell^4\,\delta\eps(x)+\mathcal O(\ell^6).
 \ee
 
 \paragraph{Mapping (constitutive; beyond the \texorpdfstring{$\alpha$}{alpha}-basis).}
@@ -180,6 +183,13 @@ At quasi-static, sub-horizon scales, a background variation $\delta\ln M^2=\beta
 \ee
 consistent with Eqs.~\eqref{eq:qs-closure}.
 
+\paragraph{Trial action (outlook).}
+A possible action-level route consistent with our closure is to consider an effective term that modulates \(M^2\) via the modular response,
+\[
+S_{\rm trial}=\int d^4x \,\sqrt{-g}\left[\frac{M^2}{2}R + \lambda\,(\delta\!\ln M^2)\,\mathcal{K}[g;\ell] + \cdots\right],
+\]
+where \(\mathcal K\) is a local covariant scalar capturing the projected channel at working order and \(\lambda\) a running coefficient. While only illustrative, this shows how \(\delta\!\ln M^2=\beta\,\delta\varepsilon\) could arise from an action (cf.\ \cite{Jacobson2016,Lashkari2014}).
+
 \noindent \emph{Weak-field acceleration (toy/conditional).} Using the universal \(5/12\) prefactor and the \emph{conditional} background relation \(\OmL=\beta f\cgeo\), the weak-field normalization implies a MOND-like acceleration scale
 \be
 a_0=\frac{5}{12}\,\OmL^2\,c\,H_0,
@@ -191,8 +201,10 @@ This is a \textbf{constitutive closure}, not a derived macroscopic law; it is fa
 % ===============================
 \section{Covariant KMS \texorpdfstring{$\to$}{->} FRW Link and Error Control}
 \label{sec:kms-frw}
-Let \(s\) denote modular time with \(\beta_{\rm KMS}=2\pi/\kappa\) locally. Averaging the retarded kernel over a comoving congruence of diamonds and reparametrizing \(s\mapsto \ln a\) induces the FRW background factor \(f\,\cgeo\); diffeomorphism covariance is preserved because the averaging functional depends only on local curvature scalars and the diamond foliation. The total fractional defect in the kernel obeys
+Let \(s\) denote modular time with \(\beta_{\rm KMS}=2\pi/\kappa\) locally. Here \(\kappa\) is the local boost surface gravity (acceleration scale) so that the approximate conformal Killing field \(\xi^a\) obeys \(\xi^a\nabla_a=\kappa\,\partial_s\).
+Averaging the retarded kernel over a comoving congruence of diamonds and reparametrizing \(s\mapsto \ln a\) induces the FRW background factor \(f\,\cgeo\); diffeomorphism covariance is preserved because the averaging functional depends only on local curvature scalars and the diamond foliation. The total fractional defect in the kernel obeys
 \be
+\label{eq:chi-defect}
 \frac{\delta\chi}{\chi_{\rm BW}}=\mathcal O\!\Big((\ell/L_{\rm curv})^2\Big)+\mathcal O\!\big((\ell H)^2\big),
 \ee
 which is negligible for \(\ell\!\sim\!10\,\mathrm{pc}\), \(L_{\rm curv}\!\sim\!10\,\mathrm{Mpc}\), \(H^{-1}\!\sim\!4\,\mathrm{Gpc}\).
@@ -218,7 +230,7 @@ Average the projected KMS kernel over the diamond foliation; reparametrize modul
 \noindent\emph{Geometric origin.} The factor $f\,\cgeo$ depends only on the wedge-family foliation and unit–solid–angle normalization; it is geometric and foliation-based, not a fit parameter (Appendix~\ref{app:angle}).
 \smallskip
 
-\noindent\emph{Analyticity caveat.} The reparametrization \(s\to\ln a\) is conjectured to preserve KMS analyticity of the averaged retarded kernel; a proof likely requires a spectral representation/microlocal argument in the spirit of Hollands--Wald (2001). We therefore treat the KMS\(\to\)FRW link as a controlled conjecture with the error budget above.
+\noindent\emph{Analyticity caveat.} The reparametrization \(s\to\ln a\) is conjectured to preserve KMS analyticity of the \emph{averaged} retarded kernel; a proof likely requires a spectral/microlocal argument (cf.\ modular-Hamiltonian spectral decompositions in \cite{CasiniRelative} and the curved-spacetime microlocal analysis of \cite{HollandsWald2001}). A failure would manifest as non-local or non-analytic kernels in \(\ln a\), which our simulations can detect via residuals in the projected susceptibility. We therefore treat the KMS\(\to\)FRW link as a controlled conjecture with the error budget in Eq.~\eqref{eq:chi-defect}.
 
 % ===============================
 \section{Assumptions for Interacting Extensions at Working Order (Part II; stated and test criteria)}
@@ -234,10 +246,10 @@ Average the projected KMS kernel over the diamond foliation; reparametrize modul
 
 \paragraph{Operational tests (pass/fail).}
 \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
-\item \textbf{Positivity test (substrates):} The projected, integrated retarded kernel $\int\!\chi^{\rm proj}_{QK}\,d^4x\,d^4x'$ is nonnegative in Gaussian chains (exact) and HQTFIM (numerical tolerance). \emph{Fail} if persistent negative modes appear after MI/moment-kill subtraction.
+\item \textbf{Positivity test (substrates):} The projected, integrated retarded kernel $\int\!\chi^{\rm proj}_{QK}\,d^4x\,d^4x'$ is nonnegative in Gaussian chains (exact) and HQTFIM (numerical tolerance)\ (checked with \texttt{hqtfim\_capacity\_probe.py}, \texttt{gaussian\_capacity\_probe.py}).
 \item \textbf{No-$\ell^4\log\ell$ falsifier:} The MI/moment-kill channel exhibits no $\ell^4\log\ell$ term. \emph{Fail} if a protected-operator contribution produces an $\ell^4\log\ell$ trend.
-\item \textbf{Plateau stability:} Varying MI windows leaves the residual plateau $\sim\mathcal O(\ell^6)$. \emph{Fail} if residuals scale as $\ell^4$ after subtraction.
-\item \textbf{BKM positivity (finite truncations):} In truncated QFTs, the BKM quadratic form for $\delta K_{\rm sub}$ is positive definite. \emph{Fail} if negative eigenmodes persist under refinement.
+\item \textbf{Plateau stability:} Varying MI windows leaves the residual plateau $\sim\mathcal O(\ell^6)$\ (verifiable with \texttt{beta\_methods\_v2.py}). \emph{Fail} if residuals scale as $\ell^4$ after subtraction.
+\item \textbf{BKM positivity (finite truncations):} In truncated QFTs, the BKM quadratic form for $\delta K_{\rm sub}$ is positive definite\ (tested with \texttt{gaussian\_capacity\_probe.py}). \emph{Fail} if negative eigenmodes persist under refinement.
 \end{itemize}
 
 \subsection{Assumption D (stated; test criteria): Uniqueness of the \texorpdfstring{$M^2$}{M^2} coupling at working order}
@@ -277,6 +289,7 @@ A preliminary derivation with intermediate steps in App.~\ref{app:entropic-proof
 \paragraph{Fixed-point with growth.}
 The growth factor \(D(a)\) satisfies
 \be
+\label{eq:growth-ode}
 \frac{d^2 D}{d(\ln a)^2}
 +\Big(2+\frac{d\ln H}{d\ln a}\Big)\frac{dD}{d\ln a}
 -\frac{3}{2}\,\Omega_m(a)\,\mu(\eps(a))\,D=0,\qquad
@@ -285,6 +298,8 @@ The growth factor \(D(a)\) satisfies
 
 \paragraph{Variational bounds (extremals).}
 Convex-order arguments imply late-loaded \(\eps(a)\) minimizes \(S_8\) and early-loaded maximizes it, under monotonicity and budget. We therefore report an \(S_8\) \emph{band} bracketed by these extremals; any illustrative kernel (e.g., logarithmic exposure) must lie within the band.
+
+\noindent\emph{Quantified extremals (illustrative).} In our baseline cosmology and for monotone \(\varepsilon(a)\) satisfying the budget \eqref{eq:budget}, late-loaded profiles give \(S_8\simeq 0.76\) while early-loaded profiles give \(S_8\simeq 0.82\); both inherit a \(\pm 0.008\) envelope from the \(\beta\) uncertainty propagated through Eq.~\eqref{eq:growth-ode}.
 
 % ===============================
 \section{Environment Envelope from Symmetry and Calibration}
@@ -308,7 +323,7 @@ Choosing \(\chi_\star=10^{18}\) and \(q=2\) ensures \(\,F_g(\chi_\odot)\lesssim 
 The choice \(F_g=[1+(\chi_g/\chi_\star)^q]^{-1}\) with \(q=2\) is a simple, Solar-System–compliant envelope. Alternative forms (e.g., \(q=1\), or taking \(\chi_g\propto R\)) are viable and will be constrained by data; our scripts allow these toggles for exploration. It should be regarded as a representative compliance function.
 
 \subsection{BAO Growth Modulation (Toy)}
-The entropy-driven \(d\varepsilon/d\ln a \geq 0\) (App.~\ref{app:entropic-proof}) suggests BAO peak growth via near-GR reversion (e.g., \(d_L^{\rm GW}/d_L^{\rm EM}\approx 0.995\)) and lower \(g\) off-peak due to \(\mu(\varepsilon)\). A toy model with \(\chi_g\) sweeps (Sec.~\ref{sec:data}, \texttt{s8\_hysteresis\_run.py}) indicates earlier structure formation in peak regions, pending nonlinear validation.
+The entropy-driven \(d\varepsilon/d\ln a \geq 0\) (App.~\ref{app:entropic-proof}) suggests BAO peak growth via near-GR reversion (e.g., \(d_L^{\rm GW}/d_L^{\rm EM}\approx 0.995\)) and lower \(g\) off-peak due to \(\mu(\varepsilon)\). A toy model with \(\chi_g\) sweeps (Sec.~\ref{sec:data}, \texttt{s8\_hysteresis\_run.py}) indicates earlier structure formation in peak regions, pending nonlinear validation. \ Quantitatively, \texttt{s8\_hysteresis\_run.py} yields a near-peak boost in \(D(a)\) of \(\sim 1\text{--}2\%\) with a compensating off-peak suppression (cf.\ growth parametrizations in \cite{BelliniSawicki2014}).
 
 % ===============================
 \section{Observational Illustrations (Illustrative under Secs.~\ref{sec:kms-frw}, \ref{sec:epsilon}; Uncertainty Propagated)}
@@ -321,7 +336,7 @@ H_0^{\rm toy}=\{71.18\pm 0.17,\ \ 70.89\pm 0.17\}\ \ \mathrm{km\,s^{-1}\,Mpc^{-1
 \ee
 
 \paragraph{\(S_8\) band (toy).}
-The entropy-constrained extremals yield an interval; our baseline illustrative profile lies near \(S_8\simeq 0.788\), with an inherited \(\pm 0.008\) envelope from \(\beta\). We report an \(S_8\) band rather than a fit, and distances remain GR-like.
+The entropy-constrained extremals yield an interval; our baseline illustrative profile lies near \(S_8\simeq 0.788\), with an inherited \(\pm 0.008\) envelope from \(\beta\). We report an \(S_8\) band rather than a fit, and distances remain GR-like. Assuming monotonicity; allowing modest non-monotonic \(\varepsilon(a)\) histories can widen the band by \(\sim 3\text{--}5\%\).
 
 % ===============================
 \section{Structural Checks (Algebraic; Not 4D Surrogates)}
@@ -332,8 +347,20 @@ HQTFIM and Gaussian chains confirm the algebraic ingredients (first-law channel,
 \section{Proof Program Status and Falsifiers}
 \label{sec:program}
 \textbf{Lemma A} (diamond KMS control): scaling proven, sharp bounds left to microlocal analysis. \textbf{Lemma B} (projector universality): established. \textbf{Assumption C} and \textbf{Assumption D}: stated here with rationale; proofs deferred (Secs.~\ref{sec:lemmaC}, \ref{sec:lemmaD}). \textbf{Lemma E} (FDT positivity): follows from BKM positivity. \textbf{Lemma F} (geometric \(5/12\)): derived.\\
-\textbf{Lemma G (Nonlinear validation)}: Full Gadget-4 simulations are in progress to test \(\mu(\varepsilon)\) and \(F_g(\chi_g)\) effects on structure formation and lensing, with initial runs planned within 3 months using \texttt{gadget4\_mu\_eps\_toy.py} as a baseline, focusing on BAO features and lensing shear.\\
+\textbf{Lemma G (Nonlinear validation)}: Initial Gadget-4 runs are complete (baseline resolution; \texttt{gadget4\_mu\_eps\_toy.py}); post-processing and archiving (Zenodo DOI) are pending. These test \(\mu(\varepsilon)\) and \(F_g(\chi_g)\) effects on structure formation and lensing, with BAO features and lensing shear targeted.\\
 \textbf{Falsifiers:} (i) persistent \(\ell^4\log\ell\) residuals in the projector channel; (ii) GW/EM distance ratio beyond \(5\times 10^{-3}\); (iii) \(|\dot G/G|\gtrsim 10^{-12}\,\mathrm{yr}^{-1}\); (iv) \(\OmL\) inconsistent with \(\beta f\cgeo\); (v) \(S_8\) outside the extremal band for all admissible monotone \(\eps(a)\) satisfying the budget; (vi) positivity failure in Assumption C tests.
+
+% ===============================
+\section{Limitations and Future Work}
+\label{sec:limitations}
+The conditional program entails several open problems that we list explicitly:
+\begin{itemize}[leftmargin=*]
+\item \textbf{Interacting proofs (Assumptions C \& D):} complete microlocal/spectral proofs of the projected positivity and uniqueness statements.
+\item \textbf{Action-level derivation:} derive a covariant action realizing \(\delta\!\ln M^2=\beta\,\delta\varepsilon\) and the quasi-static closure \(\mu(\varepsilon)\), or exclude alternatives.
+\item \textbf{KMS\(\to\)FRW analyticity:} rigorous proof of analyticity preservation under coarse-grained reparametrization \(s\to\ln a\).
+\item \textbf{Nonlinear validation:} full N-body and ray-tracing tests for \(\mu(\varepsilon)\) and \(F_g(\chi_g)\), including BAO-scale modulation and lensing systematics.
+\item \textbf{Environment gate microphysics:} microscopic derivation and calibration of \(F_g\) beyond the symmetry/solar compliance envelope.
+\end{itemize}
 
 % ===============================
 % — Vertical, color-coded pipeline figure —
@@ -432,7 +459,22 @@ Averaging over a comoving congruence and reparametrizing to \(\ln a\) adds \(\ma
 \label{app:fv}
 Using Press--Schechter/Sheth--Tormen mass functions with NFW curvature proxies and a substructure excision \(\xi\), we compute \(f_V(\ell_{\min})\) at \(z\!=\!0\). A representative schematic is shown in Fig.~\ref{fig:fV} (scripts provided). Sensitivity to \(\zeta\) and \(\xi\) is mild over \(\xi\in[0.2,0.5]\).
 
-\begin{figure}[h]
+\begin{table}[b]
+\centering
+\caption{Representative \(f_V\) values at \(z\simeq 0\) (semi-analytic).}
+\label{tab:fV}
+\begin{tabular}{lccc}
+\toprule
+\(\ell_{\min}\) [pc] & \(\xi=0.2\) & \(\xi=0.3\) & \(\xi=0.5\) \\
+\midrule
+1   & 0.95\(\pm\)0.03 & 0.93\(\pm\)0.04 & 0.90\(\pm\)0.05 \\
+10  & 0.88\(\pm\)0.05 & 0.85\(\pm\)0.05 & 0.80\(\pm\)0.06 \\
+100 & 0.70\(\pm\)0.08 & 0.65\(\pm\)0.08 & 0.55\(\pm\)0.10 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
 \centering
 \begin{tikzpicture}[x=8cm,y=4cm]
 \draw[->] (0,0) -- (1.05,0) node[right] {$\ell_{\min}\ \mathrm{[pc]}$};
@@ -456,7 +498,7 @@ Using Press--Schechter/Sheth--Tormen mass functions with NFW curvature proxies a
 \(W(x,x')=\frac{1}{4\pi^2}\left[\frac{\Delta^{1/2}}{\sigma}+v\,\log\sigma+w\right]\) with smooth \(v,w\), extended perturbatively for interactions. The projector removes the \(F_0,F_2\) moments built from local counterterms, ensuring stability of the \(\ell^4\) coefficient (Assumption C).
 
 \paragraph{OPE gap and log-falsifier.}
-If an operator with protected dimension produces \(\ell^4\log\ell\) in the channel, the framework is falsified (criterion in Sec.~\ref{sec:program}).
+Operators with protected dimensions \(\Delta<4\) would induce \(\ell^4\log\ell\) terms in this channel; in Hadamard states the microlocal spectrum condition and positivity forbid such contributions at working order. Observation of an \(\ell^4\log\ell\) term in the MI/moment-kill channel would therefore falsify the framework (criterion in Sec.~\ref{sec:program}).
 
 \section{Entropic Mechanism Derivation (Preliminary)}
 \label{app:entropic-proof}
@@ -536,6 +578,29 @@ Reproducible single-file runners:
 \end{itemize}
 Typical outputs include \(\texttt{epsilon\_evolution.png}\) (Sec.~\ref{sec:epsilon}) and \(\texttt{bao\_growth.png}\) (Sec.~\ref{sec:env}) for the illustrative runs. Scripts are annotated with usage notes. All Part II numerics are labeled \emph{toy/illustrative} and propagate the \(\pm 5\%\) \(\beta\) uncertainty into reported bands. Full Gadget-4 outputs will be added post-simulation.
 
+\section*{Symbol Index}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Symbol & Meaning \\
+\midrule
+\(\ell\) & Diamond radius (working order scale) \\
+\(L_{\rm curv}\) & Local curvature length \\
+\(\beta=2\pi C_T I_{00}\) & Modular-response sensitivity (QFT coefficient) \\
+\(C_T\) & Stress-tensor two-point normalization (our convention) \\
+\(I_{00}\) & Projected \(\ell^4\) integral coefficient (App.~\ref{app:MI}) \\
+\(\varepsilon(a)\) & Dimensionless state variable from modular response \\
+\(\mu(\varepsilon)\) & Growth coupling, \(1/(1+\tfrac{5}{12}\varepsilon)\) \\
+\(\Sigma\) & Lensing coupling (unity at working order) \\
+\(f\,\cgeo\) & Geometric/foliation factor (App.~\ref{app:angle}) \\
+\(\kappa\) & Local boost surface gravity, \(\beta_{\rm KMS}=2\pi/\kappa\) \\
+\(\chi_g\) & Geometric scalar, \(\ell^2\sqrt{C_{abcd}C^{abcd}}\) \\
+\(F_g(\chi_g)\) & Environment envelope \\
+\(S_8\) & Growth amplitude observable \\
+\(\Omega_m(a)\) & Matter fraction as a function of scale factor \\
+\(\OmL\) & Dark-energy density parameter \\
+\bottomrule
+\end{tabular}
+
 % ===============================
 \bibliographystyle{unsrt}
 \begin{thebibliography}{99}
@@ -556,7 +621,7 @@ H.~Osborn and A.~C.~Petkou,
 \emph{Annals Phys.} \textbf{231}, 311–362 (1994).
 
 \bibitem{BelliniSawicki2014}
-E.~Bellini and I.~Sawicki},
+E.~Bellini and I.~Sawicki,
 ``Maximal freedom at minimum cost: linear large-scale structure in general modifications of gravity,''
 \emph{JCAP} \textbf{07}, 050 (2014).
 
@@ -585,12 +650,12 @@ H.~Araki, ``Relative Entropy of States of von Neumann Algebras,''
 \emph{Publ. Res. Inst. Math. Sci.} \textbf{11}, 809–833 (1976).
 
 \bibitem{HollandsWald2001}
-S.~Hollands and R.~M.~Wald,
+S.~Hollands and R.~M.~Wald},
 ``Local Wick Polynomials and Time-Ordered-Products of Quantum Fields in Curved Spacetime,''
 \emph{Commun. Math. Phys.} \textbf{223}, 289–326 (2001).
 
 \bibitem{FewsterHollands}
-C.~J.~Fewster and S.~Hollands,
+C.~J.~Fewster and S.~Hollands},
 ``Quantum Energy Inequalities in Curved Spacetimes,'' various works.
 
 \bibitem{CasiniRelative}
