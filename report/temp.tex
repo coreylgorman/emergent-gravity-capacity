@@ -115,6 +115,9 @@ A KMS/FDT Theorem and Conditional Extensions}
 \ee
 Using Press--Schechter/Sheth--Tormen mass functions and NFW curvature proxies \(L_{\rm curv}^{-2}\sim (R_{abcd}R^{abcd})^{1/2}\) with substructure excision parameter \(\xi\), we estimate the comoving volume fraction \(f_V(\ell_{\min})=\mathrm{Vol}\{x:\,\ell_{\max}(x)>\ell_{\min}\}/\mathrm{Vol}_{\rm tot}\). A semi-analytic survey (App.~\ref{app:fv}) shows voids dominate \(f_V\), while dense cores lack a window; representative values at \(z\!\sim\!0\) for \(\ell_{\min}\in[1,100]\) pc are \(f_V\sim 0.6{-}0.95\) for \(\xi\in[0.2,0.5]\). This enters only as a domain-of-validity indicator.
 
+\paragraph{Spectrum caveat.}
+The admissible window \(\epsilon_{\rm UV}\ll \ell\ll\min\{L_{\rm curv},\lambda_{\rm mfp},m_i^{-1}\}\) is understood to apply to sectors that contribute at working order. Massive sectors with \(\ell\gg m_i^{-1}\) are exponentially suppressed and, after MI/moment–kill subtraction, do not re‑introduce lower moments or \(\ell^4\log\ell\) terms. Thus the \(\ell^4\) coefficient is dominated by massless/light fields while heavy fields decouple in this channel.
+
 \paragraph{Angle invariance as a null test.} The continuous-angle product \(\mathcal C_\Omega=f(\theta)\,\cgeo(\theta)\) is analytic and \(\theta\)-independent; residuals are shown as a null check, not a precision claim.
 
 % ===============================
@@ -148,6 +151,12 @@ Angle invariance is used as a null residual test.
 in \(d\) dimensions (see Osborn--Petkou).
 
 \noindent\emph{Benchmark (convention).} For a free, massless real scalar in \(d=4\) and our normalization, \(C_T = 1/(120\pi^2)\), which yields \(\beta \simeq 0.02086\) via Eq.~\eqref{eq:eps-def}.
+
+\noindent\textbf{Reproducibility.} For the MI/moment‑kill weights used in our numerics (App.~\ref{app:MI}), the projected integral evaluates to
+\[
+I_{00}=3.932017\ \ \text{(dimensionless)},
+\]
+so with \(C_T=1/(120\pi^2)\) one obtains \(\beta=2\pi C_T I_{00}=0.02086\) as quoted. The helper script \texttt{beta\_methods\_v2.py} prints this \(I_{00}\) value.
 
 % ===============================
 \section{Weak-Field Prefactor \texorpdfstring{$5/12$}{5/12}}
@@ -228,6 +237,7 @@ and integrating the entropy-driven evolution $d\eps/d\ln a=\sigma(a)I(a)\ge0$ yi
 \ee
 used as a normalization under (H1)–(H4).
 \end{proposition}
+\noindent\emph{Operational diagnostic.} The routine \texttt{referee\_pipeline.py} reports a scalar residual \(R_{\rm nonloc}\equiv\sum_{i\neq 0}\big|\bar\chi^{\rm proj}(\Delta_i)\big|\,\Delta(\ln a)_i\) outside the contact bin; a statistically significant non‑zero \(R_{\rm nonloc}\) falsifies (H1).
 \begin{proof}[Proof sketch]
 Average the projected KMS kernel over the diamond foliation; reparametrize modular time $s$ to $\ln a$ with Jacobian $J(a)\propto H^{-1}$. Under (H1)–(H3) the averaged kernel remains a positive KMS/FDT object and collapses to a contact term in $\ln a$ at working order, with angle factor $f\cgeo$. (H4) bounds the half-space/diamond deviation. Integrating the positive evolution law then fixes the budget \eqref{eq:budget}.
 \end{proof}
@@ -237,7 +247,7 @@ Average the projected KMS kernel over the diamond foliation; reparametrize modul
 \noindent\emph{Analyticity caveat.} The reparametrization \(s\to\ln a\) is conjectured to preserve KMS analyticity of the \emph{averaged} retarded kernel; a proof likely requires a spectral/microlocal argument (cf.\ modular-Hamiltonian spectral decompositions in \cite{CasiniRelative} and the curved-spacetime microlocal analysis of \cite{HollandsWald2001}). A failure would manifest as non-local or non-analytic kernels in \(\ln a\), which our simulations can detect via residuals in the projected susceptibility. We therefore treat the KMS\(\to\)FRW link as a controlled conjecture with the error budget in Eq.~\eqref{eq:chi-defect}.
 
 \paragraph{Thermodynamic analogy (pointer).}
-The entanglement first law and KMS calibration suggest a Clausius-like analogy, explored in Sec.~\ref{sec:thermo}, \emph{conditional} on (H1)–(H4) and avoiding CGM’s marginality issues via MI projection (App.~\ref{app:microlocal}).
+The entanglement first law suggests a Clausius-like analogy (Sec.~\ref{sec:thermo}), \emph{conditional} on (H1)–(H4), with MI projection avoiding CGM’s marginality issues (App.~\ref{app:microlocal}).
 
 % ===============================
 \section{Assumptions for Interacting Extensions at Working Order (Part II; stated and test criteria)}
@@ -312,6 +322,9 @@ Convex-order arguments imply late-loaded \(\eps(a)\) minimizes \(S_8\) and early
 \section{Environment Envelope from Symmetry and Calibration}
 \label{sec:env}
 
+\paragraph{Units and conventions.}
+We work in geometric units \(G=c=1\). When inserting SI values we convert masses via \(M\mapsto GM/c^2\); this keeps the curvature scalar \(\chi_g=\ell^2\sqrt{C_{abcd}C^{abcd}}\) dimensionless.
+
 \paragraph{Covariant envelope.}
 We take
 \be
@@ -319,12 +332,26 @@ F_g(\chi_g)=\frac{1}{1+(\chi_g/\chi_\star)^q},\qquad \chi_g\equiv \ell^2\sqrt{C_
 \ee
 with axioms: covariance, equivalence principle, normalization neutrality (no effect in weak curvature), and Solar-System compliance.
 
-\paragraph{Calibration example.}
-For a Schwarzschild source, \(\sqrt{C^2}=\sqrt{48}\,GM/r^3\). With \(\ell=10\,\mathrm{pc}\), \(r=1\,\mathrm{AU}\), the Solar value is \(\chi_\odot\simeq \ell^2 \sqrt{48}\,GM_\odot/r^3\approx 2.6\times 10^{22}\). Requiring \(F_g(\chi_\odot)\le \epsilon_{\rm SS}=10^{-5}\) with \(q=2\) yields
-\be
-\chi_\star \le \chi_\odot\,\epsilon_{\rm SS}^{1/2}\approx 8.2\times 10^{19}.
-\ee
-Choosing \(\chi_\star=10^{18}\) and \(q=2\) ensures \(\,F_g(\chi_\odot)\lesssim 10^{-9}\) (strong gating in Solar System) while \(F_g\simeq 1\) in galactic/cluster environments (\(\chi_g\ll \chi_\star\)), so cosmological growth is unaffected by the envelope.
+\paragraph{Calibration example (Solar System).}
+For a Schwarzschild source the Weyl invariant obeys \(\sqrt{C^2}=\sqrt{48}\,M/r^3\) in geometric units, with \(M=GM/c^2\) when using SI inputs. Taking \(\ell=10\,\mathrm{pc}\), \(r=1\,\mathrm{AU}\), and \(M_\odot\simeq 1.477\,\mathrm{km}\), we find
+\[
+\chi_\odot \equiv \ell^2 \, \sqrt{48}\,\frac{M_\odot}{r^3} \approx 2.9\times 10^{5}.
+\]
+Imposing \(F_g(\chi_\odot)\le \epsilon_{\rm SS}=10^{-5}\) with \(q=2\) implies
+\[
+\chi_\star \lesssim \chi_\odot\,\epsilon_{\rm SS}^{1/2} \approx 9.2\times 10^{2}.
+\]
+A representative choice \(\chi_\star=900\), \(q=2\) then yields \(F_g(\chi_\odot)\approx 9.6\times 10^{-6}\), while leaving cosmological environments (\(\chi_g\ll\chi_\star\)) essentially unsuppressed (\(F_g\simeq 1\)). For transparency we report a small compliance table:
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+$\chi_\star$ & 1200 & 1000 & 900 & 800\\
+\midrule
+$F_g(\chi_\odot;\,q{=}2)$ & $1.7\times 10^{-5}$ & $1.18\times 10^{-5}$ & $9.6\times 10^{-6}$ & $7.6\times 10^{-6}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+This envelope is a Solar–System compliance switch rather than a cosmology‑level fit; other monotone forms with \(q\in[1,3]\) remain viable and will be data‑constrained.
 
 \paragraph{Phenomenology and alternatives.}
 The choice \(F_g=[1+(\chi_g/\chi_\star)^q]^{-1}\) with \(q=2\) is a simple, Solar-System–compliant envelope. Alternative forms (e.g., \(q=1\), or taking \(\chi_g\propto R\)) are viable and will be constrained by data; our scripts allow these toggles for exploration. It should be regarded as a representative compliance function.
@@ -370,25 +397,26 @@ In the MI/moment-kill projected first-law channel, the entanglement first law \(
 where \(\delta Q_{\rm boost,sub}\) is the boost-energy variation in the projected channel (the appropriate ``heat'' analogue). Using \(\delta\!\langle K_{\rm sub}\rangle=\beta\,\ell^4\,\delta\varepsilon+\mathcal O(\ell^6)\) (Eq.~\ref{eq:eps-def}) yields
 \be
 \delta S_{\rm sub}=\beta\,\ell^4\,\delta\varepsilon+\mathcal O(\ell^6).
+\label{eq:clausius-response}
 \ee
 This \emph{reinterprets} the modular response in thermodynamic terms; one may define a modular (not thermodynamic-bath) entropy-density proxy
 \[
 s(a)\sim \beta\,\varepsilon(a)\,\ell^{-3}.
 \]
-\emph{Justification.} This proxy is dimensionally consistent (units \(k_B\,\mathrm{length}^{-3}\)); e.g., for \(\ell=10\,\mathrm{pc}\) and \(\varepsilon(1)\sim 1\) one finds \(s(1)\sim 2\times 10^{-2}\,k_B\,(10\,\mathrm{pc})^{-3}\), consistent with ranges produced by \texttt{cosmology\_runner.py} at \(z=0\).
+\emph{Justification.} This proxy is dimensionally consistent (units \(k_B\,\mathrm{length}^{-3}\)); e.g., for \(\ell=10\,\mathrm{pc}\) and \(\varepsilon(1)\sim 1\) one finds \(s(1)\sim 2\times 10^{-2}\,k_B\,(10\,\mathrm{pc})^{-3}\), consistent with ranges produced by \texttt{cosmology\_runner.py} at \(z=0\). Physically, \(s(a)\) proxies an \emph{entanglement} contribution to cosmological evolution in this channel, distinct from a thermodynamic bath entropy.
 
 \subsection{FRW Clausius extension (conditional proposition)}
-Under the KMS\(\to\)FRW hypotheses (H1)–(H4) of Sec.~\ref{sec:kms-frw} (locality/decay, adiabaticity, analyticity under \(s\to\ln a\), diamond–half-space control), the averaged susceptibility reduces to a contact term in \(\ln a\), leading to the \emph{conditional} normalization
+Under the KMS\(\to\)FRW hypotheses (H1)–(H4) of Sec.~\ref{sec:kms-frw} (locality/decay, adiabaticity, analyticity under \(s\to\ln a\), diamond–half-space control), the averaged susceptibility reduces to a \emph{contact term in \(\ln a\)} by (H1)–(H3) (see Proposition~\ref{prop:frw-budget}), leading to the \emph{conditional} normalization
 \be
 \int_{a_i}^{1}\varepsilon(a)\,d\ln a=\Omega_\Lambda=\beta f\,c_{\rm geo}.
 \ee
 Non-local residuals in \(\ln a\), detectable via \texttt{referee\_pipeline.py}, would falsify (H1).
 
 \subsection{Relation to Jacobson (2016) and the CGM critique}
-Jacobson’s entanglement-equilibrium proposal \cite{Jacobson2016} ties a local Clausius statement to the Einstein equation. Casini--Galante--Myers (CGM) \cite{CasiniGalanteMyers2016} showed that for relevant deformations of low scaling dimension, and in particular for \emph{marginal} \(\Delta=d/2=2\), logarithmic terms (e.g.\ \(\log(\mu\ell)\), CGM Eq.~(1.8)) obstruct a universal inference. Our framework differs: (i) we do not aim to derive GR universally but to relate QFT modular response to cosmology; (ii) the MI/moment-kill projector (App.~\ref{app:MI}) \emph{eliminates} \(\Delta<4\) terms, including marginal \(\Delta=2\), ensuring a pure \(\ell^4\) response at working order (App.~\ref{app:microlocal}). This \emph{sidesteps} CGM’s marginality issue by design and limits scope to the \(\ell^4\) channel. Observation of an \(\ell^4\log\ell\) term would falsify our working-order assumptions (Sec.~\ref{sec:program}, (i)); in practice, the falsifier is \emph{detectable} by fitting MI-projected residuals in \texttt{beta\_methods\_v2.py} to a logarithmic trend, isolating an \(\ell^4\log\ell\) component.
+Jacobson’s entanglement-equilibrium proposal \cite{Jacobson2016} ties a local Clausius statement to the Einstein equation. Casini--Galante--Myers (CGM) \cite{CasiniGalanteMyers2016} showed that for relevant deformations of low scaling dimension, and in particular for \emph{marginal} \(\Delta=d/2=2\), logarithmic terms (e.g.\ \(\log(\mu\ell)\), CGM Eq.~(1.8)) obstruct a universal inference. Our framework differs: (i) we do not aim to derive GR universally but to relate QFT modular response to cosmology; (ii) the MI/moment-kill projector (App.~\ref{app:MI}) \emph{eliminates} \(\Delta<4\) terms, including marginal \(\Delta=2\), ensuring a pure \(\ell^4\) response at working order (App.~\ref{app:microlocal}). This \emph{sidesteps} CGM’s marginality issue by design and limits scope to the \(\ell^4\) channel. The \(\Delta=4\) focus \emph{leverages the OPE gap} in Gaussian/Hadamard states, which ensures the finiteness of the \(\ell^4\) response in the projected channel (App.~\ref{app:microlocal}). Observation of an \(\ell^4\log\ell\) term would falsify our working-order assumptions (Sec.~\ref{sec:program}, (i)); in practice, the falsifier is \emph{detectable} by fitting MI-projected residuals in \texttt{beta\_methods\_v2.py} to a logarithmic trend, isolating an \(\ell^4\log\ell\) component.
 
 \subsection{Marginal operators in interacting QFTs (exploratory)}
-In interacting QFTs, protected marginal operators could induce \(\ell^4\log\ell\) corrections to the projected modular response. Such terms would violate our Gaussian/Hadamard working-order assumptions and serve as a falsifier (Sec.~\ref{sec:program}, (i)). \emph{Detection method.} The residual analysis in \texttt{beta\_methods\_v2.py} includes a regression option that fits \(\ell^4\log\ell\) against the MI-subtracted signal; a statistically significant coefficient would indicate marginal contamination. Constraining any such amplitude in interacting extensions—and assessing induced shifts in \(\beta\) or \(\mu(\varepsilon)\)—is an avenue for future work (Sec.~\ref{sec:limitations}).
+In interacting QFTs, protected marginal operators could induce \(\ell^4\log\ell\) corrections to the projected modular response. Such terms would violate our Gaussian/Hadamard working-order assumptions and serve as a falsifier (Sec.~\ref{sec:program}, (i)). \emph{Detection method.} The residual analysis in \texttt{beta\_methods\_v2.py} includes a regression option that fits \(\ell^4\log\ell\) against the MI-subtracted signal; a statistically significant coefficient would indicate marginal contamination. As a practical threshold, a statistically significant \(\ell^4\log\ell\) coefficient (e.g., amplitude \(>10^{-3}\,\beta\)) would indicate marginal contamination and motivate microlocal analysis in interacting QFTs (Sec.~\ref{sec:limitations}). Constraining any such amplitude in interacting extensions—and assessing induced shifts in \(\beta\) or \(\mu(\varepsilon)\)—is an avenue for future work (Sec.~\ref{sec:limitations}).
 
 % ===============================
 \section{Limitations and Future Work}
@@ -452,7 +480,7 @@ darr/.style={-Latex, dashed, semithick, shorten >=2pt, shorten <=2pt}
 
 % Red exploratory (Part III)
 \node[stageH, below=8mm of O3, draw=flowRed!80, fill=flowRed!15, label={[flowRed]left:EXPLORATORY}] (T0) {Thermodynamic Interpretation (Clausius; CGM relation) (Sec.~\ref{sec:thermo})};
-\draw[arr] (O3) -- (T0);
+\draw[darr] (O3) -- (T0);
 
 \end{tikzpicture}
 \end{adjustbox}
@@ -488,7 +516,12 @@ Perturb the cap by a small tilt $\delta\theta(\Omega)$ and use the divergence th
 \section{Weak-field flux normalization and the universal \texorpdfstring{$5/12$}{5/12}}
 \label{app:five-twelve}
 \paragraph{Isotropic null contraction \(4/3\).} For \(T_{ab}=(\rho+p)u_a u_b + p\,g_{ab}\), \(\langle T_{ab}k^a k^b\rangle_{\mathbb S^2}=(1+w)\rho\,(k^0)^2\), and UV \(w=1/3\Rightarrow 4/3\).
-\paragraph{Segment ratio \(5/16\).} Averaging the generator density over the CHM wedge family with normalized weight \(\hat\rho(u)=\tfrac{3}{4}(1-u^2)\) gives \(R_{\rm seg}=\frac{5}{16}\). Hence \(5/12=(4/3)\times(5/16)\).
+\paragraph{Segment ratio \(5/16\).}
+With the normalized weight \(\hat\rho(u)=\tfrac{3}{4}(1-u^2)\) on \(u\in[-1,1]\), the CHM segment average reads
+\[
+R_{\rm seg}=\int_{-1}^{1}\! \hat\rho(u)\,\mathcal I(u)\,du=\frac{5}{16},
+\]
+where \(\mathcal I(u)\) is the (unit‑normalized) generator density along the wedge family. Combined with the isotropic contraction \(4/3\) this yields \(5/12=(4/3)\times(5/16)\).
 
 \section{CHM diamond vs.\ half-space KMS deviation}
 \label{app:chm-kms-estimate}
@@ -643,6 +676,7 @@ Symbol & Meaning \\
 \(T_{\rm KMS}\) & Modular/KMS temperature, \(\kappa/(2\pi)\) \\
 \(S_{\rm sub}\) & Entanglement entropy variation in MI/moment-kill channel \\
 \(\delta Q_{\rm boost,sub}\) & Boost-energy variation in MI-projected channel \\
+\(s(a)\) & Modular entropy density proxy, \(\sim \beta\,\varepsilon(a)\,\ell^{-3}\) \\
 \(\chi_g\) & Geometric scalar, \(\ell^2\sqrt{C_{abcd}C^{abcd}}\) \\
 \(F_g(\chi_g)\) & Environment envelope \\
 \(S_8\) & Growth amplitude observable \\
@@ -656,7 +690,7 @@ Symbol & Meaning \\
 \begin{thebibliography}{99}
 
 \bibitem{BisognanoWichmann1975}
-J.~J.~Bisognano and E.~H.~Wichmann,
+J.~J.~Bisognano and E.~Wichmann,
 ``On the Duality Condition for a Hermitian Scalar Field,'' \emph{J. Math. Phys.} \textbf{16}, 985 (1975);
 ``On the Duality Condition for Quantum Fields,'' \emph{J. Math. Phys.} \textbf{17}, 303 (1976).
 
