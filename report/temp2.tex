@@ -80,13 +80,13 @@ A KMS/FDT Theorem and Conditional Extensions}
 \date{}
 
 \begin{abstract}
-\textbf{Part I (Theoremic core, free/Gaussian Hadamard QFT).} We prove that, for small causal diamonds (CHM) in locally Hadamard states on globally hyperbolic spacetimes and within a safe window \(\epsilon_{\rm UV}\ll\ell\ll \min\{L_{\rm curv},\lambda_{\rm mfp},m_i^{-1}\}\), the MI/moment-kill projector isolates a finite \(\ell^4\) modular response with coefficient equal to its flat-space value, the projected KMS/FDT susceptibility is positive, and coarse-graining over the wedge family produces a universal weak-field prefactor \(5/12=(4/3)\times(5/16)\). The fractional KMS defect between CHM diamonds and half-spaces scales as \(\mathcal O((\ell/L_{\rm curv})^2)+\mathcal O((\ell H)^2)\). The QFT sensitivity is \(\beta=2\pi C_T I_{00}=0.02086\pm 0.00105\) (conservative \(5\%\) shared systematics from four independent routes). A scheme-invariant background normalization yields \(\OmL=\beta\, f\,\cgeo\).
+\textbf{Part I (Theoremic core, free/Gaussian Hadamard QFT).} We prove that, for small causal diamonds (CHM) in locally Hadamard states and within a safe window \(\epsilon_{\rm UV}\ll\ell\ll \min\{L_{\rm curv},\lambda_{\rm mfp},m_i^{-1}\}\), the MI/moment-kill projector isolates a finite \(\ell^4\) modular response with coefficient equal to its flat-space value; the projected KMS/FDT susceptibility is positive; and coarse-graining over the wedge family produces the universal weak-field prefactor \(5/12=(4/3)\times(5/16)\). The fractional KMS defect between CHM diamonds and half-spaces scales as \(\mathcal O((\ell/L_{\rm curv})^2)+\mathcal O((\ell H)^2)\). The QFT sensitivity is \(\beta=2\pi C_T I_{00}=0.02086\pm 0.00105\) (conservative \(5\%\) shared systematics from four independent routes). A scheme-invariant background relation \emph{suggests} \(\OmL=\beta\, f\,\cgeo\) \emph{conditional} on our coarse-graining and analyticity assumptions.
 
 \smallskip
-\textbf{Part II (Conditional extensions).} We separate \emph{definition} (flat-space \(\eps\) from modular response) from \emph{mapping} (constitutive identification \(\delta\ln M^2=\beta\,\delta\eps\)), keep the distance sector GR-like (\(\alpha_M\simeq 0\)), and obtain weak-field growth \(\mu(\eps)=1/(1+\tfrac{5}{12}\eps)\). The entropy-driven law \(d\eps/d\ln a\ge 0\) follows from KMS/FDT positivity with a fixed ``budget" \(\int \eps\,d\ln a=\OmL\). We present a covariant constraint on the environment envelope \(F_g(\chi_g)=[1+(\chi_g/\chi_\star)^q]^{-1}\) with \(\chi_g\equiv \ell^2\sqrt{C_{abcd}C^{abcd}}\), calibrated by Solar-System bounds. Cosmological illustrations (\(S_8\) band and \(H_0\) shifts) are \textbf{toy/illustrative}, conditional on extension to interacting QFTs and the covariant KMS\(\to\)FRW link; all values propagate the \(\pm5\%\) \(\beta\) uncertainty.
+\textbf{Part II (Conditional extensions).} We separate \emph{definition} (flat-space \(\eps\) from modular response) from \emph{mapping}. Rather than impose the standard EFT-of-DE \(\alpha\)-basis, we adopt a quasi-static closure that keeps operational distances GR-like (no additional lensing coupling \(\Sigma\simeq 1\)) while modifying growth via \(\mu(\eps)=1/(1+\tfrac{5}{12}\eps)\). KMS/FDT positivity motivates an entropy-driven law \(d\eps/d\ln a\ge 0\) with a \emph{conditional} background budget \(\int \eps\,d\ln a=\OmL\). We introduce a covariant environment envelope \(F_g(\chi_g)=[1+(\chi_g/\chi_\star)^q]^{-1}\) with \(\chi_g\equiv \ell^2\sqrt{C_{abcd}C^{abcd}}\), calibrated by Solar-System bounds. Cosmological illustrations (\(S_8\) band and \(H_0\) bounds) are \textbf{toy/illustrative} and propagate the \(\pm5\%\) \(\beta\) uncertainty; \emph{observed lensing amplitudes still reflect the altered growth}.
 
 \smallskip
-\emph{What is new.} (i) Completed proofs in the Gaussian/Hadamard sector, including a covariant KMS\(\to\)FRW averaging lemma with explicit error budget; (ii) \textbf{Assumptions C and D stated with rationale} (relative entropy \(\leftrightarrow\) canonical energy in the projected diamond; uniqueness of \(M^2\) at working order), with proofs deferred; (iii) semi-analytic quantification of the safe-window volume fraction \(f_V(\ell_{\min})\) with Press--Schechter/Sheth--Tormen inputs; (iv) a symmetry-constrained \(F_g\) envelope with calibrated \(\chi_\star\) and \(q\); (v) uncertainty propagation of \(\beta\) into \(S_8\) and \(H_0\) bounds; (vi) a preliminary entropic derivation (App.~\ref{app:entropic-proof}) linking KMS positivity to FRW evolution, pending validation. Part II remains explicitly labeled as conditional. Part II relies on unproven extensions to interacting QFTs, which may fail pending further theoretical development.
+\emph{What is new.} (i) Completed proofs in the Gaussian/Hadamard sector; (ii) a \textbf{conditional, coarse-grained} KMS\(\to\)FRW averaging statement with explicit error budget; (iii) \textbf{Assumptions C and D stated with rationale} (relative entropy \(\leftrightarrow\) canonical energy in the projected diamond; uniqueness of \(M^2\) at working order), with proofs deferred; (iv) semi-analytic quantification of the safe-window volume fraction \(f_V(\ell_{\min})\); (v) a symmetry-constrained \(F_g\) envelope; (vi) uncertainty propagation of \(\beta\) into \(S_8\) and \(H_0\) \emph{illustrations}; (vii) a preliminary entropic derivation (App.~\ref{app:entropic-proof}) linking KMS positivity to FRW evolution.
 \end{abstract}
 
 \maketitle
@@ -124,11 +124,9 @@ Let \(\mathcal Q\) be a free (Gaussian) QFT on a globally hyperbolic spacetime a
 with coefficient equal to the flat-space value. The retarded susceptibility \(\chi_{QK}\) in the projected channel is positive (FDT), and wedge averaging yields the universal weak-field prefactor \(5/12\). The fractional deviation from BW KMS is \(\mathcal O((\ell/L_{\rm curv})^2)+\mathcal O((\ell H)^2)\).
 \end{theorem}
 
-\noindent\emph{Proof.} Hadamard microlocal expansions reduce all UV data to the Minkowski parametrix; MI/moment-kill cancels local counterterms to \(\mathcal O(\ell^4)\) (App.~\ref{app:MI}). BW KMS fixes linear-response normalization and sign; positivity follows from the Bogoliubov--Kubo--Mori metric. Isotropic contraction and CHM segment ratio yield \(5/12\) (Sec.~\ref{sec:five-twelve}). CHM vs.\ half-space defects scale as stated in Riemann-normal coordinates (App.~\ref{app:chm-kms-estimate}). \qed
-
-\begin{corollary}[Background zero mode]
-The FRW zero mode satisfies the scheme-invariant normalization
-\(\OmL=\beta\,f\,\cgeo\), with \(\beta=2\pi C_T I_{00}\).
+\begin{corollary}[Conditional background statement]
+Under the coarse-graining and analyticity assumptions of Sec.~\ref{sec:kms-frw}, the FRW zero mode \emph{suggests} the scheme-invariant relation
+\(\OmL=\beta\,f\,\cgeo\) with \(\beta=2\pi C_T I_{00}\). We treat this as a conditional statement rather than a theorem.
 \end{corollary}
 
 % ===============================
@@ -155,14 +153,22 @@ The isotropic BW channel gives \(\langle T_{kk}\rangle=(1+w)\rho\) with UV \(w=1
 \label{eq:eps-def}
 \ee
 
-\paragraph{Mapping (constitutive; distances GR-like).}
-In the c\(_T\!=\!1\), \(\alpha_B\!=\!0\) EFT corner with isotropy, we \emph{identify} at working order
+\paragraph{Mapping (constitutive; beyond the \texorpdfstring{$\alpha$}{alpha}-basis).}
+We \emph{do not} impose the linear EFT-of-DE $\alpha$-parameter mapping at working order. Instead, we adopt a quasi-static closure that keeps operational distances GR-like while modifying growth:
+\bse
+\label{eq:qs-closure}
 \be
-\delta\ln M^2=\beta\,\delta\eps,\qquad
-\mu(\eps)=\frac{1}{1+\tfrac{5}{12}\,\eps},\qquad \alpha_M\simeq 0~\text{in distances}.
-\label{eq:mapping}
+\nabla^2\Phi \;=\; 4\pi G a^2 \rho_m \,\mu(\eps)\,F_g(\chi_g), \qquad \mu(\eps)=\frac{1}{1+\tfrac{5}{12}\eps}, 
 \ee
-\noindent \emph{Weak-field acceleration (toy/conditional).} Using the universal \(5/12\) prefactor and the background normalization \(\OmL=\beta f\cgeo\), the weak-field normalization implies a MOND-like acceleration scale
+\be
+\nabla^2\frac{\Phi+\Psi}{2} \;=\; 4\pi G a^2 \rho_m ,\qquad (\Sigma\simeq 1).
+\ee
+\ese
+Matter obeys the standard continuity and Euler equations. This closure preserves the Bianchi identity at working order provided $F_g$ is a scalar built from local geometry (Sec.~\ref{sec:env}); a full action-level derivation is future work (Limitations).
+
+\noindent\emph{Remark on lensing amplitude.} $\Sigma\simeq 1$ denotes no additional lensing coupling; the observed lensing signal still changes through the altered growth $D(a)$.
+
+\noindent \emph{Weak-field acceleration (toy/conditional).} Using the universal \(5/12\) prefactor and the \emph{conditional} background relation \(\OmL=\beta f\cgeo\), the weak-field normalization implies a MOND-like acceleration scale
 \be
 a_0=\frac{5}{12}\,\OmL^2\,c\,H_0,
 \ee
@@ -178,6 +184,20 @@ Let \(s\) denote modular time with \(\beta_{\rm KMS}=2\pi/\kappa\) locally. Aver
 \frac{\delta\chi}{\chi_{\rm BW}}=\mathcal O\!\Big((\ell/L_{\rm curv})^2\Big)+\mathcal O\!\big((\ell H)^2\big),
 \ee
 which is negligible for \(\ell\!\sim\!10\,\mathrm{pc}\), \(L_{\rm curv}\!\sim\!10\,\mathrm{Mpc}\), \(H^{-1}\!\sim\!4\,\mathrm{Gpc}\).
+\smallskip
+
+\noindent\textbf{FRW budget (conditional).}
+Under the same averaging and reparameterization, the spatially averaged, projected retarded kernel admits
+\[
+\Big\langle \!\int \chi^{\rm proj}_{QK}(a,a')\,d^3x \Big\rangle
+= \beta\, f\, \cgeo\, \delta(\ln a-\ln a') + \ldots
+\]
+so integrating the entropy-driven evolution $d\eps/d\ln a=\sigma(a)I(a)\ge0$ yields the coarse-grained identity
+\be
+\int_{a_i}^{1}\!\eps(a)\,d\ln a \;=\; \OmL \;=\; \beta\, f\,\cgeo,
+\label{eq:budget}
+\ee
+which we use as a normalization \emph{conditional} on locality of the averaged kernel, adiabatic evolution through matter domination, and small CHM vs. half-space KMS deviation (App.~\ref{app:chm-kms-estimate}).
 \smallskip
 
 \noindent\emph{Analyticity caveat.} The reparametrization \(s\to\ln a\) is conjectured to preserve KMS analyticity of the averaged retarded kernel; a proof likely requires a spectral representation/microlocal argument in the spirit of Hollands--Wald (2001). We therefore treat the KMS\(\to\)FRW link as a controlled conjecture with the error budget above.
@@ -218,7 +238,7 @@ Let \(\hat Q\) be the boost-energy flux and \(\chi_{QK}^{\rm proj}\) the retarde
 \frac{d\eps}{d\ln a}=\sigma(a)\,\mathcal I(a),\qquad \sigma(a)\ge 0,\ \ \mathcal I(a)\ge 0,\qquad
 \int \eps\,d\ln a=\OmL=\beta\,f\,\cgeo.
 \ee
-A preliminary entropic derivation relating this monotonicity to Araki relative entropy is given in App.~\ref{app:entropic-proof}.
+A preliminary derivation with intermediate steps in App.~\ref{app:entropic-proof} details \(d\varepsilon/d\ln a \ge 0\) from Araki relative entropy, supporting the use of \(\mu(\varepsilon)\).
 
 \paragraph{Fixed-point with growth.}
 The growth factor \(D(a)\) satisfies
@@ -261,7 +281,7 @@ The entropy-driven \(d\varepsilon/d\ln a \geq 0\) (App.~\ref{app:entropic-proof}
 \label{sec:obs}
 
 \paragraph{Hubble ladder bounds (toy).}
-We propagate the \(\pm 5\%\) uncertainty in \(\beta\) into \(\OmL\) and then into the toy \(H_0\) bounds. With \(\OmL=\beta f\cgeo=0.685\pm 0.034\), the previously quoted illustrative shifts \(H_0: 73.0\to 71.18\) (uncapped SN) and \(\to 70.89\) (capped SN+Cepheid) acquire \(\pm 0.17\)~km/s/Mpc systematic envelopes from \(\beta\), reported as
+Assuming the conditional background relation \(\OmL=\beta f\cgeo=0.685\pm 0.034\), the previously quoted illustrative shifts \(H_0: 73.0\to 71.18\) (uncapped SN) and \(\to 70.89\) (capped SN+Cepheid) acquire \(\pm 0.17\)~km/s/Mpc systematic envelopes from \(\beta\), reported as
 \be
 H_0^{\rm toy}=\{71.18\pm 0.17,\ \ 70.89\pm 0.17\}\ \ \mathrm{km\,s^{-1}\,Mpc^{-1}}.
 \ee
@@ -278,7 +298,7 @@ HQTFIM and Gaussian chains confirm the algebraic ingredients (first-law channel,
 \section{Proof Program Status and Falsifiers}
 \label{sec:program}
 \textbf{Lemma A} (diamond KMS control): scaling proven, sharp bounds left to microlocal analysis. \textbf{Lemma B} (projector universality): established. \textbf{Assumption C} and \textbf{Assumption D}: stated here with rationale; proofs deferred (Secs.~\ref{sec:lemmaC}, \ref{sec:lemmaD}). \textbf{Lemma E} (FDT positivity): follows from BKM positivity. \textbf{Lemma F} (geometric \(5/12\)): derived.\\
-\textbf{Lemma G (Nonlinear validation)}: Full Gadget-4 simulations are in progress to test \(\mu(\varepsilon)\) and \(F_g(\chi_g)\) effects on structure formation and lensing.\\
+\textbf{Lemma G (Nonlinear validation)}: Full Gadget-4 simulations are in progress to test \(\mu(\varepsilon)\) and \(F_g(\chi_g)\) effects on structure formation and lensing, with initial runs planned within 3 months using \texttt{gadget4\_mu\_eps\_toy.py} as a baseline, focusing on BAO features and lensing shear.\\
 \textbf{Falsifiers:} (i) persistent \(\ell^4\log\ell\) residuals in the projector channel; (ii) GW/EM distance ratio beyond \(5\times 10^{-3}\); (iii) \(|\dot G/G|\gtrsim 10^{-12}\,\mathrm{yr}^{-1}\); (iv) \(\OmL\) inconsistent with \(\beta f\cgeo\); (v) \(S_8\) outside the extremal band for all admissible monotone \(\eps(a)\) satisfying the budget; (vi) positivity failure in Assumption C tests.
 
 % ===============================
@@ -304,10 +324,10 @@ darr/.style={-Latex, dashed, semithick, shorten >=2pt, shorten <=2pt}
 \node[spur, below=of B2, draw=flowBlue!80, fill=flowBlue!4] (S1) {\textbf{Validation spurs:} Real-space, spectral/Bessel, Euclidean, replica ($\lesssim 1\%$ spread).};
 \draw[darr] (B2) -- (S1);
 
-% Purple mapping (PROVEN background normalization)
-\node[stageH, below=8mm of S1, draw=flowPurple!80, fill=flowPurple!20, label={[flowPurple]left:PROVEN}] (P0) {Geometric Mapping (Part I)};
-\node[stage, below=of P0, draw=flowPurple!80, fill=flowPurple!8] (P1) {Scheme-invariant product $\beta f \, \cgeo$ (Sec.~\ref{sec:kms-frw})};
-\node[stage, below=of P1, draw=flowPurple!80, fill=flowPurple!8] (P3) {$\Omega_\Lambda = \beta f \, \cgeo$ with covariant KMS$\to$FRW error control};
+% Purple mapping (now CONDITIONAL)
+\node[stageH, below=8mm of S1, draw=flowPurple!80, fill=flowPurple!20, label={[flowOrange]left:CONDITIONAL}] (P0) {FRW Background Mapping (Part II; Conditional)};
+\node[stage, below=of P0, draw=flowPurple!80, fill=flowPurple!8] (P1) {Conditional scheme-invariant product $\beta f \, \cgeo$ (Sec.~\ref{sec:kms-frw})};
+\node[stage, below=of P1, draw=flowPurple!80, fill=flowPurple!8] (P3) {$\Omega_\Lambda \approx \beta f \, \cgeo$ (conditional; KMS$\to$FRW coarse-graining)};
 \draw[arr] (P0) -- (P1); \draw[arr] (P1) -- (P3);
 
 % Green weak-field (PROVEN)
@@ -329,7 +349,7 @@ darr/.style={-Latex, dashed, semithick, shorten >=2pt, shorten <=2pt}
 \draw[arr] (O0) -- (O1); \draw[arr] (O1) -- (O2); \draw[arr] (O2) -- (O3);
 \end{tikzpicture}
 \end{adjustbox}
-\caption{Pipeline with PROVEN (blue/purple/first green) vs.\ CONDITIONAL (second green/orange) elements. The theoremic core fixes \(\beta\), the scheme-invariant background normalization, and the universal \(5/12\). Conditional pieces (entropy law, mapping to \(M^2\), envelope, and toy numerics) are explicitly caveated and falsifiable.}
+\caption{Pipeline with PROVEN (blue/first green) vs.\ CONDITIONAL (purple/second green/orange) elements. The theoremic core fixes \(\beta\) and the universal \(5/12\). The FRW background mapping and budget identity are conditional (Sec.~\ref{sec:kms-frw}); conditional pieces (entropy law, mapping to \(M^2\), envelope, and toy numerics) are explicitly caveated and falsifiable.}
 \label{fig:pipeline}
 \end{figure*}
 
@@ -399,36 +419,57 @@ If an operator with protected dimension produces \(\ell^4\log\ell\) in the chann
 
 \section{Entropic Mechanism Derivation (Preliminary)}
 \label{app:entropic-proof}
-\paragraph{Step 1: Entropic framework.}
-Consider a causal diamond (CHM) with radius \(\ell\) in a locally Hadamard state \(\rho\), and reference state \(\sigma\) (vacuum-equivalent). The MI/moment-kill projector yields \(\delta\langle K_{\rm sub}\rangle=\beta\,\ell^4\,\delta\varepsilon+\mathcal O(\ell^6)\) (Sec.~\ref{sec:theorem}).
 
-\paragraph{Step 2: Araki relative entropy.}
-For a smooth path \(\rho(\lambda)\) with \(\rho(0)=\sigma\), the second variation satisfies (Assumption C, Sec.~\ref{sec:lemmaC})
+\paragraph{Preliminaries: modular objects.}
+For normal faithful states \(\rho,\sigma\) on a local algebra \(\mathcal A(B_\ell)\), the Araki relative entropy
+\(S(\rho\|\sigma)=\mathrm{Tr}(\rho\ln\rho-\rho\ln\sigma)\) coincides formally with \(-\langle \log\Delta_\sigma\rangle_\rho\) in terms of the (relative) modular operator \(\Delta_\sigma\). The Bogoliubov--Kubo--Mori (BKM) inner product associated with \(\sigma\) admits the integral representation
+\[
+\langle A,B\rangle_{\rm BKM,\sigma}=\int_0^1\!dt~\mathrm{Tr}\!\left(\sigma^t A^\dagger \sigma^{1-t}B\right),
+\]
+which is positive definite. In AQFT this extends to type~III\(_1\) algebras under standard assumptions; we use it here as a heuristic guide, consistent with our projected/KMS setting.
+
+\paragraph{Step 1: Entropic framework.}
+Consider a CHM diamond of radius \(\ell\) in a locally Hadamard state \(\rho\) and a vacuum-equivalent reference \(\sigma\) at short distances. The MI/moment-kill projector isolates
+\[
+\delta\!\langle K_{\rm sub}\rangle=\beta\,\ell^4\,\delta\varepsilon+\mathcal O(\ell^6)\qquad(\beta=2\pi C_T I_{00}),
+\]
+as proved in Sec.~\ref{sec:theorem}.
+
+\paragraph{Step 2: Second variation and BKM metric.}
+For a smooth path \(\rho(\lambda)\) with \(\rho(0)=\sigma\) and \(\dot\rho=\partial_\lambda\rho|_0\),
+the Araki relative entropy obeys (formally, and rigorously in finite-dimensional truncations)
 \[
 \left.\frac{d^2}{d\lambda^2}\right|_0 S(\rho(\lambda)\Vert\sigma)
-=\iint \chi^{\rm proj}_{QK}(x,x')\,\delta Q(x)\,\delta K_{\rm sub}(x')\,d^4x\,d^4x' \ \ge 0,
+=\langle \Omega_\sigma^{-1}(\dot\rho),\,\dot\rho\rangle_{\rm BKM,\sigma}\ \ge 0,
+\]
+where \(\Omega_\sigma^{-1}(X)=\int_0^\infty\!\!(\sigma+s)^{-1}X(\sigma+s)^{-1}\,ds\).
+Equivalently, in the projected first-law channel generated by \(\delta K_{\rm sub}\),
+\[
+\left.\frac{d^2}{d\lambda^2}\right|_0 S
+=\iint \chi^{\rm proj}_{QK}(x,x')\,\delta Q(x)\,\delta K_{\rm sub}(x')\,d^4x\,d^4x'
+=\langle \delta K_{\rm sub},\delta K_{\rm sub}\rangle_{\rm BKM,\sigma}\ \ge 0,
 \]
 with \(\chi^{\rm proj}_{QK}\ge 0\) by KMS/FDT positivity (Sec.~\ref{sec:theorem}).
 
-\paragraph{Step 3: Modular response.}
-With \(\delta K_{\rm sub}\propto \delta\varepsilon\) (Def.~\eqref{eq:eps-def}), positivity reflects entropic increase in the projected channel.
+\paragraph{Step 3: Modular response \& projected monotonicity.}
+Using \(\delta K_{\rm sub}=\beta\,\ell^4\,\delta\varepsilon+\mathcal O(\ell^6)\), positivity implies that the amplitude multiplying \(\delta\varepsilon\) in the projected channel acts as an entropic Lyapunov functional to this order.
 
-\paragraph{Step 4: FRW mapping.}
-The KMS\(\to\)FRW reparametrization (\(s\to\ln a\), Sec.~\ref{sec:kms-frw}) gives, schematically,
+\paragraph{Step 4: FRW reparametrization.}
+Let \(s\) be modular time with local \(\beta_{\rm KMS}=2\pi/\kappa\). Under the covariant averaging and reparametrization \(s\mapsto \ln a\) (Sec.~\ref{sec:kms-frw}),
 \[
-\frac{dS}{d\ln a}\ \propto\ \frac{dS}{ds}\,\frac{ds}{d\ln a}\ \ge 0,
+\frac{dS}{d\ln a}=\frac{dS}{ds}\,\frac{ds}{d\ln a},\qquad \frac{dS}{ds}\ge 0,\ \ \frac{ds}{d\ln a}\propto H^{-1}>0,
 \]
-under the adiabatic and analyticity assumptions of Sec.~\ref{sec:kms-frw}.
+so \(dS/d\ln a\ge 0\) modulo the analyticity caveat of Sec.~\ref{sec:kms-frw}.
 
-\paragraph{Step 5: \(\varepsilon(a)\) law.}
-Assuming locality of the kernel after averaging and the constitutive mapping \(\delta\ln M^2=\beta\,\delta\varepsilon\) (Sec.~\ref{sec:def-vs-map}), we obtain
-\(
-\frac{d\varepsilon}{d\ln a}=\sigma(a)\,\mathcal I(a)
-\)
-with \(\sigma(a)\ge 0\) and \(\mathcal I(a)\ge 0\) as in Sec.~\ref{sec:epsilon}.
+\paragraph{Step 5: \(\varepsilon(a)\) law and growth.}
+Identifying \(\delta\ln M^2=\beta\,\delta\varepsilon\) (Sec.~\ref{sec:def-vs-map}) and assuming locality of the averaged kernel, we posit
+\[
+\frac{d\varepsilon}{d\ln a}=\sigma(a)\,\mathcal I(a),\qquad \sigma(a),\mathcal I(a)\ge 0,\qquad \int \varepsilon\,d\ln a=\Omega_\Lambda,
+\]
+which supports the working-order growth law \(\mu(\varepsilon)=1/(1+\tfrac{5}{12}\varepsilon)\).
 
-\paragraph{Caveat.}
-This derivation is preliminary: it assumes the conjectured analyticity of the averaged kernel and stability of Assumption C; a full microlocal/spectral proof is left to future work.
+\paragraph{Caveat and outlook.}
+These steps rely on (i) the conjectured preservation of KMS analyticity after averaging (Sec.~\ref{sec:kms-frw}), and (ii) the stability of Assumption~C in interacting Hadamard QFTs. A full microlocal/spectral proof---in the spirit of Hollands--Wald~\cite{HollandsWald2001} and related modular-flow techniques---is deferred to future work. Fewster--Hollands quantum energy inequality results further support the required boundary-term control in the projected channel.
 
 % ===============================
 \section{Data and Code Availability}
@@ -436,12 +477,13 @@ This derivation is preliminary: it assumes the conjectured analyticity of the av
 Reproducible single-file runners:
 \begin{itemize}[leftmargin=*]
 \item \texttt{beta\_methods\_v2.py} (real-space, spectral/Bessel, Euclidean, replica) for \(\beta\).
-\item \texttt{referee\_pipeline.py} (FRW averaging module; \(\OmL=\beta f\cgeo\) cross-check; computes toy \(a_0=(5/12)\OmL^2 c H_0\)).
-\item \texttt{fv\_semi\_analytic.py} (Press--Schechter/Sheth--Tormen survey for \(f_V\)).
+\item \texttt{cosmology\_runner.py} (growth ODE; $\eps(a)$ family with kernel $p\in[4,6]$; environment gate $F_g$; reproduces the $S_8$ and ladder \emph{illustrations}; documents priors/systematics).
+\item \texttt{referee\_pipeline.py} (FRW averaging module; \(\OmL=\beta f\cgeo\) cross-check; computes toy \(a_0=(5/12)\OmL^2 c H_0\); generates \(\texttt{epsilon\_evolution.png}\)).
+\item \texttt{fv\_semi\_analytic.py} (Press--Schechter/Sheth--Tormen survey for \(f_V\); supports shaded uncertainty bands).
 \item \texttt{gadget4\_mu\_eps\_toy.py} (N-body toy pipeline for growth with \(\mu(\eps)\) and envelope \(F_g\); for illustrative runs only).
-\item \texttt{s8\_hysteresis\_run.py} (BAO toy \(\chi_g\) sweeps).
+\item \texttt{s8\_hysteresis\_run.py} (BAO toy \(\chi_g\) sweeps; generates \(\texttt{bao\_growth.png}\)).
 \end{itemize}
-Typical outputs include \texttt{epsilon\_evolution.png} and \texttt{bao\_growth.png} for the illustrative runs described in Secs.~\ref{sec:epsilon} and \ref{sec:env}. All Part II numerics are labeled \emph{toy/illustrative} and propagate the \(\pm 5\%\) \(\beta\) uncertainty into reported bands.
+Typical outputs include \(\texttt{epsilon\_evolution.png}\) (Sec.~\ref{sec:epsilon}) and \(\texttt{bao\_growth.png}\) (Sec.~\ref{sec:env}) for the illustrative runs. Scripts are annotated with usage notes. All Part II numerics are labeled \emph{toy/illustrative} and propagate the \(\pm 5\%\) \(\beta\) uncertainty into reported bands. Full Gadget-4 outputs will be added post-simulation.
 
 % ===============================
 \bibliographystyle{unsrt}
