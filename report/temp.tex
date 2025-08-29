@@ -86,15 +86,19 @@ A KMS/FDT Theorem and Conditional Extensions}
 \textbf{Part II (Conditional extensions).} We separate \emph{definition} (flat-space \(\eps\) from modular response) from \emph{mapping}. Rather than impose the standard EFT-of-DE \(\alpha\)-basis, we adopt a quasi-static closure that keeps operational distances GR-like (no additional lensing coupling \(\Sigma\simeq 1\)) while modifying growth via \(\mu(\eps)=1/(1+\tfrac{5}{12}\eps)\). KMS/FDT positivity motivates an entropy-driven law \(d\eps/d\ln a\ge 0\) with a \emph{conditional} background budget \(\int \eps\,d\ln a=\OmL\). We introduce a covariant environment envelope \(F_g(\chi_g)=[1+(\chi_g/\chi_\star)^q]^{-1}\) with \(\chi_g\equiv \ell^2\sqrt{C_{abcd}C^{abcd}}\), calibrated by Solar-System bounds. Cosmological illustrations (\(S_8\) band and \(H_0\) bounds) are \textbf{toy/illustrative} and propagate the \(\pm5\%\) \(\beta\) uncertainty; \emph{observed lensing amplitudes still reflect the altered growth}.
 
 \smallskip
-\emph{What is new.} (i) Completed proofs in the Gaussian/Hadamard sector; (ii) a \textbf{conditional, coarse-grained} KMS\(\to\)FRW averaging statement with explicit error budget; (iii) \textbf{Assumptions C and D stated with rationale} (relative entropy \(\leftrightarrow\) canonical energy in the projected diamond; uniqueness of \(M^2\) at working order), with proofs deferred; (iv) semi-analytic quantification of the safe-window volume fraction \(f_V(\ell_{\min})\); (v) a symmetry-constrained \(F_g\) envelope; (vi) uncertainty propagation of \(\beta\) into \(S_8\) and \(H_0\) \emph{illustrations}; (vii) a preliminary entropic derivation (App.~\ref{app:entropic-proof}) linking KMS positivity to FRW evolution.
+\textbf{Part III (Exploratory).} We provide a compact \emph{thermodynamic interpretation} of the projected modular response: a Clausius-like identity holds at working order in the MI/moment-kill channel, and the FRW budget may be viewed as a \emph{coarse-grained} Clausius normalization \emph{conditional} on our KMS\(\to\)FRW hypotheses. We clarify the relation to the Casini--Galante--Myers critique of Jacobson; our MI projection targets the \(\ell^4\) response and deliberately avoids marginal \(\Delta=d/2\) logarithms, with \(\ell^4\log\ell\) taken as a falsifier.
+
+\smallskip
+\emph{What is new.} (i) Completed proofs in the Gaussian/Hadamard sector; (ii) a \textbf{conditional, coarse-grained} KMS\(\to\)FRW averaging statement with explicit error budget; (iii) \textbf{Assumptions C and D stated with rationale} (relative entropy \(\leftrightarrow\) canonical energy in the projected diamond; uniqueness of \(M^2\) at working order), with proofs deferred; (iv) semi-analytic quantification of the safe-window volume fraction \(f_V(\ell_{\min})\); (v) a symmetry-constrained \(F_g\) envelope; (vi) uncertainty propagation of \(\beta\) into \(S_8\) and \(H_0\) \emph{illustrations}; (vii) an exploratory thermodynamic reinterpretation (Part~III) and refined treatment of the CGM critique.
 \end{abstract}
 
 \maketitle
 
 % ============================================================
-\section*{Reader’s map: Part I (Theorem) vs.\ Part II (Conditional)}
+\section*{Reader’s map: Part I (Theorem) vs.\ Part II (Conditional) vs.\ Part III (Exploratory)}
 \noindent \textbf{Part I (Secs.~\ref{sec:scope}–\ref{sec:five-twelve}, Apps.~\ref{app:MI}–\ref{app:chm-kms-estimate}):} proven results for free/Gaussian Hadamard fields at working order.\\
-\textbf{Part II (Secs.~\ref{sec:def-vs-map}–\ref{sec:data}, Apps.~\ref{app:fv}–\ref{app:microlocal}, \ref{app:entropic-proof}):} conditional extensions, Assumptions C \& D (stated), safe-window fraction, KMS\(\to\)FRW link, symmetry envelope, entropic sketch, and toy/illustrative numerics with propagated uncertainties.
+\textbf{Part II (Secs.~\ref{sec:def-vs-map}–\ref{sec:data}, Apps.~\ref{app:fv}–\ref{app:microlocal}, \ref{app:entropic-proof}):} conditional extensions, Assumptions C \& D (stated), safe-window fraction, KMS\(\to\)FRW link, symmetry envelope, entropic sketch, and toy/illustrative numerics with propagated uncertainties.\\
+\textbf{Part III (Sec.~\ref{sec:thermo}):} exploratory thermodynamic interpretation (Clausius form in the projected channel; conditional FRW budget) and relation to CGM’s critique of Jacobson.
 
 % ===============================
 \section{Scope, Working Order, and Safe-Window Quantification (Part I)}
@@ -201,7 +205,7 @@ This is a \textbf{constitutive closure}, not a derived macroscopic law; it is fa
 % ===============================
 \section{Covariant KMS \texorpdfstring{$\to$}{->} FRW Link and Error Control}
 \label{sec:kms-frw}
-Let \(s\) denote modular time with \(\beta_{\rm KMS}=2\pi/\kappa\) locally. Here \(\kappa\) is the local boost surface gravity (acceleration scale) so that the approximate conformal Killing field \(\xi^a\) obeys \(\xi^a\nabla_a=\kappa\,\partial_s\).
+Let \(s\) denote modular time with \(\beta_{\rm KMS}=2\pi/\kappa\) locally, where \(\kappa\) is the local boost surface gravity so that the approximate conformal Killing field \(\xi^a\) satisfies \(\xi^a\nabla_a=\kappa\,\partial_s\).
 Averaging the retarded kernel over a comoving congruence of diamonds and reparametrizing \(s\mapsto \ln a\) induces the FRW background factor \(f\,\cgeo\); diffeomorphism covariance is preserved because the averaging functional depends only on local curvature scalars and the diamond foliation. The total fractional defect in the kernel obeys
 \be
 \label{eq:chi-defect}
@@ -232,6 +236,9 @@ Average the projected KMS kernel over the diamond foliation; reparametrize modul
 
 \noindent\emph{Analyticity caveat.} The reparametrization \(s\to\ln a\) is conjectured to preserve KMS analyticity of the \emph{averaged} retarded kernel; a proof likely requires a spectral/microlocal argument (cf.\ modular-Hamiltonian spectral decompositions in \cite{CasiniRelative} and the curved-spacetime microlocal analysis of \cite{HollandsWald2001}). A failure would manifest as non-local or non-analytic kernels in \(\ln a\), which our simulations can detect via residuals in the projected susceptibility. We therefore treat the KMS\(\to\)FRW link as a controlled conjecture with the error budget in Eq.~\eqref{eq:chi-defect}.
 
+\paragraph{Thermodynamic analogy (pointer).}
+The entanglement first law and KMS calibration suggest a Clausius-like analogy, explored in Sec.~\ref{sec:thermo}, \emph{conditional} on (H1)–(H4) and avoiding CGM’s marginality issues via MI projection (App.~\ref{app:microlocal}).
+
 % ===============================
 \section{Assumptions for Interacting Extensions at Working Order (Part II; stated and test criteria)}
 \label{sec:proofs}
@@ -246,10 +253,10 @@ Average the projected KMS kernel over the diamond foliation; reparametrize modul
 
 \paragraph{Operational tests (pass/fail).}
 \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
-\item \textbf{Positivity test (substrates):} The projected, integrated retarded kernel $\int\!\chi^{\rm proj}_{QK}\,d^4x\,d^4x'$ is nonnegative in Gaussian chains (exact) and HQTFIM (numerical tolerance)\ (checked with \texttt{hqtfim\_capacity\_probe.py}, \texttt{gaussian\_capacity\_probe.py}).
+\item \textbf{Positivity test (substrates):} The projected, integrated retarded kernel $\int\!\chi^{\rm proj}_{QK}\,d^4x\,d^4x'$ is nonnegative in Gaussian chains (exact) and HQTFIM (numerical tolerance) (checked with \texttt{hqtfim\_capacity\_probe.py}, \texttt{gaussian\_capacity\_probe.py}).
 \item \textbf{No-$\ell^4\log\ell$ falsifier:} The MI/moment-kill channel exhibits no $\ell^4\log\ell$ term. \emph{Fail} if a protected-operator contribution produces an $\ell^4\log\ell$ trend.
-\item \textbf{Plateau stability:} Varying MI windows leaves the residual plateau $\sim\mathcal O(\ell^6)$\ (verifiable with \texttt{beta\_methods\_v2.py}). \emph{Fail} if residuals scale as $\ell^4$ after subtraction.
-\item \textbf{BKM positivity (finite truncations):} In truncated QFTs, the BKM quadratic form for $\delta K_{\rm sub}$ is positive definite\ (tested with \texttt{gaussian\_capacity\_probe.py}). \emph{Fail} if negative eigenmodes persist under refinement.
+\item \textbf{Plateau stability:} Varying MI windows leaves the residual plateau $\sim\mathcal O(\ell^6)$ (verifiable with \texttt{beta\_methods\_v2.py}). \emph{Fail} if residuals scale as $\ell^4$ after subtraction.
+\item \textbf{BKM positivity (finite truncations):} In truncated QFTs, the BKM quadratic form for $\delta K_{\rm sub}$ is positive definite (tested with \texttt{gaussian\_capacity\_probe.py}). \emph{Fail} if negative eigenmodes persist under refinement.
 \end{itemize}
 
 \subsection{Assumption D (stated; test criteria): Uniqueness of the \texorpdfstring{$M^2$}{M^2} coupling at working order}
@@ -323,7 +330,7 @@ Choosing \(\chi_\star=10^{18}\) and \(q=2\) ensures \(\,F_g(\chi_\odot)\lesssim 
 The choice \(F_g=[1+(\chi_g/\chi_\star)^q]^{-1}\) with \(q=2\) is a simple, Solar-System–compliant envelope. Alternative forms (e.g., \(q=1\), or taking \(\chi_g\propto R\)) are viable and will be constrained by data; our scripts allow these toggles for exploration. It should be regarded as a representative compliance function.
 
 \subsection{BAO Growth Modulation (Toy)}
-The entropy-driven \(d\varepsilon/d\ln a \geq 0\) (App.~\ref{app:entropic-proof}) suggests BAO peak growth via near-GR reversion (e.g., \(d_L^{\rm GW}/d_L^{\rm EM}\approx 0.995\)) and lower \(g\) off-peak due to \(\mu(\varepsilon)\). A toy model with \(\chi_g\) sweeps (Sec.~\ref{sec:data}, \texttt{s8\_hysteresis\_run.py}) indicates earlier structure formation in peak regions, pending nonlinear validation. \ Quantitatively, \texttt{s8\_hysteresis\_run.py} yields a near-peak boost in \(D(a)\) of \(\sim 1\text{--}2\%\) with a compensating off-peak suppression (cf.\ growth parametrizations in \cite{BelliniSawicki2014}).
+The entropy-driven \(d\varepsilon/d\ln a \geq 0\) (App.~\ref{app:entropic-proof}) suggests BAO peak growth via near-GR reversion (e.g., \(d_L^{\rm GW}/d_L^{\rm EM}\approx 0.995\)) and lower \(g\) off-peak due to \(\mu(\varepsilon)\). A toy model with \(\chi_g\) sweeps (Sec.~\ref{sec:data}, \texttt{s8\_hysteresis\_run.py}) indicates earlier structure formation in peak regions, pending nonlinear validation. Quantitatively, \texttt{s8\_hysteresis\_run.py} yields a near-peak boost in \(D(a)\) of \(\sim 1\text{--}2\%\) with a compensating off-peak suppression (cf.\ growth parametrizations in \cite{BelliniSawicki2014}).
 
 % ===============================
 \section{Observational Illustrations (Illustrative under Secs.~\ref{sec:kms-frw}, \ref{sec:epsilon}; Uncertainty Propagated)}
@@ -351,6 +358,39 @@ HQTFIM and Gaussian chains confirm the algebraic ingredients (first-law channel,
 \textbf{Falsifiers:} (i) persistent \(\ell^4\log\ell\) residuals in the projector channel; (ii) GW/EM distance ratio beyond \(5\times 10^{-3}\); (iii) \(|\dot G/G|\gtrsim 10^{-12}\,\mathrm{yr}^{-1}\); (iv) \(\OmL\) inconsistent with \(\beta f\cgeo\); (v) \(S_8\) outside the extremal band for all admissible monotone \(\eps(a)\) satisfying the budget; (vi) positivity failure in Assumption C tests.
 
 % ===============================
+\section{Thermodynamic Interpretation and Relation to Casini--Galante--Myers (Exploratory)}
+\label{sec:thermo}
+
+\subsection{Local Clausius identity in the projected channel (proven at working order)}
+In the MI/moment-kill projected first-law channel, the entanglement first law \(\delta S_{\rm sub}=\delta\!\langle K_{\rm sub}\rangle\) (Theorem~\ref{thm:proj-modresp}) and the BW KMS normalization \(K=H_{\rm boost}/T_{\rm KMS}\) with \(T_{\rm KMS}=\kappa/(2\pi)\) imply a Clausius-like identity
+\be
+\delta S_{\rm sub}=\frac{\delta Q_{\rm boost,sub}}{T_{\rm KMS}}, \qquad
+\delta Q_{\rm boost,sub}\equiv \delta\!\langle H_{\rm boost,sub}\rangle,
+\ee
+where \(\delta Q_{\rm boost,sub}\) is the boost-energy variation in the projected channel (the appropriate ``heat'' analogue). Using \(\delta\!\langle K_{\rm sub}\rangle=\beta\,\ell^4\,\delta\varepsilon+\mathcal O(\ell^6)\) (Eq.~\ref{eq:eps-def}) yields
+\be
+\delta S_{\rm sub}=\beta\,\ell^4\,\delta\varepsilon+\mathcal O(\ell^6).
+\ee
+This \emph{reinterprets} the modular response in thermodynamic terms; one may define a modular (not thermodynamic-bath) entropy-density proxy
+\[
+s(a)\sim \beta\,\varepsilon(a)\,\ell^{-3}.
+\]
+\emph{Justification.} This proxy is dimensionally consistent (units \(k_B\,\mathrm{length}^{-3}\)); e.g., for \(\ell=10\,\mathrm{pc}\) and \(\varepsilon(1)\sim 1\) one finds \(s(1)\sim 2\times 10^{-2}\,k_B\,(10\,\mathrm{pc})^{-3}\), consistent with ranges produced by \texttt{cosmology\_runner.py} at \(z=0\).
+
+\subsection{FRW Clausius extension (conditional proposition)}
+Under the KMS\(\to\)FRW hypotheses (H1)–(H4) of Sec.~\ref{sec:kms-frw} (locality/decay, adiabaticity, analyticity under \(s\to\ln a\), diamond–half-space control), the averaged susceptibility reduces to a contact term in \(\ln a\), leading to the \emph{conditional} normalization
+\be
+\int_{a_i}^{1}\varepsilon(a)\,d\ln a=\Omega_\Lambda=\beta f\,c_{\rm geo}.
+\ee
+Non-local residuals in \(\ln a\), detectable via \texttt{referee\_pipeline.py}, would falsify (H1).
+
+\subsection{Relation to Jacobson (2016) and the CGM critique}
+Jacobson’s entanglement-equilibrium proposal \cite{Jacobson2016} ties a local Clausius statement to the Einstein equation. Casini--Galante--Myers (CGM) \cite{CasiniGalanteMyers2016} showed that for relevant deformations of low scaling dimension, and in particular for \emph{marginal} \(\Delta=d/2=2\), logarithmic terms (e.g.\ \(\log(\mu\ell)\), CGM Eq.~(1.8)) obstruct a universal inference. Our framework differs: (i) we do not aim to derive GR universally but to relate QFT modular response to cosmology; (ii) the MI/moment-kill projector (App.~\ref{app:MI}) \emph{eliminates} \(\Delta<4\) terms, including marginal \(\Delta=2\), ensuring a pure \(\ell^4\) response at working order (App.~\ref{app:microlocal}). This \emph{sidesteps} CGM’s marginality issue by design and limits scope to the \(\ell^4\) channel. Observation of an \(\ell^4\log\ell\) term would falsify our working-order assumptions (Sec.~\ref{sec:program}, (i)); in practice, the falsifier is \emph{detectable} by fitting MI-projected residuals in \texttt{beta\_methods\_v2.py} to a logarithmic trend, isolating an \(\ell^4\log\ell\) component.
+
+\subsection{Marginal operators in interacting QFTs (exploratory)}
+In interacting QFTs, protected marginal operators could induce \(\ell^4\log\ell\) corrections to the projected modular response. Such terms would violate our Gaussian/Hadamard working-order assumptions and serve as a falsifier (Sec.~\ref{sec:program}, (i)). \emph{Detection method.} The residual analysis in \texttt{beta\_methods\_v2.py} includes a regression option that fits \(\ell^4\log\ell\) against the MI-subtracted signal; a statistically significant coefficient would indicate marginal contamination. Constraining any such amplitude in interacting extensions—and assessing induced shifts in \(\beta\) or \(\mu(\varepsilon)\)—is an avenue for future work (Sec.~\ref{sec:limitations}).
+
+% ===============================
 \section{Limitations and Future Work}
 \label{sec:limitations}
 The conditional program entails several open problems that we list explicitly:
@@ -358,6 +398,7 @@ The conditional program entails several open problems that we list explicitly:
 \item \textbf{Interacting proofs (Assumptions C \& D):} complete microlocal/spectral proofs of the projected positivity and uniqueness statements.
 \item \textbf{Action-level derivation:} derive a covariant action realizing \(\delta\!\ln M^2=\beta\,\delta\varepsilon\) and the quasi-static closure \(\mu(\varepsilon)\), or exclude alternatives.
 \item \textbf{KMS\(\to\)FRW analyticity:} rigorous proof of analyticity preservation under coarse-grained reparametrization \(s\to\ln a\).
+\item \textbf{Thermodynamic validation:} validate the Clausius analogy in interacting settings and bound any marginal (\(\Delta=d/2\)) \(\ell^4\log\ell\) corrections in the projected channel.
 \item \textbf{Nonlinear validation:} full N-body and ray-tracing tests for \(\mu(\varepsilon)\) and \(F_g(\chi_g)\), including BAO-scale modulation and lensing systematics.
 \item \textbf{Environment gate microphysics:} microscopic derivation and calibration of \(F_g\) beyond the symmetry/solar compliance envelope.
 \end{itemize}
@@ -385,7 +426,7 @@ darr/.style={-Latex, dashed, semithick, shorten >=2pt, shorten <=2pt}
 \node[spur, below=of B2, draw=flowBlue!80, fill=flowBlue!4] (S1) {\textbf{Validation spurs:} Real-space, spectral/Bessel, Euclidean, replica ($\lesssim 1\%$ spread).};
 \draw[darr] (B2) -- (S1);
 
-% Purple mapping (now CONDITIONAL)
+% Purple mapping (CONDITIONAL)
 \node[stageH, below=8mm of S1, draw=flowPurple!80, fill=flowPurple!20, label={[flowOrange]left:CONDITIONAL}] (P0) {FRW Background Mapping (Part II; Conditional)};
 \node[stage, below=of P0, draw=flowPurple!80, fill=flowPurple!8] (P1) {Conditional scheme-invariant product $\beta f \, \cgeo$ (Sec.~\ref{sec:kms-frw})};
 \node[stage, below=of P1, draw=flowPurple!80, fill=flowPurple!8] (P3) {$\Omega_\Lambda \approx \beta f \, \cgeo$ (conditional; KMS$\to$FRW coarse-graining)};
@@ -408,9 +449,14 @@ darr/.style={-Latex, dashed, semithick, shorten >=2pt, shorten <=2pt}
 \node[stage, below=of O1, draw=flowOrange!90, fill=flowOrange!12] (O2) {Hubble ladder (toy bounds with propagated uncertainty) (Sec.~\ref{sec:obs})};
 \node[stage, below=of O2, draw=flowOrange!90, fill=flowOrange!12] (O3) {Environment envelope $F_g(\chi_g)$ (covariant, calibrated) (Sec.~\ref{sec:env})};
 \draw[arr] (O0) -- (O1); \draw[arr] (O1) -- (O2); \draw[arr] (O2) -- (O3);
+
+% Red exploratory (Part III)
+\node[stageH, below=8mm of O3, draw=flowRed!80, fill=flowRed!15, label={[flowRed]left:EXPLORATORY}] (T0) {Thermodynamic Interpretation (Clausius; CGM relation) (Sec.~\ref{sec:thermo})};
+\draw[arr] (O3) -- (T0);
+
 \end{tikzpicture}
 \end{adjustbox}
-\caption{Pipeline with PROVEN (blue/first green) vs.\ CONDITIONAL (purple/second green/orange) elements. The theoremic core fixes \(\beta\) and the universal \(5/12\). The FRW background mapping and budget identity are conditional (Sec.~\ref{sec:kms-frw}); conditional pieces (entropy law, mapping to \(M^2\), envelope, and toy numerics) are explicitly caveated and falsifiable.}
+\caption{Pipeline with PROVEN (blue/first green), CONDITIONAL (purple/second green/orange), and EXPLORATORY (red) elements. The theoremic core fixes \(\beta\) and the universal \(5/12\). The FRW mapping and budget are \emph{conditional} (Sec.~\ref{sec:kms-frw}). Part~III provides an \emph{exploratory} thermodynamic interpretation and clarifies the relation to the CGM critique.}
 \label{fig:pipeline}
 \end{figure*}
 
@@ -498,7 +544,7 @@ Using Press--Schechter/Sheth--Tormen mass functions with NFW curvature proxies a
 \(W(x,x')=\frac{1}{4\pi^2}\left[\frac{\Delta^{1/2}}{\sigma}+v\,\log\sigma+w\right]\) with smooth \(v,w\), extended perturbatively for interactions. The projector removes the \(F_0,F_2\) moments built from local counterterms, ensuring stability of the \(\ell^4\) coefficient (Assumption C).
 
 \paragraph{OPE gap and log-falsifier.}
-Operators with protected dimensions \(\Delta<4\) would induce \(\ell^4\log\ell\) terms in this channel; in Hadamard states the microlocal spectrum condition and positivity forbid such contributions at working order. Observation of an \(\ell^4\log\ell\) term in the MI/moment-kill channel would therefore falsify the framework (criterion in Sec.~\ref{sec:program}).
+Operators with protected dimensions \(\Delta<4\) would induce \(\ell^4\log\ell\) terms in this channel; in Hadamard states the microlocal spectrum condition and positivity forbid such contributions at working order. Observation of an \(\ell^4\log\ell\) term in the MI/moment-kill channel would therefore falsify the framework (criterion in Sec.~\ref{sec:program}). Practically, \texttt{beta\_methods\_v2.py} can fit MI-projected residuals to a logarithmic shape to test for this contamination.
 
 \section{Entropic Mechanism Derivation (Preliminary)}
 \label{app:entropic-proof}
@@ -569,7 +615,7 @@ These steps rely on (i) the conjectured preservation of KMS analyticity after av
 \label{sec:data}
 Reproducible single-file runners:
 \begin{itemize}[leftmargin=*]
-\item \texttt{beta\_methods\_v2.py} (real-space, spectral/Bessel, Euclidean, replica) for \(\beta\).
+\item \texttt{beta\_methods\_v2.py} (real-space, spectral/Bessel, Euclidean, replica) for \(\beta\); includes a residual-fitting mode to test for \(\ell^4\log\ell\) contamination in the MI channel.
 \item \texttt{cosmology\_runner.py} (growth ODE; $\eps(a)$ family with kernel $p\in[4,6]$; environment gate $F_g$; reproduces the $S_8$ and ladder \emph{illustrations}; documents priors/systematics).
 \item \texttt{referee\_pipeline.py} (FRW averaging module; \(\OmL=\beta f\cgeo\) cross-check; computes toy \(a_0=(5/12)\OmL^2 c H_0\); generates \(\texttt{epsilon\_evolution.png}\)).
 \item \texttt{fv\_semi\_analytic.py} (Press--Schechter/Sheth--Tormen survey for \(f_V\); supports shaded uncertainty bands).
@@ -592,7 +638,11 @@ Symbol & Meaning \\
 \(\mu(\varepsilon)\) & Growth coupling, \(1/(1+\tfrac{5}{12}\varepsilon)\) \\
 \(\Sigma\) & Lensing coupling (unity at working order) \\
 \(f\,\cgeo\) & Geometric/foliation factor (App.~\ref{app:angle}) \\
-\(\kappa\) & Local boost surface gravity, \(\beta_{\rm KMS}=2\pi/\kappa\) \\
+\(\kappa\) & Local boost surface gravity \\
+\(\beta_{\rm KMS}\) & KMS inverse temperature, \(2\pi/\kappa\) \\
+\(T_{\rm KMS}\) & Modular/KMS temperature, \(\kappa/(2\pi)\) \\
+\(S_{\rm sub}\) & Entanglement entropy variation in MI/moment-kill channel \\
+\(\delta Q_{\rm boost,sub}\) & Boost-energy variation in MI-projected channel \\
 \(\chi_g\) & Geometric scalar, \(\ell^2\sqrt{C_{abcd}C^{abcd}}\) \\
 \(F_g(\chi_g)\) & Environment envelope \\
 \(S_8\) & Growth amplitude observable \\
@@ -660,6 +710,11 @@ C.~J.~Fewster and S.~Hollands,
 
 \bibitem{CasiniRelative}
 H.~Casini and M.~Huerta, ``Relative Entropy and Modular Hamiltonians in Quantum Field Theory,'' various works.
+
+\bibitem{CasiniGalanteMyers2016}
+H.~Casini, D.~A.~Galante, and R.~C.~Myers,
+``Comments on Jacobson's `Entanglement equilibrium and the Einstein equation',''
+\emph{JHEP} \textbf{03}, 194 (2016), arXiv:1601.00528.
 
 \end{thebibliography}
 
