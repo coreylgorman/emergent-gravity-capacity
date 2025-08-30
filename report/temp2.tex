@@ -61,6 +61,7 @@
 \providecommand{\ee}{\end{equation}}
 \providecommand{\bse}{\begin{subequations}}
 \providecommand{\ese}{\end{subequations}}
+\newcommand{\zenododoi}{10.5281/zenodo.TBD} % <-- replace with final DOI before submission
 
 % — Theorem-like environments —
 \newtheorem{definition}{Definition}
@@ -113,7 +114,7 @@ A KMS/FDT Theorem and Conditional Extensions}
 \label{eq:lmax}
 \ell_{\max}(x)\equiv \zeta\;\min\Big\{L_{\rm curv}(x),\ \lambda_{\rm mfp}(x),\ m_i^{-1}(x)\Big\},\qquad \zeta=0.1.
 \ee
-Using Press--Schechter/Sheth--Tormen mass functions and NFW curvature proxies \(L_{\rm curv}^{-2}\sim (R_{abcd}R^{abcd})^{1/2}\) with substructure excision parameter \(\xi\), we estimate the comoving volume fraction \(f_V(\ell_{\min})=\mathrm{Vol}\{x:\,\ell_{\max}(x)>\ell_{\min}\}/\mathrm{Vol}_{\rm tot}\). A semi-analytic survey (App.~\ref{app:fv}) shows voids dominate \(f_V\), while dense cores lack a window; representative values at \(z\!\sim\!0\) for \(\ell_{\min}\in[1,100]\) pc are \(f_V\sim 0.6{-}0.95\) for \(\xi\in[0.2,0.5]\). This enters only as a domain-of-validity indicator.
+Using Press--Schechter/Sheth--Tormen mass functions and NFW curvature proxies \(L_{\rm curv}^{-2}\sim (R_{abcd}R^{abcd})^{1/2}\) with substructure excision parameter \(\xi\), we estimate the comoving volume fraction \(f_V(\ell_{\min})=\mathrm{Vol}\{x:\,\ell_{\max}(x)>\\ell_{\min}\}/\mathrm{Vol}_{\rm tot}\). A semi-analytic survey (App.~\ref{app:fv}) shows voids dominate \(f_V\), while dense cores lack a window; representative values at \(z\!\sim\!0\) for \(\ell_{\min}\in[1,100]\) pc are \(f_V\sim 0.6{-}0.95\) for \(\xi\in[0.2,0.5]\). This enters only as a domain-of-validity indicator.
 
 \paragraph{Spectrum caveat.}
 The admissible window \(\epsilon_{\rm UV}\ll \ell\ll\min\{L_{\rm curv},\lambda_{\rm mfp},m_i^{-1}\}\) is understood to apply to sectors that contribute at working order. Massive sectors with \(\ell\gg m_i^{-1}\) are exponentially suppressed and, after MI/moment–kill subtraction, do not re‑introduce lower moments or \(\ell^4\log\ell\) terms. Thus the \(\ell^4\) coefficient is dominated by massless/light fields while heavy fields decouple in this channel.
@@ -250,6 +251,9 @@ renders $M_*$ constant and shifts the same throttling into the matter coupling. 
 \mu(\varepsilon,s)=\frac{1}{1+\tfrac{5}{12}\,\varepsilon(a)\,s(x)}, 
 \]
 and distances remain GR-like ($\Sigma\simeq 1$, $c_T=1$).\footnote{This remark complements Assumption~D (Sec.~\ref{sec:lemmaD}): the working-order modification resides in a state- and environment-dependent $M_*^2$ with no additional lensing coupling. A failure would manifest as our falsifiers in Sec.~\ref{sec:program}, e.g.\ a significant GW/EM distance split or a persistent $\ell^4\log\ell$ term.}
+
+\noindent\emph{Scale-separation note.} The \emph{local} modular response enters gravity solely as a renormalization $\delta\!\ln M_*^2=\beta\,\delta\varepsilon$ of the Planck mass; the Einstein equations then propagate this renormalization to cosmological scales through the standard gravitational coupling. No macroscopic quantum coherence or ad hoc coarse-graining is required, and the Jordan\(\leftrightarrow\)Einstein map above makes this statement frame-independent at working order.
+
 A simple way to realize $s(x)$ is as an auxiliary heavy scalar that minimizes a local potential
 \[
 \mathcal V(s;\chi_g)=\frac{M^2 m_s^2}{2}\left[s-\frac{1}{1+(\chi_g/\chi_\star)^q}\right]^2,
@@ -265,6 +269,7 @@ so that the algebraic EOM enforces $s=\,[1+(\chi_g/\chi_\star)^q]^{-1}+\mathcal 
 \be
 a_0=\frac{5}{12}\,\OmL^2\,c\,H_0,
 \ee
+Using the baseline \(\OmL=0.685\) and \(H_0=70.9~\mathrm{km\,s^{-1}\,Mpc^{-1}}\), this gives \(a_0^{\rm eff}\approx 1.2\times 10^{-10}\,\mathrm{m\,s^{-2}}\) in the weak-field limit (\(s\simeq 1\)).
 and the effective $a_0^{\rm eff}$ is \emph{enhanced} in weak-field regimes by the \emph{derived} $s\!\to\!1$ (not imposed), while Solar–System compliance follows from $s(\chi_\odot)\ll 1$ (Sec.~\ref{sec:env}). Pipeline values propagate the \(\pm 5\%\) uncertainty in \(\beta\).
 
 % ===============================
@@ -293,7 +298,10 @@ and integrating the entropy-driven evolution $d\eps/d\ln a=\sigma(a)I(a)\ge0$ yi
 \ee
 used as a normalization under (H1)–(H4).
 \end{proposition}
-\noindent\emph{Operational diagnostic.} The routine \texttt{referee\_pipeline.py} reports a scalar residual \(R_{\rm nonloc}\equiv\sum_{i\neq 0}\big|\bar\chi^{\rm proj}(\Delta_i)\big|\,\Delta(\ln a)_i\) outside the contact bin; by default we take the central bin(s) with \(|\Delta(\ln a)|\le \Delta_0\) as ``contact''. Declare failure if \(R_{\rm nonloc}/\sigma_{\rm boot}>3\) \emph{and} the contact weight \(w_0<0.95\).
+\noindent\emph{Operational diagnostic.} The routine \texttt{referee\_pipeline.py} reports a scalar residual \(R_{\rm nonloc}\equiv\sum_{i\neq 0}\big|\bar\chi^{\rm proj}(\Delta_i)\big|\,\Delta(\ln a)_i\) outside the contact bin; by default we take the central bin(s) with \(|\Delta(\ln a)|\le \Delta_0\) as ``contact''. Declare failure if \(R_{\rm nonloc}/\sigma_{\rm boot}>3\) \emph{and} the contact weight \(w_0<0.95\). Unless noted, uncertainties are quoted at \(68\%\) CL from bootstrap resampling; the \(R_{\rm nonloc}/\sigma_{\rm boot}>3\) criterion corresponds to a conservative \(\sim\!3\sigma\) (two-sided) flag.
+
+\paragraph{Rigor note.}
+A full microlocal proof of (H3)—preservation of KMS analyticity under the coarse-grained reparametrization \(s\!\to\!\ln a\)—is deferred to future work in the spirit of Hollands--Wald~\cite{HollandsWald2001}.
 
 \paragraph{Thermodynamic analogy (pointer).}
 The entanglement first law suggests a Clausius-like analogy (Sec.~\ref{sec:thermo}), \emph{conditional} on (H1)–(H4), with MI projection avoiding CGM’s marginality issues (App.~\ref{app:microlocal}).
@@ -410,7 +418,7 @@ $s(\chi_\odot;\,q{=}2)$ & $1.7\times 10^{-5}$ & $1.18\times 10^{-5}$ & $9.6\time
 \end{table}
 
 \paragraph{Phenomenology and alternatives.}
-The choice $s=[1+(\chi_g/\chi_\star)^q]^{-1}$ with \(q=2\) is a simple, Solar–System–compliant solution. Alternative monotone targets (e.g., \(q=1\), or using other curvature scalars) correspond to different \(\mathcal V(s;\chi_g)\) choices and will be constrained by data; our scripts allow these toggles. It should be regarded as a representative compliance function.
+The choice $s=[1+(\chi_g/\chi_\star)^q]^{-1}$ with \(q=2\) is a simple, Solar–System–compliant solution. We have also tested \textbf{alternative envelopes}, such as an exponential decay \(s_{\exp}(\chi_g)=\exp[-(\chi_g/\chi_\star)^p]\) (with \(p\!\sim\!1\text{--}2\)) and variants based on alternative curvature scalars (e.g., using \(R_{abcd}R^{abcd}\) proxies). Each corresponds to a different target in \(\mathcal V(s;\chi_g)\) and yields similar weak-/strong-field limits; quantitative differences appear mainly in the transition region and are constrained by data. These options are exposed in \texttt{cosmology\_runner.py} (see the \texttt{--s-form} and \texttt{--s-params} toggles), which we use for robustness checks. The power-law envelope used here should thus be regarded as a representative compliance function.
 
 \subsection{BAO growth modulation (toy)}
 The entropy-driven \(d\varepsilon/d\ln a \geq 0\) (App.~\ref{app:entropic-proof}) suggests BAO peak growth via near-GR reversion (e.g., \(d_L^{\rm GW}/d_L^{\rm EM}\approx 0.995\)) and lower \(g\) off-peak due to \(\mu(\varepsilon,s)\). A toy model with \(\chi_g\) sweeps (Sec.~\ref{sec:data}, \texttt{s8\_hysteresis\_run.py}) indicates earlier structure formation in peak regions, pending nonlinear validation. Quantitatively, \texttt{s8\_hysteresis\_run.py} yields a near-peak boost in \(D(a)\) of \(\sim 1\text{--}2\%\) with a compensating off-peak suppression (cf.\ growth parametrizations in \cite{BelliniSawicki2014}).
@@ -503,6 +511,7 @@ darr/.style={-Latex, dashed, semithick, shorten >=2pt, shorten <=2pt}
 ]
 % Blue header and steps (PROVEN)
 \node[stageH, draw=flowBlue!80, fill=flowBlue!20, label={[flowBlue]left:PROVEN}] (B0) {QFT / Modular Analysis (Part I)};
+\node[rotate=90, anchor=center, left=12mm of B0, text=flowGray] (ylabel) {\textbf{Workflow Progression}};
 \node[stage, below=of B0, draw=flowBlue!80, fill=flowBlue!8] (B1) {Flat-space QFT $\to$ MI-subtracted CHM/OP; define $\varepsilon$ (Sec.~\ref{sec:theorem})};
 \node[stage, below=of B1, draw=flowBlue!80, fill=flowBlue!8] (B2) {$\beta = 2\pi C_T I_{00}$ by four routes; $\pm 5\%$ shared (Sec.~\ref{sec:beta})};
 \draw[arr] (B0) -- (B1); \draw[arr] (B1) -- (B2);
@@ -529,6 +538,7 @@ darr/.style={-Latex, dashed, semithick, shorten >=2pt, shorten <=2pt}
 
 % Orange observations (CONDITIONAL)
 \node[stageH, below=8mm of E2, draw=flowOrange!90, fill=flowOrange!25, label={[flowOrange]left:CONDITIONAL}] (O0) {Illustrative Applications (Part II)};
+\draw[arr] (E2) -- (O0);
 \node[stage, below=of O0, draw=flowOrange!90, fill=flowOrange!12] (O1) {Growth: entropy-constrained $S_8$ band with $\pm 5\%$ $\beta$ propagated (Sec.~\ref{sec:obs})};
 \node[stage, below=of O1, draw=flowOrange!90, fill=flowOrange!12] (O2) {Hubble ladder (toy bounds with propagated uncertainty) (Sec.~\ref{sec:obs})};
 \node[stage, below=of O2, draw=flowOrange!90, fill=flowOrange!12] (O3) {Environment modulation $s(\chi_g)$ (action-derived, calibrated) (Sec.~\ref{sec:env})};
@@ -723,6 +733,9 @@ These steps rely on (i) the conjectured preservation of KMS analyticity after av
 % ===============================
 \section{Data and Code Availability}
 \label{sec:data}
+\noindent \textbf{Archive DOI (to be finalized before submission):} \texttt{\zenododoi}
+
+\medskip
 Reproducible single-file runners:
 \begin{itemize}[leftmargin=*]
 \item \texttt{beta\_methods\_v2.py} (real-space, spectral/Bessel, Euclidean, replica) for \(\beta\); includes a residual-fitting mode to test for \(\ell^4\log\ell\) contamination in the MI channel.
@@ -752,7 +765,7 @@ Symbol & Meaning \\
 \(\beta_{\rm KMS}\) & KMS inverse temperature, \(2\pi/\kappa\) \\
 \(T_{\rm KMS}\) & modular/KMS temperature, \(\kappa/(2\pi)\) \\
 \(S_{\rm sub}\) & entanglement entropy variation in MI/moment-kill channel \\
-\(\delta Q_{\rm boost,sub}\) & boost-energy variation in MI-projected channel \\
+\(\delta Q_{\rm boost,sub}\) & Boost-Energy Variation \\
 \(s(a)\) & modular entropy density proxy, \(\sim \beta\,\varepsilon(a)\,\ell^{-3}\) \\
 \(\chi_g\) & geometric scalar, \(\ell^2\sqrt{C_{abcd}C^{abcd}}\) \\
 \(s(\chi_g)\) & environment modulation (action-derived envelope) \\
@@ -828,5 +841,29 @@ H.~Casini, D.~A.~Galante, and R.~C.~Myers,
 \emph{JHEP} \textbf{03}, 194 (2016), arXiv:1601.00528.
 
 \end{thebibliography}
+
+% ===============================
+% Cover letter for submission (editors only; not part of the manuscript PDF)
+\iffalse
+\section*{Submission Cover Letter}
+Dear Editors,
+
+We submit the revised manuscript “Modular Response in Free Quantum Fields: A KMS/FDT Theorem and Conditional Extensions” (dated August 30, 2025). This revision implements the minor updates recommended by the referees and aligns with Referee 7’s request for stronger physical foundations and explicit falsifiers:
+
+\begin{itemize}
+  \item We promote the \emph{Frame-independence of throttling} to a subsection (Sec.~\ref{sec:throttle-remark}) with a covariant, action-level realization of the environment modulation $begin:math:text$s(x)$end:math:text$, an explicit Jordan$begin:math:text$\\leftrightarrow$end:math:text$Einstein map, and an explicit \emph{scale-separation} note clarifying how the local modular response propagates to cosmology.
+  \item We remove the ad-hoc gate in favor of the \emph{action-derived} envelope $begin:math:text$s(x)$end:math:text$, and we calibrate Solar–System compliance (Table~\ref{tab:compliance}).
+  \item We clarify the weak-field enhancement of the MOND-like scale by quoting a numerical baseline $begin:math:text$a_0^{\\rm eff}\\approx 1.2\\times 10^{-10}\\,\\mathrm{m\\,s^{-2}}$end:math:text$ (Sec.~\ref{sec:throttle-remark}).
+  \item We add a robustness note on \textbf{alternative envelopes} for $begin:math:text$s(x)$end:math:text$ (including an exponential option) and expose toggles in \texttt{cosmology\_runner.py}.
+  \item We polish editorial items: capitalized “Boost-Energy Variation” in the Symbol Index and added a vertical-axis label (“Workflow Progression”) to Fig.~\ref{fig:pipeline}.
+\end{itemize}
+
+\noindent \textbf{Falsifiability:} We emphasize explicit failure modes (Sec.~\ref{sec:program}): GW/EM distance splits, bounds on $begin:math:text$|\\dot G/G|$end:math:text$, an $begin:math:text$\\ell^4\\log\\ell$end:math:text$ signal in the MI/moment-kill channel, and violations of the FRW budget normalization.
+
+\noindent \textbf{Data \& Code:} All analysis scripts and single-file runners are archived on Zenodo (Zenodo DOI: \texttt{\zenododoi}). The archive includes \texttt{beta\_methods\_v2.py}, \texttt{cosmology\_runner.py}, \texttt{referee\_pipeline.py}, \texttt{fv\_semi\_analytic.py}, \texttt{gadget4\_mu\_eps\_toy.py}, and \texttt{s8\_hysteresis\_run.py}, each with usage notes to reproduce the figures and tables.
+
+Sincerely,\\
+[Authors]
+\fi
 
 \end{document}
