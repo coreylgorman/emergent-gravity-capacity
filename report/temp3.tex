@@ -452,42 +452,42 @@ HQTFIM and Gaussian chains confirm the algebraic ingredients (first-law channel,
 \textbf{Falsifiers:} (i) persistent \(\ell^4\log\ell\) residuals in the projector channel; (ii) GW/EM distance ratio beyond \(5\times 10^{-3}\); (iii) \(|\dot G/G|\gtrsim 10^{-12}\,\mathrm{yr}^{-1}\); (iv) \(\OmL\) inconsistent with \(\beta f\cgeo\); (v) \(S_8\) outside the extremal band for all admissible monotone \(\eps(a)\) satisfying the budget; (vi) positivity failure in Assumption C tests; (vii) for Assumption~D$'$: lack of correlation of lensing deficits with shock diagnostics, or suppression in unshocked gas; \textbf{(viii) for Assumption~D$'$:} persistent lensing offsets in low-Mach or unshocked systems inconsistent with the \(\mathcal S_{\rm shock}\) scaling in Eq.~\eqref{eq:sigmalocal}.
 
 % ===============================
-\section{Exploratory Application: Shock-Selective Optical Response (Assumption D$'$)}
-\label{sec:Dprime-exploratory}
+% ===============================
+\subsection{Assumption D\texorpdfstring{$'$}{'} (Exploratory; shock-selective optical channel; independent of Parts I–II)}
+\label{sec:lemmaDprime}
 
-\noindent\textbf{Independence.} \emph{Parts I–II do not rely on D$'$: if D$'$ fails, the theoremic results, the conditional FRW mapping, and the baseline growth‑only modification with \(\Sigma\simeq 1\) remain intact.} D$'$ is an \emph{exploratory, local} optical response intended for merging clusters with strong shocks.
+\noindent\textbf{Scope and independence.}
+Assumption D$'$ is an \emph{exploratory}, local, shock-selective modification that \emph{only} affects the \emph{lensing combination} $(\Phi+\Psi)$ in strongly sheared, shocked intracluster gas. It leaves the proven QFT results of Part~I and the conditional growth mapping of Part~II intact. In particular, \emph{if D$'$ is falsified, Parts~I–II (the $\mu(\varepsilon,s)$ growth law with $\Sigma\simeq 1$ in FRW/laminar flows) remain valid.}
 
-\paragraph{Motivation and scope.}
-Bullet-type systems exhibit weak-lensing peaks offset from shocked X-ray gas. Our baseline (\(\Sigma\simeq 1\)) preserves distances and attributes changes to growth; however, to address \emph{local} lensing morphology in strongly shocked gas, we posit a \emph{shock‑selective} lensing response that leaves FRW and laminar flows untouched.
-
-\paragraph{Local, saturating law (predictive summary).}
-Let \(u^\mu\) be the baryon four-velocity and \(\sigma_{\mu\nu}\) the symmetric, trace‑free shear. Define the shock indicator \(\mathcal S_{\rm shock}=\ell^2\,\sigma_{\mu\nu}\sigma^{\mu\nu}\ge 0\). We summarize the optical response by the purely local, saturating form
-\be
-\label{eq:sigmalocal}
+\smallskip
+\noindent\textbf{Phenomenological closure (legacy form).}
+Let $u^\mu$ denote the baryon 4‑velocity, $h_{\mu\nu}=g_{\mu\nu}+u_\mu u_\nu$ the projector, $\theta=\nabla_\alpha u^\alpha$ the expansion, and the shear
+\[
+\sigma_{\mu\nu}=h_\mu^{\ \alpha} h_\nu^{\ \beta}\left(\nabla_{(\alpha} u_{\beta)}-\tfrac{1}{3}\theta\,h_{\alpha\beta}\right), 
+\qquad \mathcal S_{\rm shock}=\ell^2\,\sigma_{\mu\nu}\sigma^{\mu\nu}\ge 0.
+\]
+We summarize the shock‑selective suppression by a saturating local interpolation
+\begin{equation}
+\label{eq:sigmalocal}\label{eq:sigmalocal-patched}
 \Sigma(x)\;\simeq\;1\;-\;\alpha_{\rm opt}\,\frac{\mathcal S_{\rm shock}(x)}{1+\mathcal S_{\rm shock}(x)},\qquad 0<\alpha_{\rm opt}<1,
-\ee
-so that \(\Sigma\!\to\!1-\alpha_{\rm opt}\) in strong shocks and \(\Sigma\!\to\!1\) away from shocks. The growth coupling \(\mu(\varepsilon,s)\) is unchanged; FRW and laminar flows have \(\mathcal S_{\rm shock}\approx 0\Rightarrow \Sigma\simeq 1\).
+\end{equation}
+so that $\Sigma\to 1-\alpha_{\rm opt}$ in very strong shocks and $\Sigma\to 1$ away from shocks. The growth coupling $\mu(\varepsilon,s)$ and background distances remain as in Sec.~\ref{sec:def-vs-map}; FRW and laminar flows have $\sigma_{\mu\nu}\!\approx\!0\Rightarrow \mathcal S_{\rm shock}=0\Rightarrow \Sigma\simeq 1$.
 
-\paragraph{Parameter discipline.}
-The \emph{only} phenomenological parameter in the main text is \(\alpha_{\rm opt}\); any algebraic realization (e.g., via a heavy, traceless \(Q_{\mu\nu}\)) is summarized into this local response (technical details in App.~\ref{app:optics-details}). Compliance parameters (e.g., heavy mass) do not affect FRW where \(\sigma_{\mu\nu}=0\).
-
-\paragraph{Prior‑predictive envelope (order‑of‑magnitude).}
-To shift convergence peaks from shocked gas toward collisionless galaxies in Bullet-like systems (\(\sim 200\) kpc offsets), one requires \(\kappa_{\rm gas}^{\rm eff}\lesssim (0.2\text{--}0.4)\,\kappa_{\rm tot}\) across the shock sheet. In the strong‑shock limit \(\Sigma\simeq 1-\alpha_{\rm opt}\), this suggests \(\alpha_{\rm opt}\sim 0.6\text{--}0.8\). This is a \emph{prior‑predictive} target, consistent with \(\mathcal M\!\sim\!2\text{--}3\) shocks inferred from X‑ray edges.
-
-\paragraph{Operational predictions and falsifiers.}
-\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
-  \item \textbf{(A) Shock tracking:} Lensing deficits spatially correlate with X‑ray temperature/surface‑brightness jumps and radio relics (high \(\sigma^2\) regions).
-  \item \textbf{(B) Time evolution:} As shocks dissipate, \(\mathcal S_{\rm shock}\downarrow\) and \(\Sigma\to 1\); convergence centroids drift toward gas on shock‑cooling timescales.
-  \item \textbf{(C) Mach scaling:} Lower‑Mach mergers show smaller centroid offsets at fixed gas mass (Bullet vs. Abell 520).
-  \item \textbf{(D) Selectivity:} No suppression in unshocked or laminar gas (\(\mathcal S_{\rm shock}\approx 0\Rightarrow \Sigma\simeq 1\)).
-  \item \textbf{(E) Additional falsifier:} Persistent offsets in low‑Mach or unshocked systems inconsistent with the \(\mathcal S_{\rm shock}\) scaling in Eq.~\eqref{eq:sigmalocal}.
-\end{itemize}
-
-\paragraph{Pre‑registered objects and metrics.}
-\emph{Objects:} 1E\,0657‑56 (Bullet), Abell 520, Abell 2146, MACS\,J0025.4‑1222. \emph{Metrics:} (i) centroid offset vs. shock map cross‑correlation; (ii) Mach‑number scaling; (iii) absence in low‑Mach/unshocked systems; (iv) time‑evolution proxies via multi‑epoch or stacked samples.
-
-\paragraph{Safety checks.}
-\(c_T=1\) and FRW \(\Sigma\simeq 1\) (since \(\sigma_{\mu\nu}=0\)), Solar System unaffected, and integrated GW/EM splits remain \(\ll 10^{-3}\) as the effect is cluster‑local.
+\\
+\paragraph{EFT origin (sketch; Schwinger–Keldysh $\to$ viscous hydrodynamics $\to$ gravity).}
+The phenomenology in Eq.~\eqref{eq:sigmalocal-patched} can be \emph{derived} from a standard SK (in‑in) effective action for a viscous plasma, whose long‑wavelength limit is Israel–Stewart/BRSSS hydrodynamics. The constitutive relation for the traceless anisotropic stress reads (see, e.g., \cite{IsraelStewart1979,BRSSS2008,Kovtun2012})
+\begin{equation}
+\label{eq:IS-BRSSS}
+\pi^{\mu\nu}+\tau_\pi\,\mathcal D\pi^{\mu\nu}
+= 2\eta\,\sigma^{\mu\nu}
++\lambda_1\,\sigma^{\langle\mu}{}_{\lambda}\,\sigma^{\nu\rangle\lambda}
++\cdots,
+\end{equation}
+where $\eta$ is the shear viscosity, $\tau_\pi$ the relaxation time, $\lambda_1$ a second‑order transport coefficient (all fixed by Kubo formulas), $\mathcal D$ is the comoving derivative, and $\langle\cdots\rangle$ denotes symmetric, transverse, traceless projection. In the cluster quasi‑static regime ($\omega\tau_\pi\ll 1$), Eq.~\eqref{eq:IS-BRSSS} becomes \emph{algebraic}, $\pi^{\mu\nu}\approx 2\eta\,\sigma^{\mu\nu}+\lambda_1\,\sigma^{\langle\mu}{}_\lambda\sigma^{\nu\rangle\lambda}$, which sources the linearized Einstein equations and modifies the lensing combination $k^2(\Phi+\Psi)$ by a local shear‑squared term. A Hubbard–Stratonovich linearization of the $\lambda_1\,\sigma^2$ piece introduces an \emph{auxiliary} traceless tensor $Q_{\mu\nu}$ with potential $\mathcal L_Q\propto (Q_{\mu\nu}-\lambda_Q \ell^2\sigma_{\mu\nu})^2$ (adiabatic tracking), precisely the algebraic structure used in our legacy closure. In this derivation, the \emph{amplitude} appearing in $\Sigma(x)$ is a \emph{function of transport coefficients}, not a fit parameter:
+\[
+\alpha_{\rm opt} \;\equiv\; \alpha_{\rm opt}(\eta,\tau_\pi,\lambda_1;\,T, n_e, B, \ldots)\,,
+\]
+evaluated under intracluster‑medium (ICM) conditions.
 
 % ===============================
 \section{Thermodynamic Interpretation and Relation to Casini--Galante--Myers (Exploratory)}
@@ -939,6 +939,26 @@ R.~J.~van Weeren, M.~de~Gasperin, H.~Akamatsu, \emph{et al.},
 A.~Mahdavi, H.~Hoekstra, A.~Babul, D.~Balam, and P.~Capak,
 ``A Dark Core in Abell 520,''
 \emph{Astrophys. J.} \textbf{668}, 806–814 (2007).
+
+\bibitem{IsraelStewart1979}
+W.~Israel and J.~M.~Stewart,
+``Transient relativistic thermodynamics and kinetic theory,''
+\emph{Annals Phys.} \textbf{118}, 341 (1979).
+
+\bibitem{BRSSS2008}
+R.~Baier, P.~Romatschke, D.~T.~Son, A.~O.~Starinets, and M.~A.~Stephanov,
+``Relativistic viscous hydrodynamics, conformal invariance, and holography,''
+\emph{JHEP} \textbf{04}, 100 (2008).
+
+\bibitem{Kovtun2012}
+P.~Kovtun,
+``Lectures on hydrodynamic fluctuations in relativistic theories,''
+\emph{J. Phys. A} \textbf{45}, 473001 (2012).
+
+% Optional background reference:
+\bibitem{LandauLifshitzFM}
+L.~D.~Landau and E.~M.~Lifshitz,
+\emph{Fluid Mechanics}, 2nd ed., Pergamon Press (1987).
 
 \end{thebibliography}
 
