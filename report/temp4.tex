@@ -376,14 +376,27 @@ The linearization tensor
 \]
 is uniformly elliptic provided \(\mu>0\) and \(\mu+2Y\mu'(Y)>0\), which holds for the convex class above. Existence/uniqueness follows from standard elliptic theory.
 
-\paragraph{Canonical convex interpolant (parameter-free).}
-A simple, convex, parameter-free choice with the required asymptotics is
+\paragraph{Minimal convex interpolant (derivation).}
+\begin{proposition}[Minimal Stieltjes elastic law]
+Under the constraints: (i) locality and isotropy in the quasistatic SK limit,
+(ii) convexity/ellipticity, (iii) single scale \(a_0\), and 
+(iv) the asymptotic limits
+\(\mu(x)\sim x\) as \(x\to 0\) and \(\mu(x)=1-1/x+O(1/x^2)\) as \(x\to\infty\),
+the unique minimal Padé/Stieltjes interpolant is
 \[
-\boxed{\ \mu(Y)=\frac{\sqrt{Y}}{1+\sqrt{Y}}\ },\qquad
-F(Y)=\int_0^Y \mu(s)\,ds=Y-2\sqrt{Y}+2\ln(1+\sqrt{Y}).
+\boxed{\ \mu(x)=\frac{x}{1+x}\ }\quad\Longleftrightarrow\quad
+\boxed{\ \mu(Y)=\frac{\sqrt{Y}}{1+\sqrt{Y}}\ }.
 \]
-No dimensional parameter beyond \(a_0\) is introduced.
-
+\end{proposition}
+This law is convex (\(F''\ge0\)), uniformly elliptic (\(\mu+2Y\mu'(Y)>0\)),
+and introduces no extra scales beyond \(a_0\).
+The corresponding convex potential is
+\[
+F(Y)=Y-2\sqrt{Y}+2\ln(1+\sqrt{Y}).
+\]
+Alternative convex families (e.g.\ \(\mu_n(x)=x/(1+x^n)^{1/n}\))
+exist but differ only in the transition regime; the minimal Padé law
+is the unique choice fixed by the above constraints.
 \paragraph{Same fixed acceleration scale.}
 We identify
 \[
@@ -786,6 +799,36 @@ one finds
 =\frac{5}{16}.
 \]
 Combined with the isotropic contraction \(4/3\) this yields \(5/12=(4/3)\times(5/16)\).
+
+\section{SK $\to$ Stieltjes $\to$ Padé derivation of the elastic law}
+\label{app:stieltjes}
+
+\paragraph{Stieltjes representation (SK positivity).}
+In the SK framework, the static response kernel admits a Stieltjes
+representation
+\[
+\mu(x)=x\int_0^\infty \frac{d\nu(\tau)}{x+\tau},\qquad d\nu(\tau)\ge0,
+\]
+ensuring complete monotonicity and convexity.
+
+\paragraph{Asymptotic constraints.}
+BTFR scaling requires \(\mu(x)\sim x\) as \(x\to 0\);
+the Newtonian limit requires \(\mu(x)=1-1/x+O(1/x^2)\) as \(x\to\infty\).
+Both conditions fix the zeroth and first moments of \(d\nu\).
+
+\paragraph{Minimal Padé solution.}
+The unique [0/1] Padé approximant consistent with these two moments is
+\(\mu(x)=x/(1+x)\).
+This matches both asymptotes and preserves positivity/convexity,
+yielding the explicit convex potential
+\(F(Y)=Y-2\sqrt{Y}+2\ln(1+\sqrt{Y})\).
+
+\paragraph{Non-uniqueness and testability.}
+Higher-order Padé or smooth convex families (e.g.\ \(\mu_n(x)\))
+are admissible but add unnecessary structure. Observational
+RAR/rotation-curve curvature tests distinguish these transition
+shapes. Thus the Padé law is “unique minimal,” while alternatives
+provide falsifiable deviations.
 
 \section{CHM diamond vs.\ half-space KMS deviation}
 \label{app:chm-kms-estimate}
