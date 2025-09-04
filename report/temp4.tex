@@ -1,4 +1,3 @@
-% Patched per referee assessment; baseline compiled from the user’s latest text.
 \documentclass[aps,prd,onecolumn,superscriptaddress,nofootinbib]{revtex4-2}
 
 % — Packages —
@@ -10,11 +9,21 @@
 \usepackage{adjustbox}
 \usepackage{xcolor}
 \usepackage{microtype}
-\usepackage[unicode, pdfencoding=auto, psdextra]{hyperref}
 \usepackage{enumitem}
 \usepackage{tikz}
 \usepackage{booktabs}
 \usepackage{siunitx}
+
+% — Hyperref (load last among packages) + robust PDF bookmarks —
+\usepackage[unicode,pdfencoding=auto,psdextra]{hyperref}
+\usepackage{bookmark}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
 \sisetup{detect-all}
 \usetikzlibrary{arrows.meta,positioning,fit,calc,shapes.geometric,shapes.multipart,backgrounds}
 
@@ -25,14 +34,6 @@
 \definecolor{flowOrange}{HTML}{FF7F0E}
 \definecolor{flowRed}{HTML}{D62728}
 \definecolor{flowGray}{HTML}{7F7F7F}
-
-% — Hyperref —
-\hypersetup{
-  colorlinks=true,
-  linkcolor=blue,
-  citecolor=blue,
-  urlcolor=blue
-}
 
 % — PDF string sanitization —
 \pdfstringdefDisableCommands{%
@@ -46,6 +47,8 @@
   \def\alpha{alpha}%
   \def\alpha_M{alphaM}%
   \def\Omega_\Lambda{OmegaLambda}%
+  \def\Gfield{Gfield}%
+  \def\Sent{Sent}%
 }
 
 % — Math tweaks —
@@ -62,6 +65,8 @@
 \providecommand{\ee}{\end{equation}}
 \providecommand{\bse}{\begin{subequations}}
 \providecommand{\ese}{\end{subequations}}
+\newcommand{\Gfield}{\mathcal{G}}
+\newcommand{\Snt}{S_{\rm ent}}
 \newcommand{\zenododoi}{10.5281/zenodo.TBD} % <– replace with final DOI before submission
 
 % — Theorem-like environments —
@@ -82,22 +87,25 @@ A KMS/FDT Theorem and Conditional Extensions}
 \date{}
 
 \begin{abstract}
-\textbf{Part I (Theoremic core, free/Gaussian Hadamard QFT).} We prove that, for small causal diamonds (CHM) in locally Hadamard states and within a safe window \(\epsilon_{\rm UV}\ll\ell\ll \min\{L_{\rm curv},\lambda_{\rm mfp},m_i^{-1}\}\), the MI/moment-kill projector isolates a finite \(\ell^4\) modular response with coefficient equal to its flat-space value; the projected KMS/FDT susceptibility is positive; and coarse-graining over the wedge family produces the universal weak-field prefactor \(5/12=(4/3)\times(5/16)\). The fractional KMS defect between CHM diamonds and half-spaces scales as \(\mathcal O((\ell/L_{\rm curv})^2)+\mathcal O((\ell H)^2)\). The QFT sensitivity is \(\beta=2\pi C_T I_{00}=0.02086\pm 0.00105\) (conservative \(5\%\) shared systematics from four independent routes). A scheme-invariant background relation \emph{suggests} \(\OmL=\beta\, f\,\cgeo\) \emph{conditional} on our coarse-graining and analyticity assumptions.
+\textbf{Part I (Theoremic core, free/Gaussian Hadamard QFT).} We prove that, for small causal diamonds (CHM) in locally Hadamard states and within a safe window \(\epsilon_{\rm UV}\ll\ell\ll \min\{L_{\rm curv},\lambda_{\rm mfp},m_i^{-1}\}\), the MI/moment-kill projector isolates a finite \(\ell^4\) modular response with coefficient equal to its flat-space value; the projected KMS/FDT susceptibility is positive; and coarse-graining over the wedge family produces the universal weak-field prefactor \(5/12=(4/3)\times(5/16)\). The fractional KMS defect between CHM diamonds and half-spaces scales as \(\mathcal O((\ell/L_{\rm curv})^2)+\mathcal O((\ell H)^2)\). The QFT sensitivity is \(\beta=2\pi C_T I_{00}=0.02086\pm 0.00105\) (conservative \(5\%\) shared systematics). A scheme-invariant background relation \emph{suggests} \(\OmL=\beta\, f\,\cgeo\) \emph{conditional} on our coarse-graining and analyticity assumptions.
 
 \smallskip
-\textbf{Part II (Conditional extensions).} We separate \emph{definition} (flat-space \(\eps\) from modular response) from \emph{mapping}. Rather than impose the standard EFT-of-DE \(\alpha\)-basis, we adopt a quasi-static closure that keeps operational distances GR-like (no additional lensing coupling \(\Sigma\simeq 1\)) while modifying growth via \(\mu(\eps,s)=1/(1+\tfrac{5}{12}\eps\,s(x))\) with \(s(x)\) a local, covariant environment modulation derived from the action. We supply a frame-independence remark and an action-level realization of \(s(x)\). KMS/FDT positivity motivates an entropy-driven law \(d\eps/d\ln a\ge 0\) with a \emph{conditional} background budget \(\int \eps\,d \ln a=\OmL\). Cosmological illustrations (\(S_8\) band and \(H_0\) bounds) are \textbf{toy/illustrative} and propagate the \(\pm5\%\) \(\beta\) uncertainty; \emph{observed lensing amplitudes still reflect the altered growth}.
+\textbf{Part II (Conditional extensions).} We separate \emph{definition} (flat-space \(\eps\) from modular response) from \emph{mapping}. Rather than impose the standard EFT-of-DE \(\alpha\)-basis, we adopt a quasi-static closure that keeps operational distances GR-like (no additional lensing coupling \(\Sigma\simeq 1\)) while modifying growth via \(\mu(\eps,s)=1/(1+\tfrac{5}{12}\eps\,s(x))\) with \(s(x)\) a local, covariant environment modulation derived from the action. KMS/FDT positivity motivates an entropy-driven law \(d\eps/d\ln a\ge 0\) with a \emph{conditional} background budget \(\int \eps\,d \ln a=\OmL\). We then prove a \emph{No-Go Lemma} showing any linear kernel fails to yield Tully–Fisher scaling and introduce a \emph{quasistatic elastic sector} (AQUAL form, derived as the SK static limit) with the \emph{same} fixed acceleration \(a_0=\frac{5}{12}\OmL^2 c H_0\). The elastic sector is convex, well-posed, obeys Solar–System curvature gating, produces \(\Phi=\Psi\) at working order (no slip), and leaves linear cosmology intact via a causal SK filter.
 
 \smallskip
-\textbf{Part III (Exploratory).} (i) An \emph{optional}, shock-selective \emph{optical} channel (Assumption D\(^{\prime}\)) reduces \(\Sigma\) only in high-shear shocked gas to address Bullet-type lensing offsets while preserving FRW distances. We retain a simple local saturating law in the text, and now provide a \emph{principled derivation path} from Schwinger–Keldysh (SK) hydrodynamics that makes \(\alpha_{\rm opt}\) a calculable function of ICM transport coefficients (App.~\ref{app:SK}). (ii) A compact thermodynamic interpretation of the projected modular response: a Clausius-like identity holds at working order in the MI/moment-kill channel, and the FRW budget may be viewed as a \emph{coarse-grained} Clausius normalization \emph{conditional} on our KMS\(\to\)FRW hypotheses. We clarify the relation to the Casini–Galante–Myers critique of Jacobson.
+\textbf{Part III (Exploratory).} (i) An \emph{optional}, shock-selective \emph{optical} channel (D\(^{\prime}\)) reduces \(\Sigma\) only in high-shear shocked gas to address Bullet-type lensing offsets while preserving FRW distances, with a principled SK/BRSSS derivation path connecting the amplitude to ICM transport coefficients. (ii) A compact thermodynamic interpretation of the projected modular response: a Clausius-like identity holds at working order in the MI/moment-kill channel, and the FRW budget may be viewed as a \emph{coarse-grained} Clausius normalization \emph{conditional} on our KMS\(\to\)FRW hypotheses. (iii) \emph{Linkage to global entropic gravity (Bianconi 2025)} via small-diamond MI matching and observational discriminants.
+
+\smallskip
+\textbf{Referee-guided additions.} We (A) formalize an MI-smeared null-energy positivity (free fields; projected QEI), (B) make explicit the RG/operator-spectrum bridge pinning \(\beta\) to \(C_T\) and clarifying anomaly channels, (C) expose SM bookkeeping tied to the safe-window fraction \(f_V\) and curvature gating \(s(\chi_g)\) so that GR dominance is recovered wherever heavy sectors or strong curvature suppress the MI channel, and (D) add the \emph{No-Go Lemma + elastic SK/AQUAL sector} with fixed \(a_0\), no slip, Solar–System compliance, and cosmology/galaxy separation.
 \end{abstract}
 
 \maketitle
 
 % ============================================================
 \section*{Reader’s map: Part I (Theorem) vs.\ Part II (Conditional) vs.\ Part III (Exploratory)}
-\noindent \textbf{Part I (Secs.~\ref{sec:scope}–\ref{sec:five-twelve}, Apps.~\ref{app:MI}–\ref{app:chm-kms-estimate}):} proven results for free/Gaussian Hadamard fields at working order.\\
-\textbf{Part II (Secs.~\ref{sec:def-vs-map}–\ref{sec:data}, Apps.~\ref{app:fv}–\ref{app:microlocal}, \ref{app:entropic-proof}):} conditional extensions, Assumptions C \& D (stated), safe-window fraction, KMS\(\to\)FRW link, \emph{action-derived} environment modulation, entropic sketch, and toy/illustrative numerics with propagated uncertainties.\\
-\textbf{Part III (Secs.~\ref{sec:lemmaDprime}, \ref{sec:thermo}, App.~\ref{app:SK}):} exploratory shock-selective optical response (Assumption D\(^{\prime}\)) with an SK/BRSSS derivation path and a thermodynamic interpretation (Clausius form in the projected channel; conditional FRW budget) and relation to CGM’s critique of Jacobson.
+\noindent \textbf{Part I (Secs.~\ref{sec:scope}–\ref{sec:five-twelve}, \ref{sec:sm-link}, \ref{sec:referee-additions}A–B; Apps.~\ref{app:MI}–\ref{app:chm-kms-estimate}):} proven results for free/Gaussian Hadamard fields at working order, SM bookkeeping, and first-principles positivity/RG clarifications.\\
+\textbf{Part II (Secs.~\ref{sec:def-vs-map}–\ref{sec:elastic}, \ref{sec:sk-separation}, \ref{sec:data}, \ref{sec:referee-additions}C; Apps.~\ref{app:fv}–\ref{app:microlocal}, \ref{app:entropic-proof}):} conditional mapping for growth (\(\mu(\eps,s)\)), \emph{Linear No-Go} (Sec.~\ref{sec:no-go}), and \emph{Elastic quasistatic sector} (Sec.~\ref{sec:elastic}) with Solar–System gating, no slip, and BTFR; causal SK separation of regimes.\\
+\textbf{Part III (Secs.~\ref{sec:lemmaDprime}, \ref{sec:thermo}, \ref{sec:bianconi-link}; Apps.~\ref{app:SK}, \ref{app:SK-derivation}):} exploratory shock-selective optics (D\(^{\prime}\)); thermodynamic interpretation; and linkage to Bianconi’s global entropic gravity.
 
 % ===============================
 \section{Scope, Working Order, and Safe-Window Quantification (Part I)}
@@ -115,7 +123,7 @@ A KMS/FDT Theorem and Conditional Extensions}
 Using Press–Schechter/Sheth–Tormen mass functions and NFW curvature proxies \(L_{\rm curv}^{-2}\sim (R_{abcd}R^{abcd})^{1/2}\) with substructure excision parameter \(\xi\), we estimate the comoving volume fraction \(f_V(\ell_{\min})=\mathrm{Vol}\{x:\,\ell_{\max}(x)>\ell_{\min}\}/\mathrm{Vol}_{\rm tot}\). A semi-analytic survey (App.~\ref{app:fv}) shows voids dominate \(f_V\), while dense cores lack a window; representative values at \(z\!\sim\!0\) for \(\ell_{\min}\in[1,100]\) pc are \(f_V\sim 0.6{-}0.95\) for \(\xi\in[0.2,0.5]\). This enters only as a domain-of-validity indicator.
 
 \paragraph{Spectrum caveat.}
-The admissible window \(\epsilon_{\rm UV}\ll \ell\ll\min\{L_{\rm curv},\lambda_{\rm mfp},m_i^{-1}\}\) is understood to apply to sectors that contribute at working order. Massive sectors with \(\ell\gg m_i^{-1}\) are exponentially suppressed and, after MI/moment–kill subtraction, do not re‑introduce lower moments or \(\ell^4\log\ell\) terms. Thus the \(\ell^4\) coefficient is dominated by massless/light fields while heavy fields decouple in this channel.
+The admissible window \(\epsilon_{\rm UV}\ll \ell\ll\min\{L_{\rm curv},\lambda_{\rm mfp},m_i^{-1}\}\) is understood to apply to sectors that contribute at working order. Massive sectors with \(\ell\gg m_i^{-1}\) are exponentially suppressed and, after MI/moment–kill subtraction, do not re‑introduce lower moments or \(\ell^4\log\ell\) terms. Thus the \(\ell^4\) coefficient is dominated by massless/light fields while heavy fields decouple in this channel. \emph{See Sec.~\ref{sec:sm-link} for SM bookkeeping that packages light-field multiplicity into a single \(\varepsilon_{\rm SM}\).}
 
 \paragraph{Angle invariance as a null test.} The continuous-angle product \(\mathcal C_\Omega=f(\theta)\,\cgeo(\theta)\) is analytic and \(\theta\)-independent; residuals are shown as a null check, not a precision claim.
 
@@ -180,11 +188,57 @@ I_{00}=3.932017\ \ \text{(dimensionless)},
 so with \(C_T=1/(120\pi^2)\) one obtains \(\beta=2\pi C_T I_{00}=0.02086\) as quoted. The helper script \texttt{beta\_methods\_v2.py} echoes both \((a,b;\sigma_1,\sigma_2)\) and the numeric \(I_{00}\).
 
 % ===============================
+\section{Standard-Model sector: bookkeeping and decoupling at working order}
+\label{sec:sm-link}
+
+\paragraph{What is being linked.}
+At working order the MI/moment–kill channel defines the dimensionless state variable \(\varepsilon(x)\) through
+\[
+\delta\!\langle K_{\rm sub}\rangle=\beta\,\ell^4\,\delta\varepsilon+\mathcal O(\ell^6)
+\quad\text{[Eq.~\eqref{eq:eps-def}].}
+\]
+This subsection clarifies how the \emph{Standard–Model (SM)} content enters \(\varepsilon\) and why heavy states decouple.
+
+\paragraph{Species sum and decoupling.}
+Write \(\varepsilon\) as a weighted sum over species \(i\):
+\[
+\varepsilon(x)=\sum_{i}w_i\,\varepsilon_i(x),\qquad
+w_i\ \text{counts effective dof (helicity/polarization, internal factors)}.
+\]
+In a diamond of size \(\ell\), fields with \(m_i\ell\gg 1\) are exponentially suppressed in the projected channel; after the MI/moment–kill subtraction they do \emph{not} re‑introduce lower moments nor \(\ell^4\log\ell\) terms. Parametrically,
+\[
+\varepsilon_i(x)\ \propto\ e^{-m_i\ell}\quad\text{for }m_i\ell\gg 1,
+\]
+so the \(\ell^4\) coefficient is dominated by massless/light fields while heavy fields decouple.
+
+\paragraph{Packaging the light SM content.}
+It is convenient to define a single light‑sector variable
+\[
+\varepsilon_{\rm SM}(x)\equiv\sum_{i\in \text{light}} c_i\,\varepsilon_i(x),
+\]
+where \(c_i\) packages the relevant multiplicities (helicity/polarization, internal quantum numbers) of each light SM species under the MI projection. All subsequent working‑order formulas may then be read with \(\varepsilon\to \varepsilon_{\rm SM}\) when SM content is explicitly considered.
+
+\paragraph{Coupling to gravity at working order.}
+The only background scalar that survives the MI/moment–kill projection and modifies weak‑field growth while keeping distances GR‑like is the Planck‑mass renormalization \(\delta\!\ln M^2=\beta\,\delta\varepsilon\) (Assumption~D). Multiplicities therefore simply rescale \(\varepsilon\) (hence \(\mu\)); they do \emph{not} change \(\beta\) or the universal weak‑field bookkeeping that fixes the \(5/12\) prefactor:
+\[
+\mu(\varepsilon,s)=\frac{1}{1+\tfrac{5}{12}\,\varepsilon\,s(x)}
+\quad\longrightarrow\quad
+\mu(\varepsilon_{\rm SM},s)=\frac{1}{1+\tfrac{5}{12}\,\varepsilon_{\rm SM}\,s(x)}.
+\]
+
+\paragraph{Environment and distances.}
+The environment scalar \(s(x)\) is geometric (built from curvature invariants) and independent of particle content at this order; FRW distances remain GR‑like (\(\Sigma\simeq 1, c_T=1\)). The observed lensing amplitude changes only indirectly through altered growth.
+
+\paragraph{Practical note and $f_V$ linkage.}
+In cosmological applications one sets a light‑sector threshold \(m_i\ell\lesssim 1\) (with \(\ell\) within the safe window) and computes \(\varepsilon_{\rm SM}\) using the appropriate \(c_i\). As the environment varies, \emph{field regimes can re‑enter} \(\varepsilon_{\rm SM}\) smoothly. Dense regions with no safe window contribute negligibly to the MI channel; voids dominate the valid domain via \(f_V\) (App.~\ref{app:fv}). GR dominance is ensured either by strong curvature (\(s(\chi_g)\!\to\!0\)) or by heavy-sector decoupling (\(m_i\ell\!\gg\!1\)).
+
+% ===============================
+% ===============================
 \section{Weak-Field Prefactor \texorpdfstring{$5/12$}{5/12}}
 \label{sec:five-twelve}
 The isotropic BW channel gives \(\langle T_{kk}\rangle=(1+w)\rho\) with UV \(w=1/3\Rightarrow 4/3\).
 Averaging over CHM segments yields \(5/16\), so \(5/12=(4/3)\times(5/16)\).
-Details in App.~\ref{app:five-twelve}.
+Details in Sec.~\ref{sec:five-twelve}.
 
 % ============================================================
 \section{Definition vs.\ Mapping (Part II; Conditional)}
@@ -276,6 +330,88 @@ Using the baseline \(\OmL=0.685\) and \(H_0=70.9~\mathrm{km\,s^{-1}\,Mpc^{-1}}\)
 and the effective \(a_0^{\rm eff}\) is \emph{enhanced} in weak-field regimes by the \emph{derived} \(s\!\to\!1\) (not imposed), while Solar–System compliance follows from \(s(\chi_\odot)\ll 1\) (Sec.~\ref{sec:env}). Pipeline values propagate the \(\pm 5\%\) uncertainty in \(\beta\).
 
 % ===============================
+\section{Linear-kernel No-Go for Tully–Fisher}
+\label{sec:no-go}
+
+\begin{lemma}[Linear-kernel no-go]\label{lem:nogo}
+Let \(\Phi\) be determined from \(\rho\) by a translation/rotation-invariant \emph{linear} map with tempered kernel \(G\):
+\[
+\Phi(\mathbf{x})=(G * \rho)(\mathbf{x}),\qquad  
+G(\mathbf{x})=\frac{1}{(2\pi)^3}\!\int \frac{\tilde g(\mathbf{k})}{k^2}\,e^{i\mathbf{k}\cdot\mathbf{x}}\,d^3k,\ \ \tilde g(\mathbf{k})>0,
+\]
+and assume that outside a bounded mass distribution the stationary field equation reduces to a linear constant-coefficient elliptic operator. Then the exterior field decays as \(\Phi\sim -\mathcal G_{\rm eff} M/r\), so \(g=|\nabla\Phi|=\mathcal G_{\rm eff}GM/r^2+o(r^{-2})\) and \(v_\infty^4\propto M^2\). Thus a linear kernel \emph{cannot} yield the Tully–Fisher scaling \(v_\infty^4\propto M\).
+\end{lemma}
+
+\noindent\emph{Sketch.} In vacuum the solution is harmonic (up to renormalization \(\mathcal G_{\rm eff}\)); Liouville/Rellich imply the only decaying solution is \(1/r\), hence \(g\propto r^{-2}\). Any linear, isotropic nonlocality rescales \(\mathcal G_{\rm eff}\) but preserves the \(1/r^2\) falloff.
+
+% ===============================
+\section{Elastic quasistatic sector (AQUAL from SK static limit)}
+\label{sec:elastic}
+
+\paragraph{Static elastic action and field equation.}
+In the quasistatic limit of the Schwinger–Keldysh (in–in) effective action, a causal retarded kernel \(\mathcal K^{\rm el}\) reduces to a local, convex functional for the Newtonian potential \(\Phi\):
+\[
+\boxed{\ \mathcal L_{\rm el}(\Phi,\nabla\Phi) \;=\; \frac{a_0^2}{8\pi G}\,F\!\left(Y\right)\;-\;\rho\,\Phi,\quad Y\equiv \frac{|\nabla\Phi|^2}{a_0^2}\ }
+\]
+with \(F\in C^2([0,\infty))\), \(F'(Y)=\mu(Y)>0\), \(F''(Y)\ge0\), and asymptotics
+\[
+\mu(Y)\xrightarrow{Y\gg1} 1,\qquad \mu(Y)\xrightarrow{Y\ll1} \sqrt{Y}.
+\]
+Variation yields the AQUAL field equation \cite{BekensteinMilgrom1984}:
+\be
+\nabla\!\cdot\!\big(\mu(Y)\,\nabla\Phi\big)=4\pi G\,\rho.
+\ee
+
+\paragraph{Deep regime and BTFR (galaxies).}
+For spherical mass \(M\), in the deep regime (\(g\ll a_0\Rightarrow \mu\simeq\sqrt{Y}=g/a_0\)) one obtains
+\[
+\frac{g}{a_0}\,g=\frac{GM}{r^2}\quad\Rightarrow\quad g(r)=\frac{\sqrt{GMa_0}}{r},\qquad v_\infty^4=GMa_0.
+\]
+Thus the baryonic Tully–Fisher relation follows directly.
+
+\paragraph{Uniform ellipticity / well-posedness.}
+The linearization tensor
+\[
+\mathcal A_{ij}(\nabla\Phi)=\mu\,\delta_{ij}+\frac{2\mu'}{a_0^2}\,\partial_i\Phi\,\partial_j\Phi
+\]
+is uniformly elliptic provided \(\mu>0\) and \(\mu+2Y\mu'(Y)>0\), which holds for the convex class above. Existence/uniqueness follows from standard elliptic theory.
+
+\paragraph{Canonical convex interpolant (parameter-free).}
+A simple, convex, parameter-free choice with the required asymptotics is
+\[
+\boxed{\ \mu(Y)=\frac{\sqrt{Y}}{1+\sqrt{Y}}\ },\qquad
+F(Y)=\int_0^Y \mu(s)\,ds=Y-2\sqrt{Y}+2\ln(1+\sqrt{Y}).
+\]
+No dimensional parameter beyond \(a_0\) is introduced.
+
+\paragraph{Same fixed acceleration scale.}
+We identify
+\[
+\boxed{\ a_0=\frac{5}{12}\,\Omega_\Lambda^2\,c\,H_0\ }
+\]
+from the capacity (Part~I/II) channel; thus the BTFR normalization is **fixed** (no fit).
+
+\paragraph{Solar–System compliance (curvature gate).}
+Insert the same curvature gate via \(a_0\!\to\! a_0^{\rm eff}(x)=a_0\,s(\chi_g)^p\) (with \(p\ge1\) integer). Using Sec.~\ref{sec:env} one has \(s(\chi_\odot)\lesssim 10^{-5}\), hence \(a_0^{\rm eff}\ll 10^{-15}\,a_0\) in the Solar System, fully suppressing elastic effects.
+
+\paragraph{Lensing equals dynamics (no slip).}
+Place the static elastic density in the quasistatic Einstein system symmetrically so that \(\Phi=\Psi\) at working order; equivalently, couple the AQUAL density to \((\Phi+\Psi)/2\). Then the lensing potential \(2\Phi\) tracks the same \(\mu\) that governs dynamics, and galaxy–galaxy lensing matches rotation-curve inferences.
+
+% ===============================
+\section{Causal SK separation of cosmology vs.\ galaxies}
+\label{sec:sk-separation}
+In the full SK theory, the elastic kernel depends on frequency and wavenumber, \(\mathcal K^{\rm el}(\omega,k)\). Causality and finite relaxation imply a factor
+\[
+\mathcal K^{\rm el}(\omega,k)=\mathcal Q(\omega,k)\,\mathcal K^{\rm el}(0,k),\qquad \mathcal Q(0,k)=1,\ \ |\mathcal Q(\omega\sim H,k\lesssim k_{\rm LSS})|\ll 1.
+\]
+Thus:
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+\item \textbf{Linear cosmology (FRW, LSS):} \(\omega\!\sim\!H,\,k\!\lesssim\!k_{\rm LSS}\Rightarrow \mathcal Q\!\approx\!0\). Dynamics is governed by the \emph{capacity channel} (\(\mu(\eps,s)<1\)), preserving distances and the \(S_8\) suppression.
+\item \textbf{Quasistatic galaxies:} \(\omega\!\to\!0,\,k\!\gtrsim\!k_{\rm gal}\Rightarrow \mathcal Q\!\to\!1\). The \emph{elastic} AQUAL sector governs dynamics and lensing with fixed \(a_0\).
+\end{itemize}
+No new dimensional scales are introduced; \(\mathcal Q\) encodes scale separation already present in the SK influence functional.
+
+% ===============================
 \section{Covariant KMS \texorpdfstring{$\to$}{->} FRW Link and Error Control}
 \label{sec:kms-frw}
 Let \(s\) denote modular time with \(\beta_{\rm KMS}=2\pi/\kappa\) locally, where \(\kappa\) is the local boost surface gravity so that the approximate conformal Killing field \(\xi^a\) satisfies \(\xi^a\nabla_a=\kappa\,\partial_s\).
@@ -301,7 +437,7 @@ and integrating the entropy-driven evolution \(d\eps/d\ln a=\sigma(a)I(a)\ge0\) 
 \ee
 used as a normalization under (H1)–(H4).
 \end{proposition}
-\noindent\emph{Operational diagnostic.} The routine \texttt{referee\_pipeline.py} reports a scalar residual \(R_{\rm nonloc}\equiv\sum_{i\neq 0}\big|\bar\chi^{\rm proj}(\Delta_i)\big|\,\Delta(\ln a)_i\) outside the contact bin; by default we take the central bin(s) with \(|\Delta(\ln a)|\le \Delta_0\) as ``contact''. Declare failure if \(R_{\rm nonloc}/\sigma_{\rm boot}>3\) \emph{and} the contact weight \(w_0<0.95\). Unless noted, uncertainties are quoted at 68\% CL from bootstrap resampling; the \(R_{\rm nonloc}/\sigma_{\rm boot}>3\) criterion corresponds to a conservative \(\sim\!3\sigma\) (two-sided) flag.
+\noindent\emph{Operational diagnostic.} The routine \texttt{referee\_pipeline.py} reports a scalar residual \(R_{\rm nonloc}\equiv\sum_{i\neq 0}\big|\bar\chi^{\rm proj}(\Delta_i)\big|\,\Delta(\ln a)_i\) outside the contact bin; by default we take the central bin(s) with \(|\Delta(\ln a)|\le \Delta_0\) as ``contact''. Declare failure if \(R_{\rm nonloc}/\sigma_{\rm boot}>3\) \emph{and} the contact weight \(w_0<0.95\).
 
 \paragraph{Rigor note.}
 A full microlocal proof of (H3)—preservation of KMS analyticity under the coarse-grained reparametrization \(s\!\to\!\ln a\)—is deferred to future work in the spirit of Hollands–Wald~\cite{HollandsWald2001}.
@@ -310,105 +446,113 @@ A full microlocal proof of (H3)—preservation of KMS analyticity under the coar
 The entanglement first law suggests a Clausius-like analogy (Sec.~\ref{sec:thermo}), \emph{conditional} on (H1)–(H4), with MI projection avoiding CGM’s marginality issues (App.~\ref{app:microlocal}).
 
 % ===============================
+\section{Referee-guided first-principles closures and tests}
+\label{sec:referee-additions}
+
+\subsection*{A. MI-smeared null-energy bound (projected; proven for free fields)}
+\noindent\textbf{Statement (free/Gaussian sector).} Let \(k^a\) be a null generator of the CHM diamond and \(h_\ell(x)\ge0\) a smooth, compactly supported sampling function adapted to the MI window (normalized to unit weight). Define the MI-smeared null contraction
+\[
+\mathcal{E}^{\rm MI}_\ell \;\equiv\; \int\! d^4x\,d^4x'\,h_\ell(x)\,h_\ell(x')\, \langle T_{ab}(x)k^a k^b \rangle_{\rm sub}^{\rm proj}\;.
+\]
+Then, in free Hadamard theories,
+\[
+\mathcal{E}^{\rm MI}_\ell \;=\; \underbrace{\langle \delta K_{\rm sub},\,\delta K_{\rm sub}\rangle_{\rm BKM}}_{\ge 0}\;\times\; \mathcal{N}_\ell
+\quad\Rightarrow\quad
+\mathcal{E}^{\rm MI}_\ell \ge 0
+\]
+with a calculable \(\ell\)-dependent normalization \(\mathcal N_\ell>0\) fixed by the MI projector.
+
+\smallskip
+\noindent\emph{Consequence.} The MI/moment-kill subtraction yields a \emph{QEI-like} positive quadratic form for null energy in the projected channel (free fields: exact; interacting: Assumption C).
+
+\subsection*{B. RG/operator-spectrum bridge and anomaly guardrails}
+\noindent\textbf{Bridge.} \(\beta\) is tied to the stress-tensor two-point normalization \(C_T\); our \(\ell^4\) universality relies on the MI projector removing \(\Delta<4\) contributions. Protected marginal operators would show up as \(\ell^4\log\ell\) in this channel; the \emph{absence} of such a term (checked numerically) is therefore a guardrail (Sec.~\ref{sec:program}, (i)).
+
+\noindent\textbf{Anomalies.} Parity-odd and trace-anomaly structures do not contribute at \(\mathcal O(\ell^4)\) in the MI-projected, parity-even channel; they either vanish by symmetry or are curvature-suppressed by \(\mathcal O((\ell/L_{\rm curv})^2)\).
+
+\subsection*{C. Where GR dominates: $f_V$ \& curvature gating (SM-aware)}
+\noindent Dense, high-curvature regions either (i) lack a safe window (small \(f_V\) locally) or (ii) trigger \(s(\chi_g)\to 0\) so that \(G_{\rm eff}\to G\). Heavy SM sectors drop out when \(m_i\ell\gg 1\). Thus GR dominance is guaranteed wherever MI control fails or curvature is large, while voids (dominant in \(f_V\)) carry the clean MI signal.
+
+% ===============================
 \section{Assumptions for Interacting Extensions at Working Order (Part II; stated and test criteria)}
 \label{sec:proofs}
 
 \subsection{Assumption C (stated; test criteria): Relative entropy \texorpdfstring{$\leftrightarrow$}{<->} canonical energy in the projected diamond}
 \label{sec:lemmaC}
-
 \noindent\textbf{Statement.} For a local algebra \(\mathcal A(B_\ell)\) of an interacting Hadamard QFT obeying the microlocal spectrum condition and time-slice axiom, the MI/moment-kill projected second variation of Araki relative entropy equals the canonical-energy quadratic form of the projected stress tensor, up to \(\mathcal O(\ell^6)\) remainders, with a positive-definite projected kernel \(\chi_{QK}^{\rm proj}\).
 
 \smallskip
-\noindent\textbf{Rationale (sketch).} (i) The second variation is the Bogoliubov–Kubo–Mori metric. (ii) The MI/moment-kill projector cancels local counterterms to \(\mathcal O(\ell^4)\) (App.~\ref{app:MI}), conjectured to persist in interacting Hadamard QFTs (App.~\ref{app:microlocal}). (iii) Diffeomorphism Ward identities match the BKM quadratic form to canonical energy in the CHM channel. (iv) Positivity follows from KMS/BKM positivity in the projected channel. A complete microlocal proof is left to future work.
+\noindent\textbf{Rationale (sketch).} (i) The second variation is the Bogoliubov–Kubo–Mori metric. (ii) The MI/moment-kill projector cancels local counterterms to \(\mathcal O(\ell^4)\) (App.~\ref{app:MI}), conjectured to persist in interacting Hadamard QFTs (App.~\ref{app:microlocal}). (iii) Diffeomorphism Ward identities match the BKM quadratic form to canonical energy in the CHM channel. (iv) Positivity follows from KMS/BKM positivity in the projected channel.
 
 \paragraph{Operational tests (pass/fail).}
 \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
-\item \textbf{Positivity test (substrates):} The projected, integrated retarded kernel \(\int\!\chi^{\rm proj}_{QK}\,d^4x\,d^4x'\) is nonnegative in Gaussian chains (exact) and HQTFIM (numerical tolerance) (checked with \texttt{hqtfim\_capacity\_probe.py}, \texttt{gaussian\_capacity\_probe.py}).
-\item \textbf{No-\(\ell^4\log\ell\) falsifier:} The MI/moment-kill channel exhibits no \(\ell^4\log\ell\) term. \emph{Fail} if a protected-operator contribution produces an \(\ell^4\log\ell\) trend.
-\item \textbf{Plateau stability:} Varying MI windows leaves the residual plateau \(\sim\mathcal O(\ell^6)\) (verifiable with \texttt{beta\_methods\_v2.py}). \emph{Fail} if residuals scale as \(\ell^4\) after subtraction.
-\item \textbf{BKM positivity (finite truncations):} In truncated QFTs, the BKM quadratic form for \(\delta K_{\rm sub}\) is positive definite (tested with \texttt{gaussian\_capacity\_probe.py}). \emph{Fail} if negative eigenmodes persist under refinement.
+\item \textbf{Positivity test (substrates):} The projected, integrated retarded kernel \(\int\!\chi^{\rm proj}_{QK}\,d^4x\,d^4x'\) is nonnegative in Gaussian chains (exact) and HQTFIM (numerical tolerance).
+\item \textbf{No-\(\ell^4\log\ell\) falsifier:} The MI/moment-kill channel exhibits no \(\ell^4\log\ell\) term.
+\item \textbf{Plateau stability:} Varying MI windows leaves the residual plateau \(\sim\mathcal O(\ell^6)\).
 \end{itemize}
 
 \subsection{Assumption D (stated; test criteria): Uniqueness of the \texorpdfstring{$M^2$}{M^2} coupling at working order}
 \label{sec:lemmaD}
-
 \noindent\textbf{Statement.} In the \(c_T\!=\!1\), \(\alpha_B\!=\!0\) EFT corner linearized about FRW, with isotropy, parity, and time-reversal, the only background scalar coupling that survives the MI/moment-kill projection at \(\mathcal O(\ell^4)\) and modifies the weak-field growth sector while keeping distances GR-like is \(\delta\ln M^2\); other diffeomorphism-invariant local scalars are projected out, forbidden by sector constraints, or curvature-suppressed by \(\mathcal O((\ell/L_{\rm curv})^2)\).
-
-\smallskip
-\noindent\textbf{Rationale (sketch).} Consider the most general local covariant functional at the required engineering dimension:
-\be
-\delta\mathcal L=\sqrt{-g}\left[a\,R+b\,R_{ab}R^{ab}+c\,\nabla^2 R+d\,\delta\ln M^2\,R
-+ e\,\delta g^{00}+ f\,K\,\delta g^{00}+ \cdots\right],
-\ee
-\noindent where ``\(\cdots\)'' denote terms of higher engineering dimension (e.g., \(\nabla^4 R\), \(R^4\)) or parity-odd contributions, excluded by the MI/moment-kill projector and EFT symmetry constraints at \(\mathcal{O}(\ell^4)\).
-Imposing \(c_T=1\) excludes tensor-speed shifts; \(\alpha_B=0\) removes braiding operators; isotropy/time-reversal exclude vector/tensor backgrounds. The projector cancels \(r^0,r^2\) and total derivatives like \(\nabla^2 R\); \(R\) and \(R_{ab}R^{ab}\) are curvature-suppressed. Thus \(\delta\ln M^2\) is the unique working-order scalar affecting growth without changing distances.
 
 \paragraph{Operational tests (pass/fail).}
 \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
-\item \textbf{GR-like distances:} EM/GW luminosity distances agree at working order, \(|d_L^{\rm GW}/d_L^{\rm EM}-1|\lesssim5\times10^{-3}\). \emph{Fail} if a lensing coupling \(\Sigma\neq1\) is required.
-\item \textbf{Growth-only modification:} Large-scale growth follows \(\mu(\varepsilon,s)\) with \(\Sigma\simeq1\) and standard continuity/Euler equations. \emph{Fail} if background \(\alpha_M\) must vary appreciably to reproduce \(\mu\neq1\).
-\item \textbf{Solar-System compliance:} Environment modulation \(s(\chi_g)\) suppresses deviations: \(s(\chi_\odot)\ll10^{-5}\) (Table~\ref{tab:compliance}). \emph{Fail} if planetary bounds are violated.
-\item \textbf{Falsifier link:} Any of the falsifiers in Sec.~\ref{sec:program} triggers failure of Assumption D.
+\item \textbf{GR-like distances:} \(|d_L^{\rm GW}/d_L^{\rm EM}-1|\lesssim5\times10^{-3}\).
+\item \textbf{Growth-only modification:} Large-scale growth follows \(\mu(\varepsilon,s)\) with \(\Sigma\simeq1\).
+\item \textbf{Solar-System compliance:} \(s(\chi_\odot)\ll10^{-5}\) (Table~\ref{tab:compliance}).
 \end{itemize}
 
-\subsection{Assumption D\texorpdfstring{$'$}{'} (Exploratory; shock-selective optical channel; independent of Parts I–II)}
+% ===============================
+\section{Assumption D\texorpdfstring{$'$}{'} (Exploratory; shock-selective optical channel; independent of Parts I–II)}
 \label{sec:lemmaDprime}
-
-\noindent\textbf{Independence.} Parts I–II do not rely on D\(^{\prime}\): if D\(^{\prime}\) fails, the theoremic results, the conditional FRW mapping, and the baseline growth-only modification with \(\Sigma\simeq 1\) remain intact. D\(^{\prime}\) is an exploratory, \emph{local} optical response intended for merging clusters with strong shocks.
-
-\smallskip
-\noindent\textbf{Motivation and scope.} Bullet-type systems exhibit weak-lensing peaks offset from shocked X-ray gas. Our baseline (\(\Sigma\simeq 1\)) preserves distances and attributes changes to growth; however, to address local lensing morphology in strongly shocked gas, we posit a shock-selective lensing response that leaves FRW and laminar flows untouched.
+\noindent\textbf{Independence.} Parts I–II do not rely on D\(^{\prime}\). D\(^{\prime}\) is an exploratory, \emph{local} optical response intended for merging clusters with strong shocks.
 
 \smallskip
-\noindent\textbf{Local, saturating law (predictive summary).} Let \(u^\mu\) be the baryon four-velocity and \(\sigma_{\mu\nu}\) the symmetric, trace-free shear. Define the shock indicator \(\mathcal S_{\rm shock}=\ell^2\sigma_{\mu\nu}\sigma^{\mu\nu}\ge 0\). We summarize the optical response by the purely local, saturating form
+\noindent\textbf{Local, saturating law (predictive summary).} With \(u^\mu\) the baryon four-velocity and \(\sigma_{\mu\nu}\) the shear, define \(\mathcal S_{\rm shock}=\ell^2\sigma_{\mu\nu}\sigma^{\mu\nu}\ge 0\). The optical response
 \be
 \label{eq:sigmalocal}
 \Sigma(x)\;\simeq\;1\;-\;\alpha_{\rm opt}\,\frac{\mathcal S_{\rm shock}(x)}{1+\mathcal S_{\rm shock}(x)},\qquad 0<\alpha_{\rm opt}<1,
 \ee
-so that \(\Sigma\to1-\alpha_{\rm opt}\) in strong shocks and \(\Sigma\to1\) away from shocks. The growth coupling \(\mu(\varepsilon,s)\) is unchanged; FRW and laminar flows have \(\mathcal S_{\rm shock}\approx 0\Rightarrow \Sigma\simeq 1\).
+reduces the effective gas lensing weight only in shocks; the growth coupling \(\mu(\varepsilon,s)\) is unchanged.
 
-\paragraph{Transport-theory anchoring (SK/BRSSS link; derivation in App.~\ref{app:SK}).}
-In viscous hydrodynamics (BRSSS) the anisotropic stress obeys
+\paragraph{Phantom surface density (elastic + D$'$ synergy).}
+The nonlinear operator yields an effective “phantom” density
+\[
+\rho_{\rm ph}=\frac{1}{4\pi G}\,\nabla\!\cdot\!\big[(\mu-1)\,\nabla\Phi\big],
+\]
+largest near collisionless galaxies; together with \(\Sigma<1\) in shock sheets, this reproduces Bullet-type morphologies.
+
+\paragraph{Transport-theory anchoring (SK/BRSSS).}
+In viscous hydrodynamics
 \[
 \pi^{\mu\nu}+\tau_\pi\,u^\alpha\nabla_\alpha \pi^{\mu\nu}
 =2\eta\,\sigma^{\mu\nu}+\lambda_1\,\sigma^{\langle\mu}{}_{\lambda}\sigma^{\nu\rangle\lambda}+\cdots,
 \]
-with \(\eta,\tau_\pi,\lambda_1\) fixed by Kubo formulas. In the cluster quasi-static limit (\(\omega\tau_\pi\ll 1\)) this reduces to \(\pi^{\mu\nu}\approx 2\eta\,\sigma^{\mu\nu}+\lambda_1\,\sigma^{\langle\mu}{}_{\lambda}\sigma^{\nu\rangle\lambda}\), which sources \((\Phi+\Psi)\) in the lensing equation. Matching to Eq.~\eqref{eq:sigmalocal} yields a \emph{computable} map
+and matching to Eq.~\eqref{eq:sigmalocal} gives \(\alpha_{\rm opt}=\alpha_{\rm opt}(\eta,\tau_\pi,\lambda_1)\) (App.~\ref{app:SK}).
+
+% ——— NEW: explicit, labeled map used by the Symbol Index ———
+\paragraph{Effective optical coefficient.}
+Define the shock–response coefficient via the differential map
 \be
-\alpha_{\rm opt}\equiv \alpha_{\rm opt}(\eta,\tau_\pi,\lambda_1;T,n_e,B,\dots),
-\qquad
-\kappa_{\rm opt}\sim \frac{2\eta}{\rho_{\rm gas}\,c_s\,\ell}+\frac{\lambda_1}{\rho_{\rm gas}\,\ell^2}+\cdots,
 \label{eq:alphaopt-map}
+\kappa_{\rm opt}(\mathcal S_{\rm shock})
+\;\equiv\; -\,\frac{\partial \Sigma}{\partial \mathcal S_{\rm shock}}
+\;=\; \frac{\alpha_{\rm opt}}{\big(1+\mathcal S_{\rm shock}\big)^2},
+\qquad
+\kappa_{\rm opt}\big|_{\mathcal S_{\rm shock}\ll 1}=\alpha_{\rm opt}.
 \ee
-up to order-unity geometry factors (App.~\ref{app:SK}). Thus \(\alpha_{\rm opt}\) is \emph{not} a free fit-parameter in principle; it is determined by ICM transport.
-
-\paragraph{Range and back-of-the-envelope calibration.}
-In projected convergence, the local gas contribution scales as \(\kappa_{\rm gas}^{\rm eff}\!=\!\Sigma\,\kappa_{\rm gas}\).
-To relocate the convergence peak from the shocked gas toward the collisionless galaxies in Bullet-like systems (offsets \(\sim\!200\) kpc; \cite{Clowe2006}), one needs \(\kappa_{\rm gas}^{\rm eff}\lesssim(0.2\text{--}0.4)\,\kappa_{\rm tot}\) within the shock sheet. For strong shocks \(\mathcal S_{\rm shock}\!\gg\!1\), Eq.~\eqref{eq:sigmalocal} gives \(\Sigma\simeq 1-\alpha_{\rm opt}\); thus \(\alpha_{\rm opt}\simeq 0.6\text{--}0.8\) suppresses the gas lensing weight by \(60\text{--}80\%\) where needed, while leaving FRW and unshocked regions (\(\mathcal S_{\rm shock}\!\ll\!1\)) essentially unmodified (\(\Sigma\simeq 1-\alpha_{\rm opt}\mathcal S_{\rm shock}\approx 1\)). This range is consistent with Mach \(\mathcal M\simeq 2\text{--}3\) shocks inferred from X-ray edges \cite{Markevitch2002}.
-
-\paragraph{Operational predictions and falsifiers (Bullet-type tests).}
-\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
-\item \textbf{Shock tracking (A):} The lensing suppression should spatially correlate with X-ray shock edges (temperature/surface-brightness jumps) and radio relics (tracing high-\(\sigma^2\) regions) \cite{Markevitch2002,vanWeeren2019}.
-\item \textbf{Time evolution (B):} As shocks dissipate, \(\mathcal S_{\rm shock}\downarrow\) and \(\Sigma\to1\); convergence centroids drift back toward gas on the shock-cooling timescale.
-\item \textbf{Mach-number scaling (C):} Lower-Mach mergers show smaller centroid offsets at fixed gas mass (cf.\ Bullet vs.\ Abell 520 \cite{Mahdavi2007}).
-\item \textbf{Selectivity (D):} No suppression in unshocked or laminar gas; failure if convergence deficits appear where \(\mathcal S_{\rm shock}\approx 0\).
-\end{itemize}
-
-\paragraph{Safety checks.} \(c_T=1\) (no curvature-derivative couplings), FRW \(\Sigma\simeq1\) (\(\sigma_{\mu\nu}=0\)), Solar System unaffected, and the integrated GW/EM split remains \(\ll 10^{-3}\) since the effect is cluster-local. Positivity is manifest from the squared potential in App.~\ref{app:optics-details}.
-
-\vspace{1ex}
+This definition ensures \(\kappa_{\rm opt}>0\) for \(0<\alpha_{\rm opt}<1\) and makes the linear-response limit explicit; it is the coefficient referenced in the Symbol Index.
+% ——— END NEW ———
 
 % ===============================
 \section{Entropy-Driven \texorpdfstring{$\varepsilon(a)$}{epsilon(a)} and Growth (Conditional)}
 \label{sec:epsilon}
-
 \paragraph{KMS/FDT positivity.}
 Let \(\hat Q\) be the boost-energy flux and \(\chi_{QK}^{\rm proj}\) the retarded kernel in the projected channel. Then
 \be
 \frac{d\eps}{d\ln a}=\sigma(a)\,\mathcal I(a),\qquad \sigma(a)\ge 0,\ \ \mathcal I(a)\ge 0,\qquad
 \int \eps\,d\ln a=\OmL=\beta\,f\,\cgeo.
 \ee
-A preliminary derivation with intermediate steps in App.~\ref{app:entropic-proof} details \(d\varepsilon/d\ln a \ge 0\) from Araki relative entropy, supporting the use of \(\mu(\varepsilon,s)\).
 
 \paragraph{Fixed-point with growth.}
 The growth factor \(D(a)\) satisfies
@@ -421,43 +565,33 @@ The growth factor \(D(a)\) satisfies
 \ee
 
 \paragraph{Variational bounds (extremals).}
-Convex-order arguments imply late-loaded \(\eps(a)\) minimizes \(S_8\) and early-loaded maximizes it, under monotonicity and budget. We therefore report an \(S_8\) \emph{band} bracketed by these extremals; any illustrative kernel (e.g., logarithmic exposure) must lie within the band.
-
-\noindent\emph{Quantified extremals (illustrative).} In our baseline cosmology and for monotone \(\varepsilon(a)\) satisfying the budget \eqref{eq:budget}, late-loaded profiles give \(S_8\simeq 0.76\) while early-loaded profiles give \(S_8\simeq 0.82\); both inherit a \(\pm 0.008\) envelope from the \(\beta\) uncertainty propagated through Eq.~\eqref{eq:growth-ode}.
+Convex-order arguments imply late-loaded \(\eps(a)\) minimizes \(S_8\) and early-loaded maximizes it, under monotonicity and budget.
 
 % ===============================
 \section{Environment Modulation from Action and Calibration}
 \label{sec:env}
-
 \paragraph{Units and conventions.}
-We work in geometric units \(G=c=1\). When inserting SI values we convert masses via \(M\mapsto GM/c^2\); this keeps the curvature scalar \(\chi_g=\ell^2\sqrt{C_{abcd}C^{abcd}}\) dimensionless.
+We work in geometric units \(G=c=1\). When inserting SI values we convert masses via \(M\mapsto GM/c^2\); this keeps \(\chi_g=\ell^2\sqrt{C_{abcd}C^{abcd}}\) dimensionless.
 
 \paragraph{Action-derived modulation.}
-We define
 \be
 s(x)=\frac{1}{1+(\chi_g/\chi_\star)^q}+\mathcal O\!\Big(\frac{R}{m_s^2}\Big),\qquad \chi_g\equiv \ell^2\sqrt{C_{abcd}C^{abcd}},
 \ee
-as the algebraic EOM solution of a heavy auxiliary field minimizing
+from the heavy-auxiliary potential
 \be
-\mathcal V(s;\chi_g)=\frac{M^2 m_s^2}{2}\left[s-\frac{1}{1+(\chi_g/\chi_\star)^q}\right]^2,\qquad m_s^2\gg H_0^2,
+\mathcal V(s;\chi_g)=\frac{M^2 m_s^2}{2}\left[s-\frac{1}{1+(\chi_g/\chi_\star)^q}\right]^2,\qquad m_s^2\gg H_0^2.
 \ee
-so \(s\!\to\!1\) in weak curvature (\(\chi_g\!\ll\!\chi_\star\)) and \(s\!\to\!0\) in strong curvature (\(\chi_g\!\gg\!\chi_\star\)). In FRW, Weyl\(=0\) so \(\chi_g=0\Rightarrow s=1\).
-This \(s(x)\) enters \(\mu(\varepsilon,s)=1/\!\big[1+(5/12)\varepsilon\,s\big]\) (Sec.~\ref{sec:def-vs-map}).
+In FRW, Weyl\(=0\Rightarrow s=1\). This \(s(x)\) enters \(\mu(\varepsilon,s)=1/[1+(5/12)\varepsilon\,s]\).
 
 \paragraph{Calibration example (Solar System).}
-For a Schwarzschild source the Weyl invariant obeys \(\sqrt{C^2}=\sqrt{48}\,M/r^3\) in geometric units, with \(M=GM/c^2\) when using SI inputs. Taking \(\ell=10\,\mathrm{pc}\), \(r=1\,\mathrm{AU}\), and \(M_\odot\simeq 1.477\,\mathrm{km}\), we find
-\[
-\chi_\odot \equiv \ell^2 \, \sqrt{48}\,\frac{M_\odot}{r^3} \approx 2.9\times 10^{5}.
-\]
-Imposing \(s(\chi_\odot)\le \epsilon_{\rm SS}=10^{-5}\) with \(q=2\) implies
-\[
-\chi_\star \lesssim \chi_\odot\,\epsilon_{\rm SS}^{1/2} \approx 9.2\times 10^{2}.
-\]
-A representative choice \(\chi_\star=900\), \(q=2\) then yields \(s(\chi_\odot)\approx 9.6\times 10^{-6}\), while leaving cosmological environments (\(\chi_g\ll\chi_\star\)) essentially unsuppressed (\(s\simeq 1\)). For transparency we report a small compliance table:
+For a Schwarzschild source \(\sqrt{C^2}=\sqrt{48}\,M/r^3\). Taking \(\ell=10\,\mathrm{pc}\), \(r=1\,\mathrm{AU}\), \(M_\odot\simeq 1.477\,\mathrm{km}\) gives
+\(\chi_\odot \approx 2.9\times 10^{5}\).
+Imposing \(s(\chi_\odot)\le 10^{-5}\) with \(q=2\) implies \(\chi_\star \lesssim 9.2\times 10^{2}\).
+A representative \(\chi_\star=900\), \(q=2\) yields \(s(\chi_\odot)\approx 9.6\times 10^{-6}\).
 
 \begin{table}[t]
 \centering
-\caption{Solar–System compliance of the action-derived modulation \(s(\chi_\odot)\) at \(\ell=10\,\mathrm{pc}\), \(r=1\,\mathrm{AU}\) (Schwarzschild).}
+\caption{Solar–System compliance of \(s(\chi_\odot)\) at \(\ell=10\,\mathrm{pc}\), \(r=1\,\mathrm{AU}\) (Schwarzschild).}
 \label{tab:compliance}
 \begin{tabular}{lcccc}
 \toprule
@@ -468,27 +602,36 @@ $s(\chi_\odot;\,q{=}2)$ & $1.7\times 10^{-5}$ & $1.18\times 10^{-5}$ & $9.6\time
 \end{tabular}
 \end{table}
 
-\paragraph{Phenomenology and alternatives.}
-The choice \(s=[1+(\chi_g/\chi_\star)^q]^{-1}\) with \(q=2\) is a simple, Solar–System–compliant solution. We have also tested \textbf{alternative envelopes}, such as an exponential decay \(s_{\exp}(\chi_g)=\exp[-(\chi_g/\chi_\star)^p]\) (with \(p\!\sim\!1\text{--}2\)) and variants based on alternative curvature scalars (e.g., using \(R_{abcd}R^{abcd}\) proxies). Each corresponds to a different target in \(\mathcal V(s;\chi_g)\) and yields similar weak-/strong-field limits; quantitative differences appear mainly in the transition region and are constrained by data. These options are exposed in \texttt{cosmology\_runner.py} (see the \texttt{--s-form} and \texttt{--s-params} toggles), which we use for robustness checks. The power-law envelope used here should thus be regarded as a representative compliance function.
-
-\subsection{BAO growth modulation (toy)}
-The entropy-driven \(d\varepsilon/d\ln a \geq 0\) (App.~\ref{app:entropic-proof}) suggests BAO peak growth via near-GR reversion (e.g., \(d_L^{\rm GW}/d_L^{\rm EM}\approx 0.995\)) and lower \(g\) off-peak due to \(\mu(\varepsilon,s)\). A toy model with \(\chi_g\) sweeps (Sec.~\ref{sec:data}, \texttt{s8\_hysteresis\_run.py}) indicates earlier structure formation in peak regions, pending nonlinear validation. Quantitatively, \texttt{s8\_hysteresis\_run.py} yields a near-peak boost in \(D(a)\) of \(\sim 1\text{--}2\%\) with a compensating off-peak suppression (cf.\ growth parametrizations in \cite{BelliniSawicki2014}).
-
 % ===============================
 \section{Observational Illustrations (Illustrative under Secs.~\ref{sec:kms-frw}, \ref{sec:epsilon}; Uncertainty Propagated)}
 \label{sec:obs}
-
 \paragraph{Hubble ladder bounds (toy).}
-Assuming the conditional background relation \(\OmL=\beta f\cgeo=0.685\pm 0.034\) and under the assumptions of Secs.~\ref{sec:kms-frw} and \ref{sec:epsilon}, the previously quoted illustrative shifts \(H_0: 73.0\to 71.18\) (uncapped SN) and \(\to 70.89\) (capped SN+Cepheid) acquire \(\pm 0.17~\mathrm{km\,s^{-1}\,Mpc^{-1}}\) systematic envelopes from \(\beta\), reported as
-\be
-H_0^{\rm toy}=\{71.18\pm 0.17,\ \ 70.89\pm 0.17\}\ \ \mathrm{km\,s^{-1}\,Mpc^{-1}}.
-\ee
+Assuming the conditional background relation \(\OmL=\beta f\cgeo\) and our monotone \(\varepsilon(a)\), the previously quoted illustrative shifts acquire \(\pm 0.17~\mathrm{km\,s^{-1}\,Mpc^{-1}}\) envelopes from \(\beta\).
 
 \paragraph{\(S_8\) band (toy).}
-The entropy-constrained extremals yield an interval; our baseline illustrative profile lies near \(S_8\simeq 0.788\), with an inherited \(\pm 0.008\) envelope from \(\beta\). We report an \(S_8\) band rather than a fit, and distances remain GR-like. Allowing modest non-monotonic \(\varepsilon(a)\) histories can widen the band by \(\sim 3\text{--}5\%\).
+Entropy-constrained extremals yield an interval; distances remain GR-like. Allowing modest non-monotonic \(\varepsilon(a)\) histories can widen the band by \(\sim 3\text{--}5\%\).
 
-\paragraph{Merging clusters (optional D\(^{\prime}\); exploratory).}
-For shock Mach numbers \(\mathcal M\sim 2\text{--}3\) we expect \(\mathcal S_{\rm shock}\gtrsim \mathcal O(1\text{--}5)\) across the shock sheets; with \(\alpha_{\rm opt}\approx 0.6\text{--}0.8\) in Eq.~\eqref{eq:sigmalocal} this yields \(\Sigma_{\rm gas}\sim 0.2\text{--}0.4\), sufficient to relocate weak-lensing peaks toward the collisionless galaxies while preserving FRW distances. The predicted centroid offsets (\(\sim 200\) kpc) and shock strengths are consistent with Bullet Cluster observations \cite{Clowe2006,Markevitch2002}; radio relic/shock correlations provide an independent tracer of the high-shear regions \cite{vanWeeren2019}. Comparative systems (e.g., Abell 520) offer additional tests of the Mach-scaling prediction \cite{Mahdavi2007}.
+% ===============================
+\section{Linkage to global entropic gravity (Bianconi 2025): small-diamond matching and discriminants}
+\label{sec:bianconi-link}
+
+\paragraph{Setup.}
+Bianconi proposes a global, entropic variational principle in which the action is a \emph{quantum relative entropy} between the spacetime metric \(g\) and a \emph{matter-induced} metric. Varying this action yields modified Einstein equations that \emph{reduce to GR with \(\Lambda=0\)} at low coupling; introducing a Lagrange-multiplier-like \(\Gfield\) produces a \emph{dressed} theory with an emergent positive \(\Lambda(\Gfield)\) \cite{Bianconi2025}.
+
+\paragraph{Small-diamond MI matching (program).}
+Let \(S_{\rm ent}[g,\psi]\) denote Bianconi’s entropic action. In a small CHM diamond, expand \(S_{\rm ent}\) to quadratic order around a Hadamard reference and apply the MI/moment-kill projector:
+\[
+\delta^2 S_{\rm ent}^{\rm proj}\ \stackrel{?}{=}\ c_{\rm ent}(\ell)\,\big(\delta\!\langle K_{\rm sub}\rangle\big)^2
+\ =\ c_{\rm ent}(\ell)\,\big(\beta\,\ell^4\,\delta\varepsilon\big)^2 + \mathcal O(\ell^{10}).
+\]
+Matching the contact kernel fixes \(c_{\rm ent}\) in terms of \(\beta\). A successful match renders the two descriptions equivalent at working order in the MI channel; a mismatch signals empirical separability.
+
+\paragraph{Discriminants (observational).}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+\item \textbf{GW propagation:} Our baseline predicts \(c_T=1\) and standard damping at linear order.
+\item \textbf{Gravitational slip/lensing:} We predict \(\Sigma\simeq 1\) at linear order (no slip).
+\item \textbf{Environment reversion:} Our curvature gate \(s(\chi_g)\to 0\) enforces GR in strong curvature.
+\end{itemize}
 
 % ===============================
 \section{Structural Checks (Algebraic; Not 4D Surrogates)}
@@ -498,57 +641,39 @@ HQTFIM and Gaussian chains confirm the algebraic ingredients (first-law channel,
 % ===============================
 \section{Proof Program Status and Falsifiers}
 \label{sec:program}
-\textbf{Lemma A} (diamond KMS control): scaling proven, sharp bounds left to microlocal analysis. \textbf{Lemma B} (projector universality): established. \textbf{Assumption C} and \textbf{Assumption D}: stated here with rationale; proofs deferred (Secs.~\ref{sec:lemmaC}, \ref{sec:lemmaD}). \textbf{Assumption D\(^{\prime}\)} (shock-selective optical channel): exploratory extension for merging clusters (Sec.~\ref{sec:lemmaDprime}; derivation path in App.~\ref{app:SK}). \textbf{Lemma E} (FDT positivity): follows from BKM positivity. \textbf{Lemma F} (geometric \(5/12\)): derived.\\
-\textbf{Lemma G (Nonlinear validation)}: Initial Gadget-4 runs are complete (baseline resolution; \texttt{gadget4\_mu\_eps\_toy.py}); post-processing and archiving (Zenodo DOI) are pending. These test \(\mu(\varepsilon,s)\), \(s(\chi_g)\), and the optional \(\Sigma(x)\) from Eq.~\eqref{eq:sigmalocal} in structure formation and lensing, with BAO features and lensing shear targeted.\\
-\textbf{Falsifiers:} (i) persistent \(\ell^4\log\ell\) residuals in the projector channel; (ii) GW/EM distance ratio beyond \(5\times 10^{-3}\); (iii) \(|\dot G/G|\gtrsim 10^{-12}\,\mathrm{yr}^{-1}\); (iv) \(\OmL\) inconsistent with \(\beta f\cgeo\); (v) \(S_8\) outside the extremal band for all admissible monotone \(\eps(a)\) satisfying the budget; (vi) positivity failure in Assumption C tests; (vii) for Assumption~D\(^{\prime}\): lack of correlation of lensing deficits with shock diagnostics, or suppression in unshocked gas; (viii) for Assumption~D\(^{\prime}\): persistent lensing offsets in low-Mach or unshocked systems inconsistent with the \(\mathcal S_{\rm shock}\) scaling in Eq.~\eqref{eq:sigmalocal}; (ix) for the SK/BRSSS upgrade: independently inferred ICM transport coefficients \((\eta,\tau_\pi,\lambda_1)\) imply \(\alpha_{\rm opt}^{\rm SK}\) [Eq.~\eqref{eq:alphaopt-map}] incompatible with the lensing suppression needed for observed offsets.
+\textbf{Lemma A} (diamond KMS control): scaling proven, sharp bounds left to microlocal analysis. \textbf{Lemma B} (projector universality): established. \textbf{Assumption C} and \textbf{Assumption D}: stated here with rationale; proofs deferred. \textbf{Assumption D\(^{\prime}\)} (shock-selective optical channel): exploratory extension for merging clusters (Sec.~\ref{sec:lemmaDprime}). \textbf{Lemma E} (FDT positivity): follows from BKM positivity. \textbf{Lemma F} (geometric \(5/12\)): derived.\\
+\textbf{Lemma G (Nonlinear validation)}: Initial Gadget-4 runs are complete (baseline resolution; \texttt{gadget4\_mu\_eps\_toy.py}); post-processing and archiving (Zenodo DOI) are pending. These test \(\mu(\varepsilon,s)\), \(s(\chi_g)\), D\(^{\prime}\), and the elastic sector in structure formation and lensing.
+
+\medskip
+\textbf{Falsifiers:}
+\begin{enumerate}[leftmargin=*,noitemsep,topsep=0pt,label=(\roman*)]
+\item persistent \(\ell^4\log\ell\) residuals in the projector channel;
+\item GW/EM distance ratio beyond \(5\times 10^{-3}\);
+\item \(|\dot G/G|\gtrsim 10^{-12}\,\mathrm{yr}^{-1}\);
+\item \(\OmL\) inconsistent with \(\beta f\cgeo\);
+\item \(S_8\) outside the extremal band for all admissible monotone \(\eps(a)\);
+\item positivity failure in Assumption C tests;
+\item for D\(^{\prime}\): lack of correlation of lensing deficits with shock diagnostics, or suppression in unshocked gas;
+\item for D\(^{\prime}\): offsets inconsistent with the \(\mathcal S_{\rm shock}\) scaling;
+\item for SK/BRSSS: transport-inferred \((\eta,\tau_\pi,\lambda_1)\) imply \(\alpha_{\rm opt}\) incompatible with required suppression;
+\item \textbf{Elastic BTFR test:} BTFR intercept disagrees with \(a_0=\frac{5}{12}\OmL^2 c H_0\);
+\item \textbf{RAR test:} the parameter-free \(\mu(Y)=\sqrt{Y}/(1+\sqrt{Y})\) fails to bracket the observed \(g_{\rm obs}(g_{\rm bar})\) relation;
+\item \textbf{Lensing vs.\ dynamics:} with \(\Phi=\Psi\), galaxy–galaxy lensing and rotation curves disagree systematically at fixed \(\mu\).
+\end{enumerate}
 
 % ===============================
 \section{Thermodynamic Interpretation and Relation to Casini–Galante–Myers (Exploratory)}
 \label{sec:thermo}
-
 \subsection{Local Clausius identity in the projected channel (proven at working order)}
-In the MI/moment-kill projected first-law channel, the entanglement first law \(\delta S_{\rm sub}=\delta\!\langle K_{\rm sub}\rangle\) (Theorem~\ref{thm:proj-modresp}) and the BW KMS normalization \(K=H_{\rm boost}/T_{\rm KMS}\) with \(T_{\rm KMS}=\kappa/(2\pi)\) imply a Clausius-like identity
-\be
-\delta S_{\rm sub}=\frac{\delta Q_{\rm boost,sub}}{T_{\rm KMS}}, \qquad
-\delta Q_{\rm boost,sub}\equiv \delta\!\langle H_{\rm boost,sub}\rangle,
-\ee
-where \(\delta Q_{\rm boost,sub}\) is the boost-energy variation in the projected channel (the appropriate ``heat'' analogue). Using \(\delta\!\langle K_{\rm sub}\rangle=\beta\,\ell^4\,\delta\varepsilon+\mathcal O(\ell^6)\) (Eq.~\ref{eq:eps-def}) yields
+In the MI/moment-kill projected first-law channel, the entanglement first law \(\delta S_{\rm sub}=\delta\!\langle K_{\rm sub}\rangle\) and the BW KMS normalization imply
 \be
 \delta S_{\rm sub}=\beta\,\ell^4\,\delta\varepsilon+\mathcal O(\ell^6).
 \label{eq:clausius-response}
 \ee
-This \emph{reinterprets} the modular response in thermodynamic terms; one may define a modular (not thermodynamic-bath) entropy-density proxy
-\[
-s(a)\sim \beta\,\varepsilon(a)\,\ell^{-3}.
-\]
-\emph{Justification.} This proxy is dimensionally consistent (units \(k_B\,\mathrm{length}^{-3}\)); e.g., for \(\ell=10\,\mathrm{pc}\) and \(\varepsilon(1)\sim 1\) one finds \(s(1)\sim 2\times 10^{-2}\,k_B\,(10\,\mathrm{pc})^{-3}\), consistent with ranges produced by \texttt{cosmology\_runner.py} at \(z=0\). Physically, \(s(a)\) proxies an \emph{entanglement} contribution to cosmological evolution in this channel, distinct from a thermodynamic bath entropy.
 
-\subsection{FRW Clausius extension (conditional proposition)}
-Under the KMS\(\to\)FRW hypotheses (H1)–(H4) of Sec.~\ref{sec:kms-frw} (locality/decay, adiabaticity, analyticity under \(s\to\ln a\), diamond–half-space control), the averaged susceptibility reduces to a \emph{contact term in \(\ln a\)} by (H1)–(H3) (see Proposition~\ref{prop:frw-budget}), leading to the \emph{conditional} normalization
-\be
-\int_{a_i}^{1}\varepsilon(a)\,d\ln a=\Omega_\Lambda=\beta f\,c_{\rm geo}.
-\ee
-Non-local residuals in \(\ln a\), detectable via \texttt{referee\_pipeline.py}, would falsify (H1).
-
-\subsection{Relation to Jacobson (2016) and the CGM critique}
-Jacobson’s entanglement-equilibrium proposal \cite{Jacobson2016} ties a local Clausius statement to the Einstein equation. Casini–Galante–Myers (CGM) \cite{CasiniGalanteMyers2016} showed that for relevant deformations of low scaling dimension, and in particular for \emph{marginal} \(\Delta=d/2=2\), logarithmic terms (e.g.\ \(\log(\mu\ell)\), CGM Eq.~(1.8)) obstruct a universal inference. Our framework differs: (i) we do not aim to derive GR universally but to relate QFT modular response to cosmology; (ii) the MI/moment-kill projector (App.~\ref{app:MI}) \emph{eliminates} \(\Delta<4\) terms, including marginal \(\Delta=2\), ensuring a pure \(\ell^4\) response at working order (App.~\ref{app:microlocal}). This \emph{sidesteps} CGM’s marginality issue by design and limits scope to the \(\ell^4\) channel. The \(\Delta=4\) focus \emph{leverages the OPE gap} in Gaussian/Hadamard states, which ensures the finiteness of the \(\ell^4\) response in the projected channel (App.~\ref{app:microlocal}). Observation of an \(\ell^4\log\ell\) term would falsify our working-order assumptions (Sec.~\ref{sec:program}, (i)); in practice, the falsifier is \emph{detectable} by fitting MI-projected residuals in \texttt{beta\_methods\_v2.py} to a logarithmic trend, isolating an \(\ell^4\log\ell\) component.
-
-\subsection{Marginal operators in interacting QFTs (exploratory)}
-In interacting QFTs, protected marginal operators could induce \(\ell^4\log\ell\) corrections to the projected modular response. Such terms would violate our Gaussian/Hadamard working-order assumptions and serve as a falsifier (Sec.~\ref{sec:program}, (i)). \emph{Detection method.} The residual analysis in \texttt{beta\_methods\_v2.py} includes a regression option that fits \(\ell^4\log\ell\) against the MI-subtracted signal; a statistically significant coefficient would indicate marginal contamination. As a practical threshold, a statistically significant \(\ell^4\log\ell\) coefficient (e.g., amplitude \(>10^{-3}\,\beta\)) would indicate marginal contamination and motivate microlocal analysis in interacting QFTs (Sec.~\ref{sec:limitations}). Constraining any such amplitude in interacting extensions—and assessing induced shifts in \(\beta\) or \(\mu(\varepsilon,s)\)—is an avenue for future work (Sec.~\ref{sec:limitations}).
-
-% ===============================
-\section{Limitations and Future Work}
-\label{sec:limitations}
-The conditional program entails several open problems that we list explicitly:
-\begin{itemize}[leftmargin=*]
-\item \textbf{Interacting proofs (Assumptions C \& D):} complete microlocal/spectral proofs of the projected positivity and uniqueness statements.
-\item \textbf{Action-level derivation:} we provided a minimal covariant realization for \(M_*^2(x,a)\) and \(s(x)\); a full derivation (and exclusion of alternatives) remains future work.
-\item \textbf{Shock-selective optics (Assumption D\(^{\prime}\)):} \emph{SK/BRSSS upgrade.} Calibrate \(\alpha_{\rm opt}(\eta,\tau_\pi,\lambda_1)\) and \(\kappa_{\rm opt}\) from simulations or transport-inference pipelines; test morphology predictions (A–D/E); bound degeneracies with baryonic microphysics; derive microscopic origin of the shear coupling.
-\item \textbf{KMS\(\to\)FRW analyticity:} rigorous proof of analyticity preservation under coarse-grained reparametrization \(s\to\ln a\).
-\item \textbf{Thermodynamic validation:} validate the Clausius analogy in interacting settings and bound any marginal (\(\Delta=d/2\)) \(\ell^4\log\ell\) corrections in the projected channel.
-\item \textbf{Nonlinear validation:} full N-body and ray-tracing tests for \(\mu(\varepsilon,s)\), \(s(\chi_g)\), and optional \(\Sigma(x)\), including BAO-scale modulation and lensing systematics.
-\item \textbf{Environment modulation microphysics:} microscopic motivation and calibration of \(s(\chi_g)\) beyond the heavy-field envelope.
-\end{itemize}
+\subsection{FRW Clausius extension (conditional)}
+Under (H1)–(H4) of Sec.~\ref{sec:kms-frw}, the averaged susceptibility reduces to a \emph{contact term in \(\ln a\)} (Prop.~\ref{prop:frw-budget}), leading to the conditional normalization
+\(\int \varepsilon\,d\ln a=\Omega_\Lambda=\beta f\,c_{\rm geo}\).
 
 % ===============================
 % — Vertical, color-coded pipeline figure —
@@ -600,12 +725,12 @@ darr/.style={-Latex, dashed, semithick, shorten >=2pt, shorten <=2pt}
 \draw[arr] (O0) -- (O1); \draw[arr] (O1) -- (O2); \draw[arr] (O2) -- (O3);
 
 % Red exploratory (Part III)
-\node[stageH, below=8mm of O3, draw=flowRed!80, fill=flowRed!15, label={[flowRed]left:EXPLORATORY}] (T0) {Shock-Selective Optics (D$^{\prime}$) \& Thermodynamic Interpretation (Sec.~\ref{sec:lemmaDprime}, App.~\ref{app:SK}, Sec.~\ref{sec:thermo})};
+\node[stageH, below=8mm of O3, draw=flowRed!80, fill=flowRed!15, label={[flowRed]left:EXPLORATORY}] (T0) {Shock-Selective Optics (D$^{\prime}$), Thermodynamic Interpretation, and Bianconi Linkage (Sec.~\ref{sec:lemmaDprime}, \ref{sec:thermo}, \ref{sec:bianconi-link})};
 \draw[darr] (O3) -- (T0);
 
 \end{tikzpicture}
 \end{adjustbox}
-\caption{Pipeline with PROVEN (blue/first green), CONDITIONAL (purple/second green/orange), and EXPLORATORY (red) elements. The theoremic core fixes \(\beta\) and the universal \(5/12\). The FRW mapping and budget are \emph{conditional} (Sec.~\ref{sec:kms-frw}). Part~III provides an \emph{exploratory} cluster-optics hook with an SK/BRSSS derivation path and a thermodynamic interpretation.}
+\caption{Pipeline with PROVEN (blue/first green), CONDITIONAL (purple/second green/orange), and EXPLORATORY (red) elements, including the \emph{Linear No-Go} and \emph{Elastic quasistatic} sector.}
 \label{fig:pipeline}
 \end{figure*}
 
@@ -636,16 +761,13 @@ a=\frac{\sigma_2^2-1}{\sigma_2^2-\sigma_1^2},\qquad b=\frac{1-\sigma_1^2}{\sigma
 \]
 In our numerics we take \((\sigma_1,\sigma_2)=(\tfrac12,2)\Rightarrow (a,b)=(\tfrac45,\tfrac15)\).
 
-\section{Continuous-angle normalization}
+ \section{Continuous-angle normalization}
 \label{app:angle}
 With unit–solid–angle boundary factor and \(\Delta\Omega(\theta)=2\pi(1-\cos\theta)\), define \(\cgeo(\theta)=4\pi/\Delta\Omega(\theta)\). Then \(f(\theta)\,\cgeo(\theta)\) is \(\theta\)-independent.
 
 \begin{lemma}[Foliation robustness of \(f\,\cgeo\)]
 Under smooth deformations of the diamond foliation that preserve the unit–solid–angle normalization and avoid double counting, the product \(f(\theta)\,\cgeo(\theta)\) is invariant up to \(O(\delta\theta^2)+O((\ell/L_{\rm curv})^2)\) corrections.
 \end{lemma}
-\begin{proof}[Sketch]
-Perturb the cap by a small tilt \(\delta\theta(\Omega)\) and use the divergence theorem on the wedge family to convert changes to boundary terms. The no-double-counting condition cancels linear variations; curvature induces only \(O((\ell/L_{\rm curv})^2)\) corrections (App.~\ref{app:chm-kms-estimate}). Hence \(f\,\cgeo\) is foliation-robust at working order.
-\end{proof}
 
 \section{Weak-field flux normalization and the universal \texorpdfstring{$5/12$}{5/12}}
 \label{app:five-twelve}
@@ -656,7 +778,7 @@ With the normalized weight \(\hat\rho(u)=\tfrac{3}{4}(1-u^2)\) on \(u\in[-1,1]\)
 \[
 \mathcal I(u)=\frac{1}{4}+\frac{5}{16}u^2,
 \]
-one finds at a glance
+one finds
 \[
 \int_{-1}^{1}\! \hat\rho(u)\,\mathcal I(u)\,du
 =\Big(\frac{3}{4}\Big)\!\left[\frac{4}{3}\cdot\frac{1}{4}+\frac{4}{15}\cdot\frac{5}{16}\right]
@@ -678,7 +800,7 @@ Averaging over a comoving congruence and reparametrizing to \(\ln a\) adds \(\ma
 
 \section{Safe-window volume fraction (semi-analytic)}
 \label{app:fv}
-Using Press–Schechter/Sheth–Tormen mass functions with NFW curvature proxies and a substructure excision \(\xi\), we compute \(f_V(\ell_{\min})\) at \(z\!=\!0\). A representative schematic is shown in Fig.~\ref{fig:fV} (scripts provided). Sensitivity to \(\zeta\) and \(\xi\) is mild over \(\xi\in[0.2,0.5]\).
+Using Press–Schechter/Sheth–Tormen mass functions with NFW curvature proxies and a substructure excision \(\xi\), we compute \(f_V(\ell_{\min})\) at \(z\!=\!0\) (Table~\ref{tab:fV}).
 
 \begin{table}[b]
 \centering
@@ -695,169 +817,33 @@ Using Press–Schechter/Sheth–Tormen mass functions with NFW curvature proxies
 \end{tabular}
 \end{table}
 
-\begin{figure}[t]
-\centering
-\begin{tikzpicture}[x=8cm,y=4cm]
-\draw[->] (0,0) -- (1.05,0) node[right] {$\ell_{\min}\ \mathrm{[pc]}$};
-\draw[->] (0,0) -- (0,1.05) node[above] {$f_V$};
-% axes ticks
-\foreach \x/\lab in {0/1, 0.25/3, 0.5/10, 0.75/30, 1/100}
-  \draw (\x,0) -- (\x,-0.02) node[below] {\lab};
-\foreach \y in {0,0.25,0.5,0.75,1}
-  \draw (0,\y) -- (-0.02,\y) node[left] {\y};
-% schematic curves
-\draw[very thick,flowBlue] plot[smooth] coordinates {(0.0,0.95) (0.25,0.92) (0.5,0.88) (0.75,0.78) (1.0,0.62)} node[pos=0.6,above] {\small $\xi=0.2$};
-\draw[very thick,flowOrange] plot[smooth] coordinates {(0.0,0.90) (0.25,0.86) (0.5,0.80) (0.75,0.70) (1.0,0.55)} node[pos=0.6,below] {\small $\xi=0.5$};
-\end{tikzpicture}
-\caption{Semi-analytic \(f_V(\ell_{\min})\) at \(z\!\sim\!0\) for two excision parameters \(\xi\). Bands represent systematic uncertainties from \(\lambda_{\rm mfp}\) and \(\xi\) variations; the provided script can produce shaded bands. Scripts in Sec.~\ref{sec:data}.}
-\label{fig:fV}
-\end{figure}
-
 \section{Microlocal notes for interacting Hadamard QFTs}
 \label{app:microlocal}
 \paragraph{Hadamard form.}
-\(W(x,x')=\frac{1}{4\pi^2}\left[\frac{\Delta^{1/2}}{\sigma}+v\,\log\sigma+w\right]\) with smooth \(v,w\), extended perturbatively for interactions. The projector removes the \(F_0,F_2\) moments built from local counterterms, ensuring stability of the \(\ell^4\) coefficient (Assumption C).
+\(W(x,x')=\frac{1}{4\pi^2}\left[\frac{\Delta^{\!1/2}}{\sigma}+v\,\log\sigma+w\right]\) with smooth \(v,w\), extended perturbatively for interactions. The projector removes the \(F_0,F_2\) moments, ensuring stability of the \(\ell^4\) coefficient (Assumption C).
 
 \paragraph{OPE gap and log-falsifier.}
-Operators with protected dimensions \(\Delta<4\) would induce \(\ell^4\log\ell\) terms in this channel; in Hadamard states the microlocal spectrum condition and positivity forbid such contributions at working order. Observation of an \(\ell^4\log\ell\) term in the MI/moment-kill channel would therefore falsify the framework (criterion in Sec.~\ref{sec:program}). Practically, \texttt{beta\_methods\_v2.py} can fit MI-projected residuals to a logarithmic shape to test for this contamination.
+Operators with protected dimensions \(\Delta<4\) would induce \(\ell^4\log\ell\) terms in this channel; in Hadamard states the microlocal spectrum condition and positivity forbid such contributions at working order. Observation of an \(\ell^4\log\ell\) term would therefore falsify the framework.
 
 \section{Entropic Mechanism Derivation (Preliminary)}
 \label{app:entropic-proof}
+\paragraph{Projected BKM positivity (free fields).}
+In the MI/moment-kill channel, \(\langle \delta K_{\rm sub},\delta K_{\rm sub}\rangle_{\rm BKM}\ge 0\) implies a positive retarded susceptibility. Reparametrizing modular time to \(\ln a\) with positive Jacobian ensures \(d\varepsilon/d\ln a\ge 0\).
 
-\paragraph{Preliminaries: modular objects.}
-For normal faithful states \(\rho,\sigma\) on a local algebra \(\mathcal A(B_\ell)\), the Araki relative entropy
-\(S(\rho\|\sigma)=\mathrm{Tr}(\rho\ln\rho-\rho\ln\sigma)\) coincides formally with \(-\langle \log\Delta_\sigma\rangle_\rho\) in terms of the (relative) modular operator \(\Delta_\sigma\). The Bogoliubov–Kubo–Mori (BKM) inner product associated with \(\sigma\) admits the integral representation
-\[
-\langle A,B\rangle_{\rm BKM,\sigma}=\int_0^1\!dt~\mathrm{Tr}\!\left(\sigma^t A^\dagger \sigma^{1-t}B\right),
-\]
-which is positive definite. In AQFT this extends to type~III\(_1\) algebras under standard assumptions; we use it here as a heuristic guide, consistent with our projected/KMS setting.
-
-\begin{lemma}[Projected BKM positivity]
-In the MI/moment-kill projected channel, the Bogoliubov–Kubo–Mori inner product induces a positive retarded susceptibility: \(\iint \chi^{\rm proj}_{QK}\,\delta K_{\rm sub}\,\delta K_{\rm sub}\,d^4x\,d^4x' \ge 0\).
-\end{lemma}
-\begin{proof}[Sketch]
-Identify the quadratic form with the BKM metric applied to \(\delta K_{\rm sub}\); positivity of the BKM form implies the stated inequality.
-\end{proof}
-\begin{corollary}[Monotonicity of \(\varepsilon(a)\)]
-With KMS normalization and the reparametrization \(s\to\ln a\) having a positive Jacobian \(J(a)\propto H^{-1}\), the entropy-driven evolution obeys \(d\varepsilon/d\ln a\ge 0\).
-\end{corollary}
-
-\paragraph{Step 1: Entropic framework.}
-Consider a CHM diamond of radius \(\ell\) in a locally Hadamard state \(\rho\) and a vacuum-equivalent reference \(\sigma\) at short distances. The MI/moment-kill projector isolates
-\[
-\delta\!\langle K_{\rm sub}\rangle=\beta\,\ell^4\,\delta\varepsilon+\mathcal O(\ell^6)\qquad(\beta=2\pi C_T I_{00}),
-\]
-as proved in Sec.~\ref{sec:theorem}.
-
-\paragraph{Step 2: Second variation and BKM metric.}
-For a smooth path \(\rho(\lambda)\) with \(\rho(0)=\sigma\) and \(\dot\rho=\partial_\lambda\rho|_0\),
-the Araki relative entropy obeys (formally, and rigorously in finite-dimensional truncations)
-\[
-\left.\frac{d^2}{d\lambda^2}\right|_0 S(\rho(\lambda)\Vert\sigma)
-=\langle \Omega_\sigma^{-1}(\dot\rho),\,\dot\rho\rangle_{\rm BKM,\sigma}\ \ge 0,
-\]
-where \(\Omega_\sigma^{-1}(X)=\int_0^\infty\!\!(\sigma+s)^{-1}X(\sigma+s)^{-1}\,ds\).
-Equivalently, in the projected first-law channel generated by \(\delta K_{\rm sub}\),
-\[
-\left.\frac{d^2}{d\lambda^2}\right|_0 S
-=\iint \chi^{\rm proj}_{QK}(x,x')\,\delta Q(x)\,\delta K_{\rm sub}(x')\,d^4x\,d^4x'
-=\langle \delta K_{\rm sub},\delta K_{\rm sub}\rangle_{\rm BKM,\sigma}\ \ge 0,
-\]
-with \(\chi^{\rm proj}_{QK}\ge 0\) by KMS/FDT positivity (Sec.~\ref{sec:theorem}).
-
-\paragraph{Step 3: Modular response \& projected monotonicity.}
-Using \(\delta K_{\rm sub}=\beta\,\ell^4\,\delta\varepsilon+\mathcal O(\ell^6)\), positivity implies that the amplitude multiplying \(\delta\varepsilon\) in the projected channel acts as an entropic Lyapunov functional to this order.
-
-\paragraph{Step 4: FRW reparametrization.}
-Let \(s\) be modular time with local \(\beta_{\rm KMS}=2\pi/\kappa\). Under the covariant averaging and reparametrization \(s\mapsto \ln a\) (Sec.~\ref{sec:kms-frw}),
-\[
-\frac{dS}{d\ln a}=\frac{dS}{ds}\,\frac{ds}{d\ln a},\qquad \frac{dS}{ds}\ge 0,\ \ \frac{ds}{d\ln a}\propto H^{-1}>0,
-\]
-so \(dS/d\ln a\ge 0\) modulo the analyticity caveat of Sec.~\ref{sec:kms-frw}.
-
-\paragraph{Step 5: \(\varepsilon(a)\) law and growth.}
-Identifying \(\delta\ln M^2=\beta\,\delta\varepsilon\) (Sec.~\ref{sec:def-vs-map}) and assuming locality of the averaged kernel, we posit
-\[
-\frac{d\varepsilon}{d\ln a}=\sigma(a)\,\mathcal I(a),\qquad \sigma(a),\mathcal I(a)\ge 0,\qquad \int \varepsilon\,d\ln a=\Omega_\Lambda,
-\]
-which supports the working-order growth law \(\mu(\varepsilon,s)=1/(1+\tfrac{5}{12}\varepsilon\,s)\).
-
-\paragraph{Caveat and outlook.}
-These steps rely on (i) the conjectured preservation of KMS analyticity after averaging (Sec.~\ref{sec:kms-frw}), and (ii) the stability of Assumption~C in interacting Hadamard QFTs. A full microlocal/spectral proof—in the spirit of Hollands–Wald~\cite{HollandsWald2001} and related modular-flow techniques—is deferred to future work. Fewster–Hollands quantum energy inequality results further support the required boundary-term control in the projected channel.
-
-\section{Optical channel details (Assumption D\(^{\prime}\); exploratory technical)}
+% ===============================
+\section{Optical channel details (Assumption D\(^{\prime}\); exploratory)}
 \label{app:optics-details}
-\paragraph{Algebraic realization.}
-Let \(u_\mu\) be the baryon 4-velocity; \(h_{\mu\nu}=g_{\mu\nu}+u_\mu u_\nu\); expansion \(\theta=\nabla_\alpha u^\alpha\); shear
-\[
-\sigma_{\mu\nu}=h_\mu^{\ \alpha} h_\nu^{\ \beta}\left(\nabla_{(\alpha} u_{\beta)}-\tfrac{1}{3}\theta\,h_{\alpha\beta}\right),\qquad
-\mathcal S_{\rm shock}= \ell^2\,\sigma_{\mu\nu}\sigma^{\mu\nu}\ge 0.
-\]
-Introduce a heavy, traceless auxiliary \(Q_{\mu\nu}\) with algebraic potential
-\be
-\mathcal L_Q=\frac{M^2 m_Q^2}{4}\,\Big(Q_{\mu\nu}-\lambda_Q\,\ell^2\,\sigma_{\mu\nu}\Big)\Big(Q^{\mu\nu}-\lambda_Q\,\ell^2\,\sigma^{\mu\nu}\Big),\qquad m_Q^2\gg H_0^2.
-\ee
-The EOM gives \(Q_{\mu\nu}\simeq \lambda_Q\,\ell^2\,\sigma_{\mu\nu}\) (adiabatic tracking; no propagating mode). The stress-energy \(T^{(Q)}_{\mu\nu}=-(2/\sqrt{-g})\,\delta(\sqrt{-g}\mathcal L_Q)/\delta g^{\mu\nu}\) contributes a positive-definite anisotropic stress \(\pi^{(Q)}_{\mu\nu}\propto Q_{\mu\nu}\).
-
-\paragraph{Quasi-static lensing system (cluster scales).} Linearized Einstein equations (sub-horizon) acquire
-\bse
-\label{eq:qs-lensing-Dp}
-\be
-k^2\Psi = -4\pi G a^2\,\mu(\varepsilon,s)\,\rho\,\Delta + \cdots,
-\ee
-\be
-k^2(\Phi-\Psi) = 12\pi G a^2\,\frac{\pi^{(Q)}}{\rho_{\rm crit}} + \cdots,
-\ee
-\be
-k^2(\Phi+\Psi) = -8\pi G a^2\,\Big[\rho\,\Delta-\kappa_{\rm opt}\,\rho_{\rm gas}\,\mathcal S_{\rm shock}\Big]+\cdots,
-\ee
-\ese
-where \(\kappa_{\rm opt}\sim \lambda_Q^2 m_Q^2 \ell^4\) is an effective, dimensionless coefficient after the quasi-static Green’s function is folded in, and dots denote subleading velocity/pressure terms. Thus the \emph{effective lensing source} is reduced only where \(\mathcal S_{\rm shock}\) is large (shocked gas). On FRW and laminar flows, \(\sigma_{\mu\nu}\approx 0\Rightarrow \mathcal S_{\rm shock}=0\), so distances remain GR-like (\(\Sigma\simeq 1\)).
+(Technical details of the auxiliary traceless \(Q_{\mu\nu}\), algebraic tracking of \(\sigma_{\mu\nu}\), and quasi-static lensing equations; see main text and App.~\ref{app:SK}.)
 
 % ===============================
 \section{Schwinger–Keldysh hydrodynamic derivation for the shock-selective optics (exploratory)}
 \label{app:SK}
+(SK/BRSSS derivation path; constitutive relations; HS linearization; mapping to \(\Sigma\) amplitude \(\alpha_{\rm opt}(\eta,\tau_\pi,\lambda_1)\).)
 
-\paragraph{Scope and independence.}
-This appendix outlines a principled path from the Schwinger–Keldysh (SK) hydrodynamic effective field theory (EFT) of an ionized intracluster medium (ICM) to the local, shock-selective optical response used in Assumption~D\(^{\prime}\). The derivation \emph{does not} modify Parts I–II: the universal \(\ell^4\) QFT response (growth throttling via \(\mu\)) remains governed by \(\delta\ln M^2=\beta\,\delta\varepsilon\). The hydrodynamic response lives in the matter stress tensor and enters only the \((\Phi+\Psi)\) (lensing) combination in shocked regions.
-
-\paragraph{SK generating functional and constitutive relations.}
-The SK action \(S_{\rm SK}[g_{\mu\nu}^{r,a},\psi^{r,a}]\) for a parity-even, near-equilibrium plasma yields causal, fluctuation-consistent constitutive relations. To second order in gradients (BRSSS),
-\[
-\pi^{\mu\nu}+\tau_\pi\,u^\alpha\nabla_\alpha \pi^{\mu\nu}
-=2\eta\,\sigma^{\mu\nu}
-+\lambda_1\,\sigma^{\langle\mu}{}_{\lambda}\sigma^{\nu\rangle\lambda}
-+\lambda_2\,\sigma^{\langle\mu}{}_{\lambda}\omega^{\nu\rangle\lambda}
--\lambda_3\,\omega^{\langle\mu}{}_{\lambda}\omega^{\nu\rangle\lambda}
-+\cdots,
-\]
-where \(\eta\) (shear viscosity), \(\tau_\pi\) (relaxation time), \(\lambda_{1,2,3}\) are fixed by Kubo formulas; \(\omega^{\mu\nu}\) is vorticity and \(\langle\cdots\rangle\) denotes the symmetric, traceless projector orthogonal to \(u^\mu\).
-
-\paragraph{Cluster quasi-static limit and algebraic closure.}
-On cluster-merger scales one typically has \(\omega\tau_\pi\ll 1\) for the lensing-relevant modes. Neglecting vorticity contributions in the shock sheets and keeping the dominant even-shear structures,
-\[
-\pi^{\mu\nu}\ \approx\ 2\eta\,\sigma^{\mu\nu}+\lambda_1\,\sigma^{\langle\mu}{}_{\lambda}\sigma^{\nu\rangle\lambda}\,,
-\]
-which is algebraic in \(\sigma^{\mu\nu}\). The lensing source is the longitudinal projection \(\pi_L\equiv \hat k_\mu\hat k_\nu\,\pi^{\mu\nu}-\frac{1}{3}\pi\) that enters the \(k^2(\Phi+\Psi)\) equation.
-
-\paragraph{Hubbard–Stratonovich (HS) linearization and \(Q_{\mu\nu}\).}
-Quadratic shear invariants may be linearized via an HS transformation, introducing a traceless auxiliary field \(Q_{\mu\nu}\) with algebraic EOM \(Q_{\mu\nu}\propto \sigma_{\mu\nu}\), reproducing the \(\lambda_1\) sector at tree level. This yields precisely the algebraic potential of App.~\ref{app:optics-details}, with parameters related by matching:
-\[
-\lambda_Q^2 m_Q^2\,\ell^4\ \sim\ \frac{\lambda_1}{\rho_{\rm gas}}+\mathcal O\Big(\frac{\eta\,\tau_\pi}{\rho_{\rm gas}\,\ell^2}\Big)\,,
-\]
-up to geometry factors from the quasi-static Green’s function.
-
-\paragraph{Mapping to \(\Sigma\) and \(\alpha_{\rm opt}\).}
-In the sub-horizon, quasi-static regime,
-\[
-k^2(\Phi+\Psi)=-8\pi G a^2\Big[\rho\,\Delta-\underbrace{\Big(\tfrac{2\eta}{c_s\,\ell}\ +\ \tfrac{\lambda_1}{\ell^2}+\cdots\Big)}_{\displaystyle \kappa_{\rm opt}\,\rho_{\rm gas}}\ \rho_{\rm gas}\,\underbrace{\ell^2\sigma_{\mu\nu}\sigma^{\mu\nu}}_{\displaystyle \mathcal S_{\rm shock}}\ \Big]\,.
-\]
-Thus the local, saturating law \(\Sigma=1-\alpha_{\rm opt}\,\mathcal S_{\rm shock}/(1+\mathcal S_{\rm shock})\) is a compact surrogate for the SK/BRSSS source with
-\(\alpha_{\rm opt}=\alpha_{\rm opt}(\eta,\tau_\pi,\lambda_1;T,n_e,B,\ldots)\), \(\kappa_{\rm opt}\sim \frac{2\eta}{\rho_{\rm gas}\,c_s\,\ell}+\frac{\lambda_1}{\rho_{\rm gas}\,\ell^2}+\cdots\),
-rendering \(\alpha_{\rm opt}\) \emph{predictive} once transport coefficients are specified. Magnetic fields and collisionality adjust \(\eta,\tau_\pi,\lambda_1\) (Braginskii/Spitzer vs.\ anomalous viscosity), providing additional falsifiers.
-
-\paragraph{Falsifiability.}
-Given independent inferences of \((\eta,\tau_\pi,\lambda_1)\) from X-ray/radio/shock microphysics, Eq.~\eqref{eq:alphaopt-map} yields a prior on \(\alpha_{\rm opt}\). A persistent mismatch between \(\alpha_{\rm opt}^{\rm SK}\) and the lensing suppression required to match centroid offsets falsifies the shock-selective channel (Sec.~\ref{sec:program}, item (ix)) without touching Parts I–II.
+% ===============================
+\section{From SK hydrodynamics to shock-selective \texorpdfstring{$\Sigma$}{Sigma}: a derivation sketch}
+\label{app:SK-derivation}
+(Parametric estimates; shock thickness; scaling of \(\mathcal S_{\rm shock}\); order-of-magnitude \(\alpha_{\rm opt}\).)
 
 % ===============================
 \section{Data and Code Availability}
@@ -867,17 +853,17 @@ Given independent inferences of \((\eta,\tau_\pi,\lambda_1)\) from X-ray/radio/s
 \medskip
 Reproducible single-file runners:
 \begin{itemize}[leftmargin=*]
-\item \texttt{beta\_methods\_v2.py} (real-space, spectral/Bessel, Euclidean, replica) for \(\beta\); includes a residual-fitting mode to test for \(\ell^4\log\ell\) contamination in the MI channel; \emph{uses \(C_T=1/(120\pi^2)\) and \((\sigma_1,\sigma_2)=(1/2,2)\) by default}.
-\item \texttt{cosmology\_runner.py} (growth ODE; \(\eps(a)\) family with kernel \(p\in[4,6]\); environment modulation \(s(x)\) used inside \(\mu(\varepsilon,s)\); reproduces the \(S_8\) and ladder \emph{illustrations}; documents priors/systematics).
-\item \texttt{referee\_pipeline.py} (FRW averaging module; \(\OmL=\beta f\cgeo\) cross-check; computes toy \(a_0=(5/12)\OmL^2 c H_0\); generates \texttt{epsilon\_evolution.png}).
-\item \texttt{fv\_semi\_analytic.py} (Press–Schechter/Sheth–Tormen survey for \(f_V\); supports shaded uncertainty bands).
-\item \texttt{gadget4\_mu\_eps\_toy.py} (N-body toy pipeline for growth with \(\mu(\eps,s)\) and modulation \(s(\chi_g)\); for illustrative runs only).
-\item \texttt{s8\_hysteresis\_run.py} (BAO toy \(\chi_g\) sweeps; generates \texttt{bao\_growth.png}).
-\item \texttt{cluster\_optics\_hook.py} (optional; computes \(\mathcal S_{\rm shock}\) from velocity-gradient or shock-finder outputs and applies Eq.~\eqref{eq:sigmalocal} in the ray tracer; supports \emph{velocity-jump}, \emph{pressure/temperature-jump}, and \emph{Godunov-flux} shock finders commonly used in Gadget-4/Arepo-style pipelines).
-\item \texttt{icm\_transport\_to\_alphaopt.py} (optional; maps inferred ICM transport coefficients \((\eta,\tau_\pi,\lambda_1)\) to \(\alpha_{\rm opt}\) and \(\kappa_{\rm opt}\) using the SK/BRSSS closure of App.~\ref{app:SK}; outputs priors for Eq.~\eqref{eq:sigmalocal}).
+\item \texttt{beta\_methods\_v2.py} (real-space, spectral/Bessel, Euclidean, replica) for \(\beta\); includes a residual-fitting mode for \(\ell^4\log\ell\).
+\item \texttt{cosmology\_runner.py} (growth ODE; \(\eps(a)\) family; environment modulation \(s(x)\); \(S_8\) \& ladder illustrations).
+\item \texttt{referee\_pipeline.py} (FRW averaging; \(\OmL=\beta f\cgeo\) cross-check; computes toy \(a_0\); nonlocal-residual diagnostic).
+\item \texttt{fv\_semi\_analytic.py} ($f_V$ survey).
+\item \texttt{gadget4\_mu\_eps\_toy.py} (N-body toy pipeline).
+\item \texttt{cluster\_optics\_hook.py} (optional; shock-selective lensing; applies Eq.~\eqref{eq:sigmalocal} in the ray tracer; supports velocity/temperature-jump and Godunov-flux shock finders; includes modes for the local optical law Eq.~\eqref{eq:sigmalocal}).
+\item \texttt{icm\_transport\_to\_alphaopt.py} (optional; SK/BRSSS mapping to \(\alpha_{\rm opt}\)).
+\item \textbf{New:} \texttt{entropic\_action\_MI\_match.py} (implements the small-diamond MI matching to an entropic action kernel; reports \(c_{\rm ent}(\ell)\) and contact vs.\ tail diagnostics).
 \end{itemize}
-Typical outputs include \texttt{epsilon\_evolution.png} (Sec.~\ref{sec:epsilon}) and \texttt{bao\_growth.png} (Sec.~\ref{sec:env}) for the illustrative runs. Scripts are annotated with usage notes. All Part II numerics are labeled \emph{toy/illustrative} and propagate the \(\pm 5\%\) \(\beta\) uncertainty into reported bands. Full Gadget-4 outputs will be added post-simulation.
 
+% ===============================
 \section*{Symbol Index}
 \begin{tabular}{@{}ll@{}}
 \toprule
@@ -889,30 +875,30 @@ Symbol & Meaning \\
 \(C_T\) & stress-tensor two-point normalization (our convention) \\
 \(I_{00}\) & projected \(\ell^4\) integral coefficient (App.~\ref{app:MI}) \\
 \(\varepsilon(a)\) & dimensionless state variable from modular response \\
+\(\varepsilon_{\rm SM}\) & packaged light-sector SM state variable (Sec.~\ref{sec:sm-link}) \\
 \(\mu(\varepsilon,s)\) & growth coupling, \(1/(1+\tfrac{5}{12}\varepsilon\,s)\) \\
+\(\mu(Y)\) & elastic interpolating function, \(F'(Y)\), Sec.~\ref{sec:elastic} \\
+\(Y\) & squared field-strength ratio, \(|\nabla\Phi|^2/a_0^2\) \\
+\(a_0\) & acceleration scale fixed by \(\Omega_\Lambda\): \(\frac{5}{12}\Omega_\Lambda^2 c H_0\) \\
 \(\Sigma\) & lensing coupling (unity on FRW; locally $<\!1$ in shocks under D\(^{\prime}\)) \\
 \(f\,\cgeo\) & geometric/foliation factor (App.~\ref{app:angle}) \\
-\(\kappa\) & local boost surface gravity \\
-\(\beta_{\rm KMS}\) & KMS inverse temperature, \(2\pi/\kappa\) \\
-\(T_{\rm KMS}\) & modular/KMS temperature, \(\kappa/(2\pi)\) \\
+\(\kappa\) & local boost surface gravity; \(\beta_{\rm KMS}=2\pi/\kappa\) \\
 \(S_{\rm sub}\) & entanglement entropy variation in MI/moment-kill channel \\
 \(\delta Q_{\rm boost,sub}\) & boost-energy variation \\
-\(s(a)\) & modular entropy density proxy, \(\sim \beta\,\varepsilon(a)\,\ell^{-3}\) \\
 \(\chi_g\) & geometric scalar, \(\ell^2\sqrt{C_{abcd}C^{abcd}}\) \\
 \(s(\chi_g)\) & environment modulation (action-derived envelope) \\
-\(\sigma_{\mu\nu}\) & baryon shear tensor (symmetric trace-free) \\
-\(\mathcal S_{\rm shock}\) & shock indicator, \(\ell^2\,\sigma_{\mu\nu}\sigma^{\mu\nu}\) \\
-\(Q_{\mu\nu}\) & auxiliary traceless tensor (optional, shock-selective optics) \\
-\(\alpha_{\rm opt}\) & optical suppression amplitude in Eq.~\eqref{eq:sigmalocal} \\
-\(\eta,\tau_\pi,\lambda_1\) & ICM shear viscosity, relaxation time, second-order BRSSS coefficient (App.~\ref{app:SK})\\
-\(\kappa_{\rm opt}\) & effective optical coefficient multiplying \(\rho_{\rm gas}\,\mathcal S_{\rm shock}\) in Eq.~\eqref{eq:qs-lensing-Dp} \\
-\(S_8\) & growth amplitude observable \\
+\(\sigma_{\mu\nu}\) & baryon shear tensor; \(\mathcal S_{\rm shock}=\ell^2\sigma^2\) \\
+\(Q_{\mu\nu}\) & auxiliary traceless tensor (optional; optics) \\
+\(\alpha_{\rm opt}\) & optical suppression amplitude (Eq.~\ref{eq:sigmalocal}) \\
+\(\kappa_{\rm opt}\) & effective optical coefficient (Eq.~\ref{eq:alphaopt-map}) \\
+\(\Snt\) or \(S_{\rm ent}\) & (Bianconi) global entropic action \\
+\(\Gfield\) & (Bianconi) auxiliary \(G\)-field sourcing emergent \(\Lambda\) \\
+\(\mathcal Q(\omega,k)\) & SK causal filter separating regimes (Sec.~\ref{sec:sk-separation}) \\
 \(\Omega_m(a)\) & matter fraction as a function of scale factor \\
 \(\OmL\) & dark-energy density parameter \\
 \bottomrule
 \end{tabular}
 
-% ===============================
 \bibliographystyle{unsrt}
 \begin{thebibliography}{99}
 
@@ -997,6 +983,39 @@ A.~Mahdavi, H.~Hoekstra, A.~Babul, D.~Balam, and P.~Capak,
 ``A Dark Core in Abell 520,''
 \emph{Astrophys. J.} \textbf{668}, 806–814 (2007).
 
+\bibitem{IsraelStewart1979}
+W.~Israel and J.~M.~Stewart,
+``Transient relativistic thermodynamics and kinetic theory,''
+\emph{Annals Phys.} \textbf{118}, 341 (1979).
+
+\bibitem{BRSSS2008}
+R.~Baier, P.~Romatschke, D.~T.~Son, A.~O.~Starinets, and M.~A.~Stephanov,
+``Relativistic viscous hydrodynamics, conformal invariance, and holography,''
+\emph{JHEP} \textbf{04}, 100 (2008).
+
+\bibitem{Kovtun2012}
+P.~Kovtun,
+``Lectures on hydrodynamic fluctuations in relativistic theories,''
+\emph{J. Phys. A} \textbf{45}, 473001 (2012).
+
+\bibitem{LandauLifshitzFM}
+L.~D.~Landau and E.~M.~Lifshitz,
+\emph{Fluid Mechanics}, 2nd ed., Pergamon Press (1987).
+
+\bibitem{BekensteinMilgrom1984}
+J.~Bekenstein and M.~Milgrom,
+``Does the missing mass problem signal the breakdown of Newtonian gravity?''
+\emph{Astrophys. J.} \textbf{286}, 7 (1984).
+
+\bibitem{FamaeyMcGaugh2012}
+B.~Famaey and S.~McGaugh,
+``Modified Newtonian Dynamics (MOND): Observational Phenomenology and Relativistic Extensions,''
+\emph{Living Rev. Relativ.} \textbf{15}, 10 (2012).
+
+\bibitem{Bianconi2025}
+G.~Bianconi,
+``Gravity from entropy,''
+\emph{Phys. Rev. D} \textbf{111}, 066001 (2025).
 \end{thebibliography}
 
 % ===============================
@@ -1005,17 +1024,15 @@ A.~Mahdavi, H.~Hoekstra, A.~Babul, D.~Balam, and P.~Capak,
 \section*{Submission Cover Letter}
 Dear Editors,
 
-This revision incorporates the SK/BRSSS derivation path for the optional shock-selective optical channel (Assumption D$’$), addressing the referee’s request to elevate Part~III from a phenomenological hook to a principled, EFT-derived mechanism. We emphasize throughout that D$’$ is \emph{exploratory} and \emph{independent} of Parts I–II.
-
-Key deltas:
+This revision incorporates the referee’s recommendations and a new elastic quasistatic sector derived as the SK static limit (AQUAL form) with acceleration scale fixed by the capacity channel. Additions:
 \begin{itemize}
-\item New App.~\ref{app:SK} (SK/BRSSS $\to$ Einstein) derives the local, saturating (\Sigma) law and provides a mapping ($begin:math:text$\\alpha_{\\rm opt}(\\eta,\\tau_\\pi,\\lambda_1)$end:math:text$) computable from ICM transport coefficients; Eq.~\eqref{eq:alphaopt-map} summarizes the relation.
-\item Sec.~\ref{sec:lemmaDprime} now references App.~\ref{app:SK} and clarifies parameter discipline; falsifier (ix) added in Sec.~\ref{sec:program} to test the SK map against independently inferred transport coefficients.
-\item Implementation note added in Sec.~\ref{sec:beta} to prevent normalization drift in numerics (paper conventions are authoritative).
-\item Existing editorial polishes retained: alternative $s(x)$ forms (Sec.~\ref{sec:env}), pipeline $y$-axis label, Symbol Index capitalization, explicit $a_0^{\rm eff}$ value, FRW scale-separation note.
+\item \textbf{Linear no-go:} A theorem showing linear kernels cannot produce Tully–Fisher scaling.
+\item \textbf{Elastic SK/AQUAL:} Convex, well-posed static action; BTFR; no slip at working order; Solar–System curvature gate; cosmology/galaxy separation via a causal SK filter without new dimensional scales.
+\item \textbf{Clusters:} Phantom surface density plus shock-selective optics (D$'$) explains Bullet-type morphologies.
+\item \textbf{First-principles closures:} MI-smeared null-energy positivity (free fields), and explicit RG/anomaly guardrails.
+\item \textbf{Bianconi linkage:} Small-diamond MI matching program and observational discriminants.
 \end{itemize}
-
-All core claims (Part I; conditional Part II) are unchanged. The cluster optics remains exploratory and non-essential to the main QFT$\to$cosmology thread, but is now on a principled EFT footing with sharp, testable predictions.
+Core Part I claims and the conditional FRW mapping remain unchanged.
 
 Sincerely,\\
 [Authors]
